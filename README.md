@@ -4,10 +4,10 @@
 ---  
   
 **📂 isachenko-andrii.github.io** — Personal Page / Landing Page  
-**📋 Description:** This project is a personal business card website, implemented in landing page format. It is based on the free MyResume — Bootstrap Resume and Portfolio Template, taken from BootstrapMade and adapted for use with GitHub Pages.  
+**📋 Description:** This project is a personal business card website, implemented in landing page format. It is based on the free [MyResume — Bootstrap Resume and Portfolio Template](https://bootstrapmade.com/free-html-bootstrap-template-my-resume), taken from [BootstrapMade](https://bootstrapmade.com) and adapted for use with GitHub Pages.  
 **🔧 Main Improvements:**  
 • Adapting the template to personal needs and publishing it on GitHub Pages.  
-• Redesigned contact form: Formspree service integrated for easy message sending.  
+• Redesigned contact form: [Formspree](https://formspree.io) service integrated for easy message sending.  
 • Optimization of structure and elements for a more modern and accessible UX/UI.  
 **🙏 Acknowledgments**
 Special thanks to the BootstrapMade team for the excellent and user-friendly template that formed the basis of this project.    
