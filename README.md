@@ -10,5 +10,5 @@
 • Redesigned contact form: [Formspree](https://formspree.io) service integrated for easy message sending.  
 • Optimization of structure and elements for a more modern and accessible UX/UI.  
 **🙏 Acknowledgments**
-Special thanks to the BootstrapMade team for the excellent and user-friendly template that formed the basis of this project.    
+Special thanks to the [BootstrapMade](https://bootstrapmade.com) team for the excellent and user-friendly template that formed the basis of this project.    
 **🔧 Tools:** HTML, CSS, JavaScript
