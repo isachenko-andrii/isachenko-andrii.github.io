@@ -3,7 +3,7 @@
 🧑‍💻 About the project:
 ---  
   
-**📂 isachenko-andrii.github.io** — Personal Page / Landing Page 
+**📂 isachenko-andrii.github.io** — Personal Page / Landing Page  
 **📋 Description:** This project is a personal business card website, implemented in landing page format. It is based on the free MyResume — Bootstrap Resume and Portfolio Template, taken from BootstrapMade and adapted for use with GitHub Pages.  
 **🔧 Main Improvements:**  
 • Adapting the template to personal needs and publishing it on GitHub Pages.  
