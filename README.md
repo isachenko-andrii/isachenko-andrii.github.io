@@ -3,6 +3,6 @@
 🧑‍💻 About the project projects:
 ---  
   
-**📂 isachenko-andrii.github.io** — 
-**📋 Description:** Text ...  
+**📂 isachenko-andrii.github.io** —   
+**📋 Description:** Text ...    
 **🔧 Tools:** HTML, CSS, JavaScript
