@@ -1,2 +1,6 @@
+User-agent: Googlebot-Image
+Disallow: /
+User-agent: YandexImages
+Disallow: /
 User-agent: *
 Disallow: /
