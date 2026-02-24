@@ -8,7 +8,9 @@
 **🔧 Main Improvements:**  
 • Adapting the template to personal needs and publishing it on GitHub Pages.  
 • Redesigned contact form: [Formspree](https://formspree.io) service integrated for easy message sending.  
-• Optimization of structure and elements for a more modern and accessible UX/UI.  
+• Optimization of structure and elements for a more modern and accessible UX/UI. 
+• Added support for Ukrainian and English languages.  
+• SEO optimization has been completed.  
 **🙏 Acknowledgments**
 Special thanks to the [BootstrapMade](https://bootstrapmade.com) team for the excellent and user-friendly template that formed the basis of this project.    
 **🔧 Tools:** HTML, CSS, JavaScript
