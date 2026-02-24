@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- English version — main page -->
+  <url>
+    <loc>https://isachenko-andrii.github.io/index.html</loc>
+    <lastmod>2025-02-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://isachenko-andrii.github.io/index.html"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://isachenko-andrii.github.io/index-ua.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/index.html"/>
+  </url>
+
+  <!-- Ukrainian version -->
+  <url>
+    <loc>https://isachenko-andrii.github.io/index-ua.html</loc>
+    <lastmod>2025-02-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://isachenko-andrii.github.io/index-ua.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://isachenko-andrii.github.io/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/index.html"/>
+  </url>
+
+</urlset>
