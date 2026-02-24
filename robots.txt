@@ -1,6 +1,61 @@
+# robots.txt for https://isachenko-andrii.github.io
+# Generated for SEO optimization
+
+# === Block image crawlers from all photos and portfolio images ===
+
 User-agent: Googlebot-Image
-Disallow: /
-User-agent: YandexImages
-Disallow: /
+Disallow: /assets/img/profile-img.jpg
+Disallow: /assets/img/portfolio/project-1.png
+Disallow: /assets/img/portfolio/project-2.png
+Disallow: /assets/img/portfolio/project-3.png
+Disallow: /assets/img/portfolio/project-4.png
+Disallow: /assets/img/portfolio/project-5.png
+Disallow: /assets/img/portfolio/project-6.png
+Disallow: /assets/img/portfolio/project-7.png
+Disallow: /assets/img/portfolio/project-8.png
+Disallow: /assets/img/portfolio/project-9.png
+Disallow: /assets/img/portfolio/project-1_.png
+Disallow: /assets/img/portfolio/project-2_.png
+Disallow: /assets/img/portfolio/project-3_.png
+Disallow: /assets/img/portfolio/project-4_.png
+Disallow: /assets/img/portfolio/project-5_.png
+Disallow: /assets/img/portfolio/project-6_.png
+Disallow: /assets/img/portfolio/project-7_.png
+Disallow: /assets/img/portfolio/project-8_.png
+Disallow: /assets/img/portfolio/project-9_.png
+
+# === Block all bots from resume PDF and images ===
+
 User-agent: *
-Disallow: /
+Disallow: /assets/img/profile-img.jpg
+Disallow: /assets/img/portfolio/project-1.png
+Disallow: /assets/img/portfolio/project-2.png
+Disallow: /assets/img/portfolio/project-3.png
+Disallow: /assets/img/portfolio/project-4.png
+Disallow: /assets/img/portfolio/project-5.png
+Disallow: /assets/img/portfolio/project-6.png
+Disallow: /assets/img/portfolio/project-7.png
+Disallow: /assets/img/portfolio/project-8.png
+Disallow: /assets/img/portfolio/project-9.png
+Disallow: /assets/img/portfolio/project-1_.png
+Disallow: /assets/img/portfolio/project-2_.png
+Disallow: /assets/img/portfolio/project-3_.png
+Disallow: /assets/img/portfolio/project-4_.png
+Disallow: /assets/img/portfolio/project-5_.png
+Disallow: /assets/img/portfolio/project-6_.png
+Disallow: /assets/img/portfolio/project-7_.png
+Disallow: /assets/img/portfolio/project-8_.png
+Disallow: /assets/img/portfolio/project-9_.png
+Disallow: /resume/resume.pdf
+
+# === Allow pages and assets for SEO indexing ===
+
+User-agent: *
+Allow: /index.html
+Allow: /index-ua.html
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /assets/vendor/
+
+# Sitemap location
+Sitemap: https://isachenko-andrii.github.io/sitemap.xml
