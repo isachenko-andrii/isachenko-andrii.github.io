@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <!-- SEO -->
+  <title>Articles — Isachenko Andrii | Data Analytics Blog</title>
+  <meta name="description" content="Articles about data analytics, SQL, Python, Power BI and BI tools by Andrii Isachenko — Data Analyst from Ukraine.">
+  <meta name="keywords" content="data analytics blog, SQL articles, Python data analysis, Power BI, Tableau, аналітик даних, аналіз даних, Isachenko Andrii">
+  <meta name="author" content="Isachenko Andrii">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://isachenko-andrii.github.io/articles/">
+
+  <link rel="alternate" hreflang="en" href="https://isachenko-andrii.github.io/articles/">
+  <link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://isachenko-andrii.github.io/articles/">
+  <meta property="og:title" content="Articles — Isachenko Andrii | Data Analytics Blog">
+  <meta property="og:description" content="Practical articles on data analytics, SQL, Python and BI tools.">
+  <meta property="og:image" content="https://isachenko-andrii.github.io/assets/img/profile-img.jpg">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Isachenko Andrii — Data Analytics Articles",
+    "url": "https://isachenko-andrii.github.io/articles/",
+    "author": {
+      "@type": "Person",
+      "name": "Isachenko Andrii",
+      "url": "https://isachenko-andrii.github.io"
+    },
+    "description": "Practical articles on data analytics, SQL, Python and BI tools by Andrii Isachenko."
+  }
+  </script>
+
+  <!-- Favicons -->
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #0563bb;
+      --primary-dark: #0352a0;
+      --text: #2c3e50;
+      --text-light: #666;
+      --border: #e8ecf0;
+      --bg-light: #f8fafc;
+      --tag-bg: #e8f0fb;
+      --card-radius: 12px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text);
+      background: #fff;
+      min-height: 100vh;
+    }
+
+    /* ── Top bar ── */
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1px solid var(--primary);
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .back-btn:hover { background: var(--primary); color: #fff; }
+
+    .breadcrumbs {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--text-light);
+    }
+    .breadcrumbs a { color: var(--primary); text-decoration: none; }
+    .breadcrumbs a:hover { text-decoration: underline; }
+    .breadcrumbs .sep { color: #ccc; }
+
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .social-icon {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: 15px;
+      transition: all 0.2s;
+    }
+    .social-icon:hover { border-color: var(--primary); color: var(--primary); }
+
+    /* ── Page header ── */
+    .page-header {
+      background: linear-gradient(135deg, #f0f6ff 0%, #e8f0fb 100%);
+      padding: 56px 32px 48px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-header h1 {
+      font-family: 'Raleway', sans-serif;
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .page-header h1 span { color: var(--primary); }
+    .page-header p {
+      font-size: 16px;
+      color: var(--text-light);
+      max-width: 540px;
+      margin: 0 auto 28px;
+      line-height: 1.6;
+    }
+    .articles-count {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 13px;
+      color: var(--text-light);
+    }
+    .articles-count strong { color: var(--primary); }
+
+    /* ── Filters ── */
+    .filters-bar {
+      padding: 24px 32px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--border);
+      background: #fff;
+      position: sticky;
+      top: 56px;
+      z-index: 90;
+    }
+    .filter-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-light);
+      white-space: nowrap;
+    }
+    .filter-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      flex: 1;
+    }
+    .filter-tag {
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      color: var(--text-light);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 5px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.2s;
+      user-select: none;
+    }
+    .filter-tag:hover { border-color: var(--primary); color: var(--primary); }
+    .filter-tag.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+    }
+    .search-wrap {
+      position: relative;
+      margin-left: auto;
+    }
+    .search-wrap i {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #aaa;
+      font-size: 14px;
+      pointer-events: none;
+    }
+    .search-input {
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 7px 14px 7px 34px;
+      font-size: 13px;
+      font-family: 'Poppins', sans-serif;
+      color: var(--text);
+      outline: none;
+      width: 200px;
+      transition: border-color 0.2s, width 0.3s;
+      background: var(--bg-light);
+    }
+    .search-input:focus {
+      border-color: var(--primary);
+      width: 240px;
+      background: #fff;
+    }
+
+    /* ── Grid ── */
+    .articles-grid {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 40px 32px 80px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    /* Empty state */
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 80px 20px;
+      color: var(--text-light);
+    }
+    .empty-state i { font-size: 48px; opacity: 0.2; display: block; margin-bottom: 16px; }
+    .empty-state p { font-size: 16px; }
+
+    /* ── Card ── */
+    .article-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      cursor: pointer;
+    }
+    .article-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 32px rgba(5,99,187,0.12);
+      border-color: #c8dcf5;
+    }
+
+    /* Card image */
+    .card-img {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #e8f0fb 0%, #cfe0f7 100%);
+      flex-shrink: 0;
+    }
+    .card-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .article-card:hover .card-img img { transform: scale(1.06); }
+    .card-img-placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .card-img-placeholder i { font-size: 48px; color: var(--primary); opacity: 0.25; }
+
+    /* Card tag */
+    .card-tag {
+      position: absolute;
+      top: 12px; left: 12px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+
+    /* Card body */
+    .card-body {
+      padding: 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      color: var(--text-light);
+      margin-bottom: 10px;
+    }
+    .card-meta i { color: var(--primary); margin-right: 3px; }
+    .card-body h2 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+      margin-bottom: 10px;
+    }
+    .article-card:hover .card-body h2 { color: var(--primary); }
+    .card-body p {
+      font-size: 13px;
+      color: var(--text-light);
+      line-height: 1.6;
+      flex: 1;
+      margin-bottom: 16px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      margin-top: auto;
+    }
+    .card-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .card-tag-sm {
+      background: var(--tag-bg);
+      color: var(--primary);
+      font-size: 11px;
+      font-weight: 500;
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+    .card-read-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: gap 0.2s;
+    }
+    .card-read-link:hover { gap: 8px; }
+
+    /* ── Footer ── */
+    .page-footer {
+      background: var(--bg-light);
+      border-top: 1px solid var(--border);
+      padding: 28px 32px;
+      text-align: center;
+    }
+    .page-footer a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      border: 1px solid var(--border);
+      padding: 10px 24px;
+      border-radius: 25px;
+      transition: all 0.2s;
+      background: #fff;
+    }
+    .page-footer a:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+    /* ── Responsive ── */
+    @media (max-width: 1024px) {
+      .articles-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 700px) {
+      .top-bar { padding: 0 16px; }
+      .breadcrumbs { display: none; }
+      .filters-bar { padding: 16px; top: 56px; gap: 8px; }
+      .search-wrap { width: 100%; margin-left: 0; }
+      .search-input { width: 100% !important; }
+      .articles-grid { grid-template-columns: 1fr; padding: 24px 16px 60px; }
+      .page-header { padding: 40px 16px 36px; }
+      .page-footer { padding: 24px 16px; }
+    }
+  </style>
+
+  <!-- Google tag -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E01F5VDKVM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E01F5VDKVM');
+  </script>
+</head>
+
+<body>
+
+  <!-- Top Bar -->
+  <nav class="top-bar">
+    <div class="top-bar-left">
+      <a href="../index.html" class="back-btn"><i class="bi bi-arrow-left"></i> Home</a>
+      <nav class="breadcrumbs" aria-label="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span class="sep">›</span>
+        <span>Articles</span>
+      </nav>
+    </div>
+    <div class="top-bar-right">
+      <a href="https://www.linkedin.com/in/isachenko-andrii/" target="_blank" class="social-icon"><i class="bi bi-linkedin"></i></a>
+      <a href="https://github.com/isachenko-andrii" target="_blank" class="social-icon"><i class="bi bi-github"></i></a>
+      <a href="https://t.me/Manul_Solo" target="_blank" class="social-icon"><i class="bi bi-telegram"></i></a>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <h1>Data Analytics <span>Articles</span></h1>
+    <p>Practical notes on SQL, Python, BI tools and real-world data analysis — from projects I actually built.</p>
+    <div class="articles-count">
+      <i class="bi bi-newspaper"></i>
+      <strong id="visible-count">3</strong> articles published
+    </div>
+  </header>
+
+  <!-- Filters -->
+  <div class="filters-bar">
+    <span class="filter-label">Filter:</span>
+    <div class="filter-tags">
+      <span class="filter-tag active" data-tag="all">All</span>
+      <span class="filter-tag" data-tag="Google Sheets">Google Sheets</span>
+      <span class="filter-tag" data-tag="SQL">SQL</span>
+      <span class="filter-tag" data-tag="Python">Python</span>
+      <span class="filter-tag" data-tag="Visualization">Visualization</span>
+    </div>
+    <div class="search-wrap">
+      <i class="bi bi-search"></i>
+      <input type="text" class="search-input" id="search-input" placeholder="Search articles...">
+    </div>
+  </div>
+
+  <!-- Articles Grid -->
+  <!-- ✏️ ADD NEW CARDS HERE when publishing new articles -->
+  <main class="articles-grid" id="articles-grid">
+
+    <!-- ══ Article 1 ══ -->
+    <article class="article-card" data-tags="Google Sheets E-Commerce" data-title="abc xyz analysis ecommerce inventory">
+      <div class="card-img">
+        <!-- <img src="article-img/abc-xyz-analysis-sm.jpg" alt="ABC/XYZ Analysis"> -->
+        <div class="card-img-placeholder"><i class="bi bi-bar-chart-line"></i></div>
+        <span class="card-tag">Google Sheets</span>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span><i class="bi bi-calendar3"></i>Jan 15, 2025</span>
+          <span><i class="bi bi-clock"></i>5 min</span>
+        </div>
+        <h2>ABC/XYZ Analysis in E-Commerce</h2>
+        <p>How to segment products by sales volume and demand stability to optimize inventory levels and reduce overstock costs.</p>
+        <div class="card-footer">
+          <div class="card-tags">
+            <span class="card-tag-sm">Google Sheets</span>
+            <span class="card-tag-sm">E-Commerce</span>
+          </div>
+          <a href="abc-xyz-analysis.html" class="card-read-link">Read <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ══ Article 2 ══ -->
+    <article class="article-card" data-tags="SQL" data-title="full sales funnel analysis sql conversion">
+      <div class="card-img">
+        <!-- <img src="article-img/sales-funnel-sql-sm.jpg" alt="Sales Funnel SQL"> -->
+        <div class="card-img-placeholder"><i class="bi bi-funnel"></i></div>
+        <span class="card-tag">SQL</span>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span><i class="bi bi-calendar3"></i>Feb 3, 2025</span>
+          <span><i class="bi bi-clock"></i>7 min</span>
+        </div>
+        <h2>Full Sales Funnel Analysis with SQL</h2>
+        <p>Step-by-step breakdown of user conversion from first visit to purchase using SQL queries and funnel metrics.</p>
+        <div class="card-footer">
+          <div class="card-tags">
+            <span class="card-tag-sm">SQL</span>
+            <span class="card-tag-sm">Funnel</span>
+          </div>
+          <a href="sales-funnel-sql.html" class="card-read-link">Read <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ══ Article 3 ══ -->
+    <article class="article-card" data-tags="Python" data-title="ab test conversion optimization python statistics">
+      <div class="card-img">
+        <!-- <img src="article-img/ab-test-python-sm.jpg" alt="A/B Test Python"> -->
+        <div class="card-img-placeholder"><i class="bi bi-clipboard2-data"></i></div>
+        <span class="card-tag">Python</span>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span><i class="bi bi-calendar3"></i>Mar 10, 2025</span>
+          <span><i class="bi bi-clock"></i>6 min</span>
+        </div>
+        <h2>A/B Testing for Conversion Optimization</h2>
+        <p>How to design, run and evaluate an A/B test using Python and statistical significance to make data-driven product decisions.</p>
+        <div class="card-footer">
+          <div class="card-tags">
+            <span class="card-tag-sm">Python</span>
+            <span class="card-tag-sm">A/B Test</span>
+          </div>
+          <a href="ab-test-python.html" class="card-read-link">Read <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ══ ADD NEW ARTICLES BELOW ══ -->
+    <!--
+    <article class="article-card" data-tags="TAG" data-title="search keywords lowercase">
+      <div class="card-img">
+        <img src="article-img/SLUG-sm.jpg" alt="TITLE">
+        <span class="card-tag">TAG</span>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span><i class="bi bi-calendar3"></i>Mon DD, YYYY</span>
+          <span><i class="bi bi-clock"></i>X min</span>
+        </div>
+        <h2>ARTICLE TITLE</h2>
+        <p>Short description 2-3 sentences.</p>
+        <div class="card-footer">
+          <div class="card-tags">
+            <span class="card-tag-sm">TAG1</span>
+            <span class="card-tag-sm">TAG2</span>
+          </div>
+          <a href="SLUG.html" class="card-read-link">Read <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+    </article>
+    -->
+
+    <!-- Empty state (shown when no results) -->
+    <div class="empty-state" id="empty-state" style="display:none;">
+      <i class="bi bi-search"></i>
+      <p>No articles found. Try a different filter or search term.</p>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="page-footer">
+    <a href="../index.html"><i class="bi bi-house"></i> Back to main page</a>
+  </footer>
+
+  <script>
+    const cards = document.querySelectorAll('.article-card');
+    const emptyState = document.getElementById('empty-state');
+    const countEl = document.getElementById('visible-count');
+    const searchInput = document.getElementById('search-input');
+    const filterTags = document.querySelectorAll('.filter-tag');
+
+    let activeTag = 'all';
+    let searchQuery = '';
+
+    function filterCards() {
+      let visible = 0;
+      cards.forEach(card => {
+        const tags = card.dataset.tags || '';
+        const title = card.dataset.title || '';
+        const matchTag = activeTag === 'all' || tags.includes(activeTag);
+        const matchSearch = !searchQuery || title.includes(searchQuery.toLowerCase());
+        if (matchTag && matchSearch) {
+          card.style.display = 'flex';
+          visible++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      countEl.textContent = visible;
+      emptyState.style.display = visible === 0 ? 'block' : 'none';
+    }
+
+    filterTags.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterTags.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeTag = btn.dataset.tag;
+        filterCards();
+      });
+    });
+
+    searchInput.addEventListener('input', () => {
+      searchQuery = searchInput.value.trim();
+      filterCards();
+    });
+
+    // Click on card → navigate to article
+    cards.forEach(card => {
+      card.addEventListener('click', (e) => {
+        if (!e.target.closest('a')) {
+          const link = card.querySelector('.card-read-link');
+          if (link) window.location.href = link.href;
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
