@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>dbt для аналітиків даних у 2026: сучасна трансформація SQL без програмування — Ісаченко Андрій</title>
+  <meta name="description" content="Що таке dbt і чому кожен аналітик даних має вивчити його у 2026 році. Практичний гід по dbt Core: моделі, тести, документація та лінійність даних. Без бекграунду розробника.">
+  <meta name="keywords" content="dbt туторіал 2026, dbt для аналітиків, data build tool, dbt Core, трансформація SQL, сучасний стек даних, аналітик даних dbt, аналітика даних Україна, dbt моделі тести">
+  <meta name="author" content="Ісаченко Андрій">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="Ukrainian">
+  <link rel="canonical" href="https://isachenko-andrii.github.io/articles/dbt-for-analysts-2026-ua.html">
+  <link rel="alternate" hreflang="uk" href="https://isachenko-andrii.github.io/articles/dbt-for-analysts-2026-ua.html">
+  <link rel="alternate" hreflang="en" href="https://isachenko-andrii.github.io/articles/dbt-for-analysts-2026.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://isachenko-andrii.github.io/articles/dbt-for-analysts-2026-ua.html">
+  <meta property="og:title" content="dbt для аналітиків даних у 2026 — Ісаченко Андрій">
+  <meta property="og:description" content="Практичний гід по dbt Core для аналітиків: моделі, тести, документація. Без бекграунду розробника.">
+  <meta property="og:image" content="https://isachenko-andrii.github.io/articles/article-img/dbt-for-analysts-2026.jpg">
+  <meta property="og:locale" content="uk_UA">
+  <meta property="article:published_time" content="2026-02-05">
+  <meta property="article:author" content="Ісаченко Андрій">
+  <meta property="article:tag" content="SQL">
+  <meta property="article:tag" content="dbt">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "dbt для аналітиків даних у 2026: сучасна трансформація SQL без програмування",
+    "description": "Практичний гід по dbt Core для аналітиків: моделі, тести, документація та лінійність даних.",
+    "image": "https://isachenko-andrii.github.io/articles/article-img/dbt-for-analysts-2026.jpg",
+    "datePublished": "2026-02-05",
+    "inLanguage": "uk",
+    "author": { "@type": "Person", "name": "Ісаченко Андрій", "url": "https://isachenko-andrii.github.io" },
+    "publisher": { "@type": "Person", "name": "Ісаченко Андрій" },
+    "keywords": "dbt, data build tool, трансформація SQL, сучасний стек даних, навички аналітика 2026"
+  }
+  </script>
+
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root { --primary:#0563bb; --primary-dark:#0352a0; --text:#2c3e50; --text-light:#666; --border:#e8ecf0; --bg-light:#f8fafc; --tag-bg:#e8f0fb; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:'Poppins',sans-serif; color:var(--text); background:#fff; line-height:1.7; }
+    .top-bar { position:sticky; top:0; z-index:100; background:rgba(255,255,255,0.96); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); padding:0 24px; height:56px; display:flex; align-items:center; justify-content:space-between; }
+    .top-bar-left { display:flex; align-items:center; gap:16px; }
+    .back-btn { display:inline-flex; align-items:center; gap:6px; color:var(--primary); text-decoration:none; font-size:14px; font-weight:500; padding:6px 14px; border-radius:20px; border:1px solid var(--primary); transition:all 0.2s; white-space:nowrap; }
+    .back-btn:hover { background:var(--primary); color:#fff; }
+    .breadcrumbs { display:flex; align-items:center; gap:6px; font-size:13px; color:var(--text-light); }
+    .breadcrumbs a { color:var(--primary); text-decoration:none; }
+    .breadcrumbs a:hover { text-decoration:underline; }
+    .breadcrumbs .sep { color:#ccc; }
+    .breadcrumbs .current { color:var(--text-light); max-width:220px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .lang-toggle { display:flex; align-items:center; gap:6px; font-size:12px; background:var(--bg-light); border:1px solid var(--border); border-radius:20px; padding:4px 10px; text-decoration:none; color:var(--text-light); transition:all 0.2s; }
+    .lang-toggle:hover { border-color:var(--primary); color:var(--primary); }
+    .share-btns { display:flex; gap:8px; align-items:center; }
+    .share-btn { width:34px; height:34px; border-radius:50%; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; color:var(--text-light); text-decoration:none; font-size:15px; transition:all 0.2s; }
+    .share-btn:hover { border-color:var(--primary); color:var(--primary); }
+    .article-hero { width:100%; max-height:480px; overflow:hidden; background:linear-gradient(135deg,#e8f0fb 0%,#cfe0f7 100%); }
+    .article-hero-placeholder { height:320px; display:flex; align-items:center; justify-content:center; }
+    .article-hero-placeholder i { font-size:90px; color:var(--primary); opacity:0.2; }
+    .article-wrapper { max-width:760px; margin:0 auto; padding:48px 24px 80px; }
+    .article-meta { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-bottom:24px; }
+    .tag { background:var(--primary); color:#fff; font-size:11px; font-weight:600; padding:3px 12px; border-radius:20px; text-transform:uppercase; letter-spacing:0.5px; }
+    .tag-secondary { background:var(--tag-bg); color:var(--primary); }
+    .meta-date,.meta-read { font-size:13px; color:var(--text-light); display:flex; align-items:center; gap:5px; }
+    .meta-read { margin-left:auto; }
+    .meta-date i,.meta-read i { color:var(--primary); }
+    .article-title { font-family:'Raleway',sans-serif; font-size:clamp(24px,4vw,38px); font-weight:700; line-height:1.25; color:var(--text); margin-bottom:16px; }
+    .article-subtitle { font-size:17px; color:var(--text-light); font-weight:400; line-height:1.6; margin-bottom:36px; padding-bottom:36px; border-bottom:1px solid var(--border); }
+    .author-block { display:flex; align-items:center; gap:14px; margin-bottom:40px; padding:16px 20px; background:var(--bg-light); border-radius:10px; border-left:3px solid var(--primary); }
+    .author-avatar { width:48px; height:48px; border-radius:50%; flex-shrink:0; background:var(--tag-bg); display:flex; align-items:center; justify-content:center; font-size:20px; color:var(--primary); overflow:hidden; }
+    .author-avatar img { width:100%; height:100%; object-fit:cover; }
+    .author-info { flex:1; }
+    .author-name { font-weight:600; font-size:15px; }
+    .author-role { font-size:13px; color:var(--text-light); }
+    .author-links { display:flex; gap:10px; }
+    .author-links a { color:var(--text-light); font-size:16px; transition:color 0.2s; }
+    .author-links a:hover { color:var(--primary); }
+    .article-content h2 { font-family:'Raleway',sans-serif; font-size:24px; font-weight:700; color:var(--text); margin:40px 0 16px; padding-bottom:8px; border-bottom:2px solid var(--tag-bg); }
+    .article-content h3 { font-size:19px; font-weight:600; color:var(--text); margin:28px 0 12px; }
+    .article-content p { font-size:16px; color:#444; line-height:1.8; margin-bottom:18px; }
+    .article-content ul,.article-content ol { margin:0 0 18px 20px; }
+    .article-content li { font-size:16px; color:#444; line-height:1.8; margin-bottom:6px; }
+    .article-content strong { color:var(--text); }
+    .highlight-box { background:var(--bg-light); border-left:4px solid var(--primary); border-radius:0 8px 8px 0; padding:18px 22px; margin:28px 0; }
+    .highlight-box p { margin:0; color:var(--text); font-style:italic; }
+    .article-content table { width:100%; border-collapse:collapse; margin:24px 0; font-size:14px; overflow-x:auto; display:block; }
+    .article-content th { background:var(--primary); color:#fff; padding:10px 14px; text-align:left; font-weight:600; }
+    .article-content td { padding:9px 14px; border-bottom:1px solid var(--border); color:#444; }
+    .article-content tr:nth-child(even) td { background:var(--bg-light); }
+    .article-content code { background:#f0f4f8; color:var(--primary-dark); padding:2px 7px; border-radius:4px; font-size:14px; font-family:'Courier New',monospace; }
+    .code-block { background:#1e2a3a; color:#e2e8f0; border-radius:10px; padding:20px 22px; margin:24px 0; overflow-x:auto; font-size:14px; font-family:'Courier New',monospace; line-height:1.7; }
+    .code-block .comment { color:#64748b; }
+    .code-block .keyword { color:#7dd3fc; }
+    .code-block .string { color:#86efac; }
+    .code-block .func { color:#fbbf24; }
+    .article-tags { display:flex; flex-wrap:wrap; gap:8px; margin:40px 0 32px; padding-top:32px; border-top:1px solid var(--border); }
+    .article-tags span { font-size:12px; color:var(--text-light); align-self:center; font-weight:500; }
+    .article-tags a { background:var(--tag-bg); color:var(--primary); font-size:13px; font-weight:500; padding:4px 12px; border-radius:20px; text-decoration:none; transition:all 0.2s; }
+    .article-tags a:hover { background:var(--primary); color:#fff; }
+    .article-nav { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:40px; }
+    .article-nav a { display:flex; flex-direction:column; gap:4px; padding:16px 20px; border:1px solid var(--border); border-radius:10px; text-decoration:none; color:var(--text); transition:all 0.2s; }
+    .article-nav a:hover { border-color:var(--primary); background:var(--bg-light); }
+    .article-nav a.next { text-align:right; }
+    .article-nav .nav-label { font-size:11px; color:var(--text-light); text-transform:uppercase; letter-spacing:0.8px; display:flex; align-items:center; gap:5px; }
+    .article-nav a.next .nav-label { justify-content:flex-end; }
+    .article-nav .nav-title { font-size:14px; font-weight:600; color:var(--primary); line-height:1.4; }
+    .back-to-main { text-align:center; padding-bottom:20px; }
+    .back-to-main a { display:inline-flex; align-items:center; gap:8px; color:var(--primary); text-decoration:none; font-weight:500; font-size:15px; border:1px solid var(--border); padding:10px 24px; border-radius:25px; transition:all 0.2s; }
+    .back-to-main a:hover { background:var(--primary); color:#fff; border-color:var(--primary); }
+    .toc { background:var(--bg-light); border:1px solid var(--border); border-radius:10px; padding:20px 24px; margin:0 0 40px; }
+    .toc h4 { font-size:14px; font-weight:600; color:var(--text); margin-bottom:12px; text-transform:uppercase; letter-spacing:0.5px; }
+    .toc ol { margin:0 0 0 16px; }
+    .toc li { font-size:14px; margin-bottom:6px; }
+    .toc a { color:var(--primary); text-decoration:none; }
+    .toc a:hover { text-decoration:underline; }
+    @media (max-width:600px) {
+      .top-bar { padding:0 16px; }
+      .breadcrumbs { display:none; }
+      .article-wrapper { padding:32px 16px 60px; }
+      .article-nav { grid-template-columns:1fr; }
+      .article-nav a.next { text-align:left; }
+      .article-nav a.next .nav-label { justify-content:flex-start; }
+      .author-links { display:none; }
+    }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E01F5VDKVM"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-E01F5VDKVM');</script>
+</head>
+<body>
+
+<nav class="top-bar">
+  <div class="top-bar-left">
+    <a href="../index-ua.html" class="back-btn"><i class="bi bi-arrow-left"></i> Назад</a>
+    <nav class="breadcrumbs" aria-label="breadcrumb">
+      <a href="../index-ua.html">Головна</a><span class="sep">›</span>
+      <a href="../index-ua.html#articles">Статті</a><span class="sep">›</span>
+      <span class="current">dbt для аналітиків 2026</span>
+    </nav>
+  </div>
+  <div class="share-btns">
+    <a href="dbt-for-analysts-2026.html" class="lang-toggle" title="Read in English"><i class="bi bi-translate"></i> EN</a>
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://isachenko-andrii.github.io/articles/dbt-for-analysts-2026-ua.html" target="_blank" class="share-btn"><i class="bi bi-linkedin"></i></a>
+    <a href="https://t.me/share/url?url=https://isachenko-andrii.github.io/articles/dbt-for-analysts-2026-ua.html" target="_blank" class="share-btn"><i class="bi bi-telegram"></i></a>
+  </div>
+</nav>
+
+<div class="article-hero">
+  <div class="article-hero-placeholder"><i class="bi bi-diagram-3"></i></div>
+</div>
+
+<main class="article-wrapper">
+
+  <div class="article-meta">
+    <span class="tag">SQL</span>
+    <span class="tag tag-secondary">dbt</span>
+    <span class="tag tag-secondary">Стек даних</span>
+    <span class="meta-date"><i class="bi bi-calendar3"></i> 5 лютого 2026</span>
+    <span class="meta-read"><i class="bi bi-clock"></i> 9 хв читання</span>
+  </div>
+
+  <h1 class="article-title">dbt для аналітиків даних у 2026: сучасна трансформація SQL без програмування</h1>
+  <p class="article-subtitle">dbt став стандартним інструментом для SQL-трансформацій. Ось все, що аналітику потрібно знати для старту — без бекграунду розробника програмного забезпечення.</p>
+
+  <div class="author-block">
+    <div class="author-avatar"><img src="../assets/img/profile-img.jpg" alt="Ісаченко Андрій"></div>
+    <div class="author-info">
+      <div class="author-name">Ісаченко Андрій</div>
+      <div class="author-role">Аналітик даних · Відкритий до роботи</div>
+    </div>
+    <div class="author-links">
+      <a href="https://www.linkedin.com/in/isachenko-andrii/" target="_blank"><i class="bi bi-linkedin"></i></a>
+      <a href="https://github.com/isachenko-andrii" target="_blank"><i class="bi bi-github"></i></a>
+      <a href="https://t.me/Manul_Solo" target="_blank"><i class="bi bi-telegram"></i></a>
+    </div>
+  </div>
+
+  <div class="toc">
+    <h4>📋 Зміст</h4>
+    <ol>
+      <li><a href="#what-is-dbt">Що таке dbt і чому це важливо</a></li>
+      <li><a href="#core-concepts">Основні концепції: моделі, refs, sources</a></li>
+      <li><a href="#first-model">Пишемо першу dbt-модель</a></li>
+      <li><a href="#testing">Тестування даних у dbt</a></li>
+      <li><a href="#documentation">Автогенерована документація</a></li>
+      <li><a href="#lineage">Лінійність даних (Data Lineage)</a></li>
+      <li><a href="#when-to-use">Коли dbt підходить (а коли — ні)</a></li>
+    </ol>
+  </div>
+
+  <article class="article-content">
+
+    <h2 id="what-is-dbt">Що таке dbt і чому це важливо</h2>
+    <p>dbt (data build tool) — це інструмент командного рядка з відкритим кодом, який дозволяє аналітикам писати трансформації даних як SQL-оператори <code>SELECT</code> і бере на себе всю навколишню складність: управління залежностями, тестування, документацію та розгортання. Думай про нього як про «контроль версій + тестування + документацію», накладені поверх SQL, який ти вже знаєш.</p>
+    <p>До dbt типовий воркфлоу аналітика передбачав написання трансформаційного SQL безпосередньо у сховищі даних, зберігання запитів у розрізнених файлах або папках, ручний запуск у правильному порядку та надію, що нічого вище за течією не зламалося тихо. dbt вирішує всі ці проблеми, розглядаючи SQL-трансформації як код — з усіма передовими практиками розробки, які це передбачає.</p>
+    <p>До 2026 року dbt став домінуючим шаром трансформацій у сучасному стеку даних. Якщо ти працюєш з BigQuery, Snowflake, Redshift, DuckDB або PostgreSQL, dbt, швидше за все, вже використовується в компаніях, куди ти хочеш потрапити.</p>
+
+    <div class="highlight-box">
+      <p>💡 dbt не замінює SQL — він робить твій SQL більш організованим, тестованим і підтримуваним. Ти все одно пишеш звичайні оператори <code>SELECT</code>.</p>
+    </div>
+
+    <h2 id="core-concepts">Основні концепції: моделі, refs, sources</h2>
+    <p>У dbt є невелика кількість ключових концепцій, які потрібно розуміти перед написанням коду:</p>
+
+    <table>
+      <thead><tr><th>Концепція</th><th>Що це</th><th>Аналогія</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Модель (Model)</strong></td><td>Один файл <code>.sql</code> з оператором SELECT</td><td>Один крок трансформації</td></tr>
+        <tr><td><strong>ref()</strong></td><td>Функція для посилання на іншу модель</td><td>Оператор імпорту</td></tr>
+        <tr><td><strong>source()</strong></td><td>Посилання на сирі таблиці даних</td><td>Оголошення вхідних даних</td></tr>
+        <tr><td><strong>Тест (Test)</strong></td><td>Твердження про дані (not null, unique тощо)</td><td>Юніт-тест</td></tr>
+        <tr><td><strong>Schema.yml</strong></td><td>YAML-файл з метаданими та тестами моделей</td><td>Конфігурація + документація</td></tr>
+      </tbody>
+    </table>
+
+    <h2 id="first-model">Пишемо першу dbt-модель</h2>
+    <p>Модель dbt — це просто файл <code>.sql</code> у директорії <code>models/</code> твого проекту. Назва файлу стає назвою таблиці у сховищі даних. dbt автоматично огортає твій SELECT у оператор <code>CREATE TABLE AS</code> або <code>CREATE VIEW AS</code>.</p>
+
+    <div class="code-block"><span class="comment">-- models/staging/stg_orders.sql</span>
+<span class="comment">-- Стейджинг-модель: очищення сирої таблиці замовлень</span>
+
+<span class="keyword">SELECT</span>
+    order_id,
+    user_id,
+    <span class="func">CAST</span>(created_at <span class="keyword">AS</span> TIMESTAMP)  <span class="keyword">AS</span> created_at,
+    <span class="func">UPPER</span>(status)                      <span class="keyword">AS</span> status,
+    <span class="func">ROUND</span>(revenue, <span class="keyword">2</span>)                 <span class="keyword">AS</span> revenue_usd,
+    country_code
+
+<span class="keyword">FROM</span> {{ <span class="func">source</span>(<span class="string">'raw'</span>, <span class="string">'orders'</span>) }}
+<span class="keyword">WHERE</span> created_at >= <span class="string">'2024-01-01'</span></div>
+
+    <div class="code-block"><span class="comment">-- models/marts/fct_monthly_revenue.sql</span>
+<span class="comment">-- Фактова модель: щомісячна агрегація доходу</span>
+
+<span class="keyword">SELECT</span>
+    <span class="func">DATE_TRUNC</span>(<span class="string">'month'</span>, created_at)  <span class="keyword">AS</span> month,
+    country_code,
+    <span class="func">COUNT</span>(<span class="keyword">DISTINCT</span> user_id)          <span class="keyword">AS</span> unique_customers,
+    <span class="func">COUNT</span>(order_id)                  <span class="keyword">AS</span> total_orders,
+    <span class="func">SUM</span>(revenue_usd)                 <span class="keyword">AS</span> total_revenue,
+    <span class="func">AVG</span>(revenue_usd)                 <span class="keyword">AS</span> avg_order_value
+
+<span class="keyword">FROM</span> {{ <span class="func">ref</span>(<span class="string">'stg_orders'</span>) }}      <span class="comment">-- посилання на стейджинг-модель вище</span>
+<span class="keyword">WHERE</span> status = <span class="string">'COMPLETED'</span>
+<span class="keyword">GROUP BY</span> <span class="keyword">1</span>, <span class="keyword">2</span></div>
+
+    <p>Зверни увагу на синтаксис <code>{{ ref('stg_orders') }}</code>. Це Jinja-шаблонізація dbt — вона повідомляє dbt, що <code>fct_monthly_revenue</code> залежить від <code>stg_orders</code>. dbt будує граф залежностей із цих посилань і завжди запускає моделі у правильному порядку.</p>
+
+    <h2 id="testing">Тестування даних у dbt</h2>
+    <p>Одна з найпотужніших можливостей dbt — вбудоване тестування даних. Ти визначаєш тести у YAML-файлі поряд із моделями, і dbt виконує їх для перевірки відповідності даних очікуванням.</p>
+
+    <div class="code-block"><span class="comment"># models/staging/schema.yml</span>
+
+<span class="keyword">version</span>: 2
+
+<span class="keyword">models</span>:
+  - <span class="keyword">name</span>: stg_orders
+    <span class="keyword">description</span>: <span class="string">"Очищені та стандартизовані замовлення з сирого джерела"</span>
+    <span class="keyword">columns</span>:
+      - <span class="keyword">name</span>: order_id
+        <span class="keyword">description</span>: <span class="string">"Унікальний ідентифікатор замовлення"</span>
+        <span class="keyword">tests</span>:
+          - <span class="func">unique</span>        <span class="comment"># без дублікатів order_id</span>
+          - <span class="func">not_null</span>      <span class="comment"># кожен рядок повинен мати order_id</span>
+
+      - <span class="keyword">name</span>: status
+        <span class="keyword">tests</span>:
+          - <span class="func">accepted_values</span>:
+              <span class="keyword">values</span>: [<span class="string">'COMPLETED'</span>, <span class="string">'PENDING'</span>, <span class="string">'CANCELLED'</span>, <span class="string">'REFUNDED'</span>]
+
+      - <span class="keyword">name</span>: user_id
+        <span class="keyword">tests</span>:
+          - <span class="func">not_null</span>
+          - <span class="func">relationships</span>:
+              <span class="keyword">to</span>: <span class="func">ref</span>(<span class="string">'stg_users'</span>)
+              <span class="keyword">field</span>: user_id   <span class="comment"># перевірка реляційної цілісності</span></div>
+
+    <p>Запусти всі тести однією командою: <code>dbt test</code>. Якщо тест не пройшов, dbt повідомляє, які саме рядки порушили обмеження. Це безцінно для виявлення тихих проблем якості даних до того, як вони потраплять на дашборди або в звіти.</p>
+
+    <h2 id="documentation">Автогенерована документація</h2>
+    <p>dbt генерує повний веб-сайт документації з YAML-описів та коду моделей. Запусти <code>dbt docs generate</code>, потім <code>dbt docs serve</code> — і отримаєш її локально. Документація включає опис кожної моделі та колонки, SQL-код і граф лінійності залежностей.</p>
+    <p>Для аналітиків, що працюють у команді, це вирішує вічну проблему «що насправді містить ця таблиця?» — відповідь завжди на відстані одного кліку в документації dbt.</p>
+
+    <h2 id="lineage">Лінійність даних (Data Lineage)</h2>
+    <p>Оскільки dbt знає всі залежності між моделями (через <code>ref()</code>), він може намалювати повний граф лінійності: від сирих таблиць джерел через стейджинг-моделі до фінальних mart-таблиць, що використовуються в дашбордах. Це дозволяє миттєво побачити, що зламається при зміні upstream-таблиці.</p>
+
+    <div class="highlight-box">
+      <p>📊 Типова структура dbt-проекту: <strong>sources</strong> (сирі таблиці) → <strong>staging</strong> (очищення та типізація) → <strong>intermediate</strong> (джойни та збагачення) → <strong>marts</strong> (бізнес-агрегації для дашбордів)</p>
+    </div>
+
+    <h2 id="when-to-use">Коли dbt підходить (а коли — ні)</h2>
+
+    <table>
+      <thead><tr><th>Використовуй dbt, коли...</th><th>Не використовуй dbt, коли...</th></tr></thead>
+      <tbody>
+        <tr><td>Є повторювані SQL-трансформації, що запускаються за розкладом</td><td>Робиш разовий ad-hoc аналіз</td></tr>
+        <tr><td>Декілька людей працюють з одними і тими ж моделями даних</td><td>Працюєш самостійно з простими запитами</td></tr>
+        <tr><td>Потрібні гарантії якості даних перед дашбордами</td><td>Твої сирі дані вже достатньо чисті</td></tr>
+        <tr><td>Потрібна автодокументація та відстеження лінійності</td><td>Швидкість налаштування важливіша за структуру</td></tr>
+        <tr><td>Компанія використовує хмарне сховище (BigQuery, Snowflake тощо)</td><td>Працюєш лише з локальними CSV-файлами</td></tr>
+      </tbody>
+    </table>
+
+    <p>Почати легко: встанови dbt Core командою <code>pip install dbt-bigquery</code> (або адаптер для свого сховища), запусти <code>dbt init my_project</code>, підключись до сховища та напиши першу модель. Офіційна документація dbt та безкоштовні курси dbt Learn — відмінні ресурси для поглиблення знань.</p>
+
+    <div class="highlight-box">
+      <p>🎯 У 2026 році знання dbt відрізняє аналітиків, що працюють із сирим SQL, від аналітиків, що будують production-grade пайплайни даних. Це один із найцінніших навичок для додавання до свого інструментарію.</p>
+    </div>
+
+  </article>
+
+  <div class="article-tags">
+    <span>Теги:</span>
+    <a href="../index-ua.html#articles">SQL</a>
+    <a href="../index-ua.html#articles">dbt</a>
+    <a href="../index-ua.html#articles">Стек даних</a>
+    <a href="../index-ua.html#articles">Аналітична інженерія</a>
+    <a href="../index-ua.html#articles">Трансформація даних</a>
+  </div>
+
+  <nav class="article-nav">
+    <a href="ai-assisted-data-analysis-2026-ua.html" class="prev">
+      <span class="nav-label"><i class="bi bi-arrow-left"></i> Попередня</span>
+      <span class="nav-title">AI-аналіз даних у 2026</span>
+    </a>
+    <a href="cohort-analysis-python-2026-ua.html" class="next">
+      <span class="nav-label">Наступна <i class="bi bi-arrow-right"></i></span>
+      <span class="nav-title">Когортний аналіз і утримання користувачів у Python</span>
+    </a>
+  </nav>
+
+  <div class="back-to-main">
+    <a href="../index-ua.html"><i class="bi bi-house"></i> На головну сторінку</a>
+  </div>
+
+</main>
+</body>
+</html>
