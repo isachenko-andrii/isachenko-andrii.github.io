@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>AI-Assisted Data Analysis in 2026: How to Use ChatGPT, Copilot & PandasAI — Isachenko Andrii</title>
+  <meta name="description" content="How data analysts use AI tools in 2026: ChatGPT for SQL, GitHub Copilot for Python, PandasAI for dataframe queries. Practical guide with real prompts and code examples.">
+  <meta name="keywords" content="AI data analysis 2026, PandasAI, ChatGPT SQL, GitHub Copilot data analyst, AI tools for analysts, аналітик даних ШІ, аналіз даних штучний інтелект, data analyst skills 2026">
+  <meta name="author" content="Isachenko Andrii">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://isachenko-andrii.github.io/articles/ai-assisted-data-analysis-2026.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://isachenko-andrii.github.io/articles/ai-assisted-data-analysis-2026.html">
+  <meta property="og:title" content="AI-Assisted Data Analysis in 2026 — Isachenko Andrii">
+  <meta property="og:description" content="How to use ChatGPT, Copilot and PandasAI to work 3× faster as a data analyst. Practical guide with prompts and code.">
+  <meta property="og:image" content="https://isachenko-andrii.github.io/articles/article-img/ai-assisted-data-analysis-2026.jpg">
+  <meta property="og:locale" content="en_US">
+  <meta property="article:published_time" content="2026-01-20">
+  <meta property="article:author" content="Isachenko Andrii">
+  <meta property="article:tag" content="AI Tools">
+  <meta property="article:tag" content="Python">
+  <meta property="article:tag" content="SQL">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI-Assisted Data Analysis in 2026: How to Use ChatGPT, Copilot & PandasAI",
+    "description": "How data analysts use AI tools in 2026: ChatGPT for SQL, GitHub Copilot for Python, PandasAI for dataframe queries.",
+    "image": "https://isachenko-andrii.github.io/articles/article-img/ai-assisted-data-analysis-2026.jpg",
+    "datePublished": "2026-01-20",
+    "author": { "@type": "Person", "name": "Isachenko Andrii", "url": "https://isachenko-andrii.github.io" },
+    "publisher": { "@type": "Person", "name": "Isachenko Andrii" },
+    "keywords": "AI data analysis, PandasAI, ChatGPT SQL, GitHub Copilot, data analyst 2026"
+  }
+  </script>
+
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root { --primary:#0563bb; --primary-dark:#0352a0; --text:#2c3e50; --text-light:#666; --border:#e8ecf0; --bg-light:#f8fafc; --tag-bg:#e8f0fb; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:'Poppins',sans-serif; color:var(--text); background:#fff; line-height:1.7; }
+    .top-bar { position:sticky; top:0; z-index:100; background:rgba(255,255,255,0.96); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); padding:0 24px; height:56px; display:flex; align-items:center; justify-content:space-between; }
+    .top-bar-left { display:flex; align-items:center; gap:16px; }
+    .back-btn { display:inline-flex; align-items:center; gap:6px; color:var(--primary); text-decoration:none; font-size:14px; font-weight:500; padding:6px 14px; border-radius:20px; border:1px solid var(--primary); transition:all 0.2s; white-space:nowrap; }
+    .back-btn:hover { background:var(--primary); color:#fff; }
+    .breadcrumbs { display:flex; align-items:center; gap:6px; font-size:13px; color:var(--text-light); }
+    .breadcrumbs a { color:var(--primary); text-decoration:none; }
+    .breadcrumbs a:hover { text-decoration:underline; }
+    .breadcrumbs .sep { color:#ccc; }
+    .breadcrumbs .current { color:var(--text-light); max-width:220px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .share-btns { display:flex; gap:8px; }
+    .share-btn { width:34px; height:34px; border-radius:50%; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; color:var(--text-light); text-decoration:none; font-size:15px; transition:all 0.2s; }
+    .share-btn:hover { border-color:var(--primary); color:var(--primary); }
+    .article-hero { width:100%; max-height:480px; overflow:hidden; background:linear-gradient(135deg,#e8f0fb 0%,#cfe0f7 100%); }
+    .article-hero img { width:100%; height:480px; object-fit:cover; display:block; }
+    .article-hero-placeholder { height:320px; display:flex; align-items:center; justify-content:center; }
+    .article-hero-placeholder i { font-size:90px; color:var(--primary); opacity:0.2; }
+    .article-wrapper { max-width:760px; margin:0 auto; padding:48px 24px 80px; }
+    .article-meta { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-bottom:24px; }
+    .tag { background:var(--primary); color:#fff; font-size:11px; font-weight:600; padding:3px 12px; border-radius:20px; text-transform:uppercase; letter-spacing:0.5px; }
+    .tag-secondary { background:var(--tag-bg); color:var(--primary); }
+    .meta-date,.meta-read { font-size:13px; color:var(--text-light); display:flex; align-items:center; gap:5px; }
+    .meta-read { margin-left:auto; }
+    .meta-date i,.meta-read i { color:var(--primary); }
+    .article-title { font-family:'Raleway',sans-serif; font-size:clamp(26px,4vw,40px); font-weight:700; line-height:1.25; color:var(--text); margin-bottom:16px; }
+    .article-subtitle { font-size:18px; color:var(--text-light); font-weight:400; line-height:1.6; margin-bottom:36px; padding-bottom:36px; border-bottom:1px solid var(--border); }
+    .author-block { display:flex; align-items:center; gap:14px; margin-bottom:40px; padding:16px 20px; background:var(--bg-light); border-radius:10px; border-left:3px solid var(--primary); }
+    .author-avatar { width:48px; height:48px; border-radius:50%; flex-shrink:0; background:var(--tag-bg); display:flex; align-items:center; justify-content:center; font-size:20px; color:var(--primary); overflow:hidden; }
+    .author-avatar img { width:100%; height:100%; object-fit:cover; }
+    .author-info { flex:1; }
+    .author-name { font-weight:600; font-size:15px; }
+    .author-role { font-size:13px; color:var(--text-light); }
+    .author-links { display:flex; gap:10px; }
+    .author-links a { color:var(--text-light); font-size:16px; transition:color 0.2s; }
+    .author-links a:hover { color:var(--primary); }
+    .article-content h2 { font-family:'Raleway',sans-serif; font-size:24px; font-weight:700; color:var(--text); margin:40px 0 16px; padding-bottom:8px; border-bottom:2px solid var(--tag-bg); }
+    .article-content h3 { font-size:19px; font-weight:600; color:var(--text); margin:28px 0 12px; }
+    .article-content p { font-size:16px; color:#444; line-height:1.8; margin-bottom:18px; }
+    .article-content ul,.article-content ol { margin:0 0 18px 20px; }
+    .article-content li { font-size:16px; color:#444; line-height:1.8; margin-bottom:6px; }
+    .article-content strong { color:var(--text); }
+    .highlight-box { background:var(--bg-light); border-left:4px solid var(--primary); border-radius:0 8px 8px 0; padding:18px 22px; margin:28px 0; }
+    .highlight-box p { margin:0; color:var(--text); font-style:italic; }
+    .article-content table { width:100%; border-collapse:collapse; margin:24px 0; font-size:14px; overflow-x:auto; display:block; }
+    .article-content th { background:var(--primary); color:#fff; padding:10px 14px; text-align:left; font-weight:600; }
+    .article-content td { padding:9px 14px; border-bottom:1px solid var(--border); color:#444; }
+    .article-content tr:nth-child(even) td { background:var(--bg-light); }
+    .article-content code { background:#f0f4f8; color:var(--primary-dark); padding:2px 7px; border-radius:4px; font-size:14px; font-family:'Courier New',monospace; }
+    .code-block { background:#1e2a3a; color:#e2e8f0; border-radius:10px; padding:20px 22px; margin:24px 0; overflow-x:auto; font-size:14px; font-family:'Courier New',monospace; line-height:1.7; }
+    .code-block .comment { color:#64748b; }
+    .code-block .keyword { color:#7dd3fc; }
+    .code-block .string { color:#86efac; }
+    .code-block .func { color:#fbbf24; }
+    .code-block .number { color:#f9a8d4; }
+    .article-tags { display:flex; flex-wrap:wrap; gap:8px; margin:40px 0 32px; padding-top:32px; border-top:1px solid var(--border); }
+    .article-tags span { font-size:12px; color:var(--text-light); align-self:center; font-weight:500; }
+    .article-tags a { background:var(--tag-bg); color:var(--primary); font-size:13px; font-weight:500; padding:4px 12px; border-radius:20px; text-decoration:none; transition:all 0.2s; }
+    .article-tags a:hover { background:var(--primary); color:#fff; }
+    .article-nav { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:40px; }
+    .article-nav a { display:flex; flex-direction:column; gap:4px; padding:16px 20px; border:1px solid var(--border); border-radius:10px; text-decoration:none; color:var(--text); transition:all 0.2s; }
+    .article-nav a:hover { border-color:var(--primary); background:var(--bg-light); }
+    .article-nav a.next { text-align:right; }
+    .article-nav .nav-label { font-size:11px; color:var(--text-light); text-transform:uppercase; letter-spacing:0.8px; display:flex; align-items:center; gap:5px; }
+    .article-nav a.next .nav-label { justify-content:flex-end; }
+    .article-nav .nav-title { font-size:14px; font-weight:600; color:var(--primary); line-height:1.4; }
+    .back-to-main { text-align:center; padding-bottom:20px; }
+    .back-to-main a { display:inline-flex; align-items:center; gap:8px; color:var(--primary); text-decoration:none; font-weight:500; font-size:15px; border:1px solid var(--border); padding:10px 24px; border-radius:25px; transition:all 0.2s; }
+    .back-to-main a:hover { background:var(--primary); color:#fff; border-color:var(--primary); }
+    .toc { background:var(--bg-light); border:1px solid var(--border); border-radius:10px; padding:20px 24px; margin:0 0 40px; }
+    .toc h4 { font-size:14px; font-weight:600; color:var(--text); margin-bottom:12px; text-transform:uppercase; letter-spacing:0.5px; }
+    .toc ol { margin:0 0 0 16px; }
+    .toc li { font-size:14px; margin-bottom:6px; }
+    .toc a { color:var(--primary); text-decoration:none; }
+    .toc a:hover { text-decoration:underline; }
+    @media (max-width:600px) {
+      .top-bar { padding:0 16px; }
+      .breadcrumbs { display:none; }
+      .article-wrapper { padding:32px 16px 60px; }
+      .article-nav { grid-template-columns:1fr; }
+      .article-nav a.next { text-align:left; }
+      .article-nav a.next .nav-label { justify-content:flex-start; }
+      .author-links { display:none; }
+    }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E01F5VDKVM"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-E01F5VDKVM');</script>
+</head>
+<body>
+
+<nav class="top-bar">
+  <div class="top-bar-left">
+    <a href="../index.html" class="back-btn"><i class="bi bi-arrow-left"></i> Back</a>
+    <nav class="breadcrumbs" aria-label="breadcrumb">
+      <a href="../index.html">Home</a><span class="sep">›</span>
+      <a href="../index.html#articles">Articles</a><span class="sep">›</span>
+      <span class="current">AI-Assisted Data Analysis 2026</span>
+    </nav>
+  </div>
+  <div class="share-btns">
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://isachenko-andrii.github.io/articles/ai-assisted-data-analysis-2026.html" target="_blank" class="share-btn" title="Share on LinkedIn"><i class="bi bi-linkedin"></i></a>
+    <a href="https://t.me/share/url?url=https://isachenko-andrii.github.io/articles/ai-assisted-data-analysis-2026.html" target="_blank" class="share-btn" title="Share on Telegram"><i class="bi bi-telegram"></i></a>
+  </div>
+</nav>
+
+<div class="article-hero">
+  <div class="article-hero-placeholder"><i class="bi bi-robot"></i></div>
+</div>
+
+<main class="article-wrapper">
+
+  <div class="article-meta">
+    <span class="tag">AI Tools</span>
+    <span class="tag tag-secondary">Python</span>
+    <span class="tag tag-secondary">SQL</span>
+    <span class="meta-date"><i class="bi bi-calendar3"></i> January 20, 2026</span>
+    <span class="meta-read"><i class="bi bi-clock"></i> 8 min read</span>
+  </div>
+
+  <h1 class="article-title">AI-Assisted Data Analysis in 2026: How to Use ChatGPT, Copilot & PandasAI</h1>
+  <p class="article-subtitle">AI didn't replace data analysts — it made the good ones dramatically faster. Here's exactly how to integrate AI tools into your daily workflow without losing analytical rigour.</p>
+
+  <div class="author-block">
+    <div class="author-avatar"><img src="../assets/img/profile-img.jpg" alt="Isachenko Andrii"></div>
+    <div class="author-info">
+      <div class="author-name">Isachenko Andrii</div>
+      <div class="author-role">Data Analyst · Open to work</div>
+    </div>
+    <div class="author-links">
+      <a href="https://www.linkedin.com/in/isachenko-andrii/" target="_blank"><i class="bi bi-linkedin"></i></a>
+      <a href="https://github.com/isachenko-andrii" target="_blank"><i class="bi bi-github"></i></a>
+      <a href="https://t.me/Manul_Solo" target="_blank"><i class="bi bi-telegram"></i></a>
+    </div>
+  </div>
+
+  <div class="toc">
+    <h4>📋 Table of Contents</h4>
+    <ol>
+      <li><a href="#landscape">The AI landscape for analysts in 2026</a></li>
+      <li><a href="#chatgpt-sql">ChatGPT for SQL: writing and debugging queries</a></li>
+      <li><a href="#copilot-python">GitHub Copilot for Python EDA</a></li>
+      <li><a href="#pandasai">PandasAI: talk to your dataframe</a></li>
+      <li><a href="#prompts">Prompt templates that actually work</a></li>
+      <li><a href="#pitfalls">Pitfalls and how to avoid them</a></li>
+      <li><a href="#workflow">Recommended AI workflow for analysts</a></li>
+    </ol>
+  </div>
+
+  <article class="article-content">
+
+    <h2 id="landscape">The AI Landscape for Analysts in 2026</h2>
+    <p>By 2026 the question is no longer <em>"should I use AI?"</em> but <em>"which AI tool for which task?"</em> The analyst who ignores these tools works at half speed. The analyst who blindly trusts them produces wrong conclusions faster. The sweet spot is knowing exactly where AI accelerates you and where human judgment is non-negotiable.</p>
+    <p>In a typical analyst workflow, AI saves the most time in three areas: writing boilerplate SQL, generating starter Python code for exploratory analysis, and explaining unfamiliar datasets or error messages. It saves almost no time — and can actively mislead — when it comes to formulating the right business question, validating statistical assumptions, or interpreting results in business context.</p>
+
+    <div class="highlight-box">
+      <p>💡 Rule of thumb: use AI to write the <em>first draft</em> of code, always review and understand it before running on production data.</p>
+    </div>
+
+    <h2 id="chatgpt-sql">ChatGPT for SQL: Writing and Debugging Queries</h2>
+    <p>SQL generation is the single highest-ROI use case for ChatGPT in analytics. A prompt that includes your schema and a plain-English question reliably produces correct SQL for standard aggregations, joins and window functions in under 10 seconds.</p>
+
+    <h3>Effective SQL prompt structure</h3>
+    <p>The key is giving the model enough context. A vague prompt produces vague SQL. Always include: table names with column names and types, the exact business question, and any filtering or grouping requirements.</p>
+
+    <div class="code-block"><span class="comment">-- Prompt template for ChatGPT SQL generation:</span>
+
+I have the following tables:
+
+orders (order_id INT, user_id INT, created_at TIMESTAMP,
+        revenue FLOAT, status VARCHAR)
+users  (user_id INT, country VARCHAR, registered_at TIMESTAMP)
+
+<span class="keyword">Write a SQL query</span> that:
+- Shows monthly revenue by country for 2025
+- Excludes cancelled orders (status = 'cancelled')
+- Calculates month-over-month growth %
+- Orders by country and month ASC</div>
+
+    <h3>Debugging with ChatGPT</h3>
+    <p>Paste the error message along with your query and the table schema. ChatGPT identifies the vast majority of syntax errors, missing GROUP BY clauses, and wrong JOIN types instantly. More usefully, it explains <em>why</em> the error occurs — which builds your own skills over time.</p>
+
+    <div class="code-block"><span class="comment">-- Debugging prompt template:</span>
+
+I'm getting this error:
+<span class="string">"ERROR: column orders.user_id must appear in GROUP BY clause"</span>
+
+Here is my query:
+[paste query]
+
+Here is my schema:
+[paste schema]
+
+<span class="keyword">What is wrong and how do I fix it?</span></div>
+
+    <h2 id="copilot-python">GitHub Copilot for Python EDA</h2>
+    <p>GitHub Copilot (and its competitors like Cursor AI) integrates directly into VS Code and generates code as you type. For exploratory data analysis, it dramatically accelerates the repetitive parts: loading data, inspecting dtypes, plotting distributions, handling missing values.</p>
+    <p>The workflow that works best: write a comment describing what you want, press Tab, review what Copilot suggests. Accept if correct, modify if close, reject and write manually if wrong. The acceptance rate for standard EDA tasks is around 70–80% in my experience.</p>
+
+    <div class="code-block"><span class="comment"># Just write these comments — Copilot completes the code:</span>
+
+<span class="comment"># Load the CSV and parse dates</span>
+df = pd.read_csv(<span class="string">'sales_2025.csv'</span>, parse_dates=[<span class="string">'created_at'</span>])
+
+<span class="comment"># Show null counts and percentage for each column</span>
+null_stats = pd.DataFrame({
+    <span class="string">'nulls'</span>: df.isnull().sum(),
+    <span class="string">'pct'</span>: (df.isnull().sum() / <span class="func">len</span>(df) * <span class="number">100</span>).round(<span class="number">2</span>)
+}).query(<span class="string">'nulls > 0'</span>)
+
+<span class="comment"># Plot revenue distribution with median line</span>
+fig, ax = plt.subplots(figsize=(<span class="number">10</span>, <span class="number">5</span>))
+df[<span class="string">'revenue'</span>].hist(bins=<span class="number">50</span>, ax=ax, color=<span class="string">'#0563bb'</span>, alpha=<span class="number">0.7</span>)
+ax.axvline(df[<span class="string">'revenue'</span>].median(), color=<span class="string">'red'</span>, linestyle=<span class="string">'--'</span>,
+           label=<span class="string">f'Median: {df["revenue"].median():.0f}'</span>)
+ax.legend()</div>
+
+    <h2 id="pandasai">PandasAI: Talk to Your Dataframe</h2>
+    <p>PandasAI is an open-source library that lets you query a pandas DataFrame in plain English. Under the hood it sends your question plus the dataframe metadata to an LLM, gets back Python code, executes it, and returns the result. It's genuinely useful for quick ad-hoc questions during exploration.</p>
+
+    <div class="code-block"><span class="keyword">from</span> pandasai <span class="keyword">import</span> SmartDataframe
+<span class="keyword">from</span> pandasai.llm <span class="keyword">import</span> OpenAI
+
+llm = <span class="func">OpenAI</span>(api_token=<span class="string">"your_key"</span>)
+sdf = <span class="func">SmartDataframe</span>(df, config={<span class="string">"llm"</span>: llm})
+
+<span class="comment"># Ask questions in plain English</span>
+sdf.chat(<span class="string">"What are the top 5 countries by total revenue?"</span>)
+sdf.chat(<span class="string">"Plot monthly revenue as a bar chart"</span>)
+sdf.chat(<span class="string">"Which product category has the highest return rate?"</span>)</div>
+
+    <div class="highlight-box">
+      <p>⚠️ Important: never send sensitive or personal data to external LLM APIs via PandasAI. For confidential datasets, use a local LLM (Ollama + llama3) or anonymise the data first.</p>
+    </div>
+
+    <h2 id="prompts">Prompt Templates That Actually Work</h2>
+    <p>After extensive use, these are the prompt patterns that produce the most reliable results for data analysis tasks:</p>
+
+    <table>
+      <thead><tr><th>Task</th><th>Prompt Pattern</th><th>Quality</th></tr></thead>
+      <tbody>
+        <tr><td>Write SQL</td><td>Schema + plain English question + constraints</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>Debug SQL</td><td>Error message + query + schema</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>Python EDA code</td><td>Dataset description + specific task</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><td>Explain result</td><td>Show the output, ask "what does this mean?"</td><td>⭐⭐⭐</td></tr>
+        <tr><td>Business interpretation</td><td>Avoid — AI lacks your business context</td><td>⭐</td></tr>
+      </tbody>
+    </table>
+
+    <h2 id="pitfalls">Pitfalls and How to Avoid Them</h2>
+    <p>AI tools introduce specific failure modes that every analyst should know:</p>
+    <ul>
+      <li><strong>Hallucinated column names.</strong> ChatGPT will invent column names that don't exist in your schema. Always double-check generated SQL against your actual table structure before running.</li>
+      <li><strong>Wrong aggregation logic.</strong> AI often uses <code>COUNT(*)</code> where you need <code>COUNT(DISTINCT user_id)</code>, or <code>SUM</code> where you need <code>AVG</code>. Review the logic, not just the syntax.</li>
+      <li><strong>Outdated library syntax.</strong> Copilot was trained on older code. For pandas 2.x, verify that deprecated methods aren't used (e.g. <code>DataFrame.append()</code> was removed).</li>
+      <li><strong>Confident wrong answers.</strong> LLMs don't signal uncertainty well. A convincingly-written explanation can be completely wrong. Cross-check statistical claims independently.</li>
+    </ul>
+
+    <h2 id="workflow">Recommended AI Workflow for Analysts</h2>
+    <p>Based on daily use, here's the workflow that maximises speed while keeping quality high:</p>
+    <ol>
+      <li><strong>Frame the question yourself.</strong> No AI can do this. Define what you're measuring, why it matters, and what decision it informs.</li>
+      <li><strong>Use ChatGPT to draft SQL.</strong> Provide schema + question. Review the logic. Run only after you understand every line.</li>
+      <li><strong>Use Copilot for Python boilerplate.</strong> Accept suggestions for data loading, cleaning, and standard plots. Write your own code for custom transformations.</li>
+      <li><strong>Use PandasAI for quick ad-hoc questions.</strong> Great for "let me quickly check..." moments during exploration.</li>
+      <li><strong>Interpret results yourself.</strong> The numbers mean something in the context of your business. AI doesn't have that context.</li>
+      <li><strong>Use ChatGPT to write the first draft of your report summary.</strong> Then rewrite it — you know what matters, AI doesn't.</li>
+    </ol>
+
+    <div class="highlight-box">
+      <p>🎯 The analyst who uses AI as a <em>tool</em> rather than an <em>oracle</em> will consistently outperform both the analyst who ignores AI and the one who blindly trusts it.</p>
+    </div>
+
+  </article>
+
+  <div class="article-tags">
+    <span>Tags:</span>
+    <a href="../index.html#articles">AI Tools</a>
+    <a href="../index.html#articles">Python</a>
+    <a href="../index.html#articles">SQL</a>
+    <a href="../index.html#articles">ChatGPT</a>
+    <a href="../index.html#articles">PandasAI</a>
+    <a href="../index.html#articles">Data Analysis 2026</a>
+  </div>
+
+  <nav class="article-nav">
+    <a href="../index.html#articles" class="prev">
+      <span class="nav-label"><i class="bi bi-arrow-left"></i> All Articles</span>
+      <span class="nav-title">Back to Articles</span>
+    </a>
+    <a href="dbt-for-analysts-2026.html" class="next">
+      <span class="nav-label">Next <i class="bi bi-arrow-right"></i></span>
+      <span class="nav-title">dbt for Data Analysts: Modern Data Transformation in 2026</span>
+    </a>
+  </nav>
+
+  <div class="back-to-main">
+    <a href="../index.html"><i class="bi bi-house"></i> Back to main page</a>
+  </div>
+
+</main>
+</body>
+</html>
