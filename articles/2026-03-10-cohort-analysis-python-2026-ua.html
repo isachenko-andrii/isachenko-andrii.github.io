@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Когортний аналіз і утримання користувачів у Python 2026: повний гід — Ісаченко Андрій</title>
+  <meta name="description" content="Як побудувати когортний аналіз та виміряти утримання користувачів у Python з pandas. Покроковий гід із реальним кодом: матриця утримання, теплова карта, розрахунок відтоку та бізнес-інтерпретація.">
+  <meta name="keywords" content="когортний аналіз Python 2026, утримання користувачів pandas, аналіз відтоку, матриця утримання теплова карта, аналіз когорт Python, retention analysis, churn analysis, аналітик даних Україна, продуктова аналітика">
+  <meta name="author" content="Ісаченко Андрій">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="Ukrainian">
+  <link rel="canonical" href="https://isachenko-andrii.github.io/articles/cohort-analysis-python-2026-ua.html">
+  <link rel="alternate" hreflang="uk" href="https://isachenko-andrii.github.io/articles/cohort-analysis-python-2026-ua.html">
+  <link rel="alternate" hreflang="en" href="https://isachenko-andrii.github.io/articles/cohort-analysis-python-2026.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://isachenko-andrii.github.io/articles/cohort-analysis-python-2026-ua.html">
+  <meta property="og:title" content="Когортний аналіз і утримання користувачів у Python 2026 — Ісаченко Андрій">
+  <meta property="og:description" content="Покроковий когортний аналіз у Python: матриця утримання, теплова карта, розрахунок відтоку з реальним кодом pandas.">
+  <meta property="og:image" content="https://isachenko-andrii.github.io/articles/article-img/cohort-analysis-python-2026.jpg">
+  <meta property="og:locale" content="uk_UA">
+  <meta property="article:published_time" content="2026-03-01">
+  <meta property="article:author" content="Ісаченко Андрій">
+  <meta property="article:tag" content="Python">
+  <meta property="article:tag" content="Утримання">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Когортний аналіз і утримання користувачів у Python 2026: повний гід",
+    "description": "Покроковий когортний аналіз у Python з pandas: матриця утримання, теплова карта, розрахунок відтоку та бізнес-інтерпретація.",
+    "image": "https://isachenko-andrii.github.io/articles/article-img/cohort-analysis-python-2026.jpg",
+    "datePublished": "2026-03-01",
+    "inLanguage": "uk",
+    "author": { "@type": "Person", "name": "Ісаченко Андрій", "url": "https://isachenko-andrii.github.io" },
+    "publisher": { "@type": "Person", "name": "Ісаченко Андрій" },
+    "keywords": "когортний аналіз, утримання користувачів, Python, pandas, відтік, аналіз даних 2026"
+  }
+  </script>
+
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root { --primary:#0563bb; --primary-dark:#0352a0; --text:#2c3e50; --text-light:#666; --border:#e8ecf0; --bg-light:#f8fafc; --tag-bg:#e8f0fb; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:'Poppins',sans-serif; color:var(--text); background:#fff; line-height:1.7; }
+    .top-bar { position:sticky; top:0; z-index:100; background:rgba(255,255,255,0.96); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); padding:0 24px; height:56px; display:flex; align-items:center; justify-content:space-between; }
+    .top-bar-left { display:flex; align-items:center; gap:16px; }
+    .back-btn { display:inline-flex; align-items:center; gap:6px; color:var(--primary); text-decoration:none; font-size:14px; font-weight:500; padding:6px 14px; border-radius:20px; border:1px solid var(--primary); transition:all 0.2s; white-space:nowrap; }
+    .back-btn:hover { background:var(--primary); color:#fff; }
+    .breadcrumbs { display:flex; align-items:center; gap:6px; font-size:13px; color:var(--text-light); }
+    .breadcrumbs a { color:var(--primary); text-decoration:none; }
+    .breadcrumbs a:hover { text-decoration:underline; }
+    .breadcrumbs .sep { color:#ccc; }
+    .breadcrumbs .current { color:var(--text-light); max-width:220px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .lang-toggle { display:flex; align-items:center; gap:6px; font-size:12px; background:var(--bg-light); border:1px solid var(--border); border-radius:20px; padding:4px 10px; text-decoration:none; color:var(--text-light); transition:all 0.2s; }
+    .lang-toggle:hover { border-color:var(--primary); color:var(--primary); }
+    .share-btns { display:flex; gap:8px; align-items:center; }
+    .share-btn { width:34px; height:34px; border-radius:50%; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; color:var(--text-light); text-decoration:none; font-size:15px; transition:all 0.2s; }
+    .share-btn:hover { border-color:var(--primary); color:var(--primary); }
+    .article-hero { width:100%; max-height:480px; overflow:hidden; background:linear-gradient(135deg,#e8f0fb 0%,#cfe0f7 100%); }
+    .article-hero-placeholder { height:320px; display:flex; align-items:center; justify-content:center; }
+    .article-hero-placeholder i { font-size:90px; color:var(--primary); opacity:0.2; }
+    .article-wrapper { max-width:760px; margin:0 auto; padding:48px 24px 80px; }
+    .article-meta { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-bottom:24px; }
+    .tag { background:var(--primary); color:#fff; font-size:11px; font-weight:600; padding:3px 12px; border-radius:20px; text-transform:uppercase; letter-spacing:0.5px; }
+    .tag-secondary { background:var(--tag-bg); color:var(--primary); }
+    .meta-date,.meta-read { font-size:13px; color:var(--text-light); display:flex; align-items:center; gap:5px; }
+    .meta-read { margin-left:auto; }
+    .meta-date i,.meta-read i { color:var(--primary); }
+    .article-title { font-family:'Raleway',sans-serif; font-size:clamp(24px,4vw,38px); font-weight:700; line-height:1.25; color:var(--text); margin-bottom:16px; }
+    .article-subtitle { font-size:17px; color:var(--text-light); font-weight:400; line-height:1.6; margin-bottom:36px; padding-bottom:36px; border-bottom:1px solid var(--border); }
+    .author-block { display:flex; align-items:center; gap:14px; margin-bottom:40px; padding:16px 20px; background:var(--bg-light); border-radius:10px; border-left:3px solid var(--primary); }
+    .author-avatar { width:48px; height:48px; border-radius:50%; flex-shrink:0; overflow:hidden; }
+    .author-avatar img { width:100%; height:100%; object-fit:cover; }
+    .author-info { flex:1; }
+    .author-name { font-weight:600; font-size:15px; }
+    .author-role { font-size:13px; color:var(--text-light); }
+    .author-links { display:flex; gap:10px; }
+    .author-links a { color:var(--text-light); font-size:16px; transition:color 0.2s; }
+    .author-links a:hover { color:var(--primary); }
+    .article-content h2 { font-family:'Raleway',sans-serif; font-size:24px; font-weight:700; color:var(--text); margin:40px 0 16px; padding-bottom:8px; border-bottom:2px solid var(--tag-bg); }
+    .article-content h3 { font-size:19px; font-weight:600; color:var(--text); margin:28px 0 12px; }
+    .article-content p { font-size:16px; color:#444; line-height:1.8; margin-bottom:18px; }
+    .article-content ul,.article-content ol { margin:0 0 18px 20px; }
+    .article-content li { font-size:16px; color:#444; line-height:1.8; margin-bottom:6px; }
+    .article-content strong { color:var(--text); }
+    .highlight-box { background:var(--bg-light); border-left:4px solid var(--primary); border-radius:0 8px 8px 0; padding:18px 22px; margin:28px 0; }
+    .highlight-box p { margin:0; color:var(--text); font-style:italic; }
+    .article-content table { width:100%; border-collapse:collapse; margin:24px 0; font-size:14px; overflow-x:auto; display:block; }
+    .article-content th { background:var(--primary); color:#fff; padding:10px 14px; text-align:left; font-weight:600; }
+    .article-content td { padding:9px 14px; border-bottom:1px solid var(--border); color:#444; }
+    .article-content tr:nth-child(even) td { background:var(--bg-light); }
+    .article-content code { background:#f0f4f8; color:var(--primary-dark); padding:2px 7px; border-radius:4px; font-size:14px; font-family:'Courier New',monospace; }
+    .code-block { background:#1e2a3a; color:#e2e8f0; border-radius:10px; padding:20px 22px; margin:24px 0; overflow-x:auto; font-size:14px; font-family:'Courier New',monospace; line-height:1.7; }
+    .code-block .comment { color:#64748b; }
+    .code-block .keyword { color:#7dd3fc; }
+    .code-block .string { color:#86efac; }
+    .code-block .func { color:#fbbf24; }
+    .code-block .number { color:#f9a8d4; }
+    .retention-demo { margin:28px 0; border-radius:10px; overflow:hidden; border:1px solid var(--border); }
+    .retention-demo table { display:table; width:100%; margin:0; font-size:13px; }
+    .retention-demo th { background:#1e2a3a; color:#e2e8f0; padding:8px 12px; text-align:center; }
+    .retention-demo td { text-align:center; padding:8px 12px; font-weight:500; border:none; border-bottom:1px solid #f0f0f0; }
+    .r100{background:#0563bb;color:#fff} .r80{background:#2d80d4;color:#fff} .r60{background:#5fa3e8;color:#fff}
+    .r40{background:#9cc5f0;color:#1a1a1a} .r20{background:#cce0f7;color:#1a1a1a} .r10{background:#e8f0fb;color:#1a1a1a} .r0{background:#f5f5f5;color:#999}
+    .article-tags { display:flex; flex-wrap:wrap; gap:8px; margin:40px 0 32px; padding-top:32px; border-top:1px solid var(--border); }
+    .article-tags span { font-size:12px; color:var(--text-light); align-self:center; font-weight:500; }
+    .article-tags a { background:var(--tag-bg); color:var(--primary); font-size:13px; font-weight:500; padding:4px 12px; border-radius:20px; text-decoration:none; transition:all 0.2s; }
+    .article-tags a:hover { background:var(--primary); color:#fff; }
+    .article-nav { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:40px; }
+    .article-nav a { display:flex; flex-direction:column; gap:4px; padding:16px 20px; border:1px solid var(--border); border-radius:10px; text-decoration:none; color:var(--text); transition:all 0.2s; }
+    .article-nav a:hover { border-color:var(--primary); background:var(--bg-light); }
+    .article-nav a.next { text-align:right; }
+    .article-nav .nav-label { font-size:11px; color:var(--text-light); text-transform:uppercase; letter-spacing:0.8px; display:flex; align-items:center; gap:5px; }
+    .article-nav a.next .nav-label { justify-content:flex-end; }
+    .article-nav .nav-title { font-size:14px; font-weight:600; color:var(--primary); line-height:1.4; }
+    .back-to-main { text-align:center; padding-bottom:20px; }
+    .back-to-main a { display:inline-flex; align-items:center; gap:8px; color:var(--primary); text-decoration:none; font-weight:500; font-size:15px; border:1px solid var(--border); padding:10px 24px; border-radius:25px; transition:all 0.2s; }
+    .back-to-main a:hover { background:var(--primary); color:#fff; border-color:var(--primary); }
+    .toc { background:var(--bg-light); border:1px solid var(--border); border-radius:10px; padding:20px 24px; margin:0 0 40px; }
+    .toc h4 { font-size:14px; font-weight:600; color:var(--text); margin-bottom:12px; text-transform:uppercase; letter-spacing:0.5px; }
+    .toc ol { margin:0 0 0 16px; }
+    .toc li { font-size:14px; margin-bottom:6px; }
+    .toc a { color:var(--primary); text-decoration:none; }
+    .toc a:hover { text-decoration:underline; }
+    @media (max-width:600px) {
+      .top-bar { padding:0 16px; }
+      .breadcrumbs { display:none; }
+      .article-wrapper { padding:32px 16px 60px; }
+      .article-nav { grid-template-columns:1fr; }
+      .article-nav a.next { text-align:left; }
+      .article-nav a.next .nav-label { justify-content:flex-start; }
+      .author-links { display:none; }
+    }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E01F5VDKVM"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-E01F5VDKVM');</script>
+</head>
+<body>
+
+<nav class="top-bar">
+  <div class="top-bar-left">
+    <a href="../index-ua.html" class="back-btn"><i class="bi bi-arrow-left"></i> Назад</a>
+    <nav class="breadcrumbs" aria-label="breadcrumb">
+      <a href="../index-ua.html">Головна</a><span class="sep">›</span>
+      <a href="../index-ua.html#articles">Статті</a><span class="sep">›</span>
+      <span class="current">Когортний аналіз у Python</span>
+    </nav>
+  </div>
+  <div class="share-btns">
+    <a href="cohort-analysis-python-2026.html" class="lang-toggle" title="Read in English"><i class="bi bi-translate"></i> EN</a>
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://isachenko-andrii.github.io/articles/cohort-analysis-python-2026-ua.html" target="_blank" class="share-btn"><i class="bi bi-linkedin"></i></a>
+    <a href="https://t.me/share/url?url=https://isachenko-andrii.github.io/articles/cohort-analysis-python-2026-ua.html" target="_blank" class="share-btn"><i class="bi bi-telegram"></i></a>
+  </div>
+</nav>
+
+<div class="article-hero">
+  <div class="article-hero-placeholder"><i class="bi bi-people"></i></div>
+</div>
+
+<main class="article-wrapper">
+
+  <div class="article-meta">
+    <span class="tag">Python</span>
+    <span class="tag tag-secondary">Утримання</span>
+    <span class="tag tag-secondary">Продуктова аналітика</span>
+    <span class="meta-date"><i class="bi bi-calendar3"></i> 1 березня 2026</span>
+    <span class="meta-read"><i class="bi bi-clock"></i> 10 хв читання</span>
+  </div>
+
+  <h1 class="article-title">Когортний аналіз і утримання користувачів у Python 2026: повний гід</h1>
+  <p class="article-subtitle">Утримання — найважливіша метрика для будь-якого підписного або повторного бізнесу. Ось як побудувати повний когортний аналіз із сирих транзакційних даних у Python — з кодом, який можна використати вже сьогодні.</p>
+
+  <div class="author-block">
+    <div class="author-avatar"><img src="../assets/img/profile-img.jpg" alt="Ісаченко Андрій"></div>
+    <div class="author-info">
+      <div class="author-name">Ісаченко Андрій</div>
+      <div class="author-role">Аналітик даних · Відкритий до роботи</div>
+    </div>
+    <div class="author-links">
+      <a href="https://www.linkedin.com/in/isachenko-andrii/" target="_blank"><i class="bi bi-linkedin"></i></a>
+      <a href="https://github.com/isachenko-andrii" target="_blank"><i class="bi bi-github"></i></a>
+      <a href="https://t.me/Manul_Solo" target="_blank"><i class="bi bi-telegram"></i></a>
+    </div>
+  </div>
+
+  <div class="toc">
+    <h4>📋 Зміст</h4>
+    <ol>
+      <li><a href="#what-is-cohort">Що таке когортний аналіз і чому він важливий</a></li>
+      <li><a href="#retention-matrix">Розуміння матриці утримання</a></li>
+      <li><a href="#data-prep">Підготовка даних у pandas</a></li>
+      <li><a href="#build-matrix">Побудова матриці утримання крок за кроком</a></li>
+      <li><a href="#heatmap">Візуалізація через теплову карту</a></li>
+      <li><a href="#churn">Розрахунок коефіцієнта відтоку</a></li>
+      <li><a href="#interpret">Як інтерпретувати та презентувати результати</a></li>
+    </ol>
+  </div>
+
+  <article class="article-content">
+
+    <h2 id="what-is-cohort">Що таке когортний аналіз і чому він важливий</h2>
+    <p>Когорта — це група користувачів, що мають спільну характеристику у визначеному часовому вікні. Найчастіше це місяць першої покупки або реєстрації. Когортний аналіз відстежує, який відсоток кожної когорти повертається у наступні місяці.</p>
+    <p>Без когортного аналізу агрегатні метрики утримання тебе обманюють. Загальний графік «щомісячних активних користувачів» може показувати зростання, навіть коли продукт погіршується — бо залучення нових користувачів маскує зростаючий відтік із ранніх когорт. Когортний аналіз розкриває правду: чи залишаються активними користувачі, що прийшли 6 місяців тому? Чи покращується утримання між когортами з часом?</p>
+
+    <div class="highlight-box">
+      <p>💡 Якщо утримання на 1-му місяці нижче 20% для споживчого застосунку — зростання рано чи пізно зупиниться незалежно від витрат на залучення. Когортний аналіз дозволяє виявити це завчасно.</p>
+    </div>
+
+    <h2 id="retention-matrix">Розуміння матриці утримання</h2>
+    <p>Результат когортного аналізу — <strong>матриця утримання</strong>: таблиця, де рядки — когорти (місяць залучення), стовпці — часові періоди (місяці після залучення), а кожна клітинка показує відсоток вихідної когорти, що залишається активною в цей період. Діагональ матриці відповідає одному й тому ж календарному місяцю, спостережуваному з перспективи різних когорт.</p>
+
+    <div class="retention-demo">
+      <table>
+        <thead>
+          <tr>
+            <th>Когорта</th><th>Розмір</th><th>Місяць 0</th><th>Місяць 1</th>
+            <th>Місяць 2</th><th>Місяць 3</th><th>Місяць 4</th><th>Місяць 5</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Січ 2025</strong></td><td>1 240</td><td class="r100">100%</td><td class="r40">41%</td><td class="r20">28%</td><td class="r20">22%</td><td class="r10">18%</td><td class="r10">16%</td></tr>
+          <tr><td><strong>Лют 2025</strong></td><td>980</td><td class="r100">100%</td><td class="r60">46%</td><td class="r40">31%</td><td class="r20">25%</td><td class="r20">20%</td><td class="r0">—</td></tr>
+          <tr><td><strong>Бер 2025</strong></td><td>1 560</td><td class="r100">100%</td><td class="r60">52%</td><td class="r40">35%</td><td class="r20">27%</td><td class="r0">—</td><td class="r0">—</td></tr>
+          <tr><td><strong>Кві 2025</strong></td><td>1 180</td><td class="r100">100%</td><td class="r80">58%</td><td class="r40">38%</td><td class="r0">—</td><td class="r0">—</td><td class="r0">—</td></tr>
+          <tr><td><strong>Тра 2025</strong></td><td>1 420</td><td class="r100">100%</td><td class="r80">61%</td><td class="r0">—</td><td class="r0">—</td><td class="r0">—</td><td class="r0">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Зверни увагу, як утримання на 1-му місяці зростає між когортами (41% → 61%). Це говорить про те, що зміни в продукті або онбордингу між січнем і травнем спрацювали — більше користувачів повертається після першого місяця. Саме цей інсайт сховано в сирих агрегатних метриках.</p>
+
+    <h2 id="data-prep">Підготовка даних у pandas</h2>
+    <p>Відправна точка — таблиця транзакцій або подій з щонайменше двома колонками: <code>user_id</code> та <code>event_date</code>. Потрібно вивести для кожного користувача: місяць когорти (місяць першої покупки) та порядковий номер місяця кожної наступної покупки.</p>
+
+    <div class="code-block"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd
+<span class="keyword">import</span> numpy <span class="keyword">as</span> np
+<span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt
+<span class="keyword">import</span> seaborn <span class="keyword">as</span> sns
+
+<span class="comment"># Завантаження транзакційних даних</span>
+df = pd.<span class="func">read_csv</span>(<span class="string">'transactions.csv'</span>, parse_dates=[<span class="string">'order_date'</span>])
+
+<span class="comment"># Нормалізація до першого дня місяця (місяць когорти)</span>
+df[<span class="string">'order_month'</span>] = df[<span class="string">'order_date'</span>].dt.<span class="func">to_period</span>(<span class="string">'M'</span>)
+
+<span class="comment"># Когорта кожного користувача = місяць ПЕРШОЇ покупки</span>
+df[<span class="string">'cohort_month'</span>] = df.<span class="func">groupby</span>(<span class="string">'user_id'</span>)[<span class="string">'order_month'</span>].<span class="func">transform</span>(<span class="string">'min'</span>)
+
+<span class="comment"># Індекс періоду: місяці після першої покупки (0, 1, 2, ...)</span>
+df[<span class="string">'period_number'</span>] = (
+    df[<span class="string">'order_month'</span>] - df[<span class="string">'cohort_month'</span>]
+).<span class="func">apply</span>(<span class="keyword">lambda</span> x: x.n)
+
+df.<span class="func">head</span>(<span class="number">3</span>)</div>
+
+    <h2 id="build-matrix">Побудова матриці утримання крок за кроком</h2>
+
+    <div class="code-block"><span class="comment"># Крок 1: Підрахунок унікальних активних користувачів на когорту × період</span>
+cohort_data = (
+    df.<span class="func">groupby</span>([<span class="string">'cohort_month'</span>, <span class="string">'period_number'</span>])[<span class="string">'user_id'</span>]
+    .<span class="func">nunique</span>()
+    .<span class="func">reset_index</span>()
+)
+cohort_data.<span class="func">columns</span> = [<span class="string">'cohort_month'</span>, <span class="string">'period_number'</span>, <span class="string">'n_users'</span>]
+
+<span class="comment"># Крок 2: Зведення у формат матриці</span>
+cohort_matrix = cohort_data.<span class="func">pivot_table</span>(
+    index=<span class="string">'cohort_month'</span>,
+    columns=<span class="string">'period_number'</span>,
+    values=<span class="string">'n_users'</span>
+)
+
+<span class="comment"># Крок 3: Розміри когорт = колонка 0 (Місяць 0)</span>
+cohort_sizes = cohort_matrix.<span class="func">iloc</span>[:, <span class="number">0</span>]
+
+<span class="comment"># Крок 4: Ділимо кожен рядок на розмір когорти → утримання у %</span>
+retention_matrix = cohort_matrix.<span class="func">divide</span>(cohort_sizes, axis=<span class="number">0</span>) * <span class="number">100</span>
+retention_matrix = retention_matrix.<span class="func">round</span>(<span class="number">1</span>)
+
+retention_matrix.<span class="func">columns</span> = [<span class="string">f'Місяць {i}'</span> <span class="keyword">for</span> i <span class="keyword">in</span> retention_matrix.columns]
+<span class="func">print</span>(retention_matrix)</div>
+
+    <h2 id="heatmap">Візуалізація через теплову карту</h2>
+    <p>Матриця утримання стає значно читабельнішою у вигляді кольорової теплової карти. Високі значення утримання відображаються темно-синім, низькі — світлим, що робить тенденції миттєво помітними для будь-якого стейкхолдера.</p>
+
+    <div class="code-block">fig, ax = plt.<span class="func">subplots</span>(figsize=(<span class="number">14</span>, <span class="number">7</span>))
+
+sns.<span class="func">heatmap</span>(
+    retention_matrix,
+    annot=<span class="keyword">True</span>,          <span class="comment"># показувати % у кожній клітинці</span>
+    fmt=<span class="string">'.1f'</span>,           <span class="comment"># один знак після коми</span>
+    cmap=<span class="string">'Blues'</span>,        <span class="comment"># синій градієнт</span>
+    vmin=<span class="number">0</span>, vmax=<span class="number">100</span>,   <span class="comment"># фіксована шкала 0-100%</span>
+    linewidths=<span class="number">0.5</span>,
+    linecolor=<span class="string">'white'</span>,
+    ax=ax,
+    cbar_kws={<span class="string">'label'</span>: <span class="string">'Утримання %'</span>}
+)
+
+ax.<span class="func">set_title</span>(<span class="string">'Щомісячне утримання когорт'</span>, fontsize=<span class="number">16</span>, fontweight=<span class="string">'bold'</span>, pad=<span class="number">15</span>)
+ax.<span class="func">set_xlabel</span>(<span class="string">'Місяці після першої покупки'</span>, fontsize=<span class="number">12</span>)
+ax.<span class="func">set_ylabel</span>(<span class="string">'Когорта (місяць першої покупки)'</span>, fontsize=<span class="number">12</span>)
+ax.<span class="func">set_yticklabels</span>(ax.<span class="func">get_yticklabels</span>(), rotation=<span class="number">0</span>)
+
+plt.<span class="func">tight_layout</span>()
+plt.<span class="func">savefig</span>(<span class="string">'cohort_retention_heatmap.png'</span>, dpi=<span class="number">150</span>, bbox_inches=<span class="string">'tight'</span>)
+plt.<span class="func">show</span>()</div>
+
+    <h2 id="churn">Розрахунок коефіцієнта відтоку</h2>
+    <p>Відтік — це доповнення утримання: відсоток користувачів, що <em>не</em> повернулися. Щомісячний відтік когорти в період N — це просто <code>100 - retention_at_N</code>. Але корисніша метрика — <strong>інкрементальний відтік</strong>: відсоток втрачених між двома послідовними періодами.</p>
+
+    <div class="code-block"><span class="comment"># Відтік між місяцями в межах кожної когорти</span>
+churn_matrix = retention_matrix.<span class="func">copy</span>()
+
+<span class="keyword">for</span> col <span class="keyword">in</span> <span class="func">range</span>(<span class="number">1</span>, <span class="func">len</span>(retention_matrix.columns)):
+    prev = retention_matrix.<span class="func">iloc</span>[:, col - <span class="number">1</span>]
+    curr = retention_matrix.<span class="func">iloc</span>[:, col]
+    <span class="comment"># % користувачів попереднього місяця, що відтекли</span>
+    churn_matrix.<span class="func">iloc</span>[:, col] = ((prev - curr) / prev * <span class="number">100</span>).<span class="func">round</span>(<span class="number">1</span>)
+
+churn_matrix[<span class="string">'Місяць 0'</span>] = np.nan  <span class="comment"># немає відтоку в момент залучення</span>
+
+<span class="comment"># Середня крива утримання по всіх когортах</span>
+avg_retention = retention_matrix.<span class="func">mean</span>(axis=<span class="number">0</span>).<span class="func">round</span>(<span class="number">1</span>)
+<span class="func">print</span>(<span class="string">"\nСередня крива утримання:"</span>)
+<span class="func">print</span>(avg_retention)</div>
+
+    <h2 id="interpret">Як інтерпретувати та презентувати результати</h2>
+    <p>Матриця утримання корисна лише тоді, коли ти вмієш перекласти цифри в бізнес-рішення. Ось фреймворк для інтерпретації:</p>
+
+    <table>
+      <thead><tr><th>Паттерн</th><th>Що це означає</th><th>Дія</th></tr></thead>
+      <tbody>
+        <tr><td>Утримання на 1-му місяці зростає між когортами</td><td>Онбординг або продуктові покращення спрацювали</td><td>Подвоїти зусилля в тому, що змінилося</td></tr>
+        <tr><td>Утримання на 1-му місяці стабільне, але 3-й місяць падає</td><td>Користувачі починають, але втрачають звичку</td><td>Покращити повторне залучення та петлі звички</td></tr>
+        <tr><td>Одна когорта значно гірша за сусідні</td><td>Поганий канал залучення, кампанія або баг у продукті того місяця</td><td>Дослідити конкретний період</td></tr>
+        <tr><td>Утримання стабілізується після 3-го місяця (~15%+)</td><td>Є здорова база лояльних користувачів</td><td>Зосередитися на розширенні цього сегменту</td></tr>
+        <tr><td>Утримання падає майже до 0 до 2-го місяця</td><td>Проблема з product-market fit</td><td>Поговорити з тими, хто відтік, переосмислити основний цикл</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Презентація стейкхолдерам</h3>
+    <p>Коли презентуєш когортне утримання нетехнічній аудиторії, починай з бізнес-висновку, а не з методології. Замість «Утримання на 1-му місяці зросло з 41% до 61% між когортами січня–травня» скажи: «Більше половини нових клієнтів тепер повертаються за другою покупкою протягом 30 днів — це на 20 п.п. більше, ніж на початку року. Це безпосередньо скорочує термін окупності витрат на залучення клієнтів.»</p>
+
+    <div class="highlight-box">
+      <p>🎯 Завдання аналітика — не побудувати теплову карту, а відповісти на питання: «Чи стає наш продукт кращим або гіршим у збереженні користувачів?» Когортний аналіз — найнадійніший спосіб відповісти на нього.</p>
+    </div>
+
+    <h3>Готовий скрипт — скопіюй і запусти</h3>
+    <div class="code-block"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd
+<span class="keyword">import</span> numpy <span class="keyword">as</span> np
+<span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt
+<span class="keyword">import</span> seaborn <span class="keyword">as</span> sns
+
+<span class="keyword">def</span> <span class="func">build_cohort_retention</span>(df, user_col=<span class="string">'user_id'</span>, date_col=<span class="string">'order_date'</span>):
+    <span class="string">"""
+    Будує щомісячну матрицю утримання когорт із транзакційних даних.
+    df повинен мати колонки: user_id, order_date (datetime)
+    Повертає: retention_matrix (DataFrame, значення у %)
+    """</span>
+    df = df.<span class="func">copy</span>()
+    df[<span class="string">'order_month'</span>]  = df[date_col].dt.<span class="func">to_period</span>(<span class="string">'M'</span>)
+    df[<span class="string">'cohort_month'</span>] = df.<span class="func">groupby</span>(user_col)[<span class="string">'order_month'</span>].<span class="func">transform</span>(<span class="string">'min'</span>)
+    df[<span class="string">'period'</span>]       = (df[<span class="string">'order_month'</span>] - df[<span class="string">'cohort_month'</span>]).<span class="func">apply</span>(<span class="keyword">lambda</span> x: x.n)
+
+    matrix = (
+        df.<span class="func">groupby</span>([<span class="string">'cohort_month'</span>, <span class="string">'period'</span>])[user_col]
+        .<span class="func">nunique</span>()
+        .<span class="func">unstack</span>()
+    )
+    sizes = matrix.iloc[:, <span class="number">0</span>]
+    retention = (matrix.<span class="func">divide</span>(sizes, axis=<span class="number">0</span>) * <span class="number">100</span>).<span class="func">round</span>(<span class="number">1</span>)
+    retention.columns = [<span class="string">f'M{c}'</span> <span class="keyword">for</span> c <span class="keyword">in</span> retention.columns]
+    <span class="keyword">return</span> retention, sizes
+
+<span class="comment"># Використання:</span>
+<span class="comment"># df = pd.read_csv('your_data.csv', parse_dates=['order_date'])</span>
+<span class="comment"># retention, sizes = build_cohort_retention(df)</span>
+<span class="comment"># sns.heatmap(retention, annot=True, fmt='.1f', cmap='Blues', vmin=0, vmax=100)</span></div>
+
+  </article>
+
+  <div class="article-tags">
+    <span>Теги:</span>
+    <a href="../index-ua.html#articles">Python</a>
+    <a href="../index-ua.html#articles">Утримання</a>
+    <a href="../index-ua.html#articles">Когортний аналіз</a>
+    <a href="../index-ua.html#articles">Pandas</a>
+    <a href="../index-ua.html#articles">Продуктова аналітика</a>
+    <a href="../index-ua.html#articles">Відтік</a>
+  </div>
+
+  <nav class="article-nav">
+    <a href="dbt-for-analysts-2026-ua.html" class="prev">
+      <span class="nav-label"><i class="bi bi-arrow-left"></i> Попередня</span>
+      <span class="nav-title">dbt для аналітиків даних у 2026</span>
+    </a>
+    <a href="../index-ua.html#articles" class="next">
+      <span class="nav-label">Всі статті <i class="bi bi-arrow-right"></i></span>
+      <span class="nav-title">Назад до розділу статей</span>
+    </a>
+  </nav>
+
+  <div class="back-to-main">
+    <a href="../index-ua.html"><i class="bi bi-house"></i> На головну сторінку</a>
+  </div>
+
+</main>
+</body>
+</html>
