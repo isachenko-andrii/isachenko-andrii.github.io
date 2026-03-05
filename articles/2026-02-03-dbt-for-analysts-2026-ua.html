@@ -4,22 +4,26 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>dbt для аналітиків даних у 2026: сучасна трансформація SQL без програмування — Ісаченко Андрій</title>
-  <meta name="description" content="Що таке dbt і чому кожен аналітик даних має вивчити його у 2026 році. Практичний гід по dbt Core: моделі, тести, документація та лінійність даних. Без бекграунду розробника.">
+  <title>dbt для аналітиків даних у 2026: практичний гід</title>
+  <meta name="description" content="Що таке dbt і чому кожен аналітик має вивчити його у 2026. Гід по dbt Core: моделі, тести, документація та лінійність даних — без навичок розробника.">
   <meta name="keywords" content="dbt туторіал 2026, dbt для аналітиків, data build tool, dbt Core, трансформація SQL, сучасний стек даних, аналітик даних dbt, аналітика даних Україна, dbt моделі тести">
   <meta name="author" content="Ісаченко Андрій">
   <meta name="robots" content="index, follow">
   <meta name="language" content="Ukrainian">
-  <link rel="canonical" href="https://isachenko-andrii.github.io/articles/dbt-for-analysts-2026-ua.html">
-  <link rel="alternate" hreflang="uk" href="https://isachenko-andrii.github.io/articles/dbt-for-analysts-2026-ua.html">
-  <link rel="alternate" hreflang="en" href="https://isachenko-andrii.github.io/articles/dbt-for-analysts-2026.html">
+  <link rel="canonical" href="https://isachenko-andrii.github.io/articles/2026-02-03-dbt-for-analysts-2026-ua.html">
+  <link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/articles/2026-02-03-dbt-for-analysts-2026.html">
+  <link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-02-03-dbt-for-analysts-2026-ua.html">
+  <link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-02-03-dbt-for-analysts-2026.html">
 
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://isachenko-andrii.github.io/articles/dbt-for-analysts-2026-ua.html">
+  <meta property="og:url" content="https://isachenko-andrii.github.io/articles/2026-02-03-dbt-for-analysts-2026-ua.html">
   <meta property="og:title" content="dbt для аналітиків даних у 2026 — Ісаченко Андрій">
   <meta property="og:description" content="Практичний гід по dbt Core для аналітиків: моделі, тести, документація. Без бекграунду розробника.">
   <meta property="og:image" content="https://isachenko-andrii.github.io/articles/article-img/dbt-for-analysts-2026.jpg">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:locale" content="uk_UA">
+  <meta property="og:locale:alternate" content="en_US">
   <meta property="article:published_time" content="2026-02-05">
   <meta property="article:author" content="Ісаченко Андрій">
   <meta property="article:tag" content="SQL">
@@ -32,10 +36,17 @@
     "headline": "dbt для аналітиків даних у 2026: сучасна трансформація SQL без програмування",
     "description": "Практичний гід по dbt Core для аналітиків: моделі, тести, документація та лінійність даних.",
     "image": "https://isachenko-andrii.github.io/articles/article-img/dbt-for-analysts-2026.jpg",
-    "datePublished": "2026-02-05",
+    "datePublished": "2026-02-03",
     "inLanguage": "uk",
-    "author": { "@type": "Person", "name": "Ісаченко Андрій", "url": "https://isachenko-andrii.github.io" },
-    "publisher": { "@type": "Person", "name": "Ісаченко Андрій" },
+    "author": {
+      "@type": "Person",
+      "name": "Ісаченко Андрій",
+      "url": "https://isachenko-andrii.github.io"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Ісаченко Андрій"
+    },
     "keywords": "dbt, data build tool, трансформація SQL, сучасний стек даних, навички аналітика 2026"
   }
   </script>
@@ -172,21 +183,27 @@
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-E01F5VDKVM"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-E01F5VDKVM');</script>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="dbt для аналітиків даних у 2026: практичний гід">
+  <meta name="twitter:description" content="dbt Core для аналітиків: моделі, тести, документація та лінійність — без бекграунду розробника.">
+  <meta name="twitter:image"       content="https://isachenko-andrii.github.io/articles/article-img/dbt-for-analysts-2026.jpg">
 </head>
 <body>
 
 <nav class="top-bar">
   <div class="top-bar-left">
-    <a href="../articles/index-ua.html" class="back-btn"><i class="bi bi-arrow-left"></i> Назад</a>
+    <a href="index-ua.html" class="back-btn"><i class="bi bi-arrow-left"></i> Назад</a>
     <nav class="breadcrumbs" aria-label="breadcrumb">
-      <a href="../articles/index-ua.html">Блог</a><span class="sep">›</span>
-      <a href="../articles/index-ua.html">Статті</a><span class="sep">›</span>
+      <a href="index-ua.html">Блог</a><span class="sep">›</span>
+      <a href="index-ua.html">Статті</a><span class="sep">›</span>
       <span class="current">dbt для аналітиків у 2026</span>
     </nav>
   </div>
   <div class="top-bar-right">
-    <a href="../articles/2026-02-03-dbt-for-analysts-2026.html" class="lang-btn" title="English">EN</a>
-    <a href="../articles/2026-02-03-dbt-for-analysts-2026-ua.html" class="lang-btn active" aria-current=page title="Українська">UA</a>
+    <a href="2026-02-03-dbt-for-analysts-2026.html" class="lang-btn" title="English">EN</a>
+    <a href="2026-02-03-dbt-for-analysts-2026-ua.html" class="lang-btn active" aria-current=page title="Українська">UA</a>
   </div>
 </nav>
 
@@ -356,19 +373,19 @@
 
   <div class="article-tags">
     <span>Теги:</span>
-    <a href="../articles/index.html">SQL</a>
-    <a href="../articles/index.html">dbt</a>
-    <a href="../articles/index.html">Стек даних</a>
-    <a href="../articles/index.html">Аналітична інженерія</a>
-    <a href="../articles/index.html">Трансформація даних</a>
+    <a href="index.html">SQL</a>
+    <a href="index.html">dbt</a>
+    <a href="index.html">Стек даних</a>
+    <a href="index.html">Аналітична інженерія</a>
+    <a href="index.html">Трансформація даних</a>
   </div>
 
   <nav class="article-nav">
-    <a href="../articles/2026-01-15-ai-assisted-data-analysis-2026-ua.html" class="prev">
+    <a href="2026-01-15-ai-assisted-data-analysis-2026-ua.html" class="prev">
       <span class="nav-label"><i class="bi bi-arrow-left"></i> Попередня</span>
       <span class="nav-title">AI-аналіз даних у 2026</span>
     </a>
-    <a href="../articles/2026-03-10-cohort-analysis-python-2026-ua.html" class="next">
+    <a href="2026-03-10-cohort-analysis-python-2026-ua.html" class="next">
       <span class="nav-label">Наступна <i class="bi bi-arrow-right"></i></span>
       <span class="nav-title">Когортний аналіз і утримання користувачів у Python</span>
     </a>
