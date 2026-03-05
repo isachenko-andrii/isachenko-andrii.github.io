@@ -10,12 +10,12 @@
   <meta name="author" content="Ісаченко Андрій">
   <meta name="robots" content="index, follow">
   <meta name="language" content="Ukrainian">
-  <link rel="canonical" href="https://isachenko-andrii.github.io/articles/2026-02-03-dbt-for-analysts-2026-ua.html">
-  <link rel="alternate" hreflang="uk" href="https://isachenko-andrii.github.io/articles/2026-02-03-dbt-for-analysts-2026-ua.html">
-  <link rel="alternate" hreflang="en" href="https://isachenko-andrii.github.io/articles/2026-02-03-dbt-for-analysts-2026.html">
+  <link rel="canonical" href="https://isachenko-andrii.github.io/articles/dbt-for-analysts-2026-ua.html">
+  <link rel="alternate" hreflang="uk" href="https://isachenko-andrii.github.io/articles/dbt-for-analysts-2026-ua.html">
+  <link rel="alternate" hreflang="en" href="https://isachenko-andrii.github.io/articles/dbt-for-analysts-2026.html">
 
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://isachenko-andrii.github.io/articles/2026-02-03-dbt-for-analysts-2026-ua.html>
+  <meta property="og:url" content="https://isachenko-andrii.github.io/articles/dbt-for-analysts-2026-ua.html">
   <meta property="og:title" content="dbt для аналітиків даних у 2026 — Ісаченко Андрій">
   <meta property="og:description" content="Практичний гід по dbt Core для аналітиків: моделі, тести, документація. Без бекграунду розробника.">
   <meta property="og:image" content="https://isachenko-andrii.github.io/articles/article-img/dbt-for-analysts-2026.jpg">
@@ -60,8 +60,6 @@
     .breadcrumbs a:hover { text-decoration:underline; }
     .breadcrumbs .sep { color:#ccc; }
     .breadcrumbs .current { color:var(--text-light); max-width:220px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-    .lang-toggle { display:flex; align-items:center; gap:6px; font-size:12px; background:var(--bg-light); border:1px solid var(--border); border-radius:20px; padding:4px 10px; text-decoration:none; color:var(--text-light); transition:all 0.2s; }
-    .lang-toggle:hover { border-color:var(--primary); color:var(--primary); }
     .share-btns { display:flex; gap:8px; align-items:center; }
     .share-btn { width:34px; height:34px; border-radius:50%; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; color:var(--text-light); text-decoration:none; font-size:15px; transition:all 0.2s; }
     .share-btn:hover { border-color:var(--primary); color:var(--primary); }
@@ -133,6 +131,43 @@
       .article-nav a.next .nav-label { justify-content:flex-start; }
       .author-links { display:none; }
     }
+
+    /* ── ARTICLE FOOTER ── */
+    .article-footer { background:#f8fafc; border-top:1px solid #e8ecf0; padding:40px 24px 32px; text-align:center; }
+    .footer-share-label { font-size:12px; font-weight:600; letter-spacing:0.8px; text-transform:uppercase; color:#666; margin-bottom:16px; }
+    .footer-share-btns  { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-bottom:32px; }
+    .footer-share-btn   { display:inline-flex; align-items:center; gap:8px; padding:9px 22px; border-radius:25px; font-size:14px; font-weight:500; text-decoration:none; border:1px solid #e8ecf0; color:#666; background:#fff; transition:all 0.22s; }
+    .footer-share-btn:hover { transform:translateY(-2px); box-shadow:0 4px 14px rgba(0,0,0,0.09); }
+    .footer-share-btn.li:hover { background:#0077b5; color:#fff; border-color:#0077b5; }
+    .footer-share-btn.tg:hover { background:#26a5e4; color:#fff; border-color:#26a5e4; }
+    .footer-hr { border:none; border-top:1px solid #e8ecf0; margin:0 auto 28px; max-width:360px; }
+    .footer-social { display:flex; justify-content:center; gap:10px; margin-bottom:22px; }
+    .footer-social a { width:42px; height:42px; border-radius:50%; background:#0563bb; color:#fff; display:flex; align-items:center; justify-content:center; font-size:18px; text-decoration:none; transition:all 0.25s; }
+    .footer-social a:hover { background:#0352a0; transform:translateY(-3px); }
+    .footer-copy { font-size:13px; color:#666; line-height:2; }
+    .footer-copy a { color:#0563bb; text-decoration:none; }
+    .footer-copy a:hover { text-decoration:underline; }
+    .back-to-main { margin-top:22px; }
+    .back-to-main a { display:inline-flex; align-items:center; gap:8px; color:#0563bb; text-decoration:none; font-weight:500; font-size:15px; border:1px solid #e8ecf0; padding:10px 24px; border-radius:25px; transition:all 0.2s; background:#fff; }
+    .back-to-main a:hover { background:#0563bb; color:#fff; border-color:#0563bb; }
+    /* ── SCROLL TO TOP ── */
+    #scrollTopBtn { position:fixed; bottom:28px; right:24px; z-index:999; width:44px; height:44px; border-radius:50%; background:#0563bb; color:#fff; display:flex; align-items:center; justify-content:center; font-size:22px; text-decoration:none; box-shadow:0 4px 16px rgba(5,99,187,0.4); opacity:0; pointer-events:none; transition:opacity 0.3s, transform 0.3s; }
+    #scrollTopBtn.visible { opacity:1; pointer-events:auto; }
+    #scrollTopBtn:hover { background:#0352a0; transform:translateY(-3px); }
+    @media (max-width:600px) { #scrollTopBtn { bottom:18px; right:14px; width:40px; height:40px; font-size:20px; } }
+
+    /* ── Language switcher ── */
+    .top-bar-right { display:flex; align-items:center; gap:4px; }
+    .lang-btn {
+      display:inline-flex; align-items:center; justify-content:center;
+      min-width:34px; height:28px; padding:0 10px;
+      border-radius:14px; border:1.5px solid #0563bb;
+      font-size:12px; font-weight:700; letter-spacing:0.4px;
+      text-decoration:none; transition:all 0.2s;
+      color:#0563bb; background:transparent;
+    }
+    .lang-btn:hover   { background:#e8f0fb; }
+    .lang-btn.active  { background:#0563bb; color:#fff; cursor:default; pointer-events:none; }
   </style>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-E01F5VDKVM"></script>
@@ -142,21 +177,21 @@
 
 <nav class="top-bar">
   <div class="top-bar-left">
-    <a href="../articles/index-ua.html" class="back-btn"><i class="bi bi-arrow-left"></i> Назад</a>
+    <a href="../index-ua.html" class="back-btn"><i class="bi bi-arrow-left"></i> Назад</a>
     <nav class="breadcrumbs" aria-label="breadcrumb">
-      <a href="../articles/index-ua.html">Блог</a><span class="sep">›</span>
-      <a href="../articles/index-ua.html">Статті</a><span class="sep">›</span>
-      <span class="current">dbt для аналітиків у 2026</span>
+      <a href="../index-ua.html">Головна</a><span class="sep">›</span>
+      <a href="../index-ua.html#articles">Статті</a><span class="sep">›</span>
+      <span class="current">dbt для аналітиків 2026</span>
     </nav>
   </div>
-  <div class="share-btns">
-    <a href="../articles/2026-02-03-dbt-for-analysts-2026.html" class="lang-toggle" title="Read in English"><i class="bi bi"></i> EN</a>
-    <a href="../articles/2026-02-03-dbt-for-analysts-2026-ua.html" class="lang-toggle" title="Read in English"><i class="bi bi"></i> UA</a>
+  <div class="top-bar-right">
+    <a href="dbt-for-analysts-2026.html" class="lang-btn" title="English">EN</a>
+    <a href="dbt-for-analysts-2026-ua.html" class="lang-btn active" aria-current=page title="Українська">UA</a>
   </div>
 </nav>
 
 <div class="article-hero">
-  <div class="article-hero-placeholder"><i class="bi bi-funnel"></i></div>
+  <div class="article-hero-placeholder"><i class="bi bi-diagram-3"></i></div>
 </div>
 
 <main class="article-wrapper">
@@ -165,7 +200,8 @@
     <span class="tag">SQL</span>
     <span class="tag tag-secondary">dbt</span>
     <span class="tag tag-secondary">Стек даних</span>
-    <span class="meta-date"><i class="bi bi-calendar3"></i> 2026-02-03</span>
+    <span class="meta-date"><i class="bi bi-calendar3"></i> 5 лютого 2026</span>
+    <span class="meta-read"><i class="bi bi-clock"></i> 9 хв читання</span>
   </div>
 
   <h1 class="article-title">dbt для аналітиків даних у 2026: сучасна трансформація SQL без програмування</h1>
@@ -321,28 +357,50 @@
 
   <div class="article-tags">
     <span>Теги:</span>
-    <a href="../articles/index-ua.html">SQL</a>
-    <a href="../articles/index-ua.html">dbt</a>
-    <a href="../articles/index-ua.html">Стек даних</a>
-    <a href="../articles/index-ua.html">Аналітична інженерія</a>
-    <a href="../articles/index-ua.html">Трансформація даних</a>
+    <a href="../index-ua.html#articles">SQL</a>
+    <a href="../index-ua.html#articles">dbt</a>
+    <a href="../index-ua.html#articles">Стек даних</a>
+    <a href="../index-ua.html#articles">Аналітична інженерія</a>
+    <a href="../index-ua.html#articles">Трансформація даних</a>
   </div>
 
   <nav class="article-nav">
-    <a href="../articles/2026-01-15-ai-assisted-data-analysis-2026-ua.html" class="prev">
+    <a href="ai-assisted-data-analysis-2026-ua.html" class="prev">
       <span class="nav-label"><i class="bi bi-arrow-left"></i> Попередня</span>
       <span class="nav-title">AI-аналіз даних у 2026</span>
     </a>
-    <a href="../articles/2026-03-10-cohort-analysis-python-2026-ua.html" class="next">
+    <a href="cohort-analysis-python-2026-ua.html" class="next">
       <span class="nav-label">Наступна <i class="bi bi-arrow-right"></i></span>
       <span class="nav-title">Когортний аналіз і утримання користувачів у Python</span>
     </a>
   </nav>
+</main>
 
+<!-- FOOTER -->
+<footer class="article-footer">
+  <div class="footer-social">
+    <a href="https://www.linkedin.com/in/isachenko-andrii/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+    <a href="https://github.com/isachenko-andrii"           target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+    <a href="https://t.me/Manul_Solo"                       target="_blank" rel="noopener" aria-label="Telegram"><i class="bi bi-telegram"></i></a>
+    <a href="/cdn-cgi/l/email-protection#bad3c9dbd9d2dfd4d1d594dbd4dec8d3d394cdd5c8d1faddd7dbd3d694d9d5d7" aria-label="Email"><i class="bi bi-envelope"></i></a>
+  </div>
+  <div class="footer-copy">
+    <span>Copyright <a href="https://isachenko-andrii.github.io/index-ua.html">Ісаченко Андрій</a> All Rights Reserved</span><br>
+    <span>Designed by <a href="https://bootstrapmade.com/" target="_blank" rel="noopener">BootstrapMade</a> Distribuited by <a href="https://themewagon.com" target="_blank" rel="noopener">ThemeWagon</a></span>
+  </div>
   <div class="back-to-main">
     <a href="../index-ua.html"><i class="bi bi-house"></i> На головну сторінку</a>
   </div>
-
-</main>
+</footer>
+<!-- Scroll to top -->
+<a href="#" id="scrollTopBtn" aria-label="Scroll to top"><i class="bi bi-arrow-up-short"></i></a>
+<script>
+(function(){
+  var b=document.getElementById('scrollTopBtn');
+  if(!b)return;
+  window.addEventListener('scroll',function(){b.classList.toggle('visible',window.pageYOffset>320);},{passive:true});
+  b.addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});});
+})();
+</script>
 </body>
 </html>
