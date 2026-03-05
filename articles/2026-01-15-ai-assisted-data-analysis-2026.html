@@ -1,25 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>AI-Assisted Data Analysis in 2026: How to Use ChatGPT, Copilot & PandasAI — Isachenko Andrii</title>
-  <meta name="description" content="How data analysts use AI tools in 2026: ChatGPT for SQL, GitHub Copilot for Python, PandasAI for dataframe queries. Practical guide with real prompts and code examples.">
-  <meta name="keywords" content="AI data analysis 2026, PandasAI, ChatGPT SQL, GitHub Copilot data analyst, AI tools for analysts, аналітик даних ШІ, аналіз даних штучний інтелект, data analyst skills 2026">
-  <meta name="author" content="Isachenko Andrii">
+  <title>AI-аналіз даних у 2026: ChatGPT, Copilot і PandasAI для аналітика — Ісаченко Андрій</title>
+  <meta name="description" content="Як аналітик даних використовує ШІ у 2026 році: ChatGPT для SQL, GitHub Copilot для Python, PandasAI для датафреймів. Практичний гід з реальними промптами та прикладами коду.">
+  <meta name="keywords" content="аналіз даних ШІ 2026, PandasAI, ChatGPT SQL, GitHub Copilot аналітик, ШІ інструменти аналітик, аналітик даних Україна, штучний інтелект аналіз даних, навички аналітика 2026">
+  <meta name="author" content="Ісаченко Андрій">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://isachenko-andrii.github.io/articles/ai-assisted-data-analysis-2026.html">
+  <meta name="language" content="Ukrainian">
+  <link rel="canonical" href="https://isachenko-andrii.github.io/articles/2026-01-15-ai-assisted-data-analysis-2026-ua.html">
+  <link rel="alternate" hreflang="uk" href="https://isachenko-andrii.github.io/articles/2026-01-15-ai-assisted-data-analysis-2026-ua.html">
+  <link rel="alternate" hreflang="en" href="https://isachenko-andrii.github.io/articles/2026-01-15-ai-assisted-data-analysis-2026.html">
 
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://isachenko-andrii.github.io/articles/2026-01-15-ai-assisted-data-analysis-2026.html">
-  <meta property="og:title" content="AI-Assisted Data Analysis in 2026 — Isachenko Andrii">
-  <meta property="og:description" content="How to use ChatGPT, Copilot and PandasAI to work 3× faster as a data analyst. Practical guide with prompts and code.">
+  <meta property="og:url" content="https://isachenko-andrii.github.io/articles/2026-01-15-ai-assisted-data-analysis-2026-ua.html">
+  <meta property="og:title" content="AI-аналіз даних у 2026: ChatGPT, Copilot і PandasAI — Ісаченко Андрій">
+  <meta property="og:description" content="Як використовувати ChatGPT, Copilot і PandasAI щоб працювати втричі швидше. Практичний гід з промптами та кодом.">
   <meta property="og:image" content="https://isachenko-andrii.github.io/articles/article-img/ai-assisted-data-analysis-2026.jpg">
-  <meta property="og:locale" content="en_US">
+  <meta property="og:locale" content="uk_UA">
   <meta property="article:published_time" content="2026-01-20">
-  <meta property="article:author" content="Isachenko Andrii">
-  <meta property="article:tag" content="AI Tools">
+  <meta property="article:author" content="Ісаченко Андрій">
+  <meta property="article:tag" content="ШІ Інструменти">
   <meta property="article:tag" content="Python">
   <meta property="article:tag" content="SQL">
 
@@ -27,13 +30,14 @@
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "AI-Assisted Data Analysis in 2026: How to Use ChatGPT, Copilot & PandasAI",
-    "description": "How data analysts use AI tools in 2026: ChatGPT for SQL, GitHub Copilot for Python, PandasAI for dataframe queries.",
+    "headline": "AI-аналіз даних у 2026: ChatGPT, Copilot і PandasAI для аналітика",
+    "description": "Як аналітик даних використовує ШІ у 2026 році: ChatGPT для SQL, GitHub Copilot для Python, PandasAI для датафреймів.",
     "image": "https://isachenko-andrii.github.io/articles/article-img/ai-assisted-data-analysis-2026.jpg",
     "datePublished": "2026-01-20",
-    "author": { "@type": "Person", "name": "Isachenko Andrii", "url": "https://isachenko-andrii.github.io" },
-    "publisher": { "@type": "Person", "name": "Isachenko Andrii" },
-    "keywords": "AI data analysis, PandasAI, ChatGPT SQL, GitHub Copilot, data analyst 2026"
+    "inLanguage": "uk",
+    "author": { "@type": "Person", "name": "Ісаченко Андрій", "url": "https://isachenko-andrii.github.io" },
+    "publisher": { "@type": "Person", "name": "Ісаченко Андрій" },
+    "keywords": "аналіз даних ШІ, PandasAI, ChatGPT SQL, GitHub Copilot, аналітик даних 2026"
   }
   </script>
 
@@ -57,11 +61,10 @@
     .breadcrumbs a:hover { text-decoration:underline; }
     .breadcrumbs .sep { color:#ccc; }
     .breadcrumbs .current { color:var(--text-light); max-width:220px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-    .share-btns { display:flex; gap:8px; }
+    .share-btns { display:flex; gap:8px; align-items:center; }
     .share-btn { width:34px; height:34px; border-radius:50%; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; color:var(--text-light); text-decoration:none; font-size:15px; transition:all 0.2s; }
     .share-btn:hover { border-color:var(--primary); color:var(--primary); }
     .article-hero { width:100%; max-height:480px; overflow:hidden; background:linear-gradient(135deg,#e8f0fb 0%,#cfe0f7 100%); }
-    .article-hero img { width:100%; height:480px; object-fit:cover; display:block; }
     .article-hero-placeholder { height:320px; display:flex; align-items:center; justify-content:center; }
     .article-hero-placeholder i { font-size:90px; color:var(--primary); opacity:0.2; }
     .article-wrapper { max-width:760px; margin:0 auto; padding:48px 24px 80px; }
@@ -71,8 +74,8 @@
     .meta-date,.meta-read { font-size:13px; color:var(--text-light); display:flex; align-items:center; gap:5px; }
     .meta-read { margin-left:auto; }
     .meta-date i,.meta-read i { color:var(--primary); }
-    .article-title { font-family:'Raleway',sans-serif; font-size:clamp(26px,4vw,40px); font-weight:700; line-height:1.25; color:var(--text); margin-bottom:16px; }
-    .article-subtitle { font-size:18px; color:var(--text-light); font-weight:400; line-height:1.6; margin-bottom:36px; padding-bottom:36px; border-bottom:1px solid var(--border); }
+    .article-title { font-family:'Raleway',sans-serif; font-size:clamp(24px,4vw,38px); font-weight:700; line-height:1.25; color:var(--text); margin-bottom:16px; }
+    .article-subtitle { font-size:17px; color:var(--text-light); font-weight:400; line-height:1.6; margin-bottom:36px; padding-bottom:36px; border-bottom:1px solid var(--border); }
     .author-block { display:flex; align-items:center; gap:14px; margin-bottom:40px; padding:16px 20px; background:var(--bg-light); border-radius:10px; border-left:3px solid var(--primary); }
     .author-avatar { width:48px; height:48px; border-radius:50%; flex-shrink:0; background:var(--tag-bg); display:flex; align-items:center; justify-content:center; font-size:20px; color:var(--primary); overflow:hidden; }
     .author-avatar img { width:100%; height:100%; object-fit:cover; }
@@ -130,6 +133,43 @@
       .article-nav a.next .nav-label { justify-content:flex-start; }
       .author-links { display:none; }
     }
+
+    /* ── ARTICLE FOOTER ── */
+    .article-footer { background:#f8fafc; border-top:1px solid #e8ecf0; padding:40px 24px 32px; text-align:center; }
+    .footer-share-label { font-size:12px; font-weight:600; letter-spacing:0.8px; text-transform:uppercase; color:#666; margin-bottom:16px; }
+    .footer-share-btns  { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-bottom:32px; }
+    .footer-share-btn   { display:inline-flex; align-items:center; gap:8px; padding:9px 22px; border-radius:25px; font-size:14px; font-weight:500; text-decoration:none; border:1px solid #e8ecf0; color:#666; background:#fff; transition:all 0.22s; }
+    .footer-share-btn:hover { transform:translateY(-2px); box-shadow:0 4px 14px rgba(0,0,0,0.09); }
+    .footer-share-btn.li:hover { background:#0077b5; color:#fff; border-color:#0077b5; }
+    .footer-share-btn.tg:hover { background:#26a5e4; color:#fff; border-color:#26a5e4; }
+    .footer-hr { border:none; border-top:1px solid #e8ecf0; margin:0 auto 28px; max-width:360px; }
+    .footer-social { display:flex; justify-content:center; gap:10px; margin-bottom:22px; }
+    .footer-social a { width:42px; height:42px; border-radius:50%; background:#0563bb; color:#fff; display:flex; align-items:center; justify-content:center; font-size:18px; text-decoration:none; transition:all 0.25s; }
+    .footer-social a:hover { background:#0352a0; transform:translateY(-3px); }
+    .footer-copy { font-size:13px; color:#666; line-height:2; }
+    .footer-copy a { color:#0563bb; text-decoration:none; }
+    .footer-copy a:hover { text-decoration:underline; }
+    .back-to-main { margin-top:22px; }
+    .back-to-main a { display:inline-flex; align-items:center; gap:8px; color:#0563bb; text-decoration:none; font-weight:500; font-size:15px; border:1px solid #e8ecf0; padding:10px 24px; border-radius:25px; transition:all 0.2s; background:#fff; }
+    .back-to-main a:hover { background:#0563bb; color:#fff; border-color:#0563bb; }
+    /* ── SCROLL TO TOP ── */
+    #scrollTopBtn { position:fixed; bottom:28px; right:24px; z-index:999; width:44px; height:44px; border-radius:50%; background:#0563bb; color:#fff; display:flex; align-items:center; justify-content:center; font-size:22px; text-decoration:none; box-shadow:0 4px 16px rgba(5,99,187,0.4); opacity:0; pointer-events:none; transition:opacity 0.3s, transform 0.3s; }
+    #scrollTopBtn.visible { opacity:1; pointer-events:auto; }
+    #scrollTopBtn:hover { background:#0352a0; transform:translateY(-3px); }
+    @media (max-width:600px) { #scrollTopBtn { bottom:18px; right:14px; width:40px; height:40px; font-size:20px; } }
+
+    /* ── Language switcher ── */
+    .top-bar-right { display:flex; align-items:center; gap:4px; }
+    .lang-btn {
+      display:inline-flex; align-items:center; justify-content:center;
+      min-width:34px; height:28px; padding:0 10px;
+      border-radius:14px; border:1.5px solid #0563bb;
+      font-size:12px; font-weight:700; letter-spacing:0.4px;
+      text-decoration:none; transition:all 0.2s;
+      color:#0563bb; background:transparent;
+    }
+    .lang-btn:hover   { background:#e8f0fb; }
+    .lang-btn.active  { background:#0563bb; color:#fff; cursor:default; pointer-events:none; }
   </style>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-E01F5VDKVM"></script>
@@ -139,16 +179,16 @@
 
 <nav class="top-bar">
   <div class="top-bar-left">
-    <a href="../articles/index-ua.html" class="back-btn"><i class="bi bi-arrow-left"></i> Back</a>
+    <a href="../index-ua.html" class="back-btn"><i class="bi bi-arrow-left"></i> Назад</a>
     <nav class="breadcrumbs" aria-label="breadcrumb">
-      <a href="../articles/index-ua.html">Blog</a><span class="sep">›</span>
-      <a href="../articles/index-ua.html">Articles</a><span class="sep">›</span>
-      <span class="current">AI-Assisted Data Analysis 2026</span>
+      <a href="../index-ua.html">Головна</a><span class="sep">›</span>
+      <a href="../index-ua.html#articles">Статті</a><span class="sep">›</span>
+      <span class="current">ШІ-аналіз даних 2026</span>
     </nav>
   </div>
-  <div class="share-btns">
-    <a href="../articles/2026-01-15-ai-assisted-data-analysis-2026.html" class="share-btn" ><i class="bi bi">EN</i></a>
-    <a href="../articles/2026-01-15-ai-assisted-data-analysis-2026-ua.html" class="share-btn" ><i class="bi bi">UA</i></a>
+  <div class="top-bar-right">
+    <a href="ai-assisted-data-analysis-2026.html" class="lang-btn" title="English">EN</a>
+    <a href="ai-assisted-data-analysis-2026-ua.html" class="lang-btn active" aria-current=page title="Українська">UA</a>
   </div>
 </nav>
 
@@ -159,21 +199,21 @@
 <main class="article-wrapper">
 
   <div class="article-meta">
-    <span class="tag">AI Tools</span>
+    <span class="tag">ШІ Інструменти</span>
     <span class="tag tag-secondary">Python</span>
     <span class="tag tag-secondary">SQL</span>
-    <span class="meta-date"><i class="bi bi-calendar3"></i> January 20, 2026</span>
-    <span class="meta-read"><i class="bi bi-clock"></i> 8 min read</span>
+    <span class="meta-date"><i class="bi bi-calendar3"></i> 20 січня 2026</span>
+    <span class="meta-read"><i class="bi bi-clock"></i> 8 хв читання</span>
   </div>
 
-  <h1 class="article-title">AI-Assisted Data Analysis in 2026: How to Use ChatGPT, Copilot & PandasAI</h1>
-  <p class="article-subtitle">AI didn't replace data analysts — it made the good ones dramatically faster. Here's exactly how to integrate AI tools into your daily workflow without losing analytical rigour.</p>
+  <h1 class="article-title">AI-аналіз даних у 2026: як використовувати ChatGPT, Copilot і PandasAI</h1>
+  <p class="article-subtitle">ШІ не замінив аналітиків даних — він зробив хороших аналітиків значно швидшими. Ось як саме інтегрувати AI-інструменти в щоденну роботу, не втрачаючи аналітичну точність.</p>
 
   <div class="author-block">
-    <div class="author-avatar"><img src="../assets/img/profile-img.jpg" alt="Isachenko Andrii"></div>
+    <div class="author-avatar"><img src="../assets/img/profile-img.jpg" alt="Ісаченко Андрій"></div>
     <div class="author-info">
-      <div class="author-name">Isachenko Andrii</div>
-      <div class="author-role">Data Analyst · Open to work</div>
+      <div class="author-name">Ісаченко Андрій</div>
+      <div class="author-role">Аналітик даних · Відкритий до роботи</div>
     </div>
     <div class="author-links">
       <a href="https://www.linkedin.com/in/isachenko-andrii/" target="_blank"><i class="bi bi-linkedin"></i></a>
@@ -183,88 +223,87 @@
   </div>
 
   <div class="toc">
-    <h4>📋 Table of Contents</h4>
+    <h4>📋 Зміст</h4>
     <ol>
-      <li><a href="#landscape">The AI landscape for analysts in 2026</a></li>
-      <li><a href="#chatgpt-sql">ChatGPT for SQL: writing and debugging queries</a></li>
-      <li><a href="#copilot-python">GitHub Copilot for Python EDA</a></li>
-      <li><a href="#pandasai">PandasAI: talk to your dataframe</a></li>
-      <li><a href="#prompts">Prompt templates that actually work</a></li>
-      <li><a href="#pitfalls">Pitfalls and how to avoid them</a></li>
-      <li><a href="#workflow">Recommended AI workflow for analysts</a></li>
+      <li><a href="#landscape">Ландшафт AI-інструментів для аналітиків у 2026</a></li>
+      <li><a href="#chatgpt-sql">ChatGPT для SQL: написання та налагодження запитів</a></li>
+      <li><a href="#copilot-python">GitHub Copilot для розвідувального аналізу в Python</a></li>
+      <li><a href="#pandasai">PandasAI: розмовляй із датафреймом</a></li>
+      <li><a href="#prompts">Шаблони промптів, які реально працюють</a></li>
+      <li><a href="#pitfalls">Типові помилки та як їх уникнути</a></li>
+      <li><a href="#workflow">Рекомендований AI-воркфлоу для аналітика</a></li>
     </ol>
   </div>
 
   <article class="article-content">
 
-    <h2 id="landscape">The AI Landscape for Analysts in 2026</h2>
-    <p>By 2026 the question is no longer <em>"should I use AI?"</em> but <em>"which AI tool for which task?"</em> The analyst who ignores these tools works at half speed. The analyst who blindly trusts them produces wrong conclusions faster. The sweet spot is knowing exactly where AI accelerates you and where human judgment is non-negotiable.</p>
-    <p>In a typical analyst workflow, AI saves the most time in three areas: writing boilerplate SQL, generating starter Python code for exploratory analysis, and explaining unfamiliar datasets or error messages. It saves almost no time — and can actively mislead — when it comes to formulating the right business question, validating statistical assumptions, or interpreting results in business context.</p>
+    <h2 id="landscape">Ландшафт AI-інструментів для аналітиків у 2026</h2>
+    <p>У 2026 році питання вже не в тому, <em>«чи варто використовувати ШІ?»</em>, а в тому, <em>«який інструмент для якого завдання?»</em> Аналітик, що ігнорує ці інструменти, працює вдвічі повільніше. Аналітик, що сліпо їм довіряє, помиляється швидше. Оптимум — розуміти, де ШІ дійсно прискорює, а де людське судження є незамінним.</p>
+    <p>У типовому воркфлоу аналітика ШІ найбільше економить час у трьох зонах: написання шаблонного SQL, генерація стартового Python-коду для розвідувального аналізу та пояснення незнайомих датасетів або повідомлень про помилки. Він майже не допомагає — а може й зашкодити — при формулюванні правильного бізнес-питання, перевірці статистичних припущень або інтерпретації результатів у бізнес-контексті.</p>
 
     <div class="highlight-box">
-      <p>💡 Rule of thumb: use AI to write the <em>first draft</em> of code, always review and understand it before running on production data.</p>
+      <p>💡 Практичне правило: використовуй ШІ для написання <em>першого чернетки</em> коду, але завжди переглядай і розумій його перед запуском на робочих даних.</p>
     </div>
 
-    <h2 id="chatgpt-sql">ChatGPT for SQL: Writing and Debugging Queries</h2>
-    <p>SQL generation is the single highest-ROI use case for ChatGPT in analytics. A prompt that includes your schema and a plain-English question reliably produces correct SQL for standard aggregations, joins and window functions in under 10 seconds.</p>
+    <h2 id="chatgpt-sql">ChatGPT для SQL: написання та налагодження запитів</h2>
+    <p>Генерація SQL — це єдиний найвигідніший сценарій використання ChatGPT в аналітиці. Промпт із твоєю схемою та питанням звичайною мовою надійно дає правильний SQL для стандартних агрегацій, джойнів і віконних функцій менш ніж за 10 секунд.</p>
 
-    <h3>Effective SQL prompt structure</h3>
-    <p>The key is giving the model enough context. A vague prompt produces vague SQL. Always include: table names with column names and types, the exact business question, and any filtering or grouping requirements.</p>
+    <h3>Ефективна структура промпту для SQL</h3>
+    <p>Головне — надати моделі достатньо контексту. Розмитий промпт дає розмитий SQL. Завжди вказуй: назви таблиць із колонками та типами, конкретне бізнес-питання, вимоги до фільтрації та групування.</p>
 
-    <div class="code-block"><span class="comment">-- Prompt template for ChatGPT SQL generation:</span>
+    <div class="code-block"><span class="comment">-- Шаблон промпту для генерації SQL через ChatGPT:</span>
 
-I have the following tables:
+У мене є такі таблиці:
 
 orders (order_id INT, user_id INT, created_at TIMESTAMP,
         revenue FLOAT, status VARCHAR)
 users  (user_id INT, country VARCHAR, registered_at TIMESTAMP)
 
-<span class="keyword">Write a SQL query</span> that:
-- Shows monthly revenue by country for 2025
-- Excludes cancelled orders (status = 'cancelled')
-- Calculates month-over-month growth %
-- Orders by country and month ASC</div>
+<span class="keyword">Напиши SQL-запит</span>, який:
+- Показує щомісячний дохід по країнах за 2025 рік
+- Виключає скасовані замовлення (status = 'cancelled')
+- Розраховує зростання місяць до місяця у %
+- Сортує за країною та місяцем ASC</div>
 
-    <h3>Debugging with ChatGPT</h3>
-    <p>Paste the error message along with your query and the table schema. ChatGPT identifies the vast majority of syntax errors, missing GROUP BY clauses, and wrong JOIN types instantly. More usefully, it explains <em>why</em> the error occurs — which builds your own skills over time.</p>
+    <h3>Налагодження помилок через ChatGPT</h3>
+    <p>Вставляй повідомлення про помилку разом із запитом і схемою таблиць. ChatGPT знаходить переважну більшість синтаксичних помилок, відсутніх GROUP BY та неправильних типів JOIN майже миттєво. Ще цінніше — він пояснює <em>чому</em> виникла помилка, що поступово розвиває власні навички.</p>
 
-    <div class="code-block"><span class="comment">-- Debugging prompt template:</span>
+    <div class="code-block"><span class="comment">-- Шаблон промпту для налагодження:</span>
 
-I'm getting this error:
+Я отримую таку помилку:
 <span class="string">"ERROR: column orders.user_id must appear in GROUP BY clause"</span>
 
-Here is my query:
-[paste query]
+Ось мій запит:
+[вставити запит]
 
-Here is my schema:
-[paste schema]
+Ось моя схема:
+[вставити схему]
 
-<span class="keyword">What is wrong and how do I fix it?</span></div>
+<span class="keyword">У чому проблема і як її виправити?</span></div>
 
-    <h2 id="copilot-python">GitHub Copilot for Python EDA</h2>
-    <p>GitHub Copilot (and its competitors like Cursor AI) integrates directly into VS Code and generates code as you type. For exploratory data analysis, it dramatically accelerates the repetitive parts: loading data, inspecting dtypes, plotting distributions, handling missing values.</p>
-    <p>The workflow that works best: write a comment describing what you want, press Tab, review what Copilot suggests. Accept if correct, modify if close, reject and write manually if wrong. The acceptance rate for standard EDA tasks is around 70–80% in my experience.</p>
+    <h2 id="copilot-python">GitHub Copilot для розвідувального аналізу в Python</h2>
+    <p>GitHub Copilot (та його конкуренти — Cursor AI) інтегрується безпосередньо у VS Code і генерує код під час набору тексту. Для розвідувального аналізу даних він різко прискорює рутинні частини: завантаження даних, перевірку типів, побудову розподілів, обробку пропусків.</p>
+    <p>Найефективніший підхід: пишеш коментар із описом потрібного, натискаєш Tab, переглядаєш пропозицію Copilot. Приймаєш, якщо правильно; змінюєш, якщо близько; відхиляєш і пишеш вручну, якщо ні. Відсоток прийнятих пропозицій для стандартних EDA-задач — близько 70–80%.</p>
 
-    <div class="code-block"><span class="comment"># Just write these comments — Copilot completes the code:</span>
+    <div class="code-block"><span class="comment"># Просто пишеш ці коментарі — Copilot дописує код:</span>
 
-<span class="comment"># Load the CSV and parse dates</span>
+<span class="comment"># Завантажити CSV і розпарсити дати</span>
 df = pd.read_csv(<span class="string">'sales_2025.csv'</span>, parse_dates=[<span class="string">'created_at'</span>])
 
-<span class="comment"># Show null counts and percentage for each column</span>
+<span class="comment"># Показати кількість і відсоток пропусків по кожній колонці</span>
 null_stats = pd.DataFrame({
     <span class="string">'nulls'</span>: df.isnull().sum(),
     <span class="string">'pct'</span>: (df.isnull().sum() / <span class="func">len</span>(df) * <span class="number">100</span>).round(<span class="number">2</span>)
 }).query(<span class="string">'nulls > 0'</span>)
 
-<span class="comment"># Plot revenue distribution with median line</span>
+<span class="comment"># Побудувати гістограму доходу з лінією медіани</span>
 fig, ax = plt.subplots(figsize=(<span class="number">10</span>, <span class="number">5</span>))
 df[<span class="string">'revenue'</span>].hist(bins=<span class="number">50</span>, ax=ax, color=<span class="string">'#0563bb'</span>, alpha=<span class="number">0.7</span>)
 ax.axvline(df[<span class="string">'revenue'</span>].median(), color=<span class="string">'red'</span>, linestyle=<span class="string">'--'</span>,
-           label=<span class="string">f'Median: {df["revenue"].median():.0f}'</span>)
-ax.legend()</div>
+           label=<span class="string">f'Медіана: {df["revenue"].median():.0f}'</span>)</div>
 
-    <h2 id="pandasai">PandasAI: Talk to Your Dataframe</h2>
-    <p>PandasAI is an open-source library that lets you query a pandas DataFrame in plain English. Under the hood it sends your question plus the dataframe metadata to an LLM, gets back Python code, executes it, and returns the result. It's genuinely useful for quick ad-hoc questions during exploration.</p>
+    <h2 id="pandasai">PandasAI: розмовляй із датафреймом</h2>
+    <p>PandasAI — бібліотека з відкритим кодом, яка дозволяє запитувати pandas DataFrame звичайною мовою. Під капотом вона надсилає твоє питання з метаданими датафрейму до LLM, отримує Python-код у відповідь, виконує його і повертає результат. Реально корисна для швидких ad-hoc запитань під час розвідки даних.</p>
 
     <div class="code-block"><span class="keyword">from</span> pandasai <span class="keyword">import</span> SmartDataframe
 <span class="keyword">from</span> pandasai.llm <span class="keyword">import</span> OpenAI
@@ -272,80 +311,108 @@ ax.legend()</div>
 llm = <span class="func">OpenAI</span>(api_token=<span class="string">"your_key"</span>)
 sdf = <span class="func">SmartDataframe</span>(df, config={<span class="string">"llm"</span>: llm})
 
-<span class="comment"># Ask questions in plain English</span>
-sdf.chat(<span class="string">"What are the top 5 countries by total revenue?"</span>)
-sdf.chat(<span class="string">"Plot monthly revenue as a bar chart"</span>)
-sdf.chat(<span class="string">"Which product category has the highest return rate?"</span>)</div>
+<span class="comment"># Запитуй звичайною мовою</span>
+sdf.chat(<span class="string">"Які 5 країн з найбільшим загальним доходом?"</span>)
+sdf.chat(<span class="string">"Побудуй стовпчасту діаграму щомісячного доходу"</span>)
+sdf.chat(<span class="string">"Яка категорія товарів має найвищий відсоток повернень?"</span>)</div>
 
     <div class="highlight-box">
-      <p>⚠️ Important: never send sensitive or personal data to external LLM APIs via PandasAI. For confidential datasets, use a local LLM (Ollama + llama3) or anonymise the data first.</p>
+      <p>⚠️ Важливо: ніколи не надсилай чутливі або персональні дані до зовнішніх API через PandasAI. Для конфіденційних датасетів використовуй локальний LLM (Ollama + llama3) або попередньо анонімізуй дані.</p>
     </div>
 
-    <h2 id="prompts">Prompt Templates That Actually Work</h2>
-    <p>After extensive use, these are the prompt patterns that produce the most reliable results for data analysis tasks:</p>
+    <h2 id="prompts">Шаблони промптів, які реально працюють</h2>
+    <p>На основі щоденного використання — ці патерни дають найнадійніші результати для задач аналізу даних:</p>
 
     <table>
-      <thead><tr><th>Task</th><th>Prompt Pattern</th><th>Quality</th></tr></thead>
+      <thead><tr><th>Завдання</th><th>Шаблон промпту</th><th>Якість</th></tr></thead>
       <tbody>
-        <tr><td>Write SQL</td><td>Schema + plain English question + constraints</td><td>⭐⭐⭐⭐⭐</td></tr>
-        <tr><td>Debug SQL</td><td>Error message + query + schema</td><td>⭐⭐⭐⭐⭐</td></tr>
-        <tr><td>Python EDA code</td><td>Dataset description + specific task</td><td>⭐⭐⭐⭐</td></tr>
-        <tr><td>Explain result</td><td>Show the output, ask "what does this mean?"</td><td>⭐⭐⭐</td></tr>
-        <tr><td>Business interpretation</td><td>Avoid — AI lacks your business context</td><td>⭐</td></tr>
+        <tr><td>Написати SQL</td><td>Схема + питання звичайною мовою + обмеження</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>Налагодити SQL</td><td>Повідомлення про помилку + запит + схема</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>Python EDA-код</td><td>Опис датасету + конкретне завдання</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><td>Пояснити результат</td><td>Показати вивід, запитати "що це означає?"</td><td>⭐⭐⭐</td></tr>
+        <tr><td>Бізнес-інтерпретація</td><td>Уникати — ШІ не знає твого бізнес-контексту</td><td>⭐</td></tr>
       </tbody>
     </table>
 
-    <h2 id="pitfalls">Pitfalls and How to Avoid Them</h2>
-    <p>AI tools introduce specific failure modes that every analyst should know:</p>
+    <h2 id="pitfalls">Типові помилки та як їх уникнути</h2>
+    <p>AI-інструменти мають специфічні режими відмови, які кожен аналітик повинен знати:</p>
     <ul>
-      <li><strong>Hallucinated column names.</strong> ChatGPT will invent column names that don't exist in your schema. Always double-check generated SQL against your actual table structure before running.</li>
-      <li><strong>Wrong aggregation logic.</strong> AI often uses <code>COUNT(*)</code> where you need <code>COUNT(DISTINCT user_id)</code>, or <code>SUM</code> where you need <code>AVG</code>. Review the logic, not just the syntax.</li>
-      <li><strong>Outdated library syntax.</strong> Copilot was trained on older code. For pandas 2.x, verify that deprecated methods aren't used (e.g. <code>DataFrame.append()</code> was removed).</li>
-      <li><strong>Confident wrong answers.</strong> LLMs don't signal uncertainty well. A convincingly-written explanation can be completely wrong. Cross-check statistical claims independently.</li>
+      <li><strong>Вигадані назви колонок.</strong> ChatGPT придумує назви колонок, яких немає у твоїй схемі. Завжди звіряй згенерований SQL з реальною структурою таблиць перед запуском.</li>
+      <li><strong>Неправильна логіка агрегації.</strong> ШІ часто використовує <code>COUNT(*)</code> замість <code>COUNT(DISTINCT user_id)</code> або <code>SUM</code> замість <code>AVG</code>. Перевіряй логіку, а не лише синтаксис.</li>
+      <li><strong>Застарілий синтаксис бібліотек.</strong> Copilot навчений на старому коді. Для pandas 2.x перевіряй, що не використовуються видалені методи (наприклад, <code>DataFrame.append()</code> прибрали).</li>
+      <li><strong>Впевнені неправильні відповіді.</strong> LLM не сигналізують про невпевненість. Переконливо написане пояснення може бути абсолютно неправильним. Перехресно перевіряй статистичні твердження самостійно.</li>
     </ul>
 
-    <h2 id="workflow">Recommended AI Workflow for Analysts</h2>
-    <p>Based on daily use, here's the workflow that maximises speed while keeping quality high:</p>
+    <h2 id="workflow">Рекомендований AI-воркфлоу для аналітика</h2>
+    <p>На основі щоденного використання — ось воркфлоу, що максимізує швидкість і зберігає якість:</p>
     <ol>
-      <li><strong>Frame the question yourself.</strong> No AI can do this. Define what you're measuring, why it matters, and what decision it informs.</li>
-      <li><strong>Use ChatGPT to draft SQL.</strong> Provide schema + question. Review the logic. Run only after you understand every line.</li>
-      <li><strong>Use Copilot for Python boilerplate.</strong> Accept suggestions for data loading, cleaning, and standard plots. Write your own code for custom transformations.</li>
-      <li><strong>Use PandasAI for quick ad-hoc questions.</strong> Great for "let me quickly check..." moments during exploration.</li>
-      <li><strong>Interpret results yourself.</strong> The numbers mean something in the context of your business. AI doesn't have that context.</li>
-      <li><strong>Use ChatGPT to write the first draft of your report summary.</strong> Then rewrite it — you know what matters, AI doesn't.</li>
+      <li><strong>Сформулюй питання самостійно.</strong> Жоден ШІ цього не зробить замість тебе. Визнач, що саме вимірюєш, чому це важливо і яке рішення це забезпечить.</li>
+      <li><strong>Використовуй ChatGPT для чернетки SQL.</strong> Надай схему + питання. Перевір логіку. Запускай лише коли розумієш кожен рядок.</li>
+      <li><strong>Використовуй Copilot для Python-шаблонів.</strong> Приймай пропозиції для завантаження даних, очищення та стандартних графіків. Пиши власний код для кастомних трансформацій.</li>
+      <li><strong>Використовуй PandasAI для швидких ad-hoc запитань.</strong> Ідеально для моментів "дай-но швидко перевірю..." під час розвідки.</li>
+      <li><strong>Інтерпретуй результати самостійно.</strong> Цифри щось означають у контексті твого бізнесу. ШІ цього контексту не має.</li>
+      <li><strong>Використовуй ChatGPT для першого чернетки резюме звіту.</strong> Потім переписуй — ти знаєш, що важливо, ШІ — ні.</li>
     </ol>
 
     <div class="highlight-box">
-      <p>🎯 The analyst who uses AI as a <em>tool</em> rather than an <em>oracle</em> will consistently outperform both the analyst who ignores AI and the one who blindly trusts it.</p>
+      <p>🎯 Аналітик, який використовує ШІ як <em>інструмент</em>, а не як <em>оракул</em>, стабільно перевершує і того, хто ігнорує ШІ, і того, хто йому сліпо довіряє.</p>
     </div>
 
   </article>
 
   <div class="article-tags">
-    <span>Tags:</span>
-    <a href="../articles/index-ua.html">AI Tools</a>
-    <a href="../articles/index-ua.html">Python</a>
-    <a href="../articles/index-ua.html">SQL</a>
-    <a href="../articles/index-ua.html">ChatGPT</a>
-    <a href="../articles/index-ua.html">PandasAI</a>
-    <a href="../articles/index-ua.html">Data Analysis 2026</a>
+    <span>Теги:</span>
+    <a href="../index-ua.html#articles">ШІ Інструменти</a>
+    <a href="../index-ua.html#articles">Python</a>
+    <a href="../index-ua.html#articles">SQL</a>
+    <a href="../index-ua.html#articles">ChatGPT</a>
+    <a href="../index-ua.html#articles">PandasAI</a>
+    <a href="../index-ua.html#articles">Аналіз даних 2026</a>
   </div>
 
   <nav class="article-nav">
-    <a href="../articles/index-ua.html" class="prev">
-      <span class="nav-label"><i class="bi bi-arrow-left"></i> All Articles</span>
-      <span class="nav-title">Back to Articles</span>
+    <a href="../index-ua.html#articles" class="prev">
+      <span class="nav-label"><i class="bi bi-arrow-left"></i> Всі статті</span>
+      <span class="nav-title">Назад до статей</span>
     </a>
-    <a href="../articles/2026-02-03-dbt-for-analysts-2026-ua.html" class="next">
-      <span class="nav-label">Next <i class="bi bi-arrow-right"></i></span>
-      <span class="nav-title">dbt for Data Analysts: Modern Data Transformation in 2026</span>
+    <a href="dbt-for-analysts-2026-ua.html" class="next">
+      <span class="nav-label">Наступна <i class="bi bi-arrow-right"></i></span>
+      <span class="nav-title">dbt для аналітиків даних у 2026</span>
     </a>
   </nav>
-
-  <div class="back-to-main">
-    <a href="../index.html"><i class="bi bi-house"></i> Back to main page</a>
-  </div>
-
 </main>
+
+<!-- FOOTER -->
+<footer class="article-footer">
+  <p class="footer-share-label">Поділитися статтею</p>
+  <div class="footer-share-btns">
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://isachenko-andrii.github.io/articles/ai-assisted-data-analysis-2026-ua.html" target="_blank" rel="noopener" class="footer-share-btn li"><i class="bi bi-linkedin"></i> LinkedIn</a>
+    <a href="https://t.me/share/url?url=https://isachenko-andrii.github.io/articles/ai-assisted-data-analysis-2026-ua.html&text=AI-%D0%B0%D0%BD%D0%B0%D0%BB%D1%96%D0%B7%20%D0%B4%D0%B0%D0%BD%D0%B8%D1%85%202026" target="_blank" rel="noopener" class="footer-share-btn tg"><i class="bi bi-telegram"></i> Telegram</a>
+  </div>
+  <hr class="footer-hr">
+  <div class="footer-social">
+    <a href="https://www.linkedin.com/in/isachenko-andrii/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+    <a href="https://github.com/isachenko-andrii"           target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+    <a href="https://t.me/Manul_Solo"                       target="_blank" rel="noopener" aria-label="Telegram"><i class="bi bi-telegram"></i></a>
+    <a href="/cdn-cgi/l/email-protection#523b2133313a373c393d7c333c36203b3b7c253d203912353f333b3e7c313d3f" aria-label="Email"><i class="bi bi-envelope"></i></a>
+  </div>
+  <div class="footer-copy">
+    <span>Copyright <a href="https://isachenko-andrii.github.io/index-ua.html">Ісаченко Андрій</a> All Rights Reserved</span><br>
+    <span>Designed by <a href="https://bootstrapmade.com/" target="_blank" rel="noopener">BootstrapMade</a> Distribuited by <a href="https://themewagon.com" target="_blank" rel="noopener">ThemeWagon</a></span>
+  </div>
+  <div class="back-to-main">
+    <a href="../index-ua.html"><i class="bi bi-house"></i> На головну сторінку</a>
+  </div>
+</footer>
+<!-- Scroll to top -->
+<a href="#" id="scrollTopBtn" aria-label="Scroll to top"><i class="bi bi-arrow-up-short"></i></a>
+<script>
+(function(){
+  var b=document.getElementById('scrollTopBtn');
+  if(!b)return;
+  window.addEventListener('scroll',function(){b.classList.toggle('visible',window.pageYOffset>320);},{passive:true});
+  b.addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});});
+})();
+</script>
 </body>
 </html>
