@@ -4,39 +4,39 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Когортний аналіз і утримання користувачів у Python 2026: повний гід — Ісаченко Андрій</title>
-  <meta name="description" content="Як побудувати когортний аналіз та виміряти утримання користувачів у Python з pandas. Покроковий гід із реальним кодом: матриця утримання, теплова карта, розрахунок відтоку та бізнес-інтерпретація.">
-  <meta name="keywords" content="когортний аналіз Python 2026, утримання користувачів pandas, аналіз відтоку, матриця утримання теплова карта, аналіз когорт Python, retention analysis, churn analysis, аналітик даних Україна, продуктова аналітика">
+  <title>dbt для аналітиків даних у 2026: сучасна трансформація SQL без програмування — Ісаченко Андрій</title>
+  <meta name="description" content="Що таке dbt і чому кожен аналітик даних має вивчити його у 2026 році. Практичний гід по dbt Core: моделі, тести, документація та лінійність даних. Без бекграунду розробника.">
+  <meta name="keywords" content="dbt туторіал 2026, dbt для аналітиків, data build tool, dbt Core, трансформація SQL, сучасний стек даних, аналітик даних dbt, аналітика даних Україна, dbt моделі тести">
   <meta name="author" content="Ісаченко Андрій">
   <meta name="robots" content="index, follow">
   <meta name="language" content="Ukrainian">
-  <link rel="canonical" href="https://isachenko-andrii.github.io/articles/cohort-analysis-python-2026-ua.html">
-  <link rel="alternate" hreflang="uk" href="https://isachenko-andrii.github.io/articles/cohort-analysis-python-2026-ua.html">
-  <link rel="alternate" hreflang="en" href="https://isachenko-andrii.github.io/articles/cohort-analysis-python-2026.html">
+  <link rel="canonical" href="https://isachenko-andrii.github.io/articles/dbt-for-analysts-2026-ua.html">
+  <link rel="alternate" hreflang="uk" href="https://isachenko-andrii.github.io/articles/dbt-for-analysts-2026-ua.html">
+  <link rel="alternate" hreflang="en" href="https://isachenko-andrii.github.io/articles/dbt-for-analysts-2026.html">
 
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://isachenko-andrii.github.io/articles/cohort-analysis-python-2026-ua.html">
-  <meta property="og:title" content="Когортний аналіз і утримання користувачів у Python 2026 — Ісаченко Андрій">
-  <meta property="og:description" content="Покроковий когортний аналіз у Python: матриця утримання, теплова карта, розрахунок відтоку з реальним кодом pandas.">
-  <meta property="og:image" content="https://isachenko-andrii.github.io/articles/article-img/cohort-analysis-python-2026.jpg">
+  <meta property="og:url" content="https://isachenko-andrii.github.io/articles/dbt-for-analysts-2026-ua.html">
+  <meta property="og:title" content="dbt для аналітиків даних у 2026 — Ісаченко Андрій">
+  <meta property="og:description" content="Практичний гід по dbt Core для аналітиків: моделі, тести, документація. Без бекграунду розробника.">
+  <meta property="og:image" content="https://isachenko-andrii.github.io/articles/article-img/dbt-for-analysts-2026.jpg">
   <meta property="og:locale" content="uk_UA">
-  <meta property="article:published_time" content="2026-03-01">
+  <meta property="article:published_time" content="2026-02-05">
   <meta property="article:author" content="Ісаченко Андрій">
-  <meta property="article:tag" content="Python">
-  <meta property="article:tag" content="Утримання">
+  <meta property="article:tag" content="SQL">
+  <meta property="article:tag" content="dbt">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "Когортний аналіз і утримання користувачів у Python 2026: повний гід",
-    "description": "Покроковий когортний аналіз у Python з pandas: матриця утримання, теплова карта, розрахунок відтоку та бізнес-інтерпретація.",
-    "image": "https://isachenko-andrii.github.io/articles/article-img/cohort-analysis-python-2026.jpg",
-    "datePublished": "2026-03-01",
+    "headline": "dbt для аналітиків даних у 2026: сучасна трансформація SQL без програмування",
+    "description": "Практичний гід по dbt Core для аналітиків: моделі, тести, документація та лінійність даних.",
+    "image": "https://isachenko-andrii.github.io/articles/article-img/dbt-for-analysts-2026.jpg",
+    "datePublished": "2026-02-05",
     "inLanguage": "uk",
     "author": { "@type": "Person", "name": "Ісаченко Андрій", "url": "https://isachenko-andrii.github.io" },
     "publisher": { "@type": "Person", "name": "Ісаченко Андрій" },
-    "keywords": "когортний аналіз, утримання користувачів, Python, pandas, відтік, аналіз даних 2026"
+    "keywords": "dbt, data build tool, трансформація SQL, сучасний стек даних, навички аналітика 2026"
   }
   </script>
 
@@ -60,8 +60,6 @@
     .breadcrumbs a:hover { text-decoration:underline; }
     .breadcrumbs .sep { color:#ccc; }
     .breadcrumbs .current { color:var(--text-light); max-width:220px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-    .lang-toggle { display:flex; align-items:center; gap:6px; font-size:12px; background:var(--bg-light); border:1px solid var(--border); border-radius:20px; padding:4px 10px; text-decoration:none; color:var(--text-light); transition:all 0.2s; }
-    .lang-toggle:hover { border-color:var(--primary); color:var(--primary); }
     .share-btns { display:flex; gap:8px; align-items:center; }
     .share-btn { width:34px; height:34px; border-radius:50%; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; color:var(--text-light); text-decoration:none; font-size:15px; transition:all 0.2s; }
     .share-btn:hover { border-color:var(--primary); color:var(--primary); }
@@ -78,7 +76,7 @@
     .article-title { font-family:'Raleway',sans-serif; font-size:clamp(24px,4vw,38px); font-weight:700; line-height:1.25; color:var(--text); margin-bottom:16px; }
     .article-subtitle { font-size:17px; color:var(--text-light); font-weight:400; line-height:1.6; margin-bottom:36px; padding-bottom:36px; border-bottom:1px solid var(--border); }
     .author-block { display:flex; align-items:center; gap:14px; margin-bottom:40px; padding:16px 20px; background:var(--bg-light); border-radius:10px; border-left:3px solid var(--primary); }
-    .author-avatar { width:48px; height:48px; border-radius:50%; flex-shrink:0; overflow:hidden; }
+    .author-avatar { width:48px; height:48px; border-radius:50%; flex-shrink:0; background:var(--tag-bg); display:flex; align-items:center; justify-content:center; font-size:20px; color:var(--primary); overflow:hidden; }
     .author-avatar img { width:100%; height:100%; object-fit:cover; }
     .author-info { flex:1; }
     .author-name { font-weight:600; font-size:15px; }
@@ -104,13 +102,6 @@
     .code-block .keyword { color:#7dd3fc; }
     .code-block .string { color:#86efac; }
     .code-block .func { color:#fbbf24; }
-    .code-block .number { color:#f9a8d4; }
-    .retention-demo { margin:28px 0; border-radius:10px; overflow:hidden; border:1px solid var(--border); }
-    .retention-demo table { display:table; width:100%; margin:0; font-size:13px; }
-    .retention-demo th { background:#1e2a3a; color:#e2e8f0; padding:8px 12px; text-align:center; }
-    .retention-demo td { text-align:center; padding:8px 12px; font-weight:500; border:none; border-bottom:1px solid #f0f0f0; }
-    .r100{background:#0563bb;color:#fff} .r80{background:#2d80d4;color:#fff} .r60{background:#5fa3e8;color:#fff}
-    .r40{background:#9cc5f0;color:#1a1a1a} .r20{background:#cce0f7;color:#1a1a1a} .r10{background:#e8f0fb;color:#1a1a1a} .r0{background:#f5f5f5;color:#999}
     .article-tags { display:flex; flex-wrap:wrap; gap:8px; margin:40px 0 32px; padding-top:32px; border-top:1px solid var(--border); }
     .article-tags span { font-size:12px; color:var(--text-light); align-self:center; font-weight:500; }
     .article-tags a { background:var(--tag-bg); color:var(--primary); font-size:13px; font-weight:500; padding:4px 12px; border-radius:20px; text-decoration:none; transition:all 0.2s; }
@@ -140,6 +131,43 @@
       .article-nav a.next .nav-label { justify-content:flex-start; }
       .author-links { display:none; }
     }
+
+    /* ── ARTICLE FOOTER ── */
+    .article-footer { background:#f8fafc; border-top:1px solid #e8ecf0; padding:40px 24px 32px; text-align:center; }
+    .footer-share-label { font-size:12px; font-weight:600; letter-spacing:0.8px; text-transform:uppercase; color:#666; margin-bottom:16px; }
+    .footer-share-btns  { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-bottom:32px; }
+    .footer-share-btn   { display:inline-flex; align-items:center; gap:8px; padding:9px 22px; border-radius:25px; font-size:14px; font-weight:500; text-decoration:none; border:1px solid #e8ecf0; color:#666; background:#fff; transition:all 0.22s; }
+    .footer-share-btn:hover { transform:translateY(-2px); box-shadow:0 4px 14px rgba(0,0,0,0.09); }
+    .footer-share-btn.li:hover { background:#0077b5; color:#fff; border-color:#0077b5; }
+    .footer-share-btn.tg:hover { background:#26a5e4; color:#fff; border-color:#26a5e4; }
+    .footer-hr { border:none; border-top:1px solid #e8ecf0; margin:0 auto 28px; max-width:360px; }
+    .footer-social { display:flex; justify-content:center; gap:10px; margin-bottom:22px; }
+    .footer-social a { width:42px; height:42px; border-radius:50%; background:#0563bb; color:#fff; display:flex; align-items:center; justify-content:center; font-size:18px; text-decoration:none; transition:all 0.25s; }
+    .footer-social a:hover { background:#0352a0; transform:translateY(-3px); }
+    .footer-copy { font-size:13px; color:#666; line-height:2; }
+    .footer-copy a { color:#0563bb; text-decoration:none; }
+    .footer-copy a:hover { text-decoration:underline; }
+    .back-to-main { margin-top:22px; }
+    .back-to-main a { display:inline-flex; align-items:center; gap:8px; color:#0563bb; text-decoration:none; font-weight:500; font-size:15px; border:1px solid #e8ecf0; padding:10px 24px; border-radius:25px; transition:all 0.2s; background:#fff; }
+    .back-to-main a:hover { background:#0563bb; color:#fff; border-color:#0563bb; }
+    /* ── SCROLL TO TOP ── */
+    #scrollTopBtn { position:fixed; bottom:28px; right:24px; z-index:999; width:44px; height:44px; border-radius:50%; background:#0563bb; color:#fff; display:flex; align-items:center; justify-content:center; font-size:22px; text-decoration:none; box-shadow:0 4px 16px rgba(5,99,187,0.4); opacity:0; pointer-events:none; transition:opacity 0.3s, transform 0.3s; }
+    #scrollTopBtn.visible { opacity:1; pointer-events:auto; }
+    #scrollTopBtn:hover { background:#0352a0; transform:translateY(-3px); }
+    @media (max-width:600px) { #scrollTopBtn { bottom:18px; right:14px; width:40px; height:40px; font-size:20px; } }
+
+    /* ── Language switcher ── */
+    .top-bar-right { display:flex; align-items:center; gap:4px; }
+    .lang-btn {
+      display:inline-flex; align-items:center; justify-content:center;
+      min-width:34px; height:28px; padding:0 10px;
+      border-radius:14px; border:1.5px solid #0563bb;
+      font-size:12px; font-weight:700; letter-spacing:0.4px;
+      text-decoration:none; transition:all 0.2s;
+      color:#0563bb; background:transparent;
+    }
+    .lang-btn:hover   { background:#e8f0fb; }
+    .lang-btn.active  { background:#0563bb; color:#fff; cursor:default; pointer-events:none; }
   </style>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-E01F5VDKVM"></script>
@@ -153,32 +181,31 @@
     <nav class="breadcrumbs" aria-label="breadcrumb">
       <a href="../index-ua.html">Головна</a><span class="sep">›</span>
       <a href="../index-ua.html#articles">Статті</a><span class="sep">›</span>
-      <span class="current">Когортний аналіз у Python</span>
+      <span class="current">dbt для аналітиків 2026</span>
     </nav>
   </div>
-  <div class="share-btns">
-    <a href="cohort-analysis-python-2026.html" class="lang-toggle" title="Read in English"><i class="bi bi-translate"></i> EN</a>
-    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://isachenko-andrii.github.io/articles/cohort-analysis-python-2026-ua.html" target="_blank" class="share-btn"><i class="bi bi-linkedin"></i></a>
-    <a href="https://t.me/share/url?url=https://isachenko-andrii.github.io/articles/cohort-analysis-python-2026-ua.html" target="_blank" class="share-btn"><i class="bi bi-telegram"></i></a>
+  <div class="top-bar-right">
+    <a href="dbt-for-analysts-2026.html" class="lang-btn" title="English">EN</a>
+    <a href="dbt-for-analysts-2026-ua.html" class="lang-btn active" aria-current=page title="Українська">UA</a>
   </div>
 </nav>
 
 <div class="article-hero">
-  <div class="article-hero-placeholder"><i class="bi bi-people"></i></div>
+  <div class="article-hero-placeholder"><i class="bi bi-diagram-3"></i></div>
 </div>
 
 <main class="article-wrapper">
 
   <div class="article-meta">
-    <span class="tag">Python</span>
-    <span class="tag tag-secondary">Утримання</span>
-    <span class="tag tag-secondary">Продуктова аналітика</span>
-    <span class="meta-date"><i class="bi bi-calendar3"></i> 1 березня 2026</span>
-    <span class="meta-read"><i class="bi bi-clock"></i> 10 хв читання</span>
+    <span class="tag">SQL</span>
+    <span class="tag tag-secondary">dbt</span>
+    <span class="tag tag-secondary">Стек даних</span>
+    <span class="meta-date"><i class="bi bi-calendar3"></i> 5 лютого 2026</span>
+    <span class="meta-read"><i class="bi bi-clock"></i> 9 хв читання</span>
   </div>
 
-  <h1 class="article-title">Когортний аналіз і утримання користувачів у Python 2026: повний гід</h1>
-  <p class="article-subtitle">Утримання — найважливіша метрика для будь-якого підписного або повторного бізнесу. Ось як побудувати повний когортний аналіз із сирих транзакційних даних у Python — з кодом, який можна використати вже сьогодні.</p>
+  <h1 class="article-title">dbt для аналітиків даних у 2026: сучасна трансформація SQL без програмування</h1>
+  <p class="article-subtitle">dbt став стандартним інструментом для SQL-трансформацій. Ось все, що аналітику потрібно знати для старту — без бекграунду розробника програмного забезпечення.</p>
 
   <div class="author-block">
     <div class="author-avatar"><img src="../assets/img/profile-img.jpg" alt="Ісаченко Андрій"></div>
@@ -196,225 +223,190 @@
   <div class="toc">
     <h4>📋 Зміст</h4>
     <ol>
-      <li><a href="#what-is-cohort">Що таке когортний аналіз і чому він важливий</a></li>
-      <li><a href="#retention-matrix">Розуміння матриці утримання</a></li>
-      <li><a href="#data-prep">Підготовка даних у pandas</a></li>
-      <li><a href="#build-matrix">Побудова матриці утримання крок за кроком</a></li>
-      <li><a href="#heatmap">Візуалізація через теплову карту</a></li>
-      <li><a href="#churn">Розрахунок коефіцієнта відтоку</a></li>
-      <li><a href="#interpret">Як інтерпретувати та презентувати результати</a></li>
+      <li><a href="#what-is-dbt">Що таке dbt і чому це важливо</a></li>
+      <li><a href="#core-concepts">Основні концепції: моделі, refs, sources</a></li>
+      <li><a href="#first-model">Пишемо першу dbt-модель</a></li>
+      <li><a href="#testing">Тестування даних у dbt</a></li>
+      <li><a href="#documentation">Автогенерована документація</a></li>
+      <li><a href="#lineage">Лінійність даних (Data Lineage)</a></li>
+      <li><a href="#when-to-use">Коли dbt підходить (а коли — ні)</a></li>
     </ol>
   </div>
 
   <article class="article-content">
 
-    <h2 id="what-is-cohort">Що таке когортний аналіз і чому він важливий</h2>
-    <p>Когорта — це група користувачів, що мають спільну характеристику у визначеному часовому вікні. Найчастіше це місяць першої покупки або реєстрації. Когортний аналіз відстежує, який відсоток кожної когорти повертається у наступні місяці.</p>
-    <p>Без когортного аналізу агрегатні метрики утримання тебе обманюють. Загальний графік «щомісячних активних користувачів» може показувати зростання, навіть коли продукт погіршується — бо залучення нових користувачів маскує зростаючий відтік із ранніх когорт. Когортний аналіз розкриває правду: чи залишаються активними користувачі, що прийшли 6 місяців тому? Чи покращується утримання між когортами з часом?</p>
+    <h2 id="what-is-dbt">Що таке dbt і чому це важливо</h2>
+    <p>dbt (data build tool) — це інструмент командного рядка з відкритим кодом, який дозволяє аналітикам писати трансформації даних як SQL-оператори <code>SELECT</code> і бере на себе всю навколишню складність: управління залежностями, тестування, документацію та розгортання. Думай про нього як про «контроль версій + тестування + документацію», накладені поверх SQL, який ти вже знаєш.</p>
+    <p>До dbt типовий воркфлоу аналітика передбачав написання трансформаційного SQL безпосередньо у сховищі даних, зберігання запитів у розрізнених файлах або папках, ручний запуск у правильному порядку та надію, що нічого вище за течією не зламалося тихо. dbt вирішує всі ці проблеми, розглядаючи SQL-трансформації як код — з усіма передовими практиками розробки, які це передбачає.</p>
+    <p>До 2026 року dbt став домінуючим шаром трансформацій у сучасному стеку даних. Якщо ти працюєш з BigQuery, Snowflake, Redshift, DuckDB або PostgreSQL, dbt, швидше за все, вже використовується в компаніях, куди ти хочеш потрапити.</p>
 
     <div class="highlight-box">
-      <p>💡 Якщо утримання на 1-му місяці нижче 20% для споживчого застосунку — зростання рано чи пізно зупиниться незалежно від витрат на залучення. Когортний аналіз дозволяє виявити це завчасно.</p>
+      <p>💡 dbt не замінює SQL — він робить твій SQL більш організованим, тестованим і підтримуваним. Ти все одно пишеш звичайні оператори <code>SELECT</code>.</p>
     </div>
 
-    <h2 id="retention-matrix">Розуміння матриці утримання</h2>
-    <p>Результат когортного аналізу — <strong>матриця утримання</strong>: таблиця, де рядки — когорти (місяць залучення), стовпці — часові періоди (місяці після залучення), а кожна клітинка показує відсоток вихідної когорти, що залишається активною в цей період. Діагональ матриці відповідає одному й тому ж календарному місяцю, спостережуваному з перспективи різних когорт.</p>
-
-    <div class="retention-demo">
-      <table>
-        <thead>
-          <tr>
-            <th>Когорта</th><th>Розмір</th><th>Місяць 0</th><th>Місяць 1</th>
-            <th>Місяць 2</th><th>Місяць 3</th><th>Місяць 4</th><th>Місяць 5</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td><strong>Січ 2025</strong></td><td>1 240</td><td class="r100">100%</td><td class="r40">41%</td><td class="r20">28%</td><td class="r20">22%</td><td class="r10">18%</td><td class="r10">16%</td></tr>
-          <tr><td><strong>Лют 2025</strong></td><td>980</td><td class="r100">100%</td><td class="r60">46%</td><td class="r40">31%</td><td class="r20">25%</td><td class="r20">20%</td><td class="r0">—</td></tr>
-          <tr><td><strong>Бер 2025</strong></td><td>1 560</td><td class="r100">100%</td><td class="r60">52%</td><td class="r40">35%</td><td class="r20">27%</td><td class="r0">—</td><td class="r0">—</td></tr>
-          <tr><td><strong>Кві 2025</strong></td><td>1 180</td><td class="r100">100%</td><td class="r80">58%</td><td class="r40">38%</td><td class="r0">—</td><td class="r0">—</td><td class="r0">—</td></tr>
-          <tr><td><strong>Тра 2025</strong></td><td>1 420</td><td class="r100">100%</td><td class="r80">61%</td><td class="r0">—</td><td class="r0">—</td><td class="r0">—</td><td class="r0">—</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <p>Зверни увагу, як утримання на 1-му місяці зростає між когортами (41% → 61%). Це говорить про те, що зміни в продукті або онбордингу між січнем і травнем спрацювали — більше користувачів повертається після першого місяця. Саме цей інсайт сховано в сирих агрегатних метриках.</p>
-
-    <h2 id="data-prep">Підготовка даних у pandas</h2>
-    <p>Відправна точка — таблиця транзакцій або подій з щонайменше двома колонками: <code>user_id</code> та <code>event_date</code>. Потрібно вивести для кожного користувача: місяць когорти (місяць першої покупки) та порядковий номер місяця кожної наступної покупки.</p>
-
-    <div class="code-block"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd
-<span class="keyword">import</span> numpy <span class="keyword">as</span> np
-<span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt
-<span class="keyword">import</span> seaborn <span class="keyword">as</span> sns
-
-<span class="comment"># Завантаження транзакційних даних</span>
-df = pd.<span class="func">read_csv</span>(<span class="string">'transactions.csv'</span>, parse_dates=[<span class="string">'order_date'</span>])
-
-<span class="comment"># Нормалізація до першого дня місяця (місяць когорти)</span>
-df[<span class="string">'order_month'</span>] = df[<span class="string">'order_date'</span>].dt.<span class="func">to_period</span>(<span class="string">'M'</span>)
-
-<span class="comment"># Когорта кожного користувача = місяць ПЕРШОЇ покупки</span>
-df[<span class="string">'cohort_month'</span>] = df.<span class="func">groupby</span>(<span class="string">'user_id'</span>)[<span class="string">'order_month'</span>].<span class="func">transform</span>(<span class="string">'min'</span>)
-
-<span class="comment"># Індекс періоду: місяці після першої покупки (0, 1, 2, ...)</span>
-df[<span class="string">'period_number'</span>] = (
-    df[<span class="string">'order_month'</span>] - df[<span class="string">'cohort_month'</span>]
-).<span class="func">apply</span>(<span class="keyword">lambda</span> x: x.n)
-
-df.<span class="func">head</span>(<span class="number">3</span>)</div>
-
-    <h2 id="build-matrix">Побудова матриці утримання крок за кроком</h2>
-
-    <div class="code-block"><span class="comment"># Крок 1: Підрахунок унікальних активних користувачів на когорту × період</span>
-cohort_data = (
-    df.<span class="func">groupby</span>([<span class="string">'cohort_month'</span>, <span class="string">'period_number'</span>])[<span class="string">'user_id'</span>]
-    .<span class="func">nunique</span>()
-    .<span class="func">reset_index</span>()
-)
-cohort_data.<span class="func">columns</span> = [<span class="string">'cohort_month'</span>, <span class="string">'period_number'</span>, <span class="string">'n_users'</span>]
-
-<span class="comment"># Крок 2: Зведення у формат матриці</span>
-cohort_matrix = cohort_data.<span class="func">pivot_table</span>(
-    index=<span class="string">'cohort_month'</span>,
-    columns=<span class="string">'period_number'</span>,
-    values=<span class="string">'n_users'</span>
-)
-
-<span class="comment"># Крок 3: Розміри когорт = колонка 0 (Місяць 0)</span>
-cohort_sizes = cohort_matrix.<span class="func">iloc</span>[:, <span class="number">0</span>]
-
-<span class="comment"># Крок 4: Ділимо кожен рядок на розмір когорти → утримання у %</span>
-retention_matrix = cohort_matrix.<span class="func">divide</span>(cohort_sizes, axis=<span class="number">0</span>) * <span class="number">100</span>
-retention_matrix = retention_matrix.<span class="func">round</span>(<span class="number">1</span>)
-
-retention_matrix.<span class="func">columns</span> = [<span class="string">f'Місяць {i}'</span> <span class="keyword">for</span> i <span class="keyword">in</span> retention_matrix.columns]
-<span class="func">print</span>(retention_matrix)</div>
-
-    <h2 id="heatmap">Візуалізація через теплову карту</h2>
-    <p>Матриця утримання стає значно читабельнішою у вигляді кольорової теплової карти. Високі значення утримання відображаються темно-синім, низькі — світлим, що робить тенденції миттєво помітними для будь-якого стейкхолдера.</p>
-
-    <div class="code-block">fig, ax = plt.<span class="func">subplots</span>(figsize=(<span class="number">14</span>, <span class="number">7</span>))
-
-sns.<span class="func">heatmap</span>(
-    retention_matrix,
-    annot=<span class="keyword">True</span>,          <span class="comment"># показувати % у кожній клітинці</span>
-    fmt=<span class="string">'.1f'</span>,           <span class="comment"># один знак після коми</span>
-    cmap=<span class="string">'Blues'</span>,        <span class="comment"># синій градієнт</span>
-    vmin=<span class="number">0</span>, vmax=<span class="number">100</span>,   <span class="comment"># фіксована шкала 0-100%</span>
-    linewidths=<span class="number">0.5</span>,
-    linecolor=<span class="string">'white'</span>,
-    ax=ax,
-    cbar_kws={<span class="string">'label'</span>: <span class="string">'Утримання %'</span>}
-)
-
-ax.<span class="func">set_title</span>(<span class="string">'Щомісячне утримання когорт'</span>, fontsize=<span class="number">16</span>, fontweight=<span class="string">'bold'</span>, pad=<span class="number">15</span>)
-ax.<span class="func">set_xlabel</span>(<span class="string">'Місяці після першої покупки'</span>, fontsize=<span class="number">12</span>)
-ax.<span class="func">set_ylabel</span>(<span class="string">'Когорта (місяць першої покупки)'</span>, fontsize=<span class="number">12</span>)
-ax.<span class="func">set_yticklabels</span>(ax.<span class="func">get_yticklabels</span>(), rotation=<span class="number">0</span>)
-
-plt.<span class="func">tight_layout</span>()
-plt.<span class="func">savefig</span>(<span class="string">'cohort_retention_heatmap.png'</span>, dpi=<span class="number">150</span>, bbox_inches=<span class="string">'tight'</span>)
-plt.<span class="func">show</span>()</div>
-
-    <h2 id="churn">Розрахунок коефіцієнта відтоку</h2>
-    <p>Відтік — це доповнення утримання: відсоток користувачів, що <em>не</em> повернулися. Щомісячний відтік когорти в період N — це просто <code>100 - retention_at_N</code>. Але корисніша метрика — <strong>інкрементальний відтік</strong>: відсоток втрачених між двома послідовними періодами.</p>
-
-    <div class="code-block"><span class="comment"># Відтік між місяцями в межах кожної когорти</span>
-churn_matrix = retention_matrix.<span class="func">copy</span>()
-
-<span class="keyword">for</span> col <span class="keyword">in</span> <span class="func">range</span>(<span class="number">1</span>, <span class="func">len</span>(retention_matrix.columns)):
-    prev = retention_matrix.<span class="func">iloc</span>[:, col - <span class="number">1</span>]
-    curr = retention_matrix.<span class="func">iloc</span>[:, col]
-    <span class="comment"># % користувачів попереднього місяця, що відтекли</span>
-    churn_matrix.<span class="func">iloc</span>[:, col] = ((prev - curr) / prev * <span class="number">100</span>).<span class="func">round</span>(<span class="number">1</span>)
-
-churn_matrix[<span class="string">'Місяць 0'</span>] = np.nan  <span class="comment"># немає відтоку в момент залучення</span>
-
-<span class="comment"># Середня крива утримання по всіх когортах</span>
-avg_retention = retention_matrix.<span class="func">mean</span>(axis=<span class="number">0</span>).<span class="func">round</span>(<span class="number">1</span>)
-<span class="func">print</span>(<span class="string">"\nСередня крива утримання:"</span>)
-<span class="func">print</span>(avg_retention)</div>
-
-    <h2 id="interpret">Як інтерпретувати та презентувати результати</h2>
-    <p>Матриця утримання корисна лише тоді, коли ти вмієш перекласти цифри в бізнес-рішення. Ось фреймворк для інтерпретації:</p>
+    <h2 id="core-concepts">Основні концепції: моделі, refs, sources</h2>
+    <p>У dbt є невелика кількість ключових концепцій, які потрібно розуміти перед написанням коду:</p>
 
     <table>
-      <thead><tr><th>Паттерн</th><th>Що це означає</th><th>Дія</th></tr></thead>
+      <thead><tr><th>Концепція</th><th>Що це</th><th>Аналогія</th></tr></thead>
       <tbody>
-        <tr><td>Утримання на 1-му місяці зростає між когортами</td><td>Онбординг або продуктові покращення спрацювали</td><td>Подвоїти зусилля в тому, що змінилося</td></tr>
-        <tr><td>Утримання на 1-му місяці стабільне, але 3-й місяць падає</td><td>Користувачі починають, але втрачають звичку</td><td>Покращити повторне залучення та петлі звички</td></tr>
-        <tr><td>Одна когорта значно гірша за сусідні</td><td>Поганий канал залучення, кампанія або баг у продукті того місяця</td><td>Дослідити конкретний період</td></tr>
-        <tr><td>Утримання стабілізується після 3-го місяця (~15%+)</td><td>Є здорова база лояльних користувачів</td><td>Зосередитися на розширенні цього сегменту</td></tr>
-        <tr><td>Утримання падає майже до 0 до 2-го місяця</td><td>Проблема з product-market fit</td><td>Поговорити з тими, хто відтік, переосмислити основний цикл</td></tr>
+        <tr><td><strong>Модель (Model)</strong></td><td>Один файл <code>.sql</code> з оператором SELECT</td><td>Один крок трансформації</td></tr>
+        <tr><td><strong>ref()</strong></td><td>Функція для посилання на іншу модель</td><td>Оператор імпорту</td></tr>
+        <tr><td><strong>source()</strong></td><td>Посилання на сирі таблиці даних</td><td>Оголошення вхідних даних</td></tr>
+        <tr><td><strong>Тест (Test)</strong></td><td>Твердження про дані (not null, unique тощо)</td><td>Юніт-тест</td></tr>
+        <tr><td><strong>Schema.yml</strong></td><td>YAML-файл з метаданими та тестами моделей</td><td>Конфігурація + документація</td></tr>
       </tbody>
     </table>
 
-    <h3>Презентація стейкхолдерам</h3>
-    <p>Коли презентуєш когортне утримання нетехнічній аудиторії, починай з бізнес-висновку, а не з методології. Замість «Утримання на 1-му місяці зросло з 41% до 61% між когортами січня–травня» скажи: «Більше половини нових клієнтів тепер повертаються за другою покупкою протягом 30 днів — це на 20 п.п. більше, ніж на початку року. Це безпосередньо скорочує термін окупності витрат на залучення клієнтів.»</p>
+    <h2 id="first-model">Пишемо першу dbt-модель</h2>
+    <p>Модель dbt — це просто файл <code>.sql</code> у директорії <code>models/</code> твого проекту. Назва файлу стає назвою таблиці у сховищі даних. dbt автоматично огортає твій SELECT у оператор <code>CREATE TABLE AS</code> або <code>CREATE VIEW AS</code>.</p>
+
+    <div class="code-block"><span class="comment">-- models/staging/stg_orders.sql</span>
+<span class="comment">-- Стейджинг-модель: очищення сирої таблиці замовлень</span>
+
+<span class="keyword">SELECT</span>
+    order_id,
+    user_id,
+    <span class="func">CAST</span>(created_at <span class="keyword">AS</span> TIMESTAMP)  <span class="keyword">AS</span> created_at,
+    <span class="func">UPPER</span>(status)                      <span class="keyword">AS</span> status,
+    <span class="func">ROUND</span>(revenue, <span class="keyword">2</span>)                 <span class="keyword">AS</span> revenue_usd,
+    country_code
+
+<span class="keyword">FROM</span> {{ <span class="func">source</span>(<span class="string">'raw'</span>, <span class="string">'orders'</span>) }}
+<span class="keyword">WHERE</span> created_at >= <span class="string">'2024-01-01'</span></div>
+
+    <div class="code-block"><span class="comment">-- models/marts/fct_monthly_revenue.sql</span>
+<span class="comment">-- Фактова модель: щомісячна агрегація доходу</span>
+
+<span class="keyword">SELECT</span>
+    <span class="func">DATE_TRUNC</span>(<span class="string">'month'</span>, created_at)  <span class="keyword">AS</span> month,
+    country_code,
+    <span class="func">COUNT</span>(<span class="keyword">DISTINCT</span> user_id)          <span class="keyword">AS</span> unique_customers,
+    <span class="func">COUNT</span>(order_id)                  <span class="keyword">AS</span> total_orders,
+    <span class="func">SUM</span>(revenue_usd)                 <span class="keyword">AS</span> total_revenue,
+    <span class="func">AVG</span>(revenue_usd)                 <span class="keyword">AS</span> avg_order_value
+
+<span class="keyword">FROM</span> {{ <span class="func">ref</span>(<span class="string">'stg_orders'</span>) }}      <span class="comment">-- посилання на стейджинг-модель вище</span>
+<span class="keyword">WHERE</span> status = <span class="string">'COMPLETED'</span>
+<span class="keyword">GROUP BY</span> <span class="keyword">1</span>, <span class="keyword">2</span></div>
+
+    <p>Зверни увагу на синтаксис <code>{{ ref('stg_orders') }}</code>. Це Jinja-шаблонізація dbt — вона повідомляє dbt, що <code>fct_monthly_revenue</code> залежить від <code>stg_orders</code>. dbt будує граф залежностей із цих посилань і завжди запускає моделі у правильному порядку.</p>
+
+    <h2 id="testing">Тестування даних у dbt</h2>
+    <p>Одна з найпотужніших можливостей dbt — вбудоване тестування даних. Ти визначаєш тести у YAML-файлі поряд із моделями, і dbt виконує їх для перевірки відповідності даних очікуванням.</p>
+
+    <div class="code-block"><span class="comment"># models/staging/schema.yml</span>
+
+<span class="keyword">version</span>: 2
+
+<span class="keyword">models</span>:
+  - <span class="keyword">name</span>: stg_orders
+    <span class="keyword">description</span>: <span class="string">"Очищені та стандартизовані замовлення з сирого джерела"</span>
+    <span class="keyword">columns</span>:
+      - <span class="keyword">name</span>: order_id
+        <span class="keyword">description</span>: <span class="string">"Унікальний ідентифікатор замовлення"</span>
+        <span class="keyword">tests</span>:
+          - <span class="func">unique</span>        <span class="comment"># без дублікатів order_id</span>
+          - <span class="func">not_null</span>      <span class="comment"># кожен рядок повинен мати order_id</span>
+
+      - <span class="keyword">name</span>: status
+        <span class="keyword">tests</span>:
+          - <span class="func">accepted_values</span>:
+              <span class="keyword">values</span>: [<span class="string">'COMPLETED'</span>, <span class="string">'PENDING'</span>, <span class="string">'CANCELLED'</span>, <span class="string">'REFUNDED'</span>]
+
+      - <span class="keyword">name</span>: user_id
+        <span class="keyword">tests</span>:
+          - <span class="func">not_null</span>
+          - <span class="func">relationships</span>:
+              <span class="keyword">to</span>: <span class="func">ref</span>(<span class="string">'stg_users'</span>)
+              <span class="keyword">field</span>: user_id   <span class="comment"># перевірка реляційної цілісності</span></div>
+
+    <p>Запусти всі тести однією командою: <code>dbt test</code>. Якщо тест не пройшов, dbt повідомляє, які саме рядки порушили обмеження. Це безцінно для виявлення тихих проблем якості даних до того, як вони потраплять на дашборди або в звіти.</p>
+
+    <h2 id="documentation">Автогенерована документація</h2>
+    <p>dbt генерує повний веб-сайт документації з YAML-описів та коду моделей. Запусти <code>dbt docs generate</code>, потім <code>dbt docs serve</code> — і отримаєш її локально. Документація включає опис кожної моделі та колонки, SQL-код і граф лінійності залежностей.</p>
+    <p>Для аналітиків, що працюють у команді, це вирішує вічну проблему «що насправді містить ця таблиця?» — відповідь завжди на відстані одного кліку в документації dbt.</p>
+
+    <h2 id="lineage">Лінійність даних (Data Lineage)</h2>
+    <p>Оскільки dbt знає всі залежності між моделями (через <code>ref()</code>), він може намалювати повний граф лінійності: від сирих таблиць джерел через стейджинг-моделі до фінальних mart-таблиць, що використовуються в дашбордах. Це дозволяє миттєво побачити, що зламається при зміні upstream-таблиці.</p>
 
     <div class="highlight-box">
-      <p>🎯 Завдання аналітика — не побудувати теплову карту, а відповісти на питання: «Чи стає наш продукт кращим або гіршим у збереженні користувачів?» Когортний аналіз — найнадійніший спосіб відповісти на нього.</p>
+      <p>📊 Типова структура dbt-проекту: <strong>sources</strong> (сирі таблиці) → <strong>staging</strong> (очищення та типізація) → <strong>intermediate</strong> (джойни та збагачення) → <strong>marts</strong> (бізнес-агрегації для дашбордів)</p>
     </div>
 
-    <h3>Готовий скрипт — скопіюй і запусти</h3>
-    <div class="code-block"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd
-<span class="keyword">import</span> numpy <span class="keyword">as</span> np
-<span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt
-<span class="keyword">import</span> seaborn <span class="keyword">as</span> sns
+    <h2 id="when-to-use">Коли dbt підходить (а коли — ні)</h2>
 
-<span class="keyword">def</span> <span class="func">build_cohort_retention</span>(df, user_col=<span class="string">'user_id'</span>, date_col=<span class="string">'order_date'</span>):
-    <span class="string">"""
-    Будує щомісячну матрицю утримання когорт із транзакційних даних.
-    df повинен мати колонки: user_id, order_date (datetime)
-    Повертає: retention_matrix (DataFrame, значення у %)
-    """</span>
-    df = df.<span class="func">copy</span>()
-    df[<span class="string">'order_month'</span>]  = df[date_col].dt.<span class="func">to_period</span>(<span class="string">'M'</span>)
-    df[<span class="string">'cohort_month'</span>] = df.<span class="func">groupby</span>(user_col)[<span class="string">'order_month'</span>].<span class="func">transform</span>(<span class="string">'min'</span>)
-    df[<span class="string">'period'</span>]       = (df[<span class="string">'order_month'</span>] - df[<span class="string">'cohort_month'</span>]).<span class="func">apply</span>(<span class="keyword">lambda</span> x: x.n)
+    <table>
+      <thead><tr><th>Використовуй dbt, коли...</th><th>Не використовуй dbt, коли...</th></tr></thead>
+      <tbody>
+        <tr><td>Є повторювані SQL-трансформації, що запускаються за розкладом</td><td>Робиш разовий ad-hoc аналіз</td></tr>
+        <tr><td>Декілька людей працюють з одними і тими ж моделями даних</td><td>Працюєш самостійно з простими запитами</td></tr>
+        <tr><td>Потрібні гарантії якості даних перед дашбордами</td><td>Твої сирі дані вже достатньо чисті</td></tr>
+        <tr><td>Потрібна автодокументація та відстеження лінійності</td><td>Швидкість налаштування важливіша за структуру</td></tr>
+        <tr><td>Компанія використовує хмарне сховище (BigQuery, Snowflake тощо)</td><td>Працюєш лише з локальними CSV-файлами</td></tr>
+      </tbody>
+    </table>
 
-    matrix = (
-        df.<span class="func">groupby</span>([<span class="string">'cohort_month'</span>, <span class="string">'period'</span>])[user_col]
-        .<span class="func">nunique</span>()
-        .<span class="func">unstack</span>()
-    )
-    sizes = matrix.iloc[:, <span class="number">0</span>]
-    retention = (matrix.<span class="func">divide</span>(sizes, axis=<span class="number">0</span>) * <span class="number">100</span>).<span class="func">round</span>(<span class="number">1</span>)
-    retention.columns = [<span class="string">f'M{c}'</span> <span class="keyword">for</span> c <span class="keyword">in</span> retention.columns]
-    <span class="keyword">return</span> retention, sizes
+    <p>Почати легко: встанови dbt Core командою <code>pip install dbt-bigquery</code> (або адаптер для свого сховища), запусти <code>dbt init my_project</code>, підключись до сховища та напиши першу модель. Офіційна документація dbt та безкоштовні курси dbt Learn — відмінні ресурси для поглиблення знань.</p>
 
-<span class="comment"># Використання:</span>
-<span class="comment"># df = pd.read_csv('your_data.csv', parse_dates=['order_date'])</span>
-<span class="comment"># retention, sizes = build_cohort_retention(df)</span>
-<span class="comment"># sns.heatmap(retention, annot=True, fmt='.1f', cmap='Blues', vmin=0, vmax=100)</span></div>
+    <div class="highlight-box">
+      <p>🎯 У 2026 році знання dbt відрізняє аналітиків, що працюють із сирим SQL, від аналітиків, що будують production-grade пайплайни даних. Це один із найцінніших навичок для додавання до свого інструментарію.</p>
+    </div>
 
   </article>
 
   <div class="article-tags">
     <span>Теги:</span>
-    <a href="../index-ua.html#articles">Python</a>
-    <a href="../index-ua.html#articles">Утримання</a>
-    <a href="../index-ua.html#articles">Когортний аналіз</a>
-    <a href="../index-ua.html#articles">Pandas</a>
-    <a href="../index-ua.html#articles">Продуктова аналітика</a>
-    <a href="../index-ua.html#articles">Відтік</a>
+    <a href="../index-ua.html#articles">SQL</a>
+    <a href="../index-ua.html#articles">dbt</a>
+    <a href="../index-ua.html#articles">Стек даних</a>
+    <a href="../index-ua.html#articles">Аналітична інженерія</a>
+    <a href="../index-ua.html#articles">Трансформація даних</a>
   </div>
 
   <nav class="article-nav">
-    <a href="dbt-for-analysts-2026-ua.html" class="prev">
+    <a href="ai-assisted-data-analysis-2026-ua.html" class="prev">
       <span class="nav-label"><i class="bi bi-arrow-left"></i> Попередня</span>
-      <span class="nav-title">dbt для аналітиків даних у 2026</span>
+      <span class="nav-title">AI-аналіз даних у 2026</span>
     </a>
-    <a href="../index-ua.html#articles" class="next">
-      <span class="nav-label">Всі статті <i class="bi bi-arrow-right"></i></span>
-      <span class="nav-title">Назад до розділу статей</span>
+    <a href="cohort-analysis-python-2026-ua.html" class="next">
+      <span class="nav-label">Наступна <i class="bi bi-arrow-right"></i></span>
+      <span class="nav-title">Когортний аналіз і утримання користувачів у Python</span>
     </a>
   </nav>
+</main>
 
+<!-- FOOTER -->
+<footer class="article-footer">
+  <p class="footer-share-label">Поділитися статтею</p>
+  <div class="footer-share-btns">
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://isachenko-andrii.github.io/articles/dbt-for-analysts-2026-ua.html" target="_blank" rel="noopener" class="footer-share-btn li"><i class="bi bi-linkedin"></i> LinkedIn</a>
+    <a href="https://t.me/share/url?url=https://isachenko-andrii.github.io/articles/dbt-for-analysts-2026-ua.html&text=dbt%20%D0%B4%D0%BB%D1%8F%20%D0%B0%D0%BD%D0%B0%D0%BB%D1%96%D1%82%D0%B8%D0%BA%D1%96%D0%B2%202026" target="_blank" rel="noopener" class="footer-share-btn tg"><i class="bi bi-telegram"></i> Telegram</a>
+  </div>
+  <hr class="footer-hr">
+  <div class="footer-social">
+    <a href="https://www.linkedin.com/in/isachenko-andrii/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+    <a href="https://github.com/isachenko-andrii"           target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+    <a href="https://t.me/Manul_Solo"                       target="_blank" rel="noopener" aria-label="Telegram"><i class="bi bi-telegram"></i></a>
+    <a href="/cdn-cgi/l/email-protection#bad3c9dbd9d2dfd4d1d594dbd4dec8d3d394cdd5c8d1faddd7dbd3d694d9d5d7" aria-label="Email"><i class="bi bi-envelope"></i></a>
+  </div>
+  <div class="footer-copy">
+    <span>Copyright <a href="https://isachenko-andrii.github.io/index-ua.html">Ісаченко Андрій</a> All Rights Reserved</span><br>
+    <span>Designed by <a href="https://bootstrapmade.com/" target="_blank" rel="noopener">BootstrapMade</a> Distribuited by <a href="https://themewagon.com" target="_blank" rel="noopener">ThemeWagon</a></span>
+  </div>
   <div class="back-to-main">
     <a href="../index-ua.html"><i class="bi bi-house"></i> На головну сторінку</a>
   </div>
-
-</main>
+</footer>
+<!-- Scroll to top -->
+<a href="#" id="scrollTopBtn" aria-label="Scroll to top"><i class="bi bi-arrow-up-short"></i></a>
+<script>
+(function(){
+  var b=document.getElementById('scrollTopBtn');
+  if(!b)return;
+  window.addEventListener('scroll',function(){b.classList.toggle('visible',window.pageYOffset>320);},{passive:true});
+  b.addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});});
+})();
+</script>
 </body>
 </html>
