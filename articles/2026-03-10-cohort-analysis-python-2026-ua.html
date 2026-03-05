@@ -5,17 +5,21 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <!-- PRIMARY SEO -->
-  <title>Когортний аналіз і утримання користувачів у Python 2026: повний гід — Ісаченко Андрій</title>
-  <meta name="description" content="Як побудувати когортний аналіз та виміряти утримання користувачів у Python з pandas. Покроковий гід із реальним кодом: матриця утримання, теплова карта, розрахунок відтоку та бізнес-інтерпретація.">
+  <title>Когортний аналіз і утримання у Python 2026: повний гід</title>
+  <meta name="description" content="Як побудувати когортний аналіз та виміряти утримання у Python з pandas. Матриця утримання, теплова карта та розрахунок відтоку — покроковий гід із кодом.">
   <meta name="keywords" content="когортний аналіз Python 2026, утримання користувачів pandas, аналіз відтоку, матриця утримання теплова карта, аналіз когорт Python, retention analysis, churn analysis, аналітик даних Україна, продуктова аналітика">
   <meta name="author" content="Ісаченко Андрій">
   <meta name="robots" content="index, follow">
   <meta name="language" content="uk">
 
   <!-- CANONICAL + HREFLANG -->
-  <link rel="canonical"  href="https://isachenko-andrii.github.io/articles/2026-03-10-cohort-analysis-python-2026-ua.html">
-  <link rel="alternate"  hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-03-10-cohort-analysis-python-2026-ua.html">
-  <link rel="alternate"  hreflang="en"        href="https://isachenko-andrii.github.io/articles/2026-03-10-cohort-analysis-python-2026.html">
+  <link rel="canonical" href="https://isachenko-andrii.github.io/articles/2026-03-10-cohort-analysis-python-2026-ua.html">
+  <link rel="alternate" hreflang="en"       href="https://isachenko-andrii.github.io/articles/2026-03-10-cohort-analysis-python-2026.html">
+  <link rel="alternate" hreflang="uk"       href="https://isachenko-andrii.github.io/articles/2026-03-10-cohort-analysis-python-2026-ua.html">
+  <link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-03-10-cohort-analysis-python-2026.html">
+
+  <link rel="alternate"  hreflang="uk"       href="https://isachenko-andrii.github.io/articles/2026-03-10-cohort-analysis-python-2026-ua.html">
+  <link rel="alternate"  hreflang="en"       href="https://isachenko-andrii.github.io/articles/2026-03-10-cohort-analysis-python-2026.html">
   <link rel="alternate"  hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-03-10-cohort-analysis-python-2026.html">
 
   <!-- OPEN GRAPH -->
@@ -51,23 +55,53 @@
     "@type": "TechArticle",
     "headline": "Когортний аналіз і утримання користувачів у Python 2026: повний гід",
     "description": "Покроковий когортний аналіз у Python з pandas: матриця утримання, теплова карта, розрахунок відтоку та бізнес-інтерпретація.",
-    "image": { "@type": "ImageObject", "url": "https://isachenko-andrii.github.io/articles/article-img/cohort-analysis-python-2026.jpg", "width": 1200, "height": 630 },
-    "datePublished": "2026-03-01",
-    "dateModified":  "2026-03-01",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://isachenko-andrii.github.io/articles/article-img/cohort-analysis-python-2026.jpg",
+      "width": 1200,
+      "height": 630
+    },
+    "datePublished": "2026-03-10",
+    "dateModified": "2026-03-01",
     "inLanguage": "uk",
     "url": "https://isachenko-andrii.github.io/articles/cohort-analysis-python-2026-ua.html",
-    "author":    { "@type": "Person", "name": "Ісаченко Андрій", "url": "https://isachenko-andrii.github.io",
-                   "sameAs": ["https://www.linkedin.com/in/isachenko-andrii/","https://github.com/isachenko-andrii"] },
-    "publisher": { "@type": "Person", "name": "Ісаченко Андрій", "url": "https://isachenko-andrii.github.io" },
+    "author": {
+      "@type": "Person",
+      "name": "Ісаченко Андрій",
+      "url": "https://isachenko-andrii.github.io",
+      "sameAs": [
+        "https://www.linkedin.com/in/isachenko-andrii/",
+        "https://github.com/isachenko-andrii"
+      ]
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Ісаченко Андрій",
+      "url": "https://isachenko-andrii.github.io"
+    },
     "keywords": "когортний аналіз, утримання користувачів, Python, pandas, відтік, аналіз даних 2026",
     "articleSection": "Data Analytics",
     "timeRequired": "PT10M",
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Головна", "item": "https://isachenko-andrii.github.io/index-ua.html" },
-        { "@type": "ListItem", "position": 2, "name": "Статті",  "item": "https://isachenko-andrii.github.io/index-ua.html#articles" },
-        { "@type": "ListItem", "position": 3, "name": "Когортний аналіз і утримання у Python 2026" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Головна",
+          "item": "https://isachenko-andrii.github.io/index-ua.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Статті",
+          "item": "https://isachenko-andrii.github.io/index-ua.html#articles"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Когортний аналіз і утримання у Python 2026"
+        }
       ]
     }
   }
@@ -293,11 +327,11 @@
 <!-- ═══ TOP BAR ═══ -->
 <nav class="top-bar" aria-label="Навігація статті">
   <div class="top-bar-left">
-    <a href="../articles/index-ua.html" class="back-btn"><i class="bi bi-arrow-left"></i> Назад</a>
+    <a href="index-ua.html" class="back-btn"><i class="bi bi-arrow-left"></i> Назад</a>
     <nav class="breadcrumbs" aria-label="Хлібні крошки">
-      <a href="../articles/index-ua.html">Блог</a>
+      <a href="index-ua.html">Блог</a>
       <span class="sep">›</span>
-      <a href="../articles/index-ua.html">Статті</a>
+      <a href="index-ua.html">Статті</a>
       <span class="sep">›</span>
       <span class="current">Когортний аналіз у Python</span>
     </nav>
@@ -305,8 +339,8 @@
 
   <!-- Language switcher -->
   <div class="top-bar-right">
-    <a href="../articles/2026-03-10-cohort-analysis-python-2026.html" class="lang-btn" title="English">EN</a>
-    <a href="../articles/2026-03-10-cohort-analysis-python-2026-ua.html" class="lang-btn active" aria-current=page title="Українська">UA</a>
+    <a href="2026-03-10-cohort-analysis-python-2026.html" class="lang-btn" title="English">EN</a>
+    <a href="2026-03-10-cohort-analysis-python-2026-ua.html" class="lang-btn active" aria-current=page title="Українська">UA</a>
   </div>
 </nav>
 
@@ -520,21 +554,21 @@ avg_retention = retention_matrix.<span class="func">mean</span>(axis=<span class
   <!-- Tags -->
   <div class="article-tags">
     <span>Теги:</span>
-    <a href="../articles/index-ua.html">Python</a>
-    <a href="../articles/index-ua.html">Утримання</a>
-    <a href="../articles/index-ua.html">Когортний аналіз</a>
-    <a href="../articles/index-ua.html">Pandas</a>
-    <a href="../articles/index-ua.html">Продуктова аналітика</a>
-    <a href="../articles/index-ua.html">Відтік</a>
+    <a href="index-ua.html">Python</a>
+    <a href="index-ua.html">Утримання</a>
+    <a href="index-ua.html">Когортний аналіз</a>
+    <a href="index-ua.html">Pandas</a>
+    <a href="index-ua.html">Продуктова аналітика</a>
+    <a href="index-ua.html">Відтік</a>
   </div>
 
   <!-- Prev / Next -->
   <nav class="article-nav" aria-label="Навігація між статтями">
-    <a href="../articles/2026-02-03-dbt-for-analysts-2026-ua.html" class="prev">
+    <a href="2026-02-03-dbt-for-analysts-2026-ua.html" class="prev">
       <span class="nav-label"><i class="bi bi-arrow-left"></i> Попередня</span>
       <span class="nav-title">dbt для аналітиків даних у 2026</span>
     </a>
-    <a href="../articles/index-ua.html" class="next">
+    <a href="index-ua.html" class="next">
       <span class="nav-label">Всі статті <i class="bi bi-arrow-right"></i></span>
       <span class="nav-title">Назад до розділу статей</span>
     </a>
