@@ -140,6 +140,43 @@
       .article-nav a.next .nav-label { justify-content:flex-start; }
       .author-links { display:none; }
     }
+
+    /* ── ARTICLE FOOTER ── */
+    .article-footer { background:#f8fafc; border-top:1px solid #e8ecf0; padding:40px 24px 32px; text-align:center; }
+    .footer-share-label { font-size:12px; font-weight:600; letter-spacing:0.8px; text-transform:uppercase; color:#666; margin-bottom:16px; }
+    .footer-share-btns  { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-bottom:32px; }
+    .footer-share-btn   { display:inline-flex; align-items:center; gap:8px; padding:9px 22px; border-radius:25px; font-size:14px; font-weight:500; text-decoration:none; border:1px solid #e8ecf0; color:#666; background:#fff; transition:all 0.22s; }
+    .footer-share-btn:hover { transform:translateY(-2px); box-shadow:0 4px 14px rgba(0,0,0,0.09); }
+    .footer-share-btn.li:hover { background:#0077b5; color:#fff; border-color:#0077b5; }
+    .footer-share-btn.tg:hover { background:#26a5e4; color:#fff; border-color:#26a5e4; }
+    .footer-hr { border:none; border-top:1px solid #e8ecf0; margin:0 auto 28px; max-width:360px; }
+    .footer-social { display:flex; justify-content:center; gap:10px; margin-bottom:22px; }
+    .footer-social a { width:42px; height:42px; border-radius:50%; background:#0563bb; color:#fff; display:flex; align-items:center; justify-content:center; font-size:18px; text-decoration:none; transition:all 0.25s; }
+    .footer-social a:hover { background:#0352a0; transform:translateY(-3px); }
+    .footer-copy { font-size:13px; color:#666; line-height:2; }
+    .footer-copy a { color:#0563bb; text-decoration:none; }
+    .footer-copy a:hover { text-decoration:underline; }
+    .back-to-main { margin-top:22px; }
+    .back-to-main a { display:inline-flex; align-items:center; gap:8px; color:#0563bb; text-decoration:none; font-weight:500; font-size:15px; border:1px solid #e8ecf0; padding:10px 24px; border-radius:25px; transition:all 0.2s; background:#fff; }
+    .back-to-main a:hover { background:#0563bb; color:#fff; border-color:#0563bb; }
+    /* ── SCROLL TO TOP ── */
+    #scrollTopBtn { position:fixed; bottom:28px; right:24px; z-index:999; width:44px; height:44px; border-radius:50%; background:#0563bb; color:#fff; display:flex; align-items:center; justify-content:center; font-size:22px; text-decoration:none; box-shadow:0 4px 16px rgba(5,99,187,0.4); opacity:0; pointer-events:none; transition:opacity 0.3s, transform 0.3s; }
+    #scrollTopBtn.visible { opacity:1; pointer-events:auto; }
+    #scrollTopBtn:hover { background:#0352a0; transform:translateY(-3px); }
+    @media (max-width:600px) { #scrollTopBtn { bottom:18px; right:14px; width:40px; height:40px; font-size:20px; } }
+
+    /* ── Language switcher ── */
+    .top-bar-right { display:flex; align-items:center; gap:4px; }
+    .lang-btn {
+      display:inline-flex; align-items:center; justify-content:center;
+      min-width:34px; height:28px; padding:0 10px;
+      border-radius:14px; border:1.5px solid #0563bb;
+      font-size:12px; font-weight:700; letter-spacing:0.4px;
+      text-decoration:none; transition:all 0.2s;
+      color:#0563bb; background:transparent;
+    }
+    .lang-btn:hover   { background:#e8f0fb; }
+    .lang-btn.active  { background:#0563bb; color:#fff; cursor:default; pointer-events:none; }
   </style>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-E01F5VDKVM"></script>
@@ -156,9 +193,9 @@
       <span class="current">Cohort Analysis in Python</span>
     </nav>
   </div>
-  <div class="share-btns">
-    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://isachenko-andrii.github.io/articles/cohort-analysis-python-2026.html" target="_blank" class="share-btn" title="Share on LinkedIn"><i class="bi bi-linkedin"></i></a>
-    <a href="https://t.me/share/url?url=https://isachenko-andrii.github.io/articles/cohort-analysis-python-2026.html" target="_blank" class="share-btn" title="Share on Telegram"><i class="bi bi-telegram"></i></a>
+  <div class="top-bar-right">
+    <a href="cohort-analysis-python-2026.html" class="lang-btn active" aria-current=page title="English">EN</a>
+    <a href="cohort-analysis-python-2026-ua.html" class="lang-btn" title="Українська">UA</a>
   </div>
 </nav>
 
@@ -418,11 +455,39 @@ avg_retention = retention_matrix.<span class="func">mean</span>(axis=<span class
       <span class="nav-title">Back to Articles section</span>
     </a>
   </nav>
+</main>
 
+<!-- FOOTER -->
+<footer class="article-footer">
+  <p class="footer-share-label">Share this article</p>
+  <div class="footer-share-btns">
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://isachenko-andrii.github.io/articles/cohort-analysis-python-2026.html" target="_blank" rel="noopener" class="footer-share-btn li"><i class="bi bi-linkedin"></i> LinkedIn</a>
+    <a href="https://t.me/share/url?url=https://isachenko-andrii.github.io/articles/cohort-analysis-python-2026.html&text=Cohort%20Analysis%20%26%20Retention%20in%20Python%202026" target="_blank" rel="noopener" class="footer-share-btn tg"><i class="bi bi-telegram"></i> Telegram</a>
+  </div>
+  <hr class="footer-hr">
+  <div class="footer-social">
+    <a href="https://www.linkedin.com/in/isachenko-andrii/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+    <a href="https://github.com/isachenko-andrii"           target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+    <a href="https://t.me/Manul_Solo"                       target="_blank" rel="noopener" aria-label="Telegram"><i class="bi bi-telegram"></i></a>
+    <a href="/cdn-cgi/l/email-protection#4c253f2d2f2429222723622d22283e2525623b233e270c2b212d2520622f2321" aria-label="Email"><i class="bi bi-envelope"></i></a>
+  </div>
+  <div class="footer-copy">
+    <span>Copyright <a href="https://isachenko-andrii.github.io/index.html">Isachenko Andrii</a> All Rights Reserved</span><br>
+    <span>Designed by <a href="https://bootstrapmade.com/" target="_blank" rel="noopener">BootstrapMade</a> Distribuited by <a href="https://themewagon.com" target="_blank" rel="noopener">ThemeWagon</a></span>
+  </div>
   <div class="back-to-main">
     <a href="../index.html"><i class="bi bi-house"></i> Back to main page</a>
   </div>
-
-</main>
+</footer>
+<!-- Scroll to top -->
+<a href="#" id="scrollTopBtn" aria-label="Scroll to top"><i class="bi bi-arrow-up-short"></i></a>
+<script>
+(function(){
+  var b=document.getElementById('scrollTopBtn');
+  if(!b)return;
+  window.addEventListener('scroll',function(){b.classList.toggle('visible',window.pageYOffset>320);},{passive:true});
+  b.addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});});
+})();
+</script>
 </body>
 </html>
