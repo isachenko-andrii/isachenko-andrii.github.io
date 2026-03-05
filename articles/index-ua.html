@@ -382,28 +382,7 @@
     }
     .card-read-link:hover { gap: 8px; }
 
-    /* ── Footer ── */
-    .page-footer {
-      background: var(--bg-light);
-      border-top: 1px solid var(--border);
-      padding: 28px 32px;
-      text-align: center;
-    }
-    .page-footer a {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 14px;
-      border: 1px solid var(--border);
-      padding: 10px 24px;
-      border-radius: 25px;
-      transition: all 0.2s;
-      background: #fff;
-    }
-    .page-footer a:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+    
 
     /* ── Responsive ── */
     @media (max-width: 1024px) {
@@ -419,6 +398,61 @@
       .page-header { padding: 40px 16px 36px; }
       .page-footer { padding: 24px 16px; }
     }
+
+    /* ── Language switcher ── */
+    .top-bar-right { display:flex; align-items:center; gap:4px; }
+    .lang-btn {
+      display:inline-flex; align-items:center; justify-content:center;
+      min-width:34px; height:28px; padding:0 10px;
+      border-radius:14px; border:1.5px solid #0563bb;
+      font-size:12px; font-weight:700; letter-spacing:0.4px;
+      text-decoration:none; transition:all 0.2s;
+      color:#0563bb; background:transparent;
+    }
+    .lang-btn:hover  { background:#e8f0fb; }
+    .lang-btn.active { background:#0563bb; color:#fff; cursor:default; pointer-events:none; }
+
+    /* ── Footer ── */
+    .page-footer {
+      background: var(--bg-light);
+      border-top: 1px solid var(--border);
+      padding: 36px 32px 28px;
+      text-align: center;
+    }
+    .footer-hr { border:none; border-top:1px solid var(--border); margin:0 auto 24px; max-width:360px; }
+    .footer-social { display:flex; justify-content:center; gap:10px; margin-bottom:20px; }
+    .footer-social a {
+      width:42px; height:42px; border-radius:50%;
+      background:#0563bb; color:#fff;
+      display:flex; align-items:center; justify-content:center;
+      font-size:18px; text-decoration:none; transition:all 0.25s;
+    }
+    .footer-social a:hover { background:#0352a0; transform:translateY(-3px); }
+    .footer-copy { font-size:13px; color:var(--text-light); line-height:2; margin-bottom:20px; }
+    .footer-copy a { color:var(--primary); text-decoration:none; font-weight:500; }
+    .footer-copy a:hover { text-decoration:underline; }
+    .footer-back {
+      display:inline-flex; align-items:center; gap:8px;
+      color:var(--primary); text-decoration:none; font-weight:500; font-size:14px;
+      border:1px solid var(--border); padding:10px 24px; border-radius:25px;
+      transition:all 0.2s; background:#fff;
+    }
+    .footer-back:hover { background:var(--primary); color:#fff; border-color:var(--primary); }
+
+    /* ── Scroll to top ── */
+    #scrollTopBtn {
+      position:fixed; bottom:28px; right:24px; z-index:999;
+      width:44px; height:44px; border-radius:50%;
+      background:#0563bb; color:#fff;
+      display:flex; align-items:center; justify-content:center;
+      font-size:22px; text-decoration:none;
+      box-shadow:0 4px 16px rgba(5,99,187,0.4);
+      opacity:0; pointer-events:none;
+      transition:opacity 0.3s, transform 0.3s;
+    }
+    #scrollTopBtn.visible { opacity:1; pointer-events:auto; }
+    #scrollTopBtn:hover { background:#0352a0; transform:translateY(-3px); }
+    @media (max-width:700px) { #scrollTopBtn { bottom:18px; right:14px; width:40px; height:40px; font-size:20px; } }
   </style>
 
   <!-- Google tag -->
@@ -436,17 +470,17 @@
   <!-- Top Bar -->
   <nav class="top-bar">
     <div class="top-bar-left">
-      <a href="../index-ua.html" class="back-btn"><i class="bi bi-arrow-left"></i> Головна</a>
+      <a href="../index.html" class="back-btn"><i class="bi bi-arrow-left"></i> Головна</a>
         <nav class="breadcrumbs" aria-label="breadcrumb">
-        <a href="../articles/index-ua.html">Блог</a>
+        <a href="../index.html">Блог</a>
         <span class="sep">›</span>
         <span>Статті</span>
       </nav>
     </div>
       <!-- Language Switcher -->
     <div class="top-bar-right">
-      <a href="https://isachenko-andrii.github.io/articles/index.html" class="filter-tag">EN</a>
-      <a href="https://isachenko-andrii.github.io/articles/index-ua.html"  class="filter-tag active">UA</a>
+      <a href="https://isachenko-andrii.github.io/articles/index.html" class="lang-btn">EN</a>
+      <a href="https://isachenko-andrii.github.io/articles/index-ua.html" class="lang-btn active" aria-current=page>UA</a>
     </div>
   </nav>
 
@@ -485,7 +519,7 @@
     <article class="article-card" data-tags="AI" data-title="abc xyz analysis ecommerce inventory">
       <div class="card-img">
         <!-- <img src="article-img/abc-xyz-analysis-sm.jpg" alt="ABC/XYZ Analysis"> -->
-        <div class="card-img-placeholder"><i class="bi bi-robot"></i></div>
+        <div class="card-img-placeholder"><i class="bi bi-bar-chart-line"></i></div>
         <span class="card-tag">AI</span>
       </div>
       <div class="card-body">
@@ -588,8 +622,18 @@
 
   <!-- Footer -->
   <footer class="page-footer">
-    <a href="../index.html"><i class="bi bi-house"></i> На головну сторінку</a>
-
+    <hr class="footer-hr">
+    <div class="footer-social">
+      <a href="https://www.linkedin.com/in/isachenko-andrii/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+      <a href="https://github.com/isachenko-andrii"           target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+      <a href="https://t.me/Manul_Solo"                       target="_blank" rel="noopener" aria-label="Telegram"><i class="bi bi-telegram"></i></a>
+      <a href="mailto:isachenko.andrii.work@gmail.com"        aria-label="Email"><i class="bi bi-envelope"></i></a>
+    </div>
+    <div class="footer-copy">
+      <span>Copyright <a href="https://isachenko-andrii.github.io/index-ua.html">Ісаченко Андрій</a> All Rights Reserved</span><br>
+      <span>Designed by <a href="https://bootstrapmade.com/" target="_blank" rel="noopener">BootstrapMade</a> Distribuited by <a href="https://themewagon.com" target="_blank" rel="noopener">ThemeWagon</a></span>
+    </div>
+    <a href="../index-ua.html" class="footer-back"><i class="bi bi-house"></i> На головну сторінку</a>
   </footer>
 
   <script>
@@ -645,5 +689,16 @@
     });
   </script>
 
+
+<!-- Scroll to top -->
+<a href="#" id="scrollTopBtn" aria-label="Scroll to top"><i class="bi bi-arrow-up-short"></i></a>
+<script>
+(function(){
+  var b=document.getElementById('scrollTopBtn');
+  if(!b)return;
+  window.addEventListener('scroll',function(){b.classList.toggle('visible',window.pageYOffset>300);},{passive:true});
+  b.addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});});
+})();
+</script>
 </body>
 </html>
