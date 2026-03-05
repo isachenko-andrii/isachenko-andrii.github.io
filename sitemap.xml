@@ -24,4 +24,51 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/index.html"/>
   </url>
 
+  <!-- Article 1 -->
+  <url>
+    <loc>https://isachenko-andrii.github.io/articles/2026-01-15-ai-assisted-data-analysis-2026.html</loc>
+    <lastmod>2026-01-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Article 2 -->
+  <url>
+    <loc>https://isachenko-andrii.github.io/articles/2026-02-03-dbt-for-analysts-2026.html</loc>
+    <lastmod>2026-02-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Article 3 -->
+  <url>
+    <loc>https://isachenko-andrii.github.io/articles/2026-03-10-cohort-analysis-python-2026.html</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+
+  <!-- Ukrainian articles -->
+  <url>
+    <loc>https://isachenko-andrii.github.io/articles/2026-01-15-ai-assisted-data-analysis-2026-ua.html</loc>
+    <lastmod>2026-01-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://isachenko-andrii.github.io/2026-02-03-articles/dbt-for-analysts-2026-ua.html</loc>
+    <lastmod>2026-02-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://isachenko-andrii.github.io/articles/2026-03-10-cohort-analysis-python-2026-ua.html</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
