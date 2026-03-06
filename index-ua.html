@@ -59,19 +59,24 @@
   </script>
 
   <!-- Favicons -->
+    <link rel="preload" href="assets/img/bg.jpg" as="image" fetchpriority="high">
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600;700;800&display=swap"></noscript>
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link rel="preload" href="assets/vendor/bootstrap-icons/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="assets/vendor/bootstrap-icons/bootstrap-icons.css"></noscript>
+  <link rel="preload" href="assets/vendor/glightbox/css/glightbox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="assets/vendor/glightbox/css/glightbox.min.css"></noscript>
+  <link rel="preload" href="assets/vendor/swiper/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="assets/vendor/swiper/swiper-bundle.min.css"></noscript>
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
@@ -226,62 +231,20 @@
     }
     
   
-  /* ═══ CSS Scroll Animations (replaces AOS.js) ═══
-     Zero external library. Uses IntersectionObserver.
-     Respects prefers-reduced-motion for accessibility. */
-
-  /* Base: elements start hidden */
-  [data-aos] {
-    opacity: 0;
-    transition-property: opacity, transform;
-    transition-duration: 0.6s;
-    transition-timing-function: ease;
-  }
-
-  /* Animated state (class added by IntersectionObserver) */
-  [data-aos].aos-animate {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-
-  /* fade-up: slides up 30px */
-  [data-aos="fade-up"] {
-    transform: translateY(30px);
-  }
-
-  /* fade: just opacity */
-  [data-aos="fade"] {
-    transform: none;
-  }
-
-  /* zoom-out: scales down slightly */
-  [data-aos="zoom-out"] {
-    transform: scale(1.08);
-  }
-
-  /* Delays (data-aos-delay values used in HTML) */
-  [data-aos-delay="100"].aos-animate { transition-delay: 0.1s; }
-  [data-aos-delay="200"].aos-animate { transition-delay: 0.2s; }
-  [data-aos-delay="300"].aos-animate { transition-delay: 0.3s; }
-  [data-aos-delay="400"].aos-animate { transition-delay: 0.4s; }
-  [data-aos-delay="500"].aos-animate { transition-delay: 0.5s; }
-  [data-aos-delay="600"].aos-animate { transition-delay: 0.6s; }
-
-  /* ✅ Accessibility: disable animations if user prefers reduced motion */
-  @media (prefers-reduced-motion: reduce) {
-    [data-aos] {
-      opacity: 1 !important;
-      transform: none !important;
-      transition: none !important;
-    }
-  }
-
-  /* ✅ Mobile performance: shorter animation on small screens */
-  @media (max-width: 768px) {
-    [data-aos] { transition-duration: 0.4s; }
-    [data-aos="fade-up"] { transform: translateY(16px); }
-    [data-aos="zoom-out"] { transform: scale(1.03); }
-  }
+  /* Scroll Animations — replaces AOS.js (zero external requests) */
+  [data-aos]{opacity:0;transition:opacity .6s ease,transform .6s ease}
+  [data-aos].aos-animate{opacity:1!important;transform:none!important}
+  [data-aos="fade-up"]{transform:translateY(30px)}
+  [data-aos="zoom-out"]{transform:scale(1.08)}
+  [data-aos="fade"]{transform:none}
+  [data-aos-delay="100"].aos-animate{transition-delay:.1s}
+  [data-aos-delay="200"].aos-animate{transition-delay:.2s}
+  [data-aos-delay="300"].aos-animate{transition-delay:.3s}
+  [data-aos-delay="400"].aos-animate{transition-delay:.4s}
+  [data-aos-delay="500"].aos-animate{transition-delay:.5s}
+  [data-aos-delay="600"].aos-animate{transition-delay:.6s}
+  @media(prefers-reduced-motion:reduce){[data-aos]{opacity:1!important;transform:none!important;transition:none!important}}
+  @media(max-width:768px){[data-aos]{transition-duration:.4s}[data-aos="fade-up"]{transform:translateY(16px)}}
 </style>
 
   <!-- Google tag (gtag.js) -->
@@ -333,7 +296,7 @@
     <!-- Hero Section -->
     <section id="hero" class="hero section light-background">
 
-      <img src="assets/img/bg.jpg" alt="">
+      <img src="assets/img/bg.jpg" fetchpriority="high" decoding="sync">
 
       <div class="container" data-aos="zoom-out">
         <div class="row justify-content-center">
@@ -364,7 +327,7 @@
 
         <div class="row gy-4 justify-content-center">
           <div class="col-lg-4">
-            <img src="assets/img/profile-img.jpg" class="img-fluid" alt="Ісаченко Андрій - Аналітик даних Україна">
+            <img fetchpriority="high" src="assets/img/profile-img.jpg" class="img-fluid" alt="Ісаченко Андрій - Аналітик даних Україна">
           </div>
           <div class="col-lg-8 content">
             <h2>Андрій Ісаченко</h2>
@@ -583,7 +546,7 @@
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="assets/img/portfolio/project-1.png" class="img-fluid" alt="ABC/XYZ Аналіз - проєкт з аналітики даних">
+              <img loading="lazy" decoding="async" src="assets/img/portfolio/project-1.png" class="img-fluid" alt="ABC/XYZ Аналіз - проєкт з аналітики даних">
               <div class="portfolio-info">
                 <h4>ABC/XYZ Аналіз</h4>
                 <p>Оптимізація продажів та складу Brazilian E-Commerce</p>
@@ -592,7 +555,7 @@
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="assets/img/portfolio/project-2.png" class="img-fluid" alt="SQL проєкт з аналізу даних">
+              <img loading="lazy" decoding="async" src="assets/img/portfolio/project-2.png" class="img-fluid" alt="SQL проєкт з аналізу даних">
               <div class="portfolio-info">
                 <h4>User Funnel</h4>
                 <p>Повний аналіз воронки продажів</p>
@@ -601,7 +564,7 @@
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="assets/img/portfolio/project-3_.png" class="img-fluid" alt="Big Data аналіз - Stack Overflow опитування">
+              <img loading="lazy" decoding="async" src="assets/img/portfolio/project-3_.png" class="img-fluid" alt="Big Data аналіз - Stack Overflow опитування">
               <div class="portfolio-info">
                 <h4>Big Data</h4>
                 <p>Аналіз опитування розробників Stack Overflow</p>
@@ -610,7 +573,7 @@
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-visual">
-              <img src="assets/img/portfolio/project-4.png" class="img-fluid" alt="Проєкт візуалізації даних">
+              <img loading="lazy" decoding="async" src="assets/img/portfolio/project-4.png" class="img-fluid" alt="Проєкт візуалізації даних">
               <div class="portfolio-info">
               <div class="portfolio-info">
                 <h4>Looker Sudio</h4>
@@ -621,7 +584,7 @@
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-visual">
-              <img src="assets/img/portfolio/project-5.png" class="img-fluid" alt="Data Analysis Project">
+              <img loading="lazy" decoding="async" src="assets/img/portfolio/project-5.png" class="img-fluid" alt="Data Analysis Project">
               <div class="portfolio-info">
                 <h4>Power BI</h4>
                 <p>Середня зарплата в Україні за грудень 2025 року</p>
@@ -630,7 +593,7 @@
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="assets/img/portfolio/project-6_.png" class="img-fluid" alt="A/B Тест - оптимізація конверсії">
+              <img loading="lazy" decoding="async" src="assets/img/portfolio/project-6_.png" class="img-fluid" alt="A/B Тест - оптимізація конверсії">
               <div class="portfolio-info">
                 <h4>A/B Тест</h4>
                 <p>Оптимізація конверсії екрану підписки</p>
@@ -639,7 +602,7 @@
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-visual">
-              <img src="assets/img/portfolio/project-7_.png" class="img-fluid" alt="Проєкт візуалізації даних">
+              <img loading="lazy" decoding="async" src="assets/img/portfolio/project-7_.png" class="img-fluid" alt="Проєкт візуалізації даних">
               <div class="portfolio-info">
                 <h4>Назва проєкту</h4>
                 <p>Незабаром на моєму GitHub</p>
@@ -648,7 +611,7 @@
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="assets/img/portfolio/project-8_.png" class="img-fluid" alt="SQL проєкт аналізу даних">
+              <img loading="lazy" decoding="async" src="assets/img/portfolio/project-8_.png" class="img-fluid" alt="SQL проєкт аналізу даних">
               <div class="portfolio-info">
                 <h4>Назва проєкту</h4>
                 <p>Незабаром на моєму GitHub</p>
@@ -657,7 +620,7 @@
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="assets/img/portfolio/project-9_.png" class="img-fluid" alt="Python проєкт аналізу даних">
+              <img loading="lazy" decoding="async" src="assets/img/portfolio/project-9_.png" class="img-fluid" alt="Python проєкт аналізу даних">
               <div class="portfolio-info">
                 <h4>Назва проєкту</h4>
                 <p>Незабаром на моєму GitHub</p>
@@ -786,7 +749,7 @@
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div class="article-card">
               <div class="article-img">
-                <img src="articles/article-img/ai-assisted-data-analysis-2026-sm.jpg" alt="AI data analysis in 2026" class="img-fluid" onerror="this.parentElement.innerHTML='<div class=\'article-img-placeholder\'><i class=\'bi bi-robot\'></i></div>'">
+                <img loading="lazy" decoding="async" src="articles/article-img/ai-assisted-data-analysis-2026-sm.jpg" alt="AI data analysis in 2026" class="img-fluid" onerror="this.parentElement.innerHTML='<div class=\'article-img-placeholder\'><i class=\'bi bi-robot\'></i></div>'">
                 <span class="article-tag">ШІ Інструменти</span>
               </div>
               <div class="article-body">
@@ -802,7 +765,7 @@
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div class="article-card">
               <div class="article-img">
-                <img src="articles/article-img/dbt-for-analysts-2026-sm.jpg" alt="dbt для аналітиків даних у 2026" class="img-fluid" onerror="this.parentElement.innerHTML='<div class=\'article-img-placeholder\'><i class=\'bi bi-funnel\'></i></div>'">
+                <img loading="lazy" decoding="async" src="articles/article-img/dbt-for-analysts-2026-sm.jpg" alt="dbt для аналітиків даних у 2026" class="img-fluid" onerror="this.parentElement.innerHTML='<div class=\'article-img-placeholder\'><i class=\'bi bi-funnel\'></i></div>'">
                 <span class="article-tag">SQL</span>
               </div>
               <div class="article-body">
@@ -818,7 +781,7 @@
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
             <div class="article-card">
               <div class="article-img">
-                <img src="articles/article-img/cohort-analysis-python-2026-sm.jpg" alt="Когортний аналіз і утримання у Python" class="img-fluid" onerror="this.parentElement.innerHTML='<div class=\'article-img-placeholder\'><i class=\'bi bi-clipboard2-data\'></i></div>'">
+                <img loading="lazy" decoding="async" src="articles/article-img/cohort-analysis-python-2026-sm.jpg" alt="Когортний аналіз і утримання у Python" class="img-fluid" onerror="this.parentElement.innerHTML='<div class=\'article-img-placeholder\'><i class=\'bi bi-clipboard2-data\'></i></div>'">
                 <span class="article-tag">Python</span>
               </div>
               <div class="article-body">
@@ -850,7 +813,7 @@
         <div class="row gy-4">
 
           <div class="col-lg-4 d-flex justify-content-center">
-                 <img src="assets/img/my-telegram.png" alt="Telegram - Ісаченко Андрій Аналітик даних" width="300" height="300">
+                 <img loading="lazy" decoding="async" src="assets/img/my-telegram.png" alt="Telegram - Ісаченко Андрій Аналітик даних" width="300" height="300">
           </div>
           <!-- Contact Form -->
           <div class="col-lg-8">
@@ -923,17 +886,17 @@
 
   <!-- Vendor JS Files -->
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script defer src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script defer src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script defer src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script defer src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script defer src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script defer src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script defer src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script defer src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
   <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script defer src="assets/js/main.js"></script>
 
   <!-- Formspree -->
   <script>
@@ -974,24 +937,16 @@ document.addEventListener("DOMContentLoaded", function () {
 });
   </script>
 
-  <script>
-  /* ═══ Scroll Animation Observer (replaces AOS.js init) ═══ */
-  (function() {
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('aos-animate');
-          observer.unobserve(entry.target); // animate once only
-        }
-      });
-    }, {
-      threshold: 0.08,
-      rootMargin: '0px 0px -40px 0px'
-    });
 
-    document.querySelectorAll('[data-aos]').forEach(function(el) {
-      observer.observe(el);
-    });
+  <script>
+  (function(){
+    if(!('IntersectionObserver' in window))return;
+    var o=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){e.target.classList.add('aos-animate');o.unobserve(e.target);}
+      });
+    },{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('[data-aos]').forEach(function(el){o.observe(el);});
   })();
   </script>
 </body>
