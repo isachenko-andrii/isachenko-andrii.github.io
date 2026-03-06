@@ -12,7 +12,7 @@
 • Added support for Ukrainian and English languages.  
 • SEO optimization has been completed.  
 • Add blog 
-• The loading speed of the mobile version has been optimized and replaced with
+• The loading speed of the mobile version has been optimized and replaced with  
 **🙏 Acknowledgments**
 Special thanks to the [BootstrapMade](https://bootstrapmade.com) team for the excellent and user-friendly template that formed the basis of this project.    
 **🔧 Tools:** HTML, CSS, JavaScript
