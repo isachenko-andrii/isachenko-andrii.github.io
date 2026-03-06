@@ -2,73 +2,114 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-  <!-- English version — main page -->
+  <!-- ══ MAIN PAGE — EN ══ -->
   <url>
     <loc>https://isachenko-andrii.github.io/index.html</loc>
-    <lastmod>2025-02-24</lastmod>
+    <lastmod>2026-03-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://isachenko-andrii.github.io/index.html"/>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://isachenko-andrii.github.io/index-ua.html"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/index.html"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/index-ua.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/index.html"/>
   </url>
 
-  <!-- Ukrainian version -->
+  <!-- ══ MAIN PAGE — UA ══ -->
   <url>
     <loc>https://isachenko-andrii.github.io/index-ua.html</loc>
-    <lastmod>2025-02-24</lastmod>
+    <lastmod>2026-03-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://isachenko-andrii.github.io/index-ua.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://isachenko-andrii.github.io/index.html"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/index-ua.html"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/index.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/index.html"/>
   </url>
 
-  <!-- Article 1 -->
+  <!-- ══ ARTICLES LIST — EN ══ -->
+  <url>
+    <loc>https://isachenko-andrii.github.io/articles/index.html</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/articles/index.html"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/index-ua.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/index.html"/>
+  </url>
+
+  <!-- ══ ARTICLES LIST — UA ══ -->
+  <url>
+    <loc>https://isachenko-andrii.github.io/articles/index-ua.html</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/index-ua.html"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/articles/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/index.html"/>
+  </url>
+
+  <!-- ══ ARTICLE 1: AI-Assisted Data Analysis — EN ══ -->
   <url>
     <loc>https://isachenko-andrii.github.io/articles/2026-01-15-ai-assisted-data-analysis-2026.html</loc>
-    <lastmod>2026-01-15</lastmod>
+    <lastmod>2026-03-06</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/articles/2026-01-15-ai-assisted-data-analysis-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-01-15-ai-assisted-data-analysis-2026-ua.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-01-15-ai-assisted-data-analysis-2026.html"/>
   </url>
 
-  <!-- Article 2 -->
-  <url>
-    <loc>https://isachenko-andrii.github.io/articles/2026-02-03-dbt-for-analysts-2026.html</loc>
-    <lastmod>2026-02-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Article 3 -->
-  <url>
-    <loc>https://isachenko-andrii.github.io/articles/2026-03-10-cohort-analysis-python-2026.html</loc>
-    <lastmod>2026-03-10</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-
-  <!-- Ukrainian articles -->
+  <!-- ══ ARTICLE 1: AI-Assisted Data Analysis — UA ══ -->
   <url>
     <loc>https://isachenko-andrii.github.io/articles/2026-01-15-ai-assisted-data-analysis-2026-ua.html</loc>
-    <lastmod>2026-01-15</lastmod>
+    <lastmod>2026-03-06</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-01-15-ai-assisted-data-analysis-2026-ua.html"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/articles/2026-01-15-ai-assisted-data-analysis-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-01-15-ai-assisted-data-analysis-2026.html"/>
   </url>
 
+  <!-- ══ ARTICLE 2: dbt for Data Analysts — EN ══ -->
   <url>
-    <loc>https://isachenko-andrii.github.io/2026-02-03-articles/dbt-for-analysts-2026-ua.html</loc>
-    <lastmod>2026-02-03</lastmod>
+    <loc>https://isachenko-andrii.github.io/articles/2026-02-03-dbt-for-analysts-2026.html</loc>
+    <lastmod>2026-03-06</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/articles/2026-02-03-dbt-for-analysts-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-02-03-dbt-for-analysts-2026-ua.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-02-03-dbt-for-analysts-2026.html"/>
   </url>
 
+  <!-- ══ ARTICLE 2: dbt for Data Analysts — UA ══ -->
+  <url>
+    <loc>https://isachenko-andrii.github.io/articles/2026-02-03-dbt-for-analysts-2026-ua.html</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-02-03-dbt-for-analysts-2026-ua.html"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/articles/2026-02-03-dbt-for-analysts-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-02-03-dbt-for-analysts-2026.html"/>
+  </url>
+
+  <!-- ══ ARTICLE 3: Cohort Analysis Python — EN ══ -->
+  <url>
+    <loc>https://isachenko-andrii.github.io/articles/2026-03-10-cohort-analysis-python-2026.html</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/articles/2026-03-10-cohort-analysis-python-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-03-10-cohort-analysis-python-2026-ua.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-03-10-cohort-analysis-python-2026.html"/>
+  </url>
+
+  <!-- ══ ARTICLE 3: Cohort Analysis Python — UA ══ -->
   <url>
     <loc>https://isachenko-andrii.github.io/articles/2026-03-10-cohort-analysis-python-2026-ua.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <lastmod>2026-03-06</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-03-10-cohort-analysis-python-2026-ua.html"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/articles/2026-03-10-cohort-analysis-python-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-03-10-cohort-analysis-python-2026.html"/>
   </url>
 
 </urlset>
