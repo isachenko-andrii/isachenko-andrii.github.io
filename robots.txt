@@ -10,29 +10,10 @@
 # ══════════════════════════════════════════════════════════════════
 
 User-agent: Googlebot-Image
-Disallow: /assets/img/profile-img.jpg
+
 Disallow: /assets/img/profile-img.webp
-Disallow: /assets/img/my-telegram.png
+Disallow: /assets/img/bg.webp
 Disallow: /assets/img/my-telegram.webp
-Disallow: /assets/img/bg.jpg
-Disallow: /assets/img/portfolio/project-1_.png
-Disallow: /assets/img/portfolio/project-2_.png
-Disallow: /assets/img/portfolio/project-3_.png
-Disallow: /assets/img/portfolio/project-4_.png
-Disallow: /assets/img/portfolio/project-5_.png
-Disallow: /assets/img/portfolio/project-6_.png
-Disallow: /assets/img/portfolio/project-7_.png
-Disallow: /assets/img/portfolio/project-8_.png
-Disallow: /assets/img/portfolio/project-9_.png
-Disallow: /assets/img/portfolio/project-1.png
-Disallow: /assets/img/portfolio/project-2.png
-Disallow: /assets/img/portfolio/project-3.png
-Disallow: /assets/img/portfolio/project-4.png
-Disallow: /assets/img/portfolio/project-5.png
-Disallow: /assets/img/portfolio/project-6.png
-Disallow: /assets/img/portfolio/project-7.png
-Disallow: /assets/img/portfolio/project-8.png
-Disallow: /assets/img/portfolio/project-9.png
 Disallow: /assets/img/portfolio/project-1_.webp
 Disallow: /assets/img/portfolio/project-2_.webp
 Disallow: /assets/img/portfolio/project-3_.webp
