@@ -223,6 +223,60 @@
       gap: 10px;
       color: #0352a0;
     }
+
+ /* ── Article card footer: tags + read link ── */
+    .articles .article-body p {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.6;
+      flex: 1;
+      margin-bottom: 12px;
+    }
+    .articles .article-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 12px;
+      border-top: 1px solid #f0f4f8;
+    }
+    .articles .article-footer-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .articles .article-tag-sm {
+      background: #e8f0fb;
+      color: #0563bb;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .articles .article-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #0563bb;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      font-family: 'Poppins', sans-serif;
+      transition: gap 0.2s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .articles .article-link:hover {
+      gap: 10px;
+      color: #0352a0;
+    }
+
+    
     @media (max-width: 767px) {
       .articles .article-img {
         height: 175px;
@@ -742,50 +796,68 @@
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row gy-4">
 
-        <!-- Article 1 -->
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="article-card">
-              <div class="article-img">
-                <img loading="lazy" decoding="async" src="articles/article-img/ai-assisted-data-analysis-2026-sm.jpg" alt="AI data analysis in 2026" class="img-fluid" onerror="this.parentElement.innerHTML='<div class=\'article-img-placeholder\'><i class=\'bi bi-robot\'></i></div>'">
-                <span class="article-tag">AI Tools</span>
-              </div>
-              <div class="article-body">
-                <span class="article-date"><i class="bi bi-calendar3"></i> 2026-01-15 </span>
-                <h4>AI-Assisted Data Analysis in 2026</h4>
-                <p>How to use ChatGPT, GitHub Copilot and PandasAI to work 3× faster — with real prompts and code examples.</p>
-                <a href="articles/2026-01-15-ai-assisted-data-analysis-2026.html" class="article-link">Read <i class="bi bi-arrow-right"></i></a>
-              </div>
-            </div>
-          </div><!-- End Article -->
-
-          <!-- Article 2 -->
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="article-card">
-              <div class="article-img">
-                <img loading="lazy" decoding="async" src="articles/article-img/dbt-for-analysts-2026-sm.jpg" alt="dbt for Data Analysts in 2026" class="img-fluid" onerror="this.parentElement.innerHTML='<div class=\'article-img-placeholder\'><i class=\'bi bi-funnel\'></i></div>'">
-                <span class="article-tag">SQL</span>
-              </div>
-              <div class="article-body">
-                <span class="article-date"><i class="bi bi-calendar3"></i> 2026-02-03 </span>
-                <h4>dbt for Data Analysts in 2026</h4>
-                <p>Modern SQL transformation with dbt Core: models, tests, documentation and lineage — no engineering background needed.</p>
-                <a href="articles/2026-02-03-dbt-for-analysts-2026.html" class="article-link">Read <i class="bi bi-arrow-right"></i></a>
-              </div>
-            </div>
-          </div><!-- End Article -->
-
-          <!-- Article 3 -->
+<!-- Article 6 -->
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
             <div class="article-card">
               <div class="article-img">
-                <img loading="lazy" decoding="async" src="articles/article-img/cohort-analysis-python-2026-sm.jpg" alt="Cohort Analysis & Retention in Python" class="img-fluid" onerror="this.parentElement.innerHTML='<div class=\'article-img-placeholder\'><i class=\'bi bi-clipboard2-data\'></i></div>'">
+                <div class="article-img-placeholder"><i class="bi bi-graph-up-arrow"></i></div>
                 <span class="article-tag">Python</span>
               </div>
               <div class="article-body">
-                <span class="article-date"><i class="bi bi-calendar3"></i> 2026-03-10 </span>
-                <h4>Cohort Analysis & Retention in Python</h4>
-                <p>Build a retention matrix, heatmap and churn calculation from raw transaction data — complete guide with pandas code.</p>
-                <a href="articles/2026-03-10-cohort-analysis-python-2026.html" class="article-link">Read <i class="bi bi-arrow-right"></i></a>
+                <span class="article-date"><i class="bi bi-calendar3"></i> 2026-06-12</span>
+                <h4>A/B Testing for Data Analysts</h4>
+                <p>From hypothesis to decision: sample size, z-test in Python, p-value interpretation and the mistakes that invalidate tests.</p>
+                <div class="article-footer">
+                  <div class="article-footer-tags">
+                    <span class="article-tag-sm">Statistics</span>
+                    <span class="article-tag-sm">A/B Test</span>
+                  </div>
+                  <a href="articles/2026-06-12-ab-testing-for-data-analysts.html" class="article-link">Read <i class="bi bi-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Article -->
+          
+          <!-- Article 5 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="article-card">
+              <div class="article-img">
+                <div class="article-img-placeholder"><i class="bi bi-layout-three-columns"></i></div>
+                <span class="article-tag">SQL</span>
+              </div>
+              <div class="article-body">
+                <span class="article-date"><i class="bi bi-calendar3"></i> 2026-05-05</span>
+                <h4>SQL Window Functions: Complete Guide</h4>
+                <p>ROW_NUMBER, RANK, LAG, running totals and moving averages — every window function an analyst needs with real use cases.</p>
+                <div class="article-footer">
+                  <div class="article-footer-tags">
+                    <span class="article-tag-sm">BigQuery</span>
+                    <span class="article-tag-sm">PostgreSQL</span>
+                  </div>
+                  <a href="articles/2026-05-05-sql-window-functions-guide.html" class="article-link">Read <i class="bi bi-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Article -->
+
+          <!-- Article 4 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="article-card">
+              <div class="article-img">
+                <div class="article-img-placeholder"><i class="bi bi-bar-chart-line"></i></div>
+                <span class="article-tag">Visualization</span>
+              </div>
+              <div class="article-body">
+                <span class="article-date"><i class="bi bi-calendar3"></i> 2026-04-10</span>
+                <h4>Tableau vs Power BI vs Looker Studio 2026</h4>
+                <p>Pricing, features and learning curve compared — practical guide to choosing the right BI tool for your workflow.</p>
+                <div class="article-footer">
+                  <div class="article-footer-tags">
+                    <span class="article-tag-sm">Tableau</span>
+                    <span class="article-tag-sm">Power BI</span>
+                  </div>
+                  <a href="articles/2026-04-10-tableau-vs-power-bi-vs-looker-ua.html" class="article-link">Read <i class="bi bi-arrow-right"></i></a>
+                </div>
               </div>
             </div>
           </div><!-- End Article -->
@@ -869,7 +941,7 @@
           <span>Copyright <a href="https://isachenko-andrii.github.io">Isachenko Andrii </a>All Rights Reserved</span>
         </div>
         <div class="credits">
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distribuited by <a href="https://themewagon.com">ThemeWagon</a>
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
         </div>
       </div>
     </div>
