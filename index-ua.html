@@ -224,6 +224,60 @@
       gap: 10px;
       color: #0352a0;
     }
+
+ /* ── Article card footer: tags + read link ── */
+    .articles .article-body p {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.6;
+      flex: 1;
+      margin-bottom: 12px;
+    }
+    .articles .article-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 12px;
+      border-top: 1px solid #f0f4f8;
+    }
+    .articles .article-footer-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .articles .article-tag-sm {
+      background: #e8f0fb;
+      color: #0563bb;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .articles .article-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #0563bb;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      font-family: 'Poppins', sans-serif;
+      transition: gap 0.2s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .articles .article-link:hover {
+      gap: 10px;
+      color: #0352a0;
+    }
+
+    
     @media (max-width: 767px) {
       .articles .article-img {
         height: 175px;
