@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>SQL Window Functions: Complete Guide 2026 | Isachenko Andrii</title>
+  <meta name="description" content="Master SQL window functions: ROW_NUMBER, RANK, LAG, LEAD, running totals, moving averages. Practical guide with real analyst use cases.">
+  <meta name="author" content="Isachenko Andrii">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://isachenko-andrii.github.io/articles/2026-05-05-sql-window-functions-guide.html">
+  <link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/articles/2026-05-05-sql-window-functions-guide.html">
+  <link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-05-05-sql-window-functions-guide-ua.html">
+  <link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-05-05-sql-window-functions-guide.html">
+
+  <meta property="og:type"                content="article">
+  <meta property="og:url"                 content="https://isachenko-andrii.github.io/articles/2026-05-05-sql-window-functions-guide.html">
+  <meta property="og:title"               content="SQL Window Functions: Complete Guide for Data Analysts 2026">
+  <meta property="og:description"         content="Master SQL window functions: ROW_NUMBER, RANK, LAG, LEAD, running totals, moving averages. Practical guide with real analyst use cases.">
+  <meta property="og:image"               content="https://isachenko-andrii.github.io/assets/img/profile-img.webp">
+  <meta property="og:image:width"         content="1200">
+  <meta property="og:image:height"        content="630">
+  <meta property="og:locale"              content="en_US">
+  <meta property="article:published_time" content="2026-05-05T00:00:00Z">
+  <meta property="article:author"         content="Isachenko Andrii">
+
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="SQL Window Functions: Complete Guide 2026">
+  <meta name="twitter:description" content="ROW_NUMBER, RANK, LAG, running totals — every window function with real use cases.">
+  <meta name="twitter:image"       content="https://isachenko-andrii.github.io/assets/img/profile-img.webp">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "SQL Window Functions: Complete Guide for Data Analysts 2026",
+    "datePublished": "2026-05-05T00:00:00Z",
+    "inLanguage": "en",
+    "author": {"@type":"Person","name":"Isachenko Andrii","url":"https://isachenko-andrii.github.io"},
+    "publisher": {"@type":"Person","name":"Isachenko Andrii"},
+    "keywords": "SQL window functions, ROW_NUMBER, RANK, LAG, LEAD, running total, moving average, BigQuery, PostgreSQL",
+    "image": "https://isachenko-andrii.github.io/assets/img/profile-img.webp"
+  }
+  </script>
+
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root { --primary:#0563bb; --primary-dark:#0352a0; --text:#2c3e50; --text-light:#666; --border:#e8ecf0; --bg-light:#f8fafc; --tag-bg:#e8f0fb; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:'Poppins',sans-serif; color:var(--text); background:#fff; line-height:1.7; }
+    .top-bar { position:sticky; top:0; z-index:100; background:rgba(255,255,255,0.96); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); padding:0 24px; height:56px; display:flex; align-items:center; justify-content:space-between; }
+    .top-bar-left { display:flex; align-items:center; gap:16px; }
+    .back-btn { display:inline-flex; align-items:center; gap:6px; color:var(--primary); text-decoration:none; font-size:14px; font-weight:500; padding:6px 14px; border-radius:20px; border:1px solid var(--primary); transition:all 0.2s; white-space:nowrap; }
+    .back-btn:hover { background:var(--primary); color:#fff; }
+    .breadcrumbs { display:flex; align-items:center; gap:6px; font-size:13px; color:var(--text-light); }
+    .breadcrumbs a { color:var(--primary); text-decoration:none; }
+    .breadcrumbs a:hover { text-decoration:underline; }
+    .breadcrumbs .sep { color:#ccc; }
+    .breadcrumbs .current { color:var(--text-light); max-width:220px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .share-btns { display:flex; gap:8px; align-items:center; }
+    .share-btn { width:34px; height:34px; border-radius:50%; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; color:var(--text-light); text-decoration:none; font-size:15px; transition:all 0.2s; }
+    .share-btn:hover { border-color:var(--primary); color:var(--primary); }
+    .article-hero { width:100%; max-height:480px; overflow:hidden; background:linear-gradient(135deg,#e8f0fb 0%,#cfe0f7 100%); }
+    .article-hero-placeholder { height:320px; display:flex; align-items:center; justify-content:center; }
+    .article-hero-placeholder i { font-size:90px; color:var(--primary); opacity:0.2; }
+    .article-wrapper { max-width:760px; margin:0 auto; padding:48px 24px 80px; }
+    .article-meta { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-bottom:24px; }
+    .tag { background:var(--primary); color:#fff; font-size:11px; font-weight:600; padding:3px 12px; border-radius:20px; text-transform:uppercase; letter-spacing:0.5px; }
+    .tag-secondary { background:var(--tag-bg); color:var(--primary); }
+    .meta-date,.meta-read { font-size:13px; color:var(--text-light); display:flex; align-items:center; gap:5px; }
+    .meta-read { margin-left:auto; }
+    .meta-date i,.meta-read i { color:var(--primary); }
+    .article-title { font-family:'Raleway',sans-serif; font-size:clamp(24px,4vw,38px); font-weight:700; line-height:1.25; color:var(--text); margin-bottom:16px; }
+    .article-subtitle { font-size:17px; color:var(--text-light); font-weight:400; line-height:1.6; margin-bottom:36px; padding-bottom:36px; border-bottom:1px solid var(--border); }
+    .author-block { display:flex; align-items:center; gap:14px; margin-bottom:40px; padding:16px 20px; background:var(--bg-light); border-radius:10px; border-left:3px solid var(--primary); }
+    .author-avatar { width:48px; height:48px; border-radius:50%; flex-shrink:0; background:var(--tag-bg); display:flex; align-items:center; justify-content:center; font-size:20px; color:var(--primary); overflow:hidden; }
+    .author-avatar img { width:100%; height:100%; object-fit:cover; }
+    .author-info { flex:1; }
+    .author-name { font-weight:600; font-size:15px; }
+    .author-role { font-size:13px; color:var(--text-light); }
+    .author-links { display:flex; gap:10px; }
+    .author-links a { color:var(--text-light); font-size:16px; transition:color 0.2s; }
+    .author-links a:hover { color:var(--primary); }
+    .article-content h2 { font-family:'Raleway',sans-serif; font-size:24px; font-weight:700; color:var(--text); margin:40px 0 16px; padding-bottom:8px; border-bottom:2px solid var(--tag-bg); }
+    .article-content h3 { font-size:19px; font-weight:600; color:var(--text); margin:28px 0 12px; }
+    .article-content p { font-size:16px; color:#444; line-height:1.8; margin-bottom:18px; }
+    .article-content ul,.article-content ol { margin:0 0 18px 20px; }
+    .article-content li { font-size:16px; color:#444; line-height:1.8; margin-bottom:6px; }
+    .article-content strong { color:var(--text); }
+    .highlight-box { background:var(--bg-light); border-left:4px solid var(--primary); border-radius:0 8px 8px 0; padding:18px 22px; margin:28px 0; }
+    .highlight-box p { margin:0; color:var(--text); font-style:italic; }
+    .article-content table { width:100%; border-collapse:collapse; margin:24px 0; font-size:14px; overflow-x:auto; display:block; }
+    .article-content th { background:var(--primary); color:#fff; padding:10px 14px; text-align:left; font-weight:600; }
+    .article-content td { padding:9px 14px; border-bottom:1px solid var(--border); color:#444; }
+    .article-content tr:nth-child(even) td { background:var(--bg-light); }
+    .article-content code { background:#f0f4f8; color:var(--primary-dark); padding:2px 7px; border-radius:4px; font-size:14px; font-family:'Courier New',monospace; }
+    .code-block { background:#1e2a3a; color:#e2e8f0; border-radius:10px; padding:20px 22px; margin:24px 0; overflow-x:auto; font-size:14px; font-family:'Courier New',monospace; line-height:1.7; }
+    .code-block .comment { color:#64748b; }
+    .code-block .keyword { color:#7dd3fc; }
+    .code-block .string { color:#86efac; }
+    .code-block .func { color:#fbbf24; }
+    .code-block .number { color:#f9a8d4; }
+    .article-tags { display:flex; flex-wrap:wrap; gap:8px; margin:40px 0 32px; padding-top:32px; border-top:1px solid var(--border); }
+    .article-tags span { font-size:12px; color:var(--text-light); align-self:center; font-weight:500; }
+    .article-tags a { background:var(--tag-bg); color:var(--primary); font-size:13px; font-weight:500; padding:4px 12px; border-radius:20px; text-decoration:none; transition:all 0.2s; }
+    .article-tags a:hover { background:var(--primary); color:#fff; }
+    .article-nav { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:40px; }
+    .article-nav a { display:flex; flex-direction:column; gap:4px; padding:16px 20px; border:1px solid var(--border); border-radius:10px; text-decoration:none; color:var(--text); transition:all 0.2s; }
+    .article-nav a:hover { border-color:var(--primary); background:var(--bg-light); }
+    .article-nav a.next { text-align:right; }
+    .article-nav .nav-label { font-size:11px; color:var(--text-light); text-transform:uppercase; letter-spacing:0.8px; display:flex; align-items:center; gap:5px; }
+    .article-nav a.next .nav-label { justify-content:flex-end; }
+    .article-nav .nav-title { font-size:14px; font-weight:600; color:var(--primary); line-height:1.4; }
+    .back-to-main { text-align:center; padding-bottom:20px; }
+    .back-to-main a { display:inline-flex; align-items:center; gap:8px; color:var(--primary); text-decoration:none; font-weight:500; font-size:15px; border:1px solid var(--border); padding:10px 24px; border-radius:25px; transition:all 0.2s; }
+    .back-to-main a:hover { background:var(--primary); color:#fff; border-color:var(--primary); }
+    .toc { background:var(--bg-light); border:1px solid var(--border); border-radius:10px; padding:20px 24px; margin:0 0 40px; }
+    .toc h4 { font-size:14px; font-weight:600; color:var(--text); margin-bottom:12px; text-transform:uppercase; letter-spacing:0.5px; }
+    .toc ol { margin:0 0 0 16px; }
+    .toc li { font-size:14px; margin-bottom:6px; }
+    .toc a { color:var(--primary); text-decoration:none; }
+    .toc a:hover { text-decoration:underline; }
+    @media (max-width:600px) {
+      .top-bar { padding:0 16px; }
+      .breadcrumbs { display:none; }
+      .article-wrapper { padding:32px 16px 60px; }
+      .article-nav { grid-template-columns:1fr; }
+      .article-nav a.next { text-align:left; }
+      .article-nav a.next .nav-label { justify-content:flex-start; }
+      .author-links { display:none; }
+    }
+
+    /* ── ARTICLE FOOTER ── */
+    .article-footer { background:#f8fafc; border-top:1px solid #e8ecf0; padding:40px 24px 32px; text-align:center; }
+    .footer-share-label { font-size:12px; font-weight:600; letter-spacing:0.8px; text-transform:uppercase; color:#666; margin-bottom:16px; }
+    .footer-share-btns  { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-bottom:32px; }
+    .footer-share-btn   { display:inline-flex; align-items:center; gap:8px; padding:9px 22px; border-radius:25px; font-size:14px; font-weight:500; text-decoration:none; border:1px solid #e8ecf0; color:#666; background:#fff; transition:all 0.22s; }
+    .footer-share-btn:hover { transform:translateY(-2px); box-shadow:0 4px 14px rgba(0,0,0,0.09); }
+    .footer-share-btn.li:hover { background:#0077b5; color:#fff; border-color:#0077b5; }
+    .footer-share-btn.tg:hover { background:#26a5e4; color:#fff; border-color:#26a5e4; }
+    .footer-hr { border:none; border-top:1px solid #e8ecf0; margin:0 auto 28px; max-width:360px; }
+    .footer-social { display:flex; justify-content:center; gap:10px; margin-bottom:22px; }
+    .footer-social a { width:42px; height:42px; border-radius:50%; background:#0563bb; color:#fff; display:flex; align-items:center; justify-content:center; font-size:18px; text-decoration:none; transition:all 0.25s; }
+    .footer-social a:hover { background:#0352a0; transform:translateY(-3px); }
+    .footer-copy { font-size:13px; color:#666; line-height:2; }
+    .footer-copy a { color:#0563bb; text-decoration:none; }
+    .footer-copy a:hover { text-decoration:underline; }
+    .back-to-main { margin-top:22px; }
+    .back-to-main a { display:inline-flex; align-items:center; gap:8px; color:#0563bb; text-decoration:none; font-weight:500; font-size:15px; border:1px solid #e8ecf0; padding:10px 24px; border-radius:25px; transition:all 0.2s; background:#fff; }
+    .back-to-main a:hover { background:#0563bb; color:#fff; border-color:#0563bb; }
+    /* ── SCROLL TO TOP ── */
+    #scrollTopBtn { position:fixed; bottom:28px; right:24px; z-index:999; width:44px; height:44px; border-radius:50%; background:#0563bb; color:#fff; display:flex; align-items:center; justify-content:center; font-size:22px; text-decoration:none; box-shadow:0 4px 16px rgba(5,99,187,0.4); opacity:0; pointer-events:none; transition:opacity 0.3s, transform 0.3s; }
+    #scrollTopBtn.visible { opacity:1; pointer-events:auto; }
+    #scrollTopBtn:hover { background:#0352a0; transform:translateY(-3px); }
+    @media (max-width:600px) { #scrollTopBtn { bottom:18px; right:14px; width:40px; height:40px; font-size:20px; } }
+
+    /* ── Language switcher ── */
+    .top-bar-right { display:flex; align-items:center; gap:4px; }
+    .lang-btn {
+      display:inline-flex; align-items:center; justify-content:center;
+      min-width:34px; height:28px; padding:0 10px;
+      border-radius:14px; border:1.5px solid #0563bb;
+      font-size:12px; font-weight:700; letter-spacing:0.4px;
+      text-decoration:none; transition:all 0.2s;
+      color:#0563bb; background:transparent;
+    }
+    .lang-btn:hover   { background:#e8f0fb; }
+    .lang-btn.active  { background:#0563bb; color:#fff; cursor:default; pointer-events:none; }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E01F5VDKVM"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-E01F5VDKVM');</script>
+</head>
+<body>
+
+<nav class="top-bar">
+  <div class="top-bar-left">
+    <a href="index.html" class="back-btn"><i class="bi bi-arrow-left"></i> Back</a>
+    <nav class="breadcrumbs" aria-label="breadcrumb">
+      <a href="index.html">Blog</a><span class="sep">›</span>
+      <a href="index.html">Articles</a><span class="sep">›</span>
+      <span class="current">SQL Window Functions</span>
+    </nav>
+  </div>
+  <div class="top-bar-right">
+    <a href="2026-05-05-sql-window-functions-guide-ua.html" class="lang-btn" title="Українська">UA</a>
+    <a href="2026-05-05-sql-window-functions-guide.html"  class="lang-btn active" aria-current="page" title="English">EN</a>
+  </div>
+</nav>
+
+<div class="article-hero">
+  <div class="article-hero-placeholder"><i class="bi bi-layout-three-columns"></i></div>
+</div>
+
+<main class="article-wrapper">
+
+  <div class="article-meta">
+    <span class="tag">SQL</span>
+    <span class="tag tag-secondary">BigQuery</span><span class="tag tag-secondary">PostgreSQL</span>
+    <span class="meta-date"><i class="bi bi-calendar3"></i> 2026-05-05</span>
+    <span class="meta-read"><i class="bi bi-clock"></i> 10 min</span>
+  </div>
+
+  <h1 class="article-title">SQL Window Functions: Complete Guide for Data Analysts</h1>
+  <p class="article-subtitle">Window functions are the most powerful SQL feature for analytical queries — and the one most often missing from junior analysts' toolkit. From basic ranking to moving averages and period-over-period comparisons.</p>
+
+  <div class="author-block">
+    <div class="author-avatar"><img src="../assets/img/profile-img.webp" alt="Isachenko Andrii"></div>
+    <div class="author-info">
+      <div class="author-name">Isachenko Andrii</div>
+      <div class="author-role">Data Analyst · Open to work</div>
+    </div>
+    <div class="author-links">
+      <a href="https://www.linkedin.com/in/isachenko-andrii/" target="_blank"><i class="bi bi-linkedin"></i></a>
+      <a href="https://github.com/isachenko-andrii"           target="_blank"><i class="bi bi-github"></i></a>
+      <a href="https://t.me/Manul_Solo"                       target="_blank"><i class="bi bi-telegram"></i></a>
+    </div>
+  </div>
+
+  <div class="toc">
+    <h4>📋 Table of Contents</h4>
+    <ol>
+      <li><a href="#what">What Are Window Functions and Why They Matter</a></li>
+      <li><a href="#syntax">Core Syntax</a></li>
+      <li><a href="#ranking">Ranking Functions: ROW_NUMBER, RANK, DENSE_RANK</a></li>
+      <li><a href="#aggregate">Aggregate Window Functions</a></li>
+      <li><a href="#lag">LAG and LEAD: Period-over-Period Comparisons</a></li>
+      <li><a href="#frames">Window Frames: ROWS vs RANGE</a></li>
+      <li><a href="#practical">Real Analyst Use Cases</a></li>
+    </ol>
+  </div>
+
+  <article class="article-content">
+<h2 id="what">What Are Window Functions and Why They Matter</h2>
+  <p>Window functions perform calculations across a set of rows related to the current row — without collapsing those rows into a single output like <code>GROUP BY</code> does. They're the single most powerful SQL feature for analytical queries, and the one most often missing from junior analysts' toolkit.</p>
+  <p>Every ranking, running total, moving average, period-over-period comparison, and row-numbering task in SQL can be written more clearly and efficiently with window functions than with self-joins or subqueries.</p>
+  <div class="tip-box">💡 If you're writing a subquery or CTE just to number rows or compare to a previous row, a window function will do it in one pass.</div>
+
+  <h2 id="syntax">Core Syntax</h2>
+  <p>All window functions share the same structure: a function name, followed by <code>OVER()</code> which defines the window (the set of rows to operate on).</p>
+  <pre>function_name(expression)
+OVER (
+  PARTITION BY column   -- divide rows into groups
+  ORDER BY column       -- define order within each group
+  ROWS/RANGE BETWEEN ... AND ...  -- optional frame
+)</pre>
+  <p>The <code>PARTITION BY</code> clause is like <code>GROUP BY</code> but doesn't collapse rows. The <code>ORDER BY</code> inside <code>OVER()</code> is completely independent of the query's final <code>ORDER BY</code>.</p>
+
+  <h2 id="ranking">Ranking Functions: ROW_NUMBER, RANK, DENSE_RANK</h2>
+  <pre>-- Number each customer's orders chronologically
+SELECT
+  order_id,
+  customer_id,
+  order_date,
+  revenue,
+  ROW_NUMBER() OVER (PARTITION BY customer_id ORDER BY order_date) AS order_num,
+  RANK()       OVER (PARTITION BY customer_id ORDER BY revenue DESC) AS revenue_rank,
+  DENSE_RANK() OVER (PARTITION BY customer_id ORDER BY revenue DESC) AS revenue_dense_rank
+FROM orders;</pre>
+  <table>
+    <tr><th>Function</th><th>Ties handling</th><th>Use case</th></tr>
+    <tr><td>ROW_NUMBER()</td><td>Arbitrary order for ties</td><td>Deduplication, pagination</td></tr>
+    <tr><td>RANK()</td><td>Same rank, then gap</td><td>Competition rankings</td></tr>
+    <tr><td>DENSE_RANK()</td><td>Same rank, no gap</td><td>Category rankings</td></tr>
+    <tr><td>NTILE(n)</td><td>Divides into n buckets</td><td>Quartiles, deciles</td></tr>
+  </table>
+  <h3>Practical: Get each customer's most recent order only</h3>
+  <pre>-- Filter to last order per customer using ROW_NUMBER
+WITH ranked AS (
+  SELECT *,
+    ROW_NUMBER() OVER (PARTITION BY customer_id ORDER BY order_date DESC) AS rn
+  FROM orders
+)
+SELECT * FROM ranked WHERE rn = 1;</pre>
+
+  <h2 id="aggregate">Aggregate Window Functions</h2>
+  <p>All standard aggregate functions (<code>SUM</code>, <code>AVG</code>, <code>COUNT</code>, <code>MIN</code>, <code>MAX</code>) work as window functions when combined with <code>OVER()</code>.</p>
+  <pre>SELECT
+  order_date,
+  revenue,
+  -- Running total (cumulative sum)
+  SUM(revenue) OVER (ORDER BY order_date) AS running_total,
+  -- % of grand total
+  ROUND(revenue / SUM(revenue) OVER () * 100, 1) AS pct_of_total,
+  -- 7-day moving average
+  AVG(revenue) OVER (ORDER BY order_date ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) AS ma_7d
+FROM daily_revenue;</pre>
+
+  <h2 id="lag">LAG and LEAD: Period-over-Period Comparisons</h2>
+  <p><code>LAG()</code> accesses the previous row's value; <code>LEAD()</code> accesses the next row. These replace complex self-joins for MoM/YoY calculations.</p>
+  <pre>SELECT
+  month,
+  revenue,
+  LAG(revenue) OVER (ORDER BY month) AS prev_month_revenue,
+  -- Month-over-month growth %
+  ROUND(
+    (revenue - LAG(revenue) OVER (ORDER BY month))
+    / LAG(revenue) OVER (ORDER BY month) * 100, 1
+  ) AS mom_growth_pct
+FROM monthly_revenue;</pre>
+
+  <h2 id="frames">Window Frames: ROWS vs RANGE</h2>
+  <p>The frame clause controls exactly which rows are included in the calculation. This is critical for running totals and moving averages.</p>
+  <pre>-- Common frame patterns:
+SUM(revenue) OVER (ORDER BY date
+  ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)  -- running total
+AVG(revenue) OVER (ORDER BY date
+  ROWS BETWEEN 2 PRECEDING AND CURRENT ROW)          -- 3-day moving avg
+SUM(revenue) OVER (ORDER BY date
+  ROWS BETWEEN CURRENT ROW AND UNBOUNDED FOLLOWING)  -- reverse running total
+SUM(revenue) OVER ()                                  -- grand total (all rows)</pre>
+
+  <h2 id="practical">Real Analyst Use Cases</h2>
+  <table>
+    <tr><th>Task</th><th>Window function</th></tr>
+    <tr><td>Find first purchase per customer</td><td>ROW_NUMBER() + filter rn=1</td></tr>
+    <tr><td>Calculate running revenue</td><td>SUM() OVER (ORDER BY date)</td></tr>
+    <tr><td>Month-over-month growth</td><td>LAG() OVER (ORDER BY month)</td></tr>
+    <tr><td>Rank products by sales</td><td>DENSE_RANK() OVER (ORDER BY sales DESC)</td></tr>
+    <tr><td>7-day moving average</td><td>AVG() OVER (ROWS BETWEEN 6 PRECEDING AND CURRENT ROW)</td></tr>
+    <tr><td>What % of total is each row</td><td>value / SUM() OVER () * 100</td></tr>
+    <tr><td>Assign customers to deciles</td><td>NTILE(10) OVER (ORDER BY revenue DESC)</td></tr>
+  </table>
+  <div class="warn-box">⚠️ Window functions execute <strong>after</strong> WHERE and GROUP BY, but <strong>before</strong> the final SELECT projection. You cannot filter on a window function result in the same query level — wrap it in a CTE or subquery first.</div>
+  </article>
+
+  <div class="article-tags">
+    <span>Tags:</span>
+    <a href="index.html">SQL</a>
+    <a href="index.html">Window Functions</a>
+    <a href="index.html">BigQuery</a>
+    <a href="index.html">PostgreSQL</a>
+    <a href="index.html">Analytics</a>
+  </div>
+
+  <nav class="article-nav">
+    <a href="2026-04-10-tableau-vs-power-bi-vs-looker.html" class="prev">
+      <span class="nav-label"><i class="bi bi-arrow-left"></i> Previous</span>
+      <span class="nav-title">Tableau vs Power BI vs Looker Studio</span>
+    </a>
+    <a href="2026-06-12-ab-testing-for-data-analysts.html" class="next">
+      <span class="nav-label">Next <i class="bi bi-arrow-right"></i></span>
+      <span class="nav-title">A/B Testing for Data Analysts</span>
+    </a>
+  </nav>
+
+</main>
+
+<footer class="article-footer">
+  <div class="footer-social">
+    <a href="https://www.linkedin.com/in/isachenko-andrii/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+    <a href="https://github.com/isachenko-andrii"           target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+    <a href="https://t.me/Manul_Solo"                       target="_blank" rel="noopener" aria-label="Telegram"><i class="bi bi-telegram"></i></a>
+  </div>
+  <div class="footer-copy">
+    <span>Copyright <a href="https://isachenko-andrii.github.io/index.html">Isachenko Andrii</a> All Rights Reserved</span><br>
+    <span>Designed by <a href="https://bootstrapmade.com/" target="_blank" rel="noopener">BootstrapMade</a></span>
+  </div>
+  <div class="back-to-main">
+    <a href="../index.html"><i class="bi bi-house"></i> Back to home page</a>
+  </div>
+</footer>
+
+<!-- Scroll to top -->
+<a href="#" id="scrollTopBtn" aria-label="Scroll to top"><i class="bi bi-arrow-up-short"></i></a>
+<script>
+(function(){
+  var b=document.getElementById('scrollTopBtn');
+  if(!b)return;
+  window.addEventListener('scroll',function(){b.classList.toggle('visible',window.pageYOffset>320);},{passive:true});
+  b.addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});});
+})();
+</script>
+
+</body>
+</html>

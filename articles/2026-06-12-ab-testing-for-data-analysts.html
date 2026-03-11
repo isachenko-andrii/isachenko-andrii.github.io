@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>A/B Testing for Data Analysts: Statistical Guide 2026 | Isachenko Andrii</title>
+  <meta name="description" content="Complete A/B testing guide: hypothesis formulation, sample size in Python, z-test, p-value interpretation and common pitfalls.">
+  <meta name="author" content="Isachenko Andrii">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://isachenko-andrii.github.io/articles/2026-06-12-ab-testing-for-data-analysts.html">
+  <link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/articles/2026-06-12-ab-testing-for-data-analysts.html">
+  <link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-06-12-ab-testing-for-data-analysts-ua.html">
+  <link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-06-12-ab-testing-for-data-analysts.html">
+
+  <meta property="og:type"                content="article">
+  <meta property="og:url"                 content="https://isachenko-andrii.github.io/articles/2026-06-12-ab-testing-for-data-analysts.html">
+  <meta property="og:title"               content="A/B Testing for Data Analysts: From Hypothesis to Decision 2026">
+  <meta property="og:description"         content="Complete A/B testing guide: hypothesis formulation, sample size in Python, z-test, p-value interpretation and common pitfalls.">
+  <meta property="og:image"               content="https://isachenko-andrii.github.io/assets/img/profile-img.webp">
+  <meta property="og:image:width"         content="1200">
+  <meta property="og:image:height"        content="630">
+  <meta property="og:locale"              content="en_US">
+  <meta property="article:published_time" content="2026-06-12T00:00:00Z">
+  <meta property="article:author"         content="Isachenko Andrii">
+
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="A/B Testing for Data Analysts 2026">
+  <meta name="twitter:description" content="Sample size calculation, z-test in Python, p-value interpretation and mistakes to avoid.">
+  <meta name="twitter:image"       content="https://isachenko-andrii.github.io/assets/img/profile-img.webp">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "A/B Testing for Data Analysts: From Hypothesis to Decision",
+    "datePublished": "2026-06-12T00:00:00Z",
+    "inLanguage": "en",
+    "author": {"@type":"Person","name":"Isachenko Andrii","url":"https://isachenko-andrii.github.io"},
+    "publisher": {"@type":"Person","name":"Isachenko Andrii"},
+    "keywords": "A/B testing, statistical significance, p-value, sample size, Python, scipy, statsmodels, product analytics",
+    "image": "https://isachenko-andrii.github.io/assets/img/profile-img.webp"
+  }
+  </script>
+
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root { --primary:#0563bb; --primary-dark:#0352a0; --text:#2c3e50; --text-light:#666; --border:#e8ecf0; --bg-light:#f8fafc; --tag-bg:#e8f0fb; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:'Poppins',sans-serif; color:var(--text); background:#fff; line-height:1.7; }
+    .top-bar { position:sticky; top:0; z-index:100; background:rgba(255,255,255,0.96); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); padding:0 24px; height:56px; display:flex; align-items:center; justify-content:space-between; }
+    .top-bar-left { display:flex; align-items:center; gap:16px; }
+    .back-btn { display:inline-flex; align-items:center; gap:6px; color:var(--primary); text-decoration:none; font-size:14px; font-weight:500; padding:6px 14px; border-radius:20px; border:1px solid var(--primary); transition:all 0.2s; white-space:nowrap; }
+    .back-btn:hover { background:var(--primary); color:#fff; }
+    .breadcrumbs { display:flex; align-items:center; gap:6px; font-size:13px; color:var(--text-light); }
+    .breadcrumbs a { color:var(--primary); text-decoration:none; }
+    .breadcrumbs a:hover { text-decoration:underline; }
+    .breadcrumbs .sep { color:#ccc; }
+    .breadcrumbs .current { color:var(--text-light); max-width:220px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .share-btns { display:flex; gap:8px; align-items:center; }
+    .share-btn { width:34px; height:34px; border-radius:50%; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; color:var(--text-light); text-decoration:none; font-size:15px; transition:all 0.2s; }
+    .share-btn:hover { border-color:var(--primary); color:var(--primary); }
+    .article-hero { width:100%; max-height:480px; overflow:hidden; background:linear-gradient(135deg,#e8f0fb 0%,#cfe0f7 100%); }
+    .article-hero-placeholder { height:320px; display:flex; align-items:center; justify-content:center; }
+    .article-hero-placeholder i { font-size:90px; color:var(--primary); opacity:0.2; }
+    .article-wrapper { max-width:760px; margin:0 auto; padding:48px 24px 80px; }
+    .article-meta { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-bottom:24px; }
+    .tag { background:var(--primary); color:#fff; font-size:11px; font-weight:600; padding:3px 12px; border-radius:20px; text-transform:uppercase; letter-spacing:0.5px; }
+    .tag-secondary { background:var(--tag-bg); color:var(--primary); }
+    .meta-date,.meta-read { font-size:13px; color:var(--text-light); display:flex; align-items:center; gap:5px; }
+    .meta-read { margin-left:auto; }
+    .meta-date i,.meta-read i { color:var(--primary); }
+    .article-title { font-family:'Raleway',sans-serif; font-size:clamp(24px,4vw,38px); font-weight:700; line-height:1.25; color:var(--text); margin-bottom:16px; }
+    .article-subtitle { font-size:17px; color:var(--text-light); font-weight:400; line-height:1.6; margin-bottom:36px; padding-bottom:36px; border-bottom:1px solid var(--border); }
+    .author-block { display:flex; align-items:center; gap:14px; margin-bottom:40px; padding:16px 20px; background:var(--bg-light); border-radius:10px; border-left:3px solid var(--primary); }
+    .author-avatar { width:48px; height:48px; border-radius:50%; flex-shrink:0; background:var(--tag-bg); display:flex; align-items:center; justify-content:center; font-size:20px; color:var(--primary); overflow:hidden; }
+    .author-avatar img { width:100%; height:100%; object-fit:cover; }
+    .author-info { flex:1; }
+    .author-name { font-weight:600; font-size:15px; }
+    .author-role { font-size:13px; color:var(--text-light); }
+    .author-links { display:flex; gap:10px; }
+    .author-links a { color:var(--text-light); font-size:16px; transition:color 0.2s; }
+    .author-links a:hover { color:var(--primary); }
+    .article-content h2 { font-family:'Raleway',sans-serif; font-size:24px; font-weight:700; color:var(--text); margin:40px 0 16px; padding-bottom:8px; border-bottom:2px solid var(--tag-bg); }
+    .article-content h3 { font-size:19px; font-weight:600; color:var(--text); margin:28px 0 12px; }
+    .article-content p { font-size:16px; color:#444; line-height:1.8; margin-bottom:18px; }
+    .article-content ul,.article-content ol { margin:0 0 18px 20px; }
+    .article-content li { font-size:16px; color:#444; line-height:1.8; margin-bottom:6px; }
+    .article-content strong { color:var(--text); }
+    .highlight-box { background:var(--bg-light); border-left:4px solid var(--primary); border-radius:0 8px 8px 0; padding:18px 22px; margin:28px 0; }
+    .highlight-box p { margin:0; color:var(--text); font-style:italic; }
+    .article-content table { width:100%; border-collapse:collapse; margin:24px 0; font-size:14px; overflow-x:auto; display:block; }
+    .article-content th { background:var(--primary); color:#fff; padding:10px 14px; text-align:left; font-weight:600; }
+    .article-content td { padding:9px 14px; border-bottom:1px solid var(--border); color:#444; }
+    .article-content tr:nth-child(even) td { background:var(--bg-light); }
+    .article-content code { background:#f0f4f8; color:var(--primary-dark); padding:2px 7px; border-radius:4px; font-size:14px; font-family:'Courier New',monospace; }
+    .code-block { background:#1e2a3a; color:#e2e8f0; border-radius:10px; padding:20px 22px; margin:24px 0; overflow-x:auto; font-size:14px; font-family:'Courier New',monospace; line-height:1.7; }
+    .code-block .comment { color:#64748b; }
+    .code-block .keyword { color:#7dd3fc; }
+    .code-block .string { color:#86efac; }
+    .code-block .func { color:#fbbf24; }
+    .code-block .number { color:#f9a8d4; }
+    .article-tags { display:flex; flex-wrap:wrap; gap:8px; margin:40px 0 32px; padding-top:32px; border-top:1px solid var(--border); }
+    .article-tags span { font-size:12px; color:var(--text-light); align-self:center; font-weight:500; }
+    .article-tags a { background:var(--tag-bg); color:var(--primary); font-size:13px; font-weight:500; padding:4px 12px; border-radius:20px; text-decoration:none; transition:all 0.2s; }
+    .article-tags a:hover { background:var(--primary); color:#fff; }
+    .article-nav { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:40px; }
+    .article-nav a { display:flex; flex-direction:column; gap:4px; padding:16px 20px; border:1px solid var(--border); border-radius:10px; text-decoration:none; color:var(--text); transition:all 0.2s; }
+    .article-nav a:hover { border-color:var(--primary); background:var(--bg-light); }
+    .article-nav a.next { text-align:right; }
+    .article-nav .nav-label { font-size:11px; color:var(--text-light); text-transform:uppercase; letter-spacing:0.8px; display:flex; align-items:center; gap:5px; }
+    .article-nav a.next .nav-label { justify-content:flex-end; }
+    .article-nav .nav-title { font-size:14px; font-weight:600; color:var(--primary); line-height:1.4; }
+    .back-to-main { text-align:center; padding-bottom:20px; }
+    .back-to-main a { display:inline-flex; align-items:center; gap:8px; color:var(--primary); text-decoration:none; font-weight:500; font-size:15px; border:1px solid var(--border); padding:10px 24px; border-radius:25px; transition:all 0.2s; }
+    .back-to-main a:hover { background:var(--primary); color:#fff; border-color:var(--primary); }
+    .toc { background:var(--bg-light); border:1px solid var(--border); border-radius:10px; padding:20px 24px; margin:0 0 40px; }
+    .toc h4 { font-size:14px; font-weight:600; color:var(--text); margin-bottom:12px; text-transform:uppercase; letter-spacing:0.5px; }
+    .toc ol { margin:0 0 0 16px; }
+    .toc li { font-size:14px; margin-bottom:6px; }
+    .toc a { color:var(--primary); text-decoration:none; }
+    .toc a:hover { text-decoration:underline; }
+    @media (max-width:600px) {
+      .top-bar { padding:0 16px; }
+      .breadcrumbs { display:none; }
+      .article-wrapper { padding:32px 16px 60px; }
+      .article-nav { grid-template-columns:1fr; }
+      .article-nav a.next { text-align:left; }
+      .article-nav a.next .nav-label { justify-content:flex-start; }
+      .author-links { display:none; }
+    }
+
+    /* ── ARTICLE FOOTER ── */
+    .article-footer { background:#f8fafc; border-top:1px solid #e8ecf0; padding:40px 24px 32px; text-align:center; }
+    .footer-share-label { font-size:12px; font-weight:600; letter-spacing:0.8px; text-transform:uppercase; color:#666; margin-bottom:16px; }
+    .footer-share-btns  { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-bottom:32px; }
+    .footer-share-btn   { display:inline-flex; align-items:center; gap:8px; padding:9px 22px; border-radius:25px; font-size:14px; font-weight:500; text-decoration:none; border:1px solid #e8ecf0; color:#666; background:#fff; transition:all 0.22s; }
+    .footer-share-btn:hover { transform:translateY(-2px); box-shadow:0 4px 14px rgba(0,0,0,0.09); }
+    .footer-share-btn.li:hover { background:#0077b5; color:#fff; border-color:#0077b5; }
+    .footer-share-btn.tg:hover { background:#26a5e4; color:#fff; border-color:#26a5e4; }
+    .footer-hr { border:none; border-top:1px solid #e8ecf0; margin:0 auto 28px; max-width:360px; }
+    .footer-social { display:flex; justify-content:center; gap:10px; margin-bottom:22px; }
+    .footer-social a { width:42px; height:42px; border-radius:50%; background:#0563bb; color:#fff; display:flex; align-items:center; justify-content:center; font-size:18px; text-decoration:none; transition:all 0.25s; }
+    .footer-social a:hover { background:#0352a0; transform:translateY(-3px); }
+    .footer-copy { font-size:13px; color:#666; line-height:2; }
+    .footer-copy a { color:#0563bb; text-decoration:none; }
+    .footer-copy a:hover { text-decoration:underline; }
+    .back-to-main { margin-top:22px; }
+    .back-to-main a { display:inline-flex; align-items:center; gap:8px; color:#0563bb; text-decoration:none; font-weight:500; font-size:15px; border:1px solid #e8ecf0; padding:10px 24px; border-radius:25px; transition:all 0.2s; background:#fff; }
+    .back-to-main a:hover { background:#0563bb; color:#fff; border-color:#0563bb; }
+    /* ── SCROLL TO TOP ── */
+    #scrollTopBtn { position:fixed; bottom:28px; right:24px; z-index:999; width:44px; height:44px; border-radius:50%; background:#0563bb; color:#fff; display:flex; align-items:center; justify-content:center; font-size:22px; text-decoration:none; box-shadow:0 4px 16px rgba(5,99,187,0.4); opacity:0; pointer-events:none; transition:opacity 0.3s, transform 0.3s; }
+    #scrollTopBtn.visible { opacity:1; pointer-events:auto; }
+    #scrollTopBtn:hover { background:#0352a0; transform:translateY(-3px); }
+    @media (max-width:600px) { #scrollTopBtn { bottom:18px; right:14px; width:40px; height:40px; font-size:20px; } }
+
+    /* ── Language switcher ── */
+    .top-bar-right { display:flex; align-items:center; gap:4px; }
+    .lang-btn {
+      display:inline-flex; align-items:center; justify-content:center;
+      min-width:34px; height:28px; padding:0 10px;
+      border-radius:14px; border:1.5px solid #0563bb;
+      font-size:12px; font-weight:700; letter-spacing:0.4px;
+      text-decoration:none; transition:all 0.2s;
+      color:#0563bb; background:transparent;
+    }
+    .lang-btn:hover   { background:#e8f0fb; }
+    .lang-btn.active  { background:#0563bb; color:#fff; cursor:default; pointer-events:none; }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E01F5VDKVM"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-E01F5VDKVM');</script>
+</head>
+<body>
+
+<nav class="top-bar">
+  <div class="top-bar-left">
+    <a href="index.html" class="back-btn"><i class="bi bi-arrow-left"></i> Back</a>
+    <nav class="breadcrumbs" aria-label="breadcrumb">
+      <a href="index.html">Blog</a><span class="sep">›</span>
+      <a href="index.html">Articles</a><span class="sep">›</span>
+      <span class="current">A/B Testing Guide</span>
+    </nav>
+  </div>
+  <div class="top-bar-right">
+    <a href="2026-06-12-ab-testing-for-data-analysts-ua.html" class="lang-btn" title="Українська">UA</a>
+    <a href="2026-06-12-ab-testing-for-data-analysts.html"  class="lang-btn active" aria-current="page" title="English">EN</a>
+  </div>
+</nav>
+
+<div class="article-hero">
+  <div class="article-hero-placeholder"><i class="bi bi-graph-up-arrow"></i></div>
+</div>
+
+<main class="article-wrapper">
+
+  <div class="article-meta">
+    <span class="tag">Python</span>
+    <span class="tag tag-secondary">A/B Testing</span><span class="tag tag-secondary">Statistics</span>
+    <span class="meta-date"><i class="bi bi-calendar3"></i> 2026-06-12</span>
+    <span class="meta-read"><i class="bi bi-clock"></i> 9 min</span>
+  </div>
+
+  <h1 class="article-title">A/B Testing for Data Analysts: From Hypothesis to Decision</h1>
+  <p class="article-subtitle">A/B testing is how product teams make decisions based on data rather than opinion. This guide covers the complete workflow — hypothesis formulation, sample size calculation, statistical testing in Python, and translating results into business decisions.</p>
+
+  <div class="author-block">
+    <div class="author-avatar"><img src="../assets/img/profile-img.webp" alt="Isachenko Andrii"></div>
+    <div class="author-info">
+      <div class="author-name">Isachenko Andrii</div>
+      <div class="author-role">Data Analyst · Open to work</div>
+    </div>
+    <div class="author-links">
+      <a href="https://www.linkedin.com/in/isachenko-andrii/" target="_blank"><i class="bi bi-linkedin"></i></a>
+      <a href="https://github.com/isachenko-andrii"           target="_blank"><i class="bi bi-github"></i></a>
+      <a href="https://t.me/Manul_Solo"                       target="_blank"><i class="bi bi-telegram"></i></a>
+    </div>
+  </div>
+
+  <div class="toc">
+    <h4>📋 Table of Contents</h4>
+    <ol>
+      <li><a href="#why">Why Analysts Need to Understand A/B Testing</a></li>
+      <li><a href="#hypothesis">Step 1 — Formulate a Testable Hypothesis</a></li>
+      <li><a href="#sample">Step 2 — Calculate Required Sample Size</a></li>
+      <li><a href="#analysis">Step 3 — Analyse Results</a></li>
+      <li><a href="#interpret">Step 4 — Interpret Results Correctly</a></li>
+      <li><a href="#pitfalls">Common A/B Testing Mistakes</a></li>
+    </ol>
+  </div>
+
+  <article class="article-content">
+<h2 id="why">Why Analysts Need to Understand A/B Testing</h2>
+  <p>A/B testing is how product teams make decisions based on data rather than opinion. As a data analyst, you'll be asked to design experiments, calculate required sample sizes, analyse results, and explain whether an observed difference is statistically meaningful. Getting this wrong leads to either false positives (shipping features that don't actually work) or false negatives (killing features that do).</p>
+  <p>This guide covers the complete A/B testing workflow from a practising analyst's perspective: hypothesis formulation, sample size calculation, statistical testing in Python, and communicating results to non-technical stakeholders.</p>
+
+  <h2 id="hypothesis">Step 1 — Formulate a Testable Hypothesis</h2>
+  <p>A proper A/B test hypothesis has three components: what you're changing, what metric you expect to change, and in which direction.</p>
+  <div class="tip-box">✅ Good: "Changing the CTA button colour from grey to blue on the checkout page will increase the click-through rate by at least 5%."<br>
+  ❌ Bad: "We think the new button design will perform better."</div>
+  <p>Choose your <strong>primary metric</strong> before the test starts — never after. Post-hoc metric selection is p-hacking and produces unreliable results. Define your success criterion: what minimum effect size is meaningful for the business?</p>
+
+  <h2 id="sample">Step 2 — Calculate Required Sample Size</h2>
+  <p>The most common mistake in A/B testing is ending the test too early because "the results look good." Without proper sample size calculation, you're sampling noise. Use Python's <code>statsmodels</code> to calculate the required sample size before running the test.</p>
+  <pre>from statsmodels.stats.power import NormalIndPower
+
+analysis = NormalIndPower()
+
+# Parameters:
+baseline_rate = 0.05    # current conversion rate: 5%
+min_effect    = 0.01    # minimum detectable effect: +1pp (to 6%)
+alpha         = 0.05    # significance level (Type I error rate)
+power         = 0.80    # statistical power (1 - Type II error rate)
+
+# Effect size (Cohen's h for proportions)
+from statsmodels.stats.proportion import proportion_effectsize
+effect_size = proportion_effectsize(
+    baseline_rate + min_effect,
+    baseline_rate
+)
+
+# Required sample size per group
+n = analysis.solve_power(
+    effect_size=effect_size,
+    alpha=alpha,
+    power=power,
+    alternative='two-sided'
+)
+print(f"Required sample size per group: {int(n) + 1:,}")</pre>
+  <div class="warn-box">⚠️ Always calculate sample size for <strong>two-sided</strong> tests unless you have strong prior reasons to test one direction only. One-sided tests have higher false-positive rates in practice.</div>
+
+  <h2 id="analysis">Step 3 — Analyse Results</h2>
+  <p>Once your test has reached the required sample size, run a two-proportion z-test (for conversion rates) or t-test (for continuous metrics like revenue per user).</p>
+  <pre>import numpy as np
+from scipy import stats
+
+# Experiment results
+control_visitors   = 10_420
+control_conversions = 521    # 5.00%
+
+variant_visitors   = 10_380
+variant_conversions = 572    # 5.51%
+
+# Two-proportion z-test
+from statsmodels.stats.proportion import proportions_ztest
+
+count = np.array([variant_conversions, control_conversions])
+nobs  = np.array([variant_visitors, control_visitors])
+
+z_stat, p_value = proportions_ztest(count, nobs, alternative='two-sided')
+
+control_rate = control_conversions / control_visitors
+variant_rate = variant_conversions / variant_visitors
+relative_lift = (variant_rate - control_rate) / control_rate * 100
+
+print(f"Control:  {control_rate:.2%}")
+print(f"Variant:  {variant_rate:.2%}")
+print(f"Relative lift: +{relative_lift:.1f}%")
+print(f"p-value:  {p_value:.4f}")
+print(f"Result:   {'Statistically significant ✓' if p_value < 0.05 else 'Not significant ✗'}")</pre>
+
+  <h2 id="interpret">Step 4 — Interpret Results Correctly</h2>
+  <p>A p-value below 0.05 does not mean "there is a 95% probability the variant is better." It means: if there were actually no difference, we would see results this extreme only 5% of the time by chance. Common misinterpretations cause bad decisions.</p>
+  <table>
+    <tr><th>Scenario</th><th>What it means</th><th>Action</th></tr>
+    <tr><td>p &lt; 0.05, positive lift</td><td>Statistically significant improvement</td><td>Ship if effect is practically meaningful</td></tr>
+    <tr><td>p &lt; 0.05, negative lift</td><td>Statistically significant regression</td><td>Do not ship, investigate cause</td></tr>
+    <tr><td>p &gt; 0.05</td><td>Insufficient evidence of difference</td><td>Continue test or accept null hypothesis</td></tr>
+    <tr><td>p &lt; 0.05 but tiny lift (0.1%)</td><td>Statistically significant but practically meaningless</td><td>Business decision: is it worth the engineering cost?</td></tr>
+  </table>
+
+  <h2 id="pitfalls">Common A/B Testing Mistakes</h2>
+  <p><strong>Peeking:</strong> Checking results daily and stopping when p &lt; 0.05 inflates false positives dramatically. Run to the pre-calculated sample size.</p>
+  <p><strong>Multiple testing:</strong> Testing 10 metrics simultaneously means one will appear significant by chance. Apply Bonferroni correction or define one primary metric.</p>
+  <p><strong>Simpson's paradox:</strong> Aggregate results can reverse when broken down by segment. Always segment your results by device, user type, and acquisition channel.</p>
+  <p><strong>Novelty effect:</strong> Users interact differently with new things simply because they're new. For some tests, wait 2–3 weeks for the effect to stabilise before drawing conclusions.</p>
+  <div class="tip-box">🎯 The business question isn't "is p &lt; 0.05?" — it's "is the expected lift large enough to justify shipping this, given the development cost and risk?" Statistical significance is necessary but not sufficient for a launch decision.</div>
+  </article>
+
+  <div class="article-tags">
+    <span>Tags:</span>
+    <a href="index.html">Python</a>
+    <a href="index.html">A/B Testing</a>
+    <a href="index.html">Statistics</a>
+    <a href="index.html">Product Analytics</a>
+    <a href="index.html">scipy</a>
+  </div>
+
+  <nav class="article-nav">
+    <a href="2026-05-05-sql-window-functions-guide.html" class="prev">
+      <span class="nav-label"><i class="bi bi-arrow-left"></i> Previous</span>
+      <span class="nav-title">SQL Window Functions: Complete Guide</span>
+    </a>
+    <a href="index.html" class="next">
+      <span class="nav-label">All Articles <i class="bi bi-arrow-right"></i></span>
+      <span class="nav-title">Back to articles</span>
+    </a>
+  </nav>
+
+</main>
+
+<footer class="article-footer">
+  <div class="footer-social">
+    <a href="https://www.linkedin.com/in/isachenko-andrii/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+    <a href="https://github.com/isachenko-andrii"           target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+    <a href="https://t.me/Manul_Solo"                       target="_blank" rel="noopener" aria-label="Telegram"><i class="bi bi-telegram"></i></a>
+  </div>
+  <div class="footer-copy">
+    <span>Copyright <a href="https://isachenko-andrii.github.io/index.html">Isachenko Andrii</a> All Rights Reserved</span><br>
+    <span>Designed by <a href="https://bootstrapmade.com/" target="_blank" rel="noopener">BootstrapMade</a></span>
+  </div>
+  <div class="back-to-main">
+    <a href="../index.html"><i class="bi bi-house"></i> Back to home page</a>
+  </div>
+</footer>
+
+<!-- Scroll to top -->
+<a href="#" id="scrollTopBtn" aria-label="Scroll to top"><i class="bi bi-arrow-up-short"></i></a>
+<script>
+(function(){
+  var b=document.getElementById('scrollTopBtn');
+  if(!b)return;
+  window.addEventListener('scroll',function(){b.classList.toggle('visible',window.pageYOffset>320);},{passive:true});
+  b.addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});});
+})();
+</script>
+
+</body>
+</html>
