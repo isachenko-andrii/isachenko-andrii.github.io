@@ -15,6 +15,10 @@
   <link rel="canonical" href="https://isachenko-andrii.github.io/index.html">
   <meta name="robots" content="noimageindex">
 
+  <!-- main.css non-blocking -->
+  <link rel="preload" href="assets/css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="assets/css/main.css"></noscript>
+
   <!-- Hreflang for multilingual SEO -->
   <link rel="alternate" hreflang="en" href="https://isachenko-andrii.github.io/index.html">
   <link rel="alternate" hreflang="uk" href="https://isachenko-andrii.github.io/index-ua.html">
@@ -124,17 +128,6 @@
         left: auto;
       }
     }
-
-@media (max-width: 768px) {
-  .hero {
-    background-image: url('assets/img/bg-mobile.webp');
-    background-size: cover;
-    background-position: center top;
-  }
-  .hero img {
-    display: none;
-  }
-}
 
     
 /* ── Articles Section ── */
