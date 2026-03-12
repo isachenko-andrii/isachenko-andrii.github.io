@@ -11,6 +11,34 @@
 # Help: https://bootstrapmade.com/color-system/
 --------------------------------------------------------------*/
 /* Fonts */
+
+/* Poppins */
+@font-face {
+font-family: 'Poppins';
+src: url('../fonts/poppins-v24-latin-regular.woff2') format('woff2');
+font-weight: 400;
+font-style: normal;
+font-display: swap;
+}
+
+/* Raleway */
+@font-face {
+font-family: 'Raleway';
+src: url('../fonts/raleway-v37-latin-regular.woff2') format('woff2');
+font-weight: 400;
+font-style: normal;
+font-display: swap;
+}
+
+/* Roboto */
+@font-face {
+font-family: 'Roboto';
+src: url('../fonts/roboto-v51-latin-regular.woff2') format('woff2');
+font-weight: 400;
+font-style: normal;
+font-display: swap;
+}
+
 :root {
   --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --heading-font: "Raleway",  sans-serif;
