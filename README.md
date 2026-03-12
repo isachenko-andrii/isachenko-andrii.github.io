@@ -12,19 +12,7 @@
 • Added support for Ukrainian and English languages.  
 • SEO optimization has been completed.  
 • Add blog  
-• The loading speed of the mobile version has been optimized and replaced with  
-
-
-![Core Web Vitals_mobile_1](https://github.com/isachenko-andrii/isachenko-andrii.github.io//raw/main/mobile_1.png)  
-
-![Core Web Vitals_mobile_2](https://github.com/isachenko-andrii/isachenko-andrii.github.io//raw/main/mobile_2.png)  
-
-![Core Web Vitals_desktop_1](https://github.com/isachenko-andrii/isachenko-andrii.github.io//raw/main/desktop_1.png)  
-
-![Core Web Vitals_desktop_2](https://github.com/isachenko-andrii/isachenko-andrii.github.io//raw/main/desktop_2.png)  
-  
+• The loading speed of the mobile version has been optimized and replaced with    
 **🙏 Acknowledgments**
 Special thanks to the [BootstrapMade](https://bootstrapmade.com) team for the excellent and user-friendly template that formed the basis of this project.    
 **🔧 Tools:** HTML, CSS, JavaScript  
-
-    
