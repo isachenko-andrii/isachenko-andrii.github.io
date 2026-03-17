@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-  <!-- ══ MAIN PAGE — EN ══ -->
+  <!-- Головна EN -->
   <url>
     <loc>https://isachenko-andrii.github.io/index.html</loc>
     <lastmod>2026-03-06</lastmod>
@@ -13,18 +14,18 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/index.html"/>
   </url>
 
-  <!-- ══ MAIN PAGE — UA ══ -->
+  <!-- Головна UA -->
   <url>
     <loc>https://isachenko-andrii.github.io/index-ua.html</loc>
     <lastmod>2026-03-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/index-ua.html"/>
     <xhtml:link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/index.html"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/index-ua.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/index.html"/>
   </url>
 
-  <!-- ══ ARTICLES LIST — EN ══ -->
+  <!-- Блог EN -->
   <url>
     <loc>https://isachenko-andrii.github.io/articles/index.html</loc>
     <lastmod>2026-03-06</lastmod>
@@ -35,18 +36,18 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/index.html"/>
   </url>
 
-  <!-- ══ ARTICLES LIST — UA ══ -->
+  <!-- Блог UA -->
   <url>
     <loc>https://isachenko-andrii.github.io/articles/index-ua.html</loc>
     <lastmod>2026-03-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/index-ua.html"/>
     <xhtml:link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/articles/index.html"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/index-ua.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/index.html"/>
   </url>
 
-  <!-- ══ ARTICLE 1: AI-Assisted Data Analysis — EN ══ -->
+  <!-- Стаття 1 EN -->
   <url>
     <loc>https://isachenko-andrii.github.io/articles/2026-01-15-ai-assisted-data-analysis-2026.html</loc>
     <lastmod>2026-03-06</lastmod>
@@ -57,18 +58,18 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-01-15-ai-assisted-data-analysis-2026.html"/>
   </url>
 
-  <!-- ══ ARTICLE 1: AI-Assisted Data Analysis — UA ══ -->
+  <!-- Стаття 1 UA -->
   <url>
     <loc>https://isachenko-andrii.github.io/articles/2026-01-15-ai-assisted-data-analysis-2026-ua.html</loc>
     <lastmod>2026-03-06</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-01-15-ai-assisted-data-analysis-2026-ua.html"/>
     <xhtml:link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/articles/2026-01-15-ai-assisted-data-analysis-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-01-15-ai-assisted-data-analysis-2026-ua.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-01-15-ai-assisted-data-analysis-2026.html"/>
   </url>
 
-  <!-- ══ ARTICLE 2: dbt for Data Analysts — EN ══ -->
+  <!-- Стаття 2 EN -->
   <url>
     <loc>https://isachenko-andrii.github.io/articles/2026-02-03-dbt-for-analysts-2026.html</loc>
     <lastmod>2026-03-06</lastmod>
@@ -79,18 +80,18 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-02-03-dbt-for-analysts-2026.html"/>
   </url>
 
-  <!-- ══ ARTICLE 2: dbt for Data Analysts — UA ══ -->
+  <!-- Стаття 2 UA -->
   <url>
     <loc>https://isachenko-andrii.github.io/articles/2026-02-03-dbt-for-analysts-2026-ua.html</loc>
     <lastmod>2026-03-06</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-02-03-dbt-for-analysts-2026-ua.html"/>
     <xhtml:link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/articles/2026-02-03-dbt-for-analysts-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-02-03-dbt-for-analysts-2026-ua.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-02-03-dbt-for-analysts-2026.html"/>
   </url>
 
-  <!-- ══ ARTICLE 3: Cohort Analysis Python — EN ══ -->
+  <!-- Стаття 3 EN -->
   <url>
     <loc>https://isachenko-andrii.github.io/articles/2026-03-10-cohort-analysis-python-2026.html</loc>
     <lastmod>2026-03-06</lastmod>
@@ -101,18 +102,18 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-03-10-cohort-analysis-python-2026.html"/>
   </url>
 
-  <!-- ══ ARTICLE 3: Cohort Analysis Python — UA ══ -->
+  <!-- Стаття 3 UA -->
   <url>
     <loc>https://isachenko-andrii.github.io/articles/2026-03-10-cohort-analysis-python-2026-ua.html</loc>
     <lastmod>2026-03-06</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-03-10-cohort-analysis-python-2026-ua.html"/>
     <xhtml:link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/articles/2026-03-10-cohort-analysis-python-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-03-10-cohort-analysis-python-2026-ua.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-03-10-cohort-analysis-python-2026.html"/>
   </url>
 
- <!-- ══ ARTICLE 4: Tableau vs Power BI vs Looker Studio — EN ══ -->
+  <!-- Стаття 4 EN -->
   <url>
     <loc>https://isachenko-andrii.github.io/articles/2026-04-10-tableau-vs-power-bi-vs-looker.html</loc>
     <lastmod>2026-04-10</lastmod>
@@ -123,18 +124,18 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-04-10-tableau-vs-power-bi-vs-looker.html"/>
   </url>
 
-  <!-- ══ ARTICLE 4: Tableau vs Power BI vs Looker Studio — UA ══ -->
+  <!-- Стаття 4 UA -->
   <url>
     <loc>https://isachenko-andrii.github.io/articles/2026-04-10-tableau-vs-power-bi-vs-looker-ua.html</loc>
     <lastmod>2026-04-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-04-10-tableau-vs-power-bi-vs-looker-ua.html"/>
     <xhtml:link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/articles/2026-04-10-tableau-vs-power-bi-vs-looker.html"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-04-10-tableau-vs-power-bi-vs-looker-ua.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-04-10-tableau-vs-power-bi-vs-looker.html"/>
   </url>
 
-  <!-- ══ ARTICLE 5: SQL Window Functions — EN ══ -->
+  <!-- Стаття 5 EN -->
   <url>
     <loc>https://isachenko-andrii.github.io/articles/2026-05-05-sql-window-functions-guide.html</loc>
     <lastmod>2026-05-05</lastmod>
@@ -145,18 +146,18 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-05-05-sql-window-functions-guide.html"/>
   </url>
 
-  <!-- ══ ARTICLE 5: SQL Window Functions — UA ══ -->
+  <!-- Стаття 5 UA -->
   <url>
     <loc>https://isachenko-andrii.github.io/articles/2026-05-05-sql-window-functions-guide-ua.html</loc>
     <lastmod>2026-05-05</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-05-05-sql-window-functions-guide-ua.html"/>
     <xhtml:link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/articles/2026-05-05-sql-window-functions-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-05-05-sql-window-functions-guide-ua.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-05-05-sql-window-functions-guide.html"/>
   </url>
 
-  <!-- ══ ARTICLE 6: A/B Testing for Data Analysts — EN ══ -->
+  <!-- Стаття 6 EN -->
   <url>
     <loc>https://isachenko-andrii.github.io/articles/2026-06-12-ab-testing-for-data-analysts.html</loc>
     <lastmod>2026-06-12</lastmod>
@@ -167,15 +168,15 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-06-12-ab-testing-for-data-analysts.html"/>
   </url>
 
-  <!-- ══ ARTICLE 6: A/B Testing for Data Analysts — UA ══ -->
+  <!-- Стаття 6 UA -->
   <url>
     <loc>https://isachenko-andrii.github.io/articles/2026-06-12-ab-testing-for-data-analysts-ua.html</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-06-12-ab-testing-for-data-analysts-ua.html"/>
     <xhtml:link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/articles/2026-06-12-ab-testing-for-data-analysts.html"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-06-12-ab-testing-for-data-analysts-ua.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-06-12-ab-testing-for-data-analysts.html"/>
-  </url>             
+  </url>
 
 </urlset>
