@@ -180,6 +180,25 @@
       text-align: center;
       border-bottom: 1px solid var(--border);
     }
+
+    .page-header__avatar {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #fff;
+      box-shadow: 0 4px 16px rgba(5,99,187,0.18);
+      display: block;
+      margin: 0 auto 20px;
+    }
+    @media (max-width: 480px) {
+      .page-header__avatar {
+        width: 72px;
+        height: 72px;
+        margin-bottom: 16px;
+      }
+    }
+    
     .page-header h1 {
       font-family: 'Raleway', sans-serif;
       font-size: clamp(32px, 5vw, 48px);
@@ -526,6 +545,13 @@
 
   <!-- Page Header -->
   <header class="page-header">
+    <header class="page-header">
+  <img
+    src="../assets/img/profile-img.webp"
+    alt="Ісаченко Андрій — Аналітик даних Україна"
+    class="page-header__avatar"
+    width="88" height="88"
+    loading="eager" decoding="async">
     <h1>Статті про <span>Аналіз даних</span></h1>
     <p>Практичні нотатки про аналіз даних, SQL, Python та BI-інструменти — з реальних проєктів і досліджень 2026 року.</p>
     <div class="articles-count">
