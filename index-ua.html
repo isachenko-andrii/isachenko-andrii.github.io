@@ -1035,31 +1035,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll('[data-aos]').forEach(function(el){o.observe(el);});
   })();
   </script>
-  <!-- Анімація прогрес-барів — замінює waypoints.js -->
-<script>
-(function(){
-  var section = document.querySelector('.skills-animation');
-  if (!section) return;
-
-  function animateBars() {
-    section.querySelectorAll('.progress-bar').forEach(function(bar) {
-      var val = bar.getAttribute('aria-valuenow');
-      bar.style.width = val + '%';
-    });
-  }
-
-  if ('IntersectionObserver' in window) {
-    var obs = new IntersectionObserver(function(entries) {
-      if (entries[0].isIntersecting) {
-        animateBars();
-        obs.disconnect();
-      }
-    }, { threshold: 0.2 });
-    obs.observe(section);
-  } else {
-    animateBars();
-  }
-})();
-</script>
+ 
 </body>
 </html>
