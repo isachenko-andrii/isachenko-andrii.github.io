@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Streamlit для аналітиків даних: інтерактивні дашборди на Python 2026 | Ісаченко Андрій</title>
+  <meta name="description" content="Практичний посібник зі Streamlit для аналітиків даних: створення інтерактивних дашбордів, підключення до SQL, розгортання та реальні кейси 2026.">
+  <meta name="author" content="Ісаченко Андрій">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://isachenko-andrii.github.io/articles/2026-07-20-streamlit-for-data-analysts-ua.html">
+  <link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/articles/2026-07-20-streamlit-for-data-analysts.html">
+  <link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-07-20-streamlit-for-data-analysts-ua.html">
+  <link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-07-20-streamlit-for-data-analysts.html">
+
+  <meta property="og:type"                content="article">
+  <meta property="og:url"                 content="https://isachenko-andrii.github.io/articles/2026-07-20-streamlit-for-data-analysts-ua.html">
+  <meta property="og:title"               content="Streamlit для аналітиків даних: інтерактивні дашборди на Python 2026">
+  <meta property="og:description"         content="Інтерактивні дашборди на Python без фронтенду — Streamlit для аналітиків даних.">
+  <meta property="og:image"               content="https://isachenko-andrii.github.io/assets/img/profile-img.webp">
+  <meta property="og:image:width"         content="1200">
+  <meta property="og:image:height"        content="630">
+  <meta property="og:locale"              content="uk_UA">
+  <meta property="article:published_time" content="2026-07-20T00:00:00Z">
+  <meta property="article:author"         content="Ісаченко Андрій">
+
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Streamlit для аналітиків даних 2026">
+  <meta name="twitter:description" content="Інтерактивні Python-дашборди без HTML/CSS — практичний гід зі Streamlit.">
+  <meta name="twitter:image"       content="https://isachenko-andrii.github.io/assets/img/profile-img.webp">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Streamlit для аналітиків даних: інтерактивні дашборди на Python",
+    "datePublished": "2026-07-20T00:00:00Z",
+    "inLanguage": "uk",
+    "author": {"@type":"Person","name":"Ісаченко Андрій","url":"https://isachenko-andrii.github.io"},
+    "publisher": {"@type":"Person","name":"Ісаченко Андрій"},
+    "keywords": "Streamlit, Python дашборд, аналітик даних, інтерактивна візуалізація, Pandas, Plotly, SQL дашборд",
+    "image": "https://isachenko-andrii.github.io/assets/img/profile-img.webp"
+  }
+  </script>
+
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root { --primary:#0563bb; --primary-dark:#0352a0; --text:#2c3e50; --text-light:#666; --border:#e8ecf0; --bg-light:#f8fafc; --tag-bg:#e8f0fb; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:'Poppins',sans-serif; color:var(--text); background:#fff; line-height:1.7; overflow-x:hidden; }
+    .top-bar { position:sticky; top:0; z-index:100; background:rgba(255,255,255,0.96); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); padding:0 24px; height:56px; display:flex; align-items:center; justify-content:space-between; }
+    .top-bar-left { display:flex; align-items:center; gap:16px; }
+    .back-btn { display:inline-flex; align-items:center; gap:6px; color:var(--primary); text-decoration:none; font-size:14px; font-weight:500; padding:6px 14px; border-radius:20px; border:1px solid var(--primary); transition:all 0.2s; white-space:nowrap; }
+    .back-btn:hover { background:var(--primary); color:#fff; }
+    .breadcrumbs { display:flex; align-items:center; gap:6px; font-size:13px; color:var(--text-light); }
+    .breadcrumbs a { color:var(--primary); text-decoration:none; }
+    .breadcrumbs a:hover { text-decoration:underline; }
+    .breadcrumbs .sep { color:#ccc; }
+    .breadcrumbs .current { color:var(--text-light); max-width:220px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .top-bar-right { display:flex; align-items:center; gap:4px; }
+    .lang-btn { display:inline-flex; align-items:center; justify-content:center; min-width:34px; height:28px; padding:0 10px; border-radius:14px; border:1.5px solid #0563bb; font-size:12px; font-weight:700; letter-spacing:0.4px; text-decoration:none; transition:all 0.2s; color:#0563bb; background:transparent; }
+    .lang-btn:hover { background:#e8f0fb; }
+    .lang-btn.active { background:#0563bb; color:#fff; cursor:default; pointer-events:none; }
+    .article-hero { width:100%; overflow:hidden; background:linear-gradient(135deg,#e8f0fb 0%,#cfe0f7 100%); }
+    .article-hero-placeholder { height:320px; display:flex; align-items:center; justify-content:center; }
+    .article-hero-placeholder i { font-size:90px; color:var(--primary); opacity:0.2; }
+    .article-wrapper { max-width:760px; margin:0 auto; padding:48px 24px 80px; overflow-x:hidden; }
+    .article-meta { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-bottom:24px; }
+    .tag { background:var(--primary); color:#fff; font-size:11px; font-weight:600; padding:3px 12px; border-radius:20px; text-transform:uppercase; letter-spacing:0.5px; }
+    .tag-secondary { background:var(--tag-bg); color:var(--primary); }
+    .meta-date,.meta-read { font-size:13px; color:var(--text-light); display:flex; align-items:center; gap:5px; }
+    .meta-read { margin-left:auto; }
+    .meta-date i,.meta-read i { color:var(--primary); }
+    .article-title { font-family:'Raleway',sans-serif; font-size:clamp(24px,4vw,38px); font-weight:700; line-height:1.25; color:var(--text); margin-bottom:16px; }
+    .article-subtitle { font-size:17px; color:var(--text-light); font-weight:400; line-height:1.6; margin-bottom:36px; padding-bottom:36px; border-bottom:1px solid var(--border); }
+    .author-block { display:flex; align-items:center; gap:14px; margin-bottom:40px; padding:16px 20px; background:var(--bg-light); border-radius:10px; border-left:3px solid var(--primary); }
+    .author-avatar { width:48px; height:48px; border-radius:50%; flex-shrink:0; overflow:hidden; }
+    .author-avatar img { width:100%; height:100%; object-fit:cover; }
+    .author-info { flex:1; }
+    .author-name { font-weight:600; font-size:15px; }
+    .author-role { font-size:13px; color:var(--text-light); }
+    .author-links { display:flex; gap:10px; }
+    .author-links a { color:var(--text-light); font-size:16px; transition:color 0.2s; }
+    .author-links a:hover { color:var(--primary); }
+    .toc { background:var(--bg-light); border:1px solid var(--border); border-radius:10px; padding:20px 24px; margin:0 0 40px; }
+    .toc h4 { font-size:14px; font-weight:600; color:var(--text); margin-bottom:12px; text-transform:uppercase; letter-spacing:0.5px; }
+    .toc ol { margin:0 0 0 16px; }
+    .toc li { font-size:14px; margin-bottom:6px; }
+    .toc a { color:var(--primary); text-decoration:none; }
+    .toc a:hover { text-decoration:underline; }
+    .article-content h2 { font-family:'Raleway',sans-serif; font-size:24px; font-weight:700; color:var(--text); margin:40px 0 16px; padding-bottom:8px; border-bottom:2px solid var(--tag-bg); }
+    .article-content h3 { font-size:19px; font-weight:600; color:var(--text); margin:28px 0 12px; }
+    .article-content p { font-size:16px; color:#444; line-height:1.8; margin-bottom:18px; }
+    .article-content ul,.article-content ol { margin:0 0 18px 20px; }
+    .article-content li { font-size:16px; color:#444; line-height:1.8; margin-bottom:6px; }
+    .article-content strong { color:var(--text); }
+    .highlight-box { background:var(--bg-light); border-left:4px solid var(--primary); border-radius:0 8px 8px 0; padding:18px 22px; margin:28px 0; }
+    .highlight-box p { margin:0; color:var(--text); font-style:italic; }
+    .tip-box { background:#f0fdf4; border-left:4px solid #22c55e; border-radius:0 8px 8px 0; padding:16px 20px; margin:24px 0; font-size:15px; color:#166534; }
+    .warn-box { background:#fffbeb; border-left:4px solid #f59e0b; border-radius:0 8px 8px 0; padding:16px 20px; margin:24px 0; font-size:15px; color:#92400e; }
+    .article-content table { width:100%; border-collapse:collapse; margin:24px 0; font-size:14px; overflow-x:auto; display:block; }
+    .article-content th { background:var(--primary); color:#fff; padding:10px 14px; text-align:left; font-weight:600; }
+    .article-content td { padding:9px 14px; border-bottom:1px solid var(--border); color:#444; }
+    .article-content tr:nth-child(even) td { background:var(--bg-light); }
+    .article-content code { background:#f0f4f8; color:var(--primary-dark); padding:2px 7px; border-radius:4px; font-size:14px; font-family:'Courier New',monospace; }
+    pre { background:#1e2a3a; color:#e2e8f0; border-radius:10px; padding:20px 22px; margin:24px 0; overflow-x:auto; font-size:13px; font-family:'Courier New',monospace; line-height:1.7; white-space:pre; -webkit-overflow-scrolling:touch; }
+    .article-tags { display:flex; flex-wrap:wrap; gap:8px; margin:40px 0 32px; padding-top:32px; border-top:1px solid var(--border); }
+    .article-tags span { font-size:12px; color:var(--text-light); align-self:center; font-weight:500; }
+    .article-tags a { background:var(--tag-bg); color:var(--primary); font-size:13px; font-weight:500; padding:4px 12px; border-radius:20px; text-decoration:none; transition:all 0.2s; }
+    .article-tags a:hover { background:var(--primary); color:#fff; }
+    .article-nav { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:40px; }
+    .article-nav a { display:flex; flex-direction:column; gap:4px; padding:16px 20px; border:1px solid var(--border); border-radius:10px; text-decoration:none; color:var(--text); transition:all 0.2s; }
+    .article-nav a:hover { border-color:var(--primary); background:var(--bg-light); }
+    .article-nav a.next { text-align:right; }
+    .article-nav .nav-label { font-size:11px; color:var(--text-light); text-transform:uppercase; letter-spacing:0.8px; display:flex; align-items:center; gap:5px; }
+    .article-nav a.next .nav-label { justify-content:flex-end; }
+    .article-nav .nav-title { font-size:14px; font-weight:600; color:var(--primary); line-height:1.4; }
+    .article-footer { background:#f8fafc; border-top:1px solid #e8ecf0; padding:40px 24px 32px; text-align:center; }
+    .footer-social { display:flex; justify-content:center; gap:10px; margin-bottom:22px; }
+    .footer-social a { width:42px; height:42px; border-radius:50%; background:#0563bb; color:#fff; display:flex; align-items:center; justify-content:center; font-size:18px; text-decoration:none; transition:all 0.25s; }
+    .footer-social a:hover { background:#0352a0; transform:translateY(-3px); }
+    .footer-copy { font-size:13px; color:#666; line-height:2; }
+    .footer-copy a { color:#0563bb; text-decoration:none; }
+    .back-to-main { margin-top:22px; }
+    .back-to-main a { display:inline-flex; align-items:center; gap:8px; color:#0563bb; text-decoration:none; font-weight:500; font-size:15px; border:1px solid #e8ecf0; padding:10px 24px; border-radius:25px; transition:all 0.2s; background:#fff; }
+    .back-to-main a:hover { background:#0563bb; color:#fff; border-color:#0563bb; }
+    #scrollTopBtn { position:fixed; bottom:28px; right:24px; z-index:999; width:44px; height:44px; border-radius:50%; background:#0563bb; color:#fff; display:flex; align-items:center; justify-content:center; font-size:22px; text-decoration:none; box-shadow:0 4px 16px rgba(5,99,187,0.4); opacity:0; pointer-events:none; transition:opacity 0.3s,transform 0.3s; }
+    #scrollTopBtn.visible { opacity:1; pointer-events:auto; }
+    #scrollTopBtn:hover { background:#0352a0; transform:translateY(-3px); }
+    @media (max-width:600px) { .top-bar{padding:0 16px;} .breadcrumbs{display:none;} .article-wrapper{padding:32px 16px 60px;} .article-nav{grid-template-columns:1fr;} .article-nav a.next{text-align:left;} .article-nav a.next .nav-label{justify-content:flex-start;} .author-links{display:none;} #scrollTopBtn{bottom:18px;right:14px;width:40px;height:40px;font-size:20px;} }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E01F5VDKVM"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-E01F5VDKVM');</script>
+</head>
+<body>
+
+<nav class="top-bar">
+  <div class="top-bar-left">
+    <a href="index-ua.html" class="back-btn"><i class="bi bi-arrow-left"></i> Назад</a>
+    <nav class="breadcrumbs" aria-label="breadcrumb">
+      <a href="index-ua.html">Блог</a><span class="sep">›</span>
+      <a href="index-ua.html">Статті</a><span class="sep">›</span>
+      <span class="current">Streamlit посібник</span>
+    </nav>
+  </div>
+  <div class="top-bar-right">
+    <a href="2026-07-20-streamlit-for-data-analysts.html" class="lang-btn" title="English">EN</a>
+    <a href="2026-07-20-streamlit-for-data-analysts-ua.html" class="lang-btn active" aria-current="page" title="Українська">UA</a>
+  </div>
+</nav>
+
+<div class="article-hero">
+  <div class="article-hero-placeholder"><i class="bi bi-bar-chart-steps"></i></div>
+</div>
+
+<main class="article-wrapper">
+
+  <div class="article-meta">
+    <span class="tag">Python</span>
+    <span class="tag tag-secondary">Streamlit</span>
+    <span class="tag tag-secondary">Дашборди</span>
+    <span class="meta-date"><i class="bi bi-calendar3"></i> 2026-07-20</span>
+    <span class="meta-read"><i class="bi bi-clock"></i> 9 хв</span>
+  </div>
+
+  <h1 class="article-title">Streamlit для аналітиків даних: інтерактивні дашборди на Python</h1>
+  <p class="article-subtitle">Streamlit дозволяє аналітикам даних перетворити Python-скрипт на інтерактивний вебдашборд за лічені хвилини — без HTML, CSS або JavaScript. Цей посібник охоплює встановлення, ключові компоненти, підключення до SQL та реальні аналітичні кейси.</p>
+
+  <div class="author-block">
+    <div class="author-avatar"><img src="../assets/img/profile-img.webp" alt="Ісаченко Андрій"></div>
+    <div class="author-info">
+      <div class="author-name">Ісаченко Андрій</div>
+      <div class="author-role">Аналітик даних · Відкритий до роботи</div>
+    </div>
+    <div class="author-links">
+      <a href="https://www.linkedin.com/in/isachenko-andrii/" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
+      <a href="https://github.com/isachenko-andrii"           target="_blank" rel="noopener"><i class="bi bi-github"></i></a>
+      <a href="https://t.me/Manul_Solo"                       target="_blank" rel="noopener"><i class="bi bi-telegram"></i></a>
+    </div>
+  </div>
+
+  <div class="toc">
+    <h4>📋 Зміст</h4>
+    <ol>
+      <li><a href="#what">Що таке Streamlit і для чого він аналітику</a></li>
+      <li><a href="#install">Встановлення та перший запуск</a></li>
+      <li><a href="#components">Ключові компоненти для аналітики</a></li>
+      <li><a href="#sql">Підключення до SQL бази даних</a></li>
+      <li><a href="#deploy">Розгортання на Streamlit Cloud</a></li>
+      <li><a href="#vs">Streamlit vs Power BI vs Tableau</a></li>
+    </ol>
+  </div>
+
+  <article class="article-content">
+
+  <h2 id="what">Що таке Streamlit і для чого він аналітику</h2>
+  <p>Streamlit — це відкрита Python-бібліотека, яка перетворює звичайний скрипт на інтерактивний вебдодаток. Ви пишете код так само, як пишете аналіз у Jupyter Notebook, а Streamlit рендерить результат у браузері з готовими віджетами — слайдерами, фільтрами, таблицями, графіками.</p>
+  <p>Для аналітика даних це означає: більше не потрібно надсилати статичні Excel-звіти або чекати розробника для деплою дашборду. Ви пишете логіку самостійно і ділитесь посиланням.</p>
+
+  <div class="highlight-box"><p>"Streamlit — це як Jupyter Notebook, але з кнопками, фільтрами та URL для стейкхолдерів."</p></div>
+
+  <p>Коли Streamlit підходить аналітику:</p>
+  <ul>
+    <li>Потрібен інтерактивний прототип дашборду швидше, ніж за день</li>
+    <li>Дані в Python/Pandas, а не в Google Sheets</li>
+    <li>Стейкхолдери мають змогу самостійно фільтрувати дані</li>
+    <li>Потрібно показати ML-модель або результати A/B-тесту наочно</li>
+    <li>Немає бюджету на Tableau або Power BI</li>
+  </ul>
+
+  <h2 id="install">Встановлення та перший запуск</h2>
+  <pre>pip install streamlit pandas plotly sqlalchemy</pre>
+  <p>Створіть файл <code>app.py</code> і додайте:</p>
+  <pre>import streamlit as st
+import pandas as pd
+import plotly.express as px
+
+st.title("Мій перший дашборд")
+
+df = pd.DataFrame({
+    "Місяць": ["Січ", "Лют", "Бер", "Кві", "Тра"],
+    "Виручка": [120000, 145000, 138000, 162000, 175000]
+})
+
+fig = px.bar(df, x="Місяць", y="Виручка", title="Виручка по місяцях")
+st.plotly_chart(fig, use_container_width=True)
+st.dataframe(df)</pre>
+  <p>Запустіть:</p>
+  <pre>streamlit run app.py</pre>
+  <p>Браузер відкриється автоматично на <code>http://localhost:8501</code>. Будь-яке збереження файлу — дашборд оновлюється миттєво.</p>
+
+  <div class="tip-box">✅ Використовуйте <code>st.cache_data</code> для кешування важких операцій — завантаження CSV або SQL-запитів. Без кешування Streamlit перезапускає весь скрипт при кожній взаємодії користувача.</div>
+
+  <h2 id="components">Ключові компоненти для аналітики</h2>
+
+  <h3>Фільтри та віджети</h3>
+  <pre>import streamlit as st
+import pandas as pd
+
+df = pd.read_csv("sales.csv")
+
+# Сайдбар з фільтрами
+st.sidebar.header("Фільтри")
+
+regions = st.sidebar.multiselect(
+    "Регіон",
+    options=df["region"].unique(),
+    default=df["region"].unique()
+)
+
+date_range = st.sidebar.date_input(
+    "Діапазон дат",
+    value=(df["date"].min(), df["date"].max())
+)
+
+# Застосування фільтрів
+filtered = df[
+    (df["region"].isin(regions)) &
+    (df["date"] >= str(date_range[0])) &
+    (df["date"] <= str(date_range[1]))
+]
+
+st.metric("Загальна виручка", f"${filtered['revenue'].sum():,.0f}")
+st.dataframe(filtered)</pre>
+
+  <h3>Метрики KPI</h3>
+  <pre>col1, col2, col3 = st.columns(3)
+
+col1.metric(
+    label="Виручка",
+    value="$162,400",
+    delta="+12.3% vs минулий місяць"
+)
+col2.metric(
+    label="Замовлення",
+    value="1,847",
+    delta="+8.1%"
+)
+col3.metric(
+    label="Середній чек",
+    value="$87.9",
+    delta="-2.1%",
+    delta_color="inverse"  # червоний для зростання — коли менше = краще
+)</pre>
+
+  <h2 id="sql">Підключення до SQL бази даних</h2>
+  <p>Streamlit має вбудований коннектор для більшості баз даних через <code>st.connection</code> (доступний з версії 1.22).</p>
+  <pre>import streamlit as st
+import pandas as pd
+
+# Підключення через st.connection (рекомендовано)
+conn = st.connection("postgresql", type="sql")
+
+# Запит з кешуванням на 10 хвилин
+@st.cache_data(ttl=600)
+def load_sales():
+    return conn.query("""
+        SELECT
+            DATE_TRUNC('month', order_date) AS month,
+            region,
+            SUM(revenue)                    AS revenue,
+            COUNT(*)                        AS orders
+        FROM orders
+        WHERE order_date >= NOW() - INTERVAL '12 months'
+        GROUP BY 1, 2
+        ORDER BY 1
+    """, ttl=600)
+
+df = load_sales()
+st.line_chart(df.pivot(index="month", columns="region", values="revenue"))</pre>
+
+  <p>Налаштування підключення зберігається у <code>.streamlit/secrets.toml</code>:</p>
+  <pre>[connections.postgresql]
+dialect = "postgresql"
+host = "localhost"
+port = 5432
+database = "analytics"
+username = "analyst"
+password = "your_password"</pre>
+
+  <div class="warn-box">⚠️ Ніколи не хардкодьте паролі у скрипті. Використовуйте <code>secrets.toml</code> локально і Streamlit Secrets у хмарному деплої. Файл <code>secrets.toml</code> додайте до <code>.gitignore</code>.</div>
+
+  <h2 id="deploy">Розгортання на Streamlit Cloud</h2>
+  <p>Streamlit Cloud — безкоштовний хостинг для публічних репозиторіїв GitHub:</p>
+  <ol>
+    <li>Завантажте <code>app.py</code> та <code>requirements.txt</code> у GitHub-репозиторій</li>
+    <li>Зайдіть на <a href="https://share.streamlit.io" target="_blank" rel="noopener">share.streamlit.io</a> і увійдіть через GitHub</li>
+    <li>Натисніть <strong>New app</strong> → виберіть репозиторій і файл</li>
+    <li>Додайте секрети у розділі <strong>Advanced settings → Secrets</strong></li>
+    <li>Натисніть <strong>Deploy</strong></li>
+  </ol>
+  <p>Через 1–2 хвилини дашборд доступний за публічним посиланням вигляду <code>yourapp.streamlit.app</code>.</p>
+
+  <div class="tip-box">✅ Файл <code>requirements.txt</code> повинен містити всі залежності. Мінімальний для аналітичного дашборду: <code>streamlit</code>, <code>pandas</code>, <code>plotly</code>, <code>sqlalchemy</code>.</div>
+
+  <h2 id="vs">Streamlit vs Power BI vs Tableau</h2>
+
+  <table>
+    <tr><th>Критерій</th><th>Streamlit</th><th>Power BI</th><th>Tableau</th></tr>
+    <tr><td>Вартість</td><td>Безкоштовно</td><td>$10/міс (Pro)</td><td>$70/міс</td></tr>
+    <tr><td>Потребує Python</td><td>Так</td><td>Ні</td><td>Ні</td></tr>
+    <tr><td>Кастомна логіка</td><td>Необмежена</td><td>Обмежена DAX</td><td>Обмежена LOD</td></tr>
+    <tr><td>Час до першого дашборду</td><td>15 хв</td><td>30 хв</td><td>1–2 год</td></tr>
+    <tr><td>ML інтеграція</td><td>Нативна</td><td>Обмежена</td><td>Обмежена</td></tr>
+    <tr><td>Корпоративний шерінг</td><td>GitHub / Cloud</td><td>PowerBI.com</td><td>Tableau Server</td></tr>
+    <tr><td>Підходить для</td><td>Аналітик/DS</td><td>Бізнес-аналітик</td><td>BI-фахівець</td></tr>
+  </table>
+
+  <div class="highlight-box"><p>Streamlit не замінює Tableau або Power BI — він заповнює нішу між Jupyter Notebook і повноцінним BI-інструментом. Якщо вам потрібна корпоративна підписка, SSO і централізоване управління — беріть Power BI або Tableau. Якщо потрібен гнучкий Python-дашборд за нуль бюджету — Streamlit.</p></div>
+
+  </article>
+
+  <div class="article-tags">
+    <span>Теги:</span>
+    <a href="index-ua.html">Streamlit</a>
+    <a href="index-ua.html">Python</a>
+    <a href="index-ua.html">Дашборди</a>
+    <a href="index-ua.html">Pandas</a>
+    <a href="index-ua.html">Plotly</a>
+    <a href="index-ua.html">SQL</a>
+  </div>
+
+  <nav class="article-nav">
+    <a href="index-ua.html" class="prev">
+      <span class="nav-label"><i class="bi bi-arrow-left"></i> Всі статті</span>
+      <span class="nav-title">Повернутись до статей</span>
+    </a>
+    <a href="2026-07-10-flowise-ai-for-data-analysts-ua.html" class="next">
+      <span class="nav-label">Попередня <i class="bi bi-arrow-right"></i></span>
+      <span class="nav-title">Flowise AI для аналітиків даних</span>
+    </a>
+  </nav>
+
+</main>
+
+<footer class="article-footer">
+  <div class="footer-social">
+    <a href="https://www.linkedin.com/in/isachenko-andrii/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+    <a href="https://github.com/isachenko-andrii"           target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+    <a href="https://t.me/Manul_Solo"                       target="_blank" rel="noopener" aria-label="Telegram"><i class="bi bi-telegram"></i></a>
+  </div>
+  <div class="footer-copy">
+    <span>Copyright <a href="https://isachenko-andrii.github.io/index-ua.html">Ісаченко Андрій</a> All Rights Reserved</span><br>
+    <span>Designed by <a href="https://bootstrapmade.com/" target="_blank" rel="noopener">BootstrapMade</a></span>
+  </div>
+  <div class="back-to-main">
+    <a href="../index-ua.html"><i class="bi bi-house"></i> На головну сторінку</a>
+  </div>
+</footer>
+
+<a href="#" id="scrollTopBtn" aria-label="Прокрутити вгору"><i class="bi bi-arrow-up-short"></i></a>
+<script>
+(function(){
+  var b=document.getElementById('scrollTopBtn');
+  if(!b)return;
+  window.addEventListener('scroll',function(){b.classList.toggle('visible',window.pageYOffset>320);},{passive:true});
+  b.addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Flowise AI для аналітиків даних: LLM-пайплайни без коду 2026 | Ісаченко Андрій</title>
+  <meta name="description" content="Як аналітики даних можуть використовувати Flowise AI для побудови RAG-пайплайнів, AI-чатботів та автоматизованих воркфлоу без написання коду. Практичний посібник 2026.">
+  <meta name="keywords" content="Flowise AI, LLM пайплайн, RAG, no-code AI, інструменти аналітика даних, LangChain, автоматизація AI, Flowise туторіал 2026">
+  <meta name="author" content="Isachenko Andrii">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://isachenko-andrii.github.io/articles/2026-07-10-flowise-ai-for-data-analysts-ua.html">
+  <link rel="alternate" hreflang="en" href="https://isachenko-andrii.github.io/articles/2026-07-10-flowise-ai-for-data-analysts.html">
+  <link rel="alternate" hreflang="uk" href="https://isachenko-andrii.github.io/articles/2026-07-10-flowise-ai-for-data-analysts-ua.html">
+  <link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-07-10-flowise-ai-for-data-analysts.html">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://isachenko-andrii.github.io/articles/2026-07-10-flowise-ai-for-data-analysts-ua.html">
+  <meta property="og:title" content="Flowise AI для аналітиків даних: LLM-пайплайни без коду 2026">
+  <meta property="og:description" content="Як використовувати Flowise AI для побудови RAG-пайплайнів, чатботів та AI-воркфлоу без коду. Практичний посібник.">
+  <meta property="og:image" content="https://isachenko-andrii.github.io/assets/img/profile-img.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="uk_UA">
+  <meta property="article:published_time" content="2026-07-10T00:00:00Z">
+  <meta property="article:author" content="Ісаченко Андрій">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Flowise AI для аналітиків даних 2026">
+  <meta name="twitter:description" content="Будуй LLM-пайплайни, RAG-чатботи та AI-воркфлоу без коду за допомогою Flowise.">
+  <meta name="twitter:image" content="https://isachenko-andrii.github.io/assets/img/profile-img.webp">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"Flowise AI для аналітиків даних: LLM-пайплайни без коду","datePublished":"2026-07-10T00:00:00Z","inLanguage":"uk","author":{"@type":"Person","name":"Ісаченко Андрій","url":"https://isachenko-andrii.github.io"},"publisher":{"@type":"Person","name":"Ісаченко Андрій"},"keywords":"Flowise AI, LLM пайплайн, RAG, no-code AI, LangChain, аналітик даних","image":"https://isachenko-andrii.github.io/assets/img/profile-img.webp"}
+  </script>
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    :root{--primary:#0563bb;--primary-dark:#0352a0;--text:#2c3e50;--text-light:#666;--border:#e8ecf0;--bg-light:#f8fafc;--tag-bg:#e8f0fb;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Poppins',sans-serif;color:var(--text);background:#fff;line-height:1.7;overflow-x:hidden;}
+    .top-bar{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between;}
+    .top-bar-left{display:flex;align-items:center;gap:16px;}
+    .back-btn{display:inline-flex;align-items:center;gap:6px;color:var(--primary);text-decoration:none;font-size:14px;font-weight:500;padding:6px 14px;border-radius:20px;border:1px solid var(--primary);transition:all 0.2s;white-space:nowrap;}
+    .back-btn:hover{background:var(--primary);color:#fff;}
+    .breadcrumbs{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--text-light);}
+    .breadcrumbs a{color:var(--primary);text-decoration:none;}
+    .breadcrumbs a:hover{text-decoration:underline;}
+    .breadcrumbs .sep{color:#ccc;}
+    .breadcrumbs .current{color:var(--text-light);max-width:220px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .top-bar-right{display:flex;align-items:center;gap:4px;}
+    .lang-btn{display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:28px;padding:0 10px;border-radius:14px;border:1.5px solid #0563bb;font-size:12px;font-weight:700;letter-spacing:0.4px;text-decoration:none;transition:all 0.2s;color:#0563bb;background:transparent;}
+    .lang-btn:hover{background:#e8f0fb;}
+    .lang-btn.active{background:#0563bb;color:#fff;cursor:default;pointer-events:none;}
+    .article-hero{width:100%;max-height:480px;overflow:hidden;background:linear-gradient(135deg,#e8f0fb 0%,#cfe0f7 100%);}
+    .article-hero-placeholder{height:320px;display:flex;align-items:center;justify-content:center;}
+    .article-hero-placeholder i{font-size:90px;color:var(--primary);opacity:0.2;}
+    .article-wrapper{max-width:760px;margin:0 auto;padding:48px 24px 80px;overflow-x:hidden;}
+    .article-meta{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:24px;}
+    .tag{background:var(--primary);color:#fff;font-size:11px;font-weight:600;padding:3px 12px;border-radius:20px;text-transform:uppercase;letter-spacing:0.5px;}
+    .tag-secondary{background:var(--tag-bg);color:var(--primary);}
+    .meta-date,.meta-read{font-size:13px;color:var(--text-light);display:flex;align-items:center;gap:5px;}
+    .meta-read{margin-left:auto;}
+    .meta-date i,.meta-read i{color:var(--primary);}
+    .article-title{font-family:'Raleway',sans-serif;font-size:clamp(24px,4vw,38px);font-weight:700;line-height:1.25;color:var(--text);margin-bottom:16px;}
+    .article-subtitle{font-size:17px;color:var(--text-light);font-weight:400;line-height:1.6;margin-bottom:36px;padding-bottom:36px;border-bottom:1px solid var(--border);}
+    .author-block{display:flex;align-items:center;gap:14px;margin-bottom:40px;padding:16px 20px;background:var(--bg-light);border-radius:10px;border-left:3px solid var(--primary);}
+    .author-avatar{width:48px;height:48px;border-radius:50%;flex-shrink:0;overflow:hidden;}
+    .author-avatar img{width:100%;height:100%;object-fit:cover;}
+    .author-info{flex:1;}
+    .author-name{font-weight:600;font-size:15px;}
+    .author-role{font-size:13px;color:var(--text-light);}
+    .author-links{display:flex;gap:10px;}
+    .author-links a{color:var(--text-light);font-size:16px;transition:color 0.2s;text-decoration:none;}
+    .author-links a:hover{color:var(--primary);}
+    .toc{background:var(--bg-light);border:1px solid var(--border);border-radius:10px;padding:20px 24px;margin:0 0 40px;}
+    .toc h4{font-size:14px;font-weight:600;color:var(--text);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.5px;}
+    .toc ol{margin:0 0 0 16px;}
+    .toc li{font-size:14px;margin-bottom:6px;}
+    .toc a{color:var(--primary);text-decoration:none;}
+    .toc a:hover{text-decoration:underline;}
+    .article-content h2{font-family:'Raleway',sans-serif;font-size:24px;font-weight:700;color:var(--text);margin:40px 0 16px;padding-bottom:8px;border-bottom:2px solid var(--tag-bg);}
+    .article-content h3{font-size:19px;font-weight:600;color:var(--text);margin:28px 0 12px;}
+    .article-content p{font-size:16px;color:#444;line-height:1.8;margin-bottom:18px;}
+    .article-content ul,.article-content ol{margin:0 0 18px 20px;}
+    .article-content li{font-size:16px;color:#444;line-height:1.8;margin-bottom:6px;}
+    .article-content strong{color:var(--text);}
+    .highlight-box{background:var(--bg-light);border-left:4px solid var(--primary);border-radius:0 8px 8px 0;padding:18px 22px;margin:28px 0;}
+    .highlight-box p{margin:0;color:var(--text);font-style:italic;}
+    .tip-box{background:#f0f9f0;border-left:4px solid #4caf50;border-radius:0 8px 8px 0;padding:14px 18px;margin:20px 0;font-size:15px;color:#2e7d32;}
+    .warn-box{background:#fff8e1;border-left:4px solid #ffc107;border-radius:0 8px 8px 0;padding:14px 18px;margin:20px 0;font-size:15px;color:#856404;}
+    .article-content table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px;overflow-x:auto;display:block;}
+    .article-content th{background:var(--primary);color:#fff;padding:10px 14px;text-align:left;font-weight:600;}
+    .article-content td{padding:9px 14px;border-bottom:1px solid var(--border);color:#444;}
+    .article-content tr:nth-child(even) td{background:var(--bg-light);}
+    .article-content code{background:#f0f4f8;color:var(--primary-dark);padding:2px 7px;border-radius:4px;font-size:14px;font-family:'Courier New',monospace;}
+    pre{overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:pre;background:#1e2a3a;color:#e2e8f0;border-radius:10px;padding:20px 22px;margin:24px 0;font-size:14px;font-family:'Courier New',monospace;line-height:1.7;}
+    table{overflow-x:auto;display:block;max-width:100%;}
+    .article-tags{display:flex;flex-wrap:wrap;gap:8px;margin:40px 0 32px;padding-top:32px;border-top:1px solid var(--border);}
+    .article-tags span{font-size:12px;color:var(--text-light);align-self:center;font-weight:500;}
+    .article-tags a{background:var(--tag-bg);color:var(--primary);font-size:13px;font-weight:500;padding:4px 12px;border-radius:20px;text-decoration:none;transition:all 0.2s;}
+    .article-tags a:hover{background:var(--primary);color:#fff;}
+    .article-nav{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:40px;}
+    .article-nav a{display:flex;flex-direction:column;gap:4px;padding:16px 20px;border:1px solid var(--border);border-radius:10px;text-decoration:none;color:var(--text);transition:all 0.2s;}
+    .article-nav a:hover{border-color:var(--primary);background:var(--bg-light);}
+    .article-nav a.next{text-align:right;}
+    .article-nav .nav-label{font-size:11px;color:var(--text-light);text-transform:uppercase;letter-spacing:0.8px;display:flex;align-items:center;gap:5px;}
+    .article-nav a.next .nav-label{justify-content:flex-end;}
+    .article-nav .nav-title{font-size:14px;font-weight:600;color:var(--primary);line-height:1.4;}
+    .article-footer{background:#f8fafc;border-top:1px solid #e8ecf0;padding:40px 24px 32px;text-align:center;}
+    .footer-hr{border:none;border-top:1px solid #e8ecf0;margin:0 auto 28px;max-width:360px;}
+    .footer-social{display:flex;justify-content:center;gap:10px;margin-bottom:22px;}
+    .footer-social a{width:42px;height:42px;border-radius:50%;background:#0563bb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;text-decoration:none;transition:all 0.25s;}
+    .footer-social a:hover{background:#0352a0;transform:translateY(-3px);}
+    .footer-copy{font-size:13px;color:#666;line-height:2;}
+    .footer-copy a{color:#0563bb;text-decoration:none;}
+    .back-to-main{margin-top:22px;}
+    .back-to-main a{display:inline-flex;align-items:center;gap:8px;color:#0563bb;text-decoration:none;font-weight:500;font-size:15px;border:1px solid #e8ecf0;padding:10px 24px;border-radius:25px;transition:all 0.2s;background:#fff;}
+    .back-to-main a:hover{background:#0563bb;color:#fff;border-color:#0563bb;}
+    #scrollTopBtn{position:fixed;bottom:28px;right:24px;z-index:999;width:44px;height:44px;border-radius:50%;background:#0563bb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;text-decoration:none;box-shadow:0 4px 16px rgba(5,99,187,0.4);opacity:0;pointer-events:none;transition:opacity 0.3s,transform 0.3s;}
+    #scrollTopBtn.visible{opacity:1;pointer-events:auto;}
+    #scrollTopBtn:hover{background:#0352a0;transform:translateY(-3px);}
+    @media(max-width:600px){.top-bar{padding:0 16px;}.breadcrumbs{display:none;}.article-wrapper{padding:32px 16px 60px;}.article-nav{grid-template-columns:1fr;}.article-nav a.next{text-align:left;}.article-nav a.next .nav-label{justify-content:flex-start;}.author-links{display:none;}#scrollTopBtn{bottom:18px;right:14px;width:40px;height:40px;font-size:20px;}}
+  </style>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E01F5VDKVM"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-E01F5VDKVM');</script>
+</head>
+<body>
+
+<nav class="top-bar">
+  <div class="top-bar-left">
+    <a href="index-ua.html" class="back-btn"><i class="bi bi-arrow-left"></i> Статті</a>
+    <nav class="breadcrumbs" aria-label="breadcrumb">
+      <a href="../index-ua.html">Головна</a><span class="sep">›</span>
+      <a href="index-ua.html">Блог</a><span class="sep">›</span>
+      <span class="current">Flowise AI для аналітиків даних</span>
+    </nav>
+  </div>
+  <div class="top-bar-right">
+    <a href="2026-07-10-flowise-ai-for-data-analysts.html" class="lang-btn">EN</a>
+    <a href="2026-07-10-flowise-ai-for-data-analysts-ua.html" class="lang-btn active" aria-current="page">UA</a>
+  </div>
+</nav>
+
+<div class="article-hero">
+  <div class="article-hero-placeholder"><i class="bi bi-diagram-3"></i></div>
+</div>
+
+<main class="article-wrapper">
+
+  <div class="article-meta">
+    <span class="tag">AI Інструменти</span>
+    <span class="tag tag-secondary">No-Code</span>
+    <span class="meta-date"><i class="bi bi-calendar3"></i> 10 липня 2026</span>
+    <span class="meta-read"><i class="bi bi-clock"></i> 9 хв читання</span>
+  </div>
+
+  <h1 class="article-title">Flowise AI для аналітиків даних: будуй LLM-пайплайни без коду</h1>
+  <p class="article-subtitle">Як підключити свої дані до великих мовних моделей за допомогою drag-and-drop інтерфейсу — RAG-пайплайни, AI-чатботи над CSV-файлами та автоматизовані аналітичні воркфлоу без жодного рядка коду.</p>
+
+  <div class="author-block">
+    <div class="author-avatar"><img src="../assets/img/profile-img.webp" alt="Ісаченко Андрій" loading="lazy"></div>
+    <div class="author-info">
+      <div class="author-name">Ісаченко Андрій</div>
+      <div class="author-role">Аналітик даних · Відкритий до роботи</div>
+    </div>
+    <div class="author-links">
+      <a href="https://www.linkedin.com/in/isachenko-andrii/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+      <a href="https://github.com/isachenko-andrii" target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+      <a href="https://t.me/Manul_Solo" target="_blank" rel="noopener" aria-label="Telegram"><i class="bi bi-telegram"></i></a>
+    </div>
+  </div>
+
+  <div class="toc">
+    <h4>📋 Зміст</h4>
+    <ol>
+      <li><a href="#what">Що таке Flowise AI і чому аналітики повинні звернути увагу</a></li>
+      <li><a href="#setup">Встановлення та запуск Flowise локально</a></li>
+      <li><a href="#rag">Побудова RAG-пайплайну над своїми даними</a></li>
+      <li><a href="#csv">Чатбот над CSV-файлом: покроково</a></li>
+      <li><a href="#usecases">Реальні кейси для аналітиків даних</a></li>
+      <li><a href="#limits">Обмеження та коли не варто використовувати Flowise</a></li>
+    </ol>
+  </div>
+
+  <article class="article-content">
+
+    <h2 id="what">Що таке Flowise AI і чому аналітики повинні звернути увагу</h2>
+    <p>Flowise — це open-source інструмент з низьким порогом входу для побудови LLM-застосунків через візуальний drag-and-drop інтерфейс. Він побудований поверх LangChain і LlamaIndex, надаючи доступ до потужної AI-оркестрації без написання Python або JavaScript. Для аналітиків даних це означає, що можна будувати робочі AI-пайплайни — RAG-чатботи, автоматизовані агенти для звітів, SQL-агенти — за години замість тижнів.</p>
+    <p>У 2026 році Flowise став одним із проектів з найбільшою кількістю зірок на GitHub у категорії AI-інструментів. Головна перевага для аналітиків: він вирішує складну інфраструктурну задачу підключення LLM до ваших джерел даних, векторних баз і API, поки ви зосереджуєтесь на аналітичній логіці.</p>
+    <div class="highlight-box"><p>«Flowise заповнює прогалину між сирими LLM API і готовими до продакшну дата-застосунками — без потреби в інженерному бекграунді.»</p></div>
+
+    <h3>Ключові концепції, які потрібно знати</h3>
+    <ul>
+      <li><strong>RAG (Retrieval-Augmented Generation)</strong> — доповнення відповідей LLM вашими власними документами або даними</li>
+      <li><strong>Vector Store</strong> — база даних, що зберігає ембедінги документів для семантичного пошуку (Chroma, Pinecone, Qdrant)</li>
+      <li><strong>Chain</strong> — послідовність кроків: вхід → пошук → LLM → вихід</li>
+      <li><strong>Agent</strong> — LLM, що може вирішувати які інструменти викликати (SQL-запит, веб-пошук, калькулятор)</li>
+      <li><strong>Embeddings</strong> — числові представлення тексту, що відображають семантичний сенс</li>
+    </ul>
+
+    <h2 id="setup">Встановлення та запуск Flowise локально</h2>
+    <p>Flowise запускається локально через Node.js або Docker. Локальне встановлення займає менше 5 хвилин і не потребує облікового запису в хмарі.</p>
+
+    <h3>Варіант 1 — npm (рекомендовано для початківців)</h3>
+<pre>
+# Глобальне встановлення Flowise
+npm install -g flowise
+
+# Запуск сервера
+npx flowise start
+
+# Відкрити браузер за адресою:
+# http://localhost:3000</pre>
+
+    <h3>Варіант 2 — Docker</h3>
+<pre>
+docker run -d \
+  --name flowise \
+  -p 3000:3000 \
+  -v ~/.flowise:/root/.flowise \
+  flowiseai/flowise</pre>
+
+    <div class="tip-box">✅ Використовуй Docker, якщо плануєш запускати Flowise на сервері або ділитися ним з командою. npm — для швидких локальних експериментів.</div>
+    <p>Після запуску відкрий <code>http://localhost:3000</code> і побачиш візуальний канвас. Можна одразу перетягувати вузли з бокової панелі та з'єднувати їх лініями.</p>
+
+    <h2 id="rag">Побудова RAG-пайплайну над своїми даними</h2>
+    <p>Найпоширеніший кейс для аналітика: є PDF-звіт, колекція документів або база знань, і потрібно ставити питання природною мовою. Ось точна послідовність вузлів у Flowise:</p>
+
+    <table>
+      <thead><tr><th>Крок</th><th>Вузол</th><th>Призначення</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>PDF File / Text File Loader</td><td>Завантажити документ у Flowise</td></tr>
+        <tr><td>2</td><td>Recursive Character Text Splitter</td><td>Розбити документ на частини (500–1000 символів)</td></tr>
+        <tr><td>3</td><td>OpenAI Embeddings</td><td>Перетворити частини на вектори</td></tr>
+        <tr><td>4</td><td>Chroma / In-Memory Vector Store</td><td>Зберегти та проіндексувати вектори</td></tr>
+        <tr><td>5</td><td>Conversational Retrieval QA Chain</td><td>Підключити пошук до LLM</td></tr>
+        <tr><td>6</td><td>ChatOpenAI / Ollama</td><td>Мовна модель, що відповідає</td></tr>
+      </tbody>
+    </table>
+
+    <p>З'єднай ці вузли зліва направо на канвасі, вкажи API-ключ OpenAI (або використай локальну модель Ollama безкоштовно), завантаж документ — і RAG-чатбот готовий. Без коду.</p>
+    <div class="warn-box">⚠️ Якщо використовуєш моделі OpenAI, кожен запит коштує токени. Для експериментів використовуй <strong>Ollama з llama3</strong> — працює локально та повністю безкоштовно. Додай вузол Ollama замість ChatOpenAI.</div>
+
+    <h2 id="csv">Чатбот над CSV-файлом: покроково</h2>
+    <p>Це найбільш практично корисний кейс для аналітиків: задавати питання звичайною мовою про табличні дані та отримувати відповіді без написання жодного запиту.</p>
+
+    <h3>Налаштування у Flowise</h3>
+    <ol>
+      <li>Перетягни вузол <strong>CSV File</strong> і завантаж свої дані</li>
+      <li>Додай вузол <strong>CSV Agent</strong> (у розділі Agents на боковій панелі)</li>
+      <li>Підключи ChatOpenAI до CSV Agent як LLM</li>
+      <li>Підключи CSV File до CSV Agent як джерело даних</li>
+      <li>Натисни «Save», потім «Test» на панелі чату</li>
+    </ol>
+    <p>Тепер можна питати: <em>«Топ-5 продуктів за виручкою?»</em>, <em>«Розрахуй місяць до місяця для Q1 2026»</em> або <em>«Знайди всі рядки, де маржа прибутку нижче 10%»</em>. Flowise генерує pandas-код внутрішньо та повертає відповідь.</p>
+    <div class="tip-box">✅ Для великих CSV (&gt;50 МБ) спочатку розбий файл або використай вузол PostgreSQL — Flowise підтримує прямі підключення до баз даних через SQL Database Chain.</div>
+
+    <h2 id="usecases">Реальні кейси для аналітиків даних</h2>
+
+    <h3>1. Автоматичний агрегатор звітів</h3>
+    <p>Підключи PDF-завантажувач до ланцюга підсумовування. Щотижня завантажуй PDF зі звітом для стейкхолдерів і отримуй структурований список ключових метрик автоматично. Ланцюг: PDF Loader → Text Splitter → Map-Reduce Summarisation Chain → вихід.</p>
+
+    <h3>2. Агент генерації SQL</h3>
+    <p>Підключи Flowise до бази даних PostgreSQL або BigQuery через вузол SQL Database Chain. Аналітики без глибоких знань SQL можуть запитувати базу природною мовою: <em>«Покажи місячних активних користувачів за країнами за останні 6 місяців.»</em> Flowise генерує, виконує та повертає результат запиту.</p>
+
+    <h3>3. Чатбот внутрішнього словника даних</h3>
+    <p>Завантаж документацію з даними, визначення метрик і опис схем як PDF або Markdown-файли. Побудуй RAG-чатбота, який відповідає на питання команди на кшталт <em>«Що означає DAU в нашому контексті?»</em> або <em>«Яка таблиця містить дані на рівні замовлень?»</em> — зменшуючи шум у Slack для старших аналітиків.</p>
+
+    <h3>4. Пояснювач аномалій</h3>
+    <p>Передавай результати виявлення аномалій з Python до вебхука Flowise. Агент читає звіт про аномалію та генерує пояснення звичайною мовою для нетехнічних стейкхолдерів, включно з пропонованими наступними кроками.</p>
+
+    <h2 id="limits">Обмеження та коли не варто використовувати Flowise</h2>
+    <p>Flowise потужний, але не підходить для кожної ситуації. Розумій його обмеження перед тим, як використовувати в продакшні.</p>
+
+    <table>
+      <thead><tr><th>Обмеження</th><th>Вплив</th><th>Обхідний шлях</th></tr></thead>
+      <tbody>
+        <tr><td>Немає нативного контролю версій</td><td>Важко відстежувати зміни у команді</td><td>Експортуй флоу як JSON, комітуй у Git</td></tr>
+        <tr><td>Галюцинації LLM</td><td>Неправильні відповіді в крайніх випадках</td><td>Додай крок перевірки людиною</td></tr>
+        <tr><td>Повільно на великих документах</td><td>Ембедінг 1000-сторінкових PDF займає час</td><td>Попередньо обробляй і розбивай зовнішньо</td></tr>
+        <tr><td>Обмежена кастомна логіка</td><td>Складні трансформації потребують коду</td><td>Використовуй вузол Function (JavaScript)</td></tr>
+        <tr><td>Витрати у масштабі</td><td>Висока витрата токенів OpenAI</td><td>Переходь на локальні моделі Ollama</td></tr>
+      </tbody>
+    </table>
+
+    <div class="highlight-box"><p>«Використовуй Flowise для прототипування та внутрішніх інструментів. Для клієнтських AI-систем зі суворими SLA розглянь кодовану реалізацію на LangChain/LlamaIndex.»</p></div>
+    <p>Flowise — найшвидший шлях від «у мене є дані» до «у мене є AI-інструмент, що використовує мої дані». Для аналітиків, які хочуть розгортати AI-функції без очікування інженерної команди, це один із найбільш практичних інструментів 2026 року.</p>
+
+  </article>
+
+  <div class="article-tags">
+    <span>Теги:</span>
+    <a href="index-ua.html">AI Інструменти</a>
+    <a href="index-ua.html">No-Code</a>
+    <a href="index-ua.html">LLM</a>
+    <a href="index-ua.html">RAG</a>
+    <a href="index-ua.html">Автоматизація</a>
+  </div>
+
+  <nav class="article-nav" aria-label="Навігація по статтях">
+    <a href="index-ua.html" class="prev">
+      <span class="nav-label"><i class="bi bi-arrow-left"></i> Всі статті</span>
+      <span class="nav-title">Повернутись до списку статей</span>
+    </a>
+    <a href="2026-07-20-streamlit-for-data-analysts-ua.html" class="next">
+      <span class="nav-label">Наступна <i class="bi bi-arrow-right"></i></span>
+      <span class="nav-title">Streamlit для аналітиків: інтерактивні застосунки</span>
+    </a>
+  </nav>
+
+</main>
+
+<footer class="article-footer">
+  <hr class="footer-hr">
+  <div class="footer-social">
+    <a href="https://www.linkedin.com/in/isachenko-andrii/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+    <a href="https://github.com/isachenko-andrii" target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+    <a href="https://t.me/Manul_Solo" target="_blank" rel="noopener" aria-label="Telegram"><i class="bi bi-telegram"></i></a>
+  </div>
+  <div class="footer-copy">
+    <span>© 2026 <a href="https://isachenko-andrii.github.io/index-ua.html">Ісаченко Андрій</a>. Всі права захищені.</span>
+  </div>
+  <div class="back-to-main">
+    <a href="../index-ua.html"><i class="bi bi-house"></i> На головну сторінку</a>
+  </div>
+</footer>
+
+<a href="#" id="scrollTopBtn" aria-label="Scroll to top"><i class="bi bi-arrow-up-short"></i></a>
+<script>
+(function(){
+  var b=document.getElementById('scrollTopBtn');
+  if(!b)return;
+  window.addEventListener('scroll',function(){b.classList.toggle('visible',window.pageYOffset>320);},{passive:true});
+  b.addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});});
+})();
+</script>
+</body>
+</html>
