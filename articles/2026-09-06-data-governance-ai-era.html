@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Data Governance in the AI Era 2026: Data Quality Is the New Bottleneck | Isachenko Andrii</title>
+  <meta name="description" content="Why data governance and data quality became the top constraint on AI adoption in 2026, and a practical framework analysts can use to start governance with the data that matters most.">
+  <meta name="keywords" content="data governance 2026, data quality AI, AI data governance, active metadata, data governance framework, data steward, EU AI Act data governance">
+  <meta name="author" content="Isachenko Andrii">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://isachenko-andrii.github.io/articles/2026-09-06-data-governance-ai-era.html">
+  <link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/articles/2026-09-06-data-governance-ai-era.html">
+  <link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-09-06-data-governance-ai-era-ua.html">
+  <link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-09-06-data-governance-ai-era.html">
+
+  <meta property="og:type"                content="article">
+  <meta property="og:url"                 content="https://isachenko-andrii.github.io/articles/2026-09-06-data-governance-ai-era.html">
+  <meta property="og:title"               content="Data Governance in the AI Era 2026">
+  <meta property="og:description"         content="Why data quality and governance became the real bottleneck for AI adoption in 2026 — and how to start with the data that matters most.">
+  <meta property="og:image"               content="https://isachenko-andrii.github.io/assets/img/profile-img.webp">
+  <meta property="og:image:width"         content="1200">
+  <meta property="og:image:height"        content="630">
+  <meta property="og:locale"              content="en_US">
+  <meta property="article:published_time" content="2026-09-06T00:00:00Z">
+  <meta property="article:author"         content="Isachenko Andrii">
+
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Data Governance in the AI Era 2026">
+  <meta name="twitter:description" content="Active metadata, continuous data quality, and a practical starting framework for governance in 2026.">
+  <meta name="twitter:image"       content="https://isachenko-andrii.github.io/assets/img/profile-img.webp">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Data Governance in the AI Era 2026: Data Quality Is the New Bottleneck",
+    "datePublished": "2026-09-06T00:00:00Z",
+    "inLanguage": "en",
+    "author": {"@type":"Person","name":"Isachenko Andrii","url":"https://isachenko-andrii.github.io"},
+    "publisher": {"@type":"Person","name":"Isachenko Andrii"},
+    "keywords": "data governance, data quality, AI governance, active metadata, 2026",
+    "image": "https://isachenko-andrii.github.io/assets/img/profile-img.webp"
+  }
+  </script>
+
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root { --primary:#0563bb; --primary-dark:#0352a0; --text:#2c3e50; --text-light:#666; --border:#e8ecf0; --bg-light:#f8fafc; --tag-bg:#e8f0fb; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:'Poppins',sans-serif; color:var(--text); background:#fff; line-height:1.7; overflow-x:hidden; }
+    .top-bar { position:sticky; top:0; z-index:100; background:rgba(255,255,255,0.96); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); padding:0 24px; height:56px; display:flex; align-items:center; justify-content:space-between; }
+    .top-bar-left { display:flex; align-items:center; gap:16px; }
+    .back-btn { display:inline-flex; align-items:center; gap:6px; color:var(--primary); text-decoration:none; font-size:14px; font-weight:500; padding:6px 14px; border-radius:20px; border:1px solid var(--primary); transition:all 0.2s; white-space:nowrap; }
+    .back-btn:hover { background:var(--primary); color:#fff; }
+    .breadcrumbs { display:flex; align-items:center; gap:6px; font-size:13px; color:var(--text-light); }
+    .breadcrumbs a { color:var(--primary); text-decoration:none; }
+    .breadcrumbs a:hover { text-decoration:underline; }
+    .breadcrumbs .sep { color:#ccc; }
+    .breadcrumbs .current { color:var(--text-light); max-width:220px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .top-bar-right { display:flex; align-items:center; gap:4px; }
+    .lang-btn { display:inline-flex; align-items:center; justify-content:center; min-width:34px; height:28px; padding:0 10px; border-radius:14px; border:1.5px solid #0563bb; font-size:12px; font-weight:700; letter-spacing:0.4px; text-decoration:none; transition:all 0.2s; color:#0563bb; background:transparent; }
+    .lang-btn:hover { background:#e8f0fb; }
+    .lang-btn.active { background:#0563bb; color:#fff; cursor:default; pointer-events:none; }
+    .article-hero { width:100%; overflow:hidden; background:linear-gradient(135deg,#e8f0fb 0%,#cfe0f7 100%); }
+    .article-hero-placeholder { height:320px; display:flex; align-items:center; justify-content:center; }
+    .article-hero-placeholder i { font-size:90px; color:var(--primary); opacity:0.2; }
+    .article-wrapper { max-width:760px; margin:0 auto; padding:48px 24px 80px; overflow-x:hidden; }
+    .article-meta { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-bottom:24px; }
+    .tag { background:var(--primary); color:#fff; font-size:11px; font-weight:600; padding:3px 12px; border-radius:20px; text-transform:uppercase; letter-spacing:0.5px; }
+    .tag-secondary { background:var(--tag-bg); color:var(--primary); }
+    .meta-date,.meta-read { font-size:13px; color:var(--text-light); display:flex; align-items:center; gap:5px; }
+    .meta-read { margin-left:auto; }
+    .meta-date i,.meta-read i { color:var(--primary); }
+    .article-title { font-family:'Raleway',sans-serif; font-size:clamp(24px,4vw,38px); font-weight:700; line-height:1.25; color:var(--text); margin-bottom:16px; }
+    .article-subtitle { font-size:17px; color:var(--text-light); font-weight:400; line-height:1.6; margin-bottom:36px; padding-bottom:36px; border-bottom:1px solid var(--border); }
+    .author-block { display:flex; align-items:center; gap:14px; margin-bottom:40px; padding:16px 20px; background:var(--bg-light); border-radius:10px; border-left:3px solid var(--primary); }
+    .author-avatar { width:48px; height:48px; border-radius:50%; flex-shrink:0; overflow:hidden; }
+    .author-avatar img { width:100%; height:100%; object-fit:cover; }
+    .author-info { flex:1; }
+    .author-name { font-weight:600; font-size:15px; }
+    .author-role { font-size:13px; color:var(--text-light); }
+    .author-links { display:flex; gap:10px; }
+    .author-links a { color:var(--text-light); font-size:16px; transition:color 0.2s; }
+    .author-links a:hover { color:var(--primary); }
+    .toc { background:var(--bg-light); border:1px solid var(--border); border-radius:10px; padding:20px 24px; margin:0 0 40px; }
+    .toc h4 { font-size:14px; font-weight:600; color:var(--text); margin-bottom:12px; text-transform:uppercase; letter-spacing:0.5px; }
+    .toc ol { margin:0 0 0 16px; }
+    .toc li { font-size:14px; margin-bottom:6px; }
+    .toc a { color:var(--primary); text-decoration:none; }
+    .toc a:hover { text-decoration:underline; }
+    .article-content h2 { font-family:'Raleway',sans-serif; font-size:24px; font-weight:700; color:var(--text); margin:40px 0 16px; padding-bottom:8px; border-bottom:2px solid var(--tag-bg); }
+    .article-content h3 { font-size:19px; font-weight:600; color:var(--text); margin:28px 0 12px; }
+    .article-content p { font-size:16px; color:#444; line-height:1.8; margin-bottom:18px; }
+    .article-content ul,.article-content ol { margin:0 0 18px 20px; }
+    .article-content li { font-size:16px; color:#444; line-height:1.8; margin-bottom:6px; }
+    .article-content strong { color:var(--text); }
+    .highlight-box { background:var(--bg-light); border-left:4px solid var(--primary); border-radius:0 8px 8px 0; padding:18px 22px; margin:28px 0; }
+    .highlight-box p { margin:0; color:var(--text); font-style:italic; }
+    .tip-box { background:#f0fdf4; border-left:4px solid #22c55e; border-radius:0 8px 8px 0; padding:16px 20px; margin:24px 0; font-size:15px; color:#166534; }
+    .warn-box { background:#fffbeb; border-left:4px solid #f59e0b; border-radius:0 8px 8px 0; padding:16px 20px; margin:24px 0; font-size:15px; color:#92400e; }
+    .article-content table { width:100%; border-collapse:collapse; margin:24px 0; font-size:14px; overflow-x:auto; display:block; }
+    .article-content th { background:var(--primary); color:#fff; padding:10px 14px; text-align:left; font-weight:600; }
+    .article-content td { padding:9px 14px; border-bottom:1px solid var(--border); color:#444; }
+    .article-content tr:nth-child(even) td { background:var(--bg-light); }
+    .article-content code { background:#f0f4f8; color:var(--primary-dark); padding:2px 7px; border-radius:4px; font-size:14px; font-family:'Courier New',monospace; }
+    .article-tags { display:flex; flex-wrap:wrap; gap:8px; margin:40px 0 32px; padding-top:32px; border-top:1px solid var(--border); }
+    .article-tags span { font-size:12px; color:var(--text-light); align-self:center; font-weight:500; }
+    .article-tags a { background:var(--tag-bg); color:var(--primary); font-size:13px; font-weight:500; padding:4px 12px; border-radius:20px; text-decoration:none; transition:all 0.2s; }
+    .article-tags a:hover { background:var(--primary); color:#fff; }
+    .article-nav { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:40px; }
+    .article-nav a { display:flex; flex-direction:column; gap:4px; padding:16px 20px; border:1px solid var(--border); border-radius:10px; text-decoration:none; color:var(--text); transition:all 0.2s; }
+    .article-nav a:hover { border-color:var(--primary); background:var(--bg-light); }
+    .article-nav a.next { text-align:right; }
+    .article-nav .nav-label { font-size:11px; color:var(--text-light); text-transform:uppercase; letter-spacing:0.8px; display:flex; align-items:center; gap:5px; }
+    .article-nav a.next .nav-label { justify-content:flex-end; }
+    .article-nav .nav-title { font-size:14px; font-weight:600; color:var(--primary); line-height:1.4; }
+    .article-footer { background:#f8fafc; border-top:1px solid #e8ecf0; padding:40px 24px 32px; text-align:center; }
+    .footer-social { display:flex; justify-content:center; gap:10px; margin-bottom:22px; }
+    .footer-social a { width:42px; height:42px; border-radius:50%; background:#0563bb; color:#fff; display:flex; align-items:center; justify-content:center; font-size:18px; text-decoration:none; transition:all 0.25s; }
+    .footer-social a:hover { background:#0352a0; transform:translateY(-3px); }
+    .footer-copy { font-size:13px; color:#666; line-height:2; }
+    .footer-copy a { color:#0563bb; text-decoration:none; }
+    .back-to-main { margin-top:22px; }
+    .back-to-main a { display:inline-flex; align-items:center; gap:8px; color:#0563bb; text-decoration:none; font-weight:500; font-size:15px; border:1px solid #e8ecf0; padding:10px 24px; border-radius:25px; transition:all 0.2s; background:#fff; }
+    .back-to-main a:hover { background:#0563bb; color:#fff; border-color:#0563bb; }
+    #scrollTopBtn { position:fixed; bottom:28px; right:24px; z-index:999; width:44px; height:44px; border-radius:50%; background:#0563bb; color:#fff; display:flex; align-items:center; justify-content:center; font-size:22px; text-decoration:none; box-shadow:0 4px 16px rgba(5,99,187,0.4); opacity:0; pointer-events:none; transition:opacity 0.3s,transform 0.3s; }
+    #scrollTopBtn.visible { opacity:1; pointer-events:auto; }
+    #scrollTopBtn:hover { background:#0352a0; transform:translateY(-3px); }
+    @media (max-width:600px) { .top-bar{padding:0 16px;} .breadcrumbs{display:none;} .article-wrapper{padding:32px 16px 60px;} .article-nav{grid-template-columns:1fr;} .article-nav a.next{text-align:left;} .article-nav a.next .nav-label{justify-content:flex-start;} .author-links{display:none;} #scrollTopBtn{bottom:18px;right:14px;width:40px;height:40px;font-size:20px;} }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E01F5VDKVM"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-E01F5VDKVM');</script>
+</head>
+<body>
+
+<nav class="top-bar">
+  <div class="top-bar-left">
+    <a href="index.html" class="back-btn"><i class="bi bi-arrow-left"></i> Back</a>
+    <nav class="breadcrumbs" aria-label="breadcrumb">
+      <a href="index.html">Blog</a><span class="sep">›</span>
+      <a href="index.html">Articles</a><span class="sep">›</span>
+      <span class="current">Data Governance 2026</span>
+    </nav>
+  </div>
+  <div class="top-bar-right">
+    <a href="2026-09-06-data-governance-ai-era.html" class="lang-btn active" aria-current="page" title="English">EN</a>
+    <a href="2026-09-06-data-governance-ai-era-ua.html" class="lang-btn" title="Українська">UA</a>
+  </div>
+</nav>
+
+<div class="article-hero">
+  <div class="article-hero-placeholder"><i class="bi bi-shield-check"></i></div>
+</div>
+
+<main class="article-wrapper">
+
+  <div class="article-meta">
+    <span class="tag">Data Governance</span>
+    <span class="tag tag-secondary">Data Quality</span>
+    <span class="tag tag-secondary">AI Governance</span>
+    <span class="meta-date"><i class="bi bi-calendar3"></i> 2026-09-06</span>
+    <span class="meta-read"><i class="bi bi-clock"></i> 9 min</span>
+  </div>
+
+  <h1 class="article-title">Data Governance in the AI Era 2026: Data Quality Is the New Bottleneck</h1>
+  <p class="article-subtitle">Nearly two-thirds of companies have failed to scale their AI projects — and the recurring reason is not the model, it's the data feeding it. In 2026, data governance stopped being a compliance checklist and became the thing that decides whether your AI initiatives actually work. Here's what changed, and a practical way to start without a full enterprise program.</p>
+
+  <div class="author-block">
+    <div class="author-avatar"><img src="../assets/img/profile-img.webp" alt="Isachenko Andrii"></div>
+    <div class="author-info">
+      <div class="author-name">Isachenko Andrii</div>
+      <div class="author-role">Data Analyst · Open to work</div>
+    </div>
+    <div class="author-links">
+      <a href="https://www.linkedin.com/in/isachenko-andrii/" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
+      <a href="https://github.com/isachenko-andrii"           target="_blank" rel="noopener"><i class="bi bi-github"></i></a>
+      <a href="https://t.me/Manul_Solo"                       target="_blank" rel="noopener"><i class="bi bi-telegram"></i></a>
+    </div>
+  </div>
+
+  <div class="toc">
+    <h4>📋 Table of Contents</h4>
+    <ol>
+      <li><a href="#why">Why Governance Became the AI Bottleneck</a></li>
+      <li><a href="#shift">From Passive Storage to Active Metadata</a></li>
+      <li><a href="#quality">Continuous Data Quality vs. the Old Quarterly Audit</a></li>
+      <li><a href="#analyst">What This Means for the Analyst's Day-to-Day Work</a></li>
+      <li><a href="#start">Starting Governance Without a Full Enterprise Program</a></li>
+      <li><a href="#regulation">Regulation Context: What's Changing Around AI Data Use</a></li>
+    </ol>
+  </div>
+
+  <article class="article-content">
+
+  <h2 id="why">Why Governance Became the AI Bottleneck</h2>
+  <p>McKinsey reports that nearly two-thirds of firms have failed to scale their AI pilots into production. The pattern behind most of those failures is the same: the model works fine in a demo on curated data, then produces confidently wrong output once it touches the organisation's actual, messy, inconsistent data.</p>
+  <p>Data quality has consistently ranked as the top challenge in industry surveys of data professionals for years. What's different in 2026 is that AI has raised the stakes — a bad number in a quarterly report is embarrassing, but a bad number silently feeding a model that makes decisions at scale is a much larger and harder-to-detect problem.</p>
+
+  <div class="highlight-box"><p>Modern data governance in 2026 is no longer a restrictive IT checklist. It operates as automated, continuous infrastructure that directly determines whether generative and predictive AI systems can be trusted — organisations relying on rigid, legacy governance frameworks are the ones seeing poor model outputs and compliance risk.</p></div>
+
+  <h2 id="shift">From Passive Storage to Active Metadata</h2>
+  <p>The core technical shift is from metadata as documentation to metadata as an active control layer. Instead of a wiki page describing what a field means, systems now track lineage, ownership, and quality signals continuously and enforce policy in real time.</p>
+
+  <table>
+    <tr><th>Passive governance (pre-2024)</th><th>Active governance (2026)</th></tr>
+    <tr><td>Data catalog updated manually, often stale</td><td>Lineage and schema tracked automatically as data moves</td></tr>
+    <tr><td>Access reviewed periodically</td><td>Policy enforced at query time based on live metadata</td></tr>
+    <tr><td>Quality checked in scheduled batch audits</td><td>Anomalies flagged continuously as data lands</td></tr>
+    <tr><td>Governance covers tables and dashboards</td><td>Governance extends to training sets, prompts, and model outputs</td></tr>
+  </table>
+
+  <p>Gartner estimates that through 2026, roughly 30% of enterprises will automate their governance processes using this kind of active metadata — a significant jump from governance being a mostly manual, spreadsheet-driven function just a few years earlier.</p>
+
+  <h2 id="quality">Continuous Data Quality vs. the Old Quarterly Audit</h2>
+  <p>Data quality management is shifting from periodic batch testing to real-time pipeline monitoring. Instead of an analyst discovering a broken field during monthly reporting, quality checks run on every pipeline execution and flag drift before it reaches a dashboard or a model.</p>
+
+  <table>
+    <tr><th>Quality dimension</th><th>Why it matters more for AI than for reporting</th></tr>
+    <tr><td>Completeness &amp; accuracy</td><td>Still the baseline — but no longer sufficient on their own</td></tr>
+    <tr><td>Representativeness</td><td>A model trained on unrepresentative data produces biased or unreliable output at scale</td></tr>
+    <tr><td>Temporal relevance</td><td>Stale training data means a model reflects conditions that no longer hold</td></tr>
+    <tr><td>Consistency across sources</td><td>Agents and pipelines that combine multiple sources amplify any inconsistency between them</td></tr>
+  </table>
+
+  <div class="tip-box">✅ If you're publishing a dataset that any AI agent or model will consume, add field descriptions, synonyms, and default aggregations before publishing — not after someone reports a wrong number. This is now a governance task, not a nice-to-have.</div>
+
+  <h2 id="analyst">What This Means for the Analyst's Day-to-Day Work</h2>
+  <p>Governance used to be something a separate compliance or data-management function handled. In 2026, it increasingly sits with whoever publishes and maintains the data sources that dashboards and AI agents query — which, for many small and mid-sized teams, is the analyst.</p>
+  <ul>
+    <li><strong>Ownership:</strong> know which datasets you're responsible for and who to notify when something changes</li>
+    <li><strong>Documentation as code:</strong> field descriptions and synonyms live next to the data source, not in a separate wiki nobody opens</li>
+    <li><strong>Quality monitoring:</strong> set automated checks (nulls, duplicates, out-of-range values) on your most-used tables, not just your final reports</li>
+    <li><strong>Lineage awareness:</strong> know which dashboards and agents depend on a table before you change its schema</li>
+  </ul>
+
+  <h2 id="start">Starting Governance Without a Full Enterprise Program</h2>
+  <p>You don't need a data governance council or a six-month rollout to get real value. Most organisations that succeed start narrow:</p>
+  <ol>
+    <li><strong>Pick the handful of datasets that actually drive decisions</strong> — the tables behind your key dashboards or AI features, not every table you have.</li>
+    <li><strong>Assign clear ownership</strong> — one named person accountable for each dataset's accuracy and definitions.</li>
+    <li><strong>Document business definitions once, near the data</strong> — what "active customer" or "revenue" means, so different teams stop computing the same metric two different ways.</li>
+    <li><strong>Add basic automated quality checks</strong> — even a simple null-count or row-count alert catches a large share of silent breakages.</li>
+    <li><strong>Expand only after this works</strong> — add more datasets and more automation once the first few are demonstrably reliable.</li>
+  </ol>
+
+  <div class="warn-box">⚠️ Governance programs that try to cover every dataset from day one tend to stall — the effort spreads too thin to show value anywhere, and stakeholders lose patience before the payoff arrives. Depth on a few critical datasets beats breadth across all of them.</div>
+
+  <h2 id="regulation">Regulation Context: What's Changing Around AI Data Use</h2>
+  <p>Regulatory frameworks like the EU AI Act are moving from adoption toward enforcement in 2026, which raises the practical bar from having a governance policy on paper to demonstrating it's actually followed. For teams working with EU users or data, this means audit trails and documented data lineage are becoming an operational requirement, not just good practice.</p>
+  <p>This doesn't only affect large enterprises — any team publishing an AI-facing dataset benefits from being able to answer, concretely, where a number came from and what data trained or fed the system producing it.</p>
+
+  <div class="highlight-box"><p>Across this series — hyperautomation, small-business analytics, and now governance — the common thread is the same: AI amplifies whatever it's given. Amplifying good data and a well-designed workflow is the whole promise of these tools; amplifying bad data and undocumented process is the risk. Governance is what tips that balance toward the former.</p></div>
+
+  </article>
+
+  <div class="article-tags">
+    <span>Tags:</span>
+    <a href="index.html">Data Governance</a>
+    <a href="index.html">Data Quality</a>
+    <a href="index.html">AI Governance</a>
+    <a href="index.html">Metadata</a>
+    <a href="index.html">Compliance</a>
+  </div>
+
+  <nav class="article-nav">
+    <a href="index.html" class="prev">
+      <span class="nav-label"><i class="bi bi-arrow-left"></i> All Articles</span>
+      <span class="nav-title">Back to articles</span>
+    </a>
+    <a href="2026-08-23-data-driven-small-business.html" class="next">
+      <span class="nav-label">Previous <i class="bi bi-arrow-right"></i></span>
+      <span class="nav-title">Data-Driven Management for Small Business</span>
+    </a>
+  </nav>
+
+</main>
+
+<footer class="article-footer">
+  <div class="footer-social">
+    <a href="https://www.linkedin.com/in/isachenko-andrii/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+    <a href="https://github.com/isachenko-andrii"           target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+    <a href="https://t.me/Manul_Solo"                       target="_blank" rel="noopener" aria-label="Telegram"><i class="bi bi-telegram"></i></a>
+    <a href="mailto:andrii.isachenko@gmail.com" target="_blank"><i class="bi bi-envelope"></i></a>
+  </div>
+  <div class="footer-copy">
+    <span>Copyright <a href="https://isachenko-andrii.github.io/index.html">Isachenko Andrii</a> All Rights Reserved</span><br>
+    <span>Designed by <a href="https://bootstrapmade.com/" target="_blank" rel="noopener">BootstrapMade</a></span>
+  </div>
+  <div class="back-to-main">
+    <a href="../index.html"><i class="bi bi-house"></i> Back to home page</a>
+  </div>
+</footer>
+
+<a href="#" id="scrollTopBtn" aria-label="Scroll to top"><i class="bi bi-arrow-up-short"></i></a>
+<script>
+(function(){
+  var b=document.getElementById('scrollTopBtn');
+  if(!b)return;
+  window.addEventListener('scroll',function(){b.classList.toggle('visible',window.pageYOffset>320);},{passive:true});
+  b.addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});});
+})();
+</script>
+</body>
+</html>

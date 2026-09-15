@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>AI Hyperautomation in Data Analytics 2026: From Dashboards to Autonomous Insights | Isachenko Andrii</title>
+  <meta name="description" content="How hyperautomation and agentic AI are reshaping data analytics in 2026: autonomous pipelines, AI agents for monitoring and reporting, and what analysts should build first.">
+  <meta name="keywords" content="hyperautomation, agentic AI, AI agents analytics, data pipeline automation, autonomous insights, RPA AI 2026, data analyst automation">
+  <meta name="author" content="Isachenko Andrii">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://isachenko-andrii.github.io/articles/2026-08-09-ai-hyperautomation-data-analytics.html">
+  <link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/articles/2026-08-09-ai-hyperautomation-data-analytics.html">
+  <link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-08-09-ai-hyperautomation-data-analytics-ua.html">
+  <link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-08-09-ai-hyperautomation-data-analytics.html">
+
+  <meta property="og:type"                content="article">
+  <meta property="og:url"                 content="https://isachenko-andrii.github.io/articles/2026-08-09-ai-hyperautomation-data-analytics.html">
+  <meta property="og:title"               content="AI Hyperautomation in Data Analytics 2026">
+  <meta property="og:description"         content="Autonomous pipelines, AI agents for monitoring and reporting — how hyperautomation changes the analyst's day-to-day work in 2026.">
+  <meta property="og:image"               content="https://isachenko-andrii.github.io/assets/img/profile-img.webp">
+  <meta property="og:image:width"         content="1200">
+  <meta property="og:image:height"        content="630">
+  <meta property="og:locale"              content="en_US">
+  <meta property="article:published_time" content="2026-08-09T00:00:00Z">
+  <meta property="article:author"         content="Isachenko Andrii">
+
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="AI Hyperautomation in Data Analytics 2026">
+  <meta name="twitter:description" content="How agentic AI turns dashboards into autonomous, self-monitoring analytics pipelines.">
+  <meta name="twitter:image"       content="https://isachenko-andrii.github.io/assets/img/profile-img.webp">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI Hyperautomation in Data Analytics 2026: From Dashboards to Autonomous Insights",
+    "datePublished": "2026-08-09T00:00:00Z",
+    "inLanguage": "en",
+    "author": {"@type":"Person","name":"Isachenko Andrii","url":"https://isachenko-andrii.github.io"},
+    "publisher": {"@type":"Person","name":"Isachenko Andrii"},
+    "keywords": "hyperautomation, agentic AI, AI agents, data pipeline automation, autonomous insights, analytics 2026",
+    "image": "https://isachenko-andrii.github.io/assets/img/profile-img.webp"
+  }
+  </script>
+
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root { --primary:#0563bb; --primary-dark:#0352a0; --text:#2c3e50; --text-light:#666; --border:#e8ecf0; --bg-light:#f8fafc; --tag-bg:#e8f0fb; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:'Poppins',sans-serif; color:var(--text); background:#fff; line-height:1.7; overflow-x:hidden; }
+    .top-bar { position:sticky; top:0; z-index:100; background:rgba(255,255,255,0.96); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); padding:0 24px; height:56px; display:flex; align-items:center; justify-content:space-between; }
+    .top-bar-left { display:flex; align-items:center; gap:16px; }
+    .back-btn { display:inline-flex; align-items:center; gap:6px; color:var(--primary); text-decoration:none; font-size:14px; font-weight:500; padding:6px 14px; border-radius:20px; border:1px solid var(--primary); transition:all 0.2s; white-space:nowrap; }
+    .back-btn:hover { background:var(--primary); color:#fff; }
+    .breadcrumbs { display:flex; align-items:center; gap:6px; font-size:13px; color:var(--text-light); }
+    .breadcrumbs a { color:var(--primary); text-decoration:none; }
+    .breadcrumbs a:hover { text-decoration:underline; }
+    .breadcrumbs .sep { color:#ccc; }
+    .breadcrumbs .current { color:var(--text-light); max-width:220px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .top-bar-right { display:flex; align-items:center; gap:4px; }
+    .lang-btn { display:inline-flex; align-items:center; justify-content:center; min-width:34px; height:28px; padding:0 10px; border-radius:14px; border:1.5px solid #0563bb; font-size:12px; font-weight:700; letter-spacing:0.4px; text-decoration:none; transition:all 0.2s; color:#0563bb; background:transparent; }
+    .lang-btn:hover { background:#e8f0fb; }
+    .lang-btn.active { background:#0563bb; color:#fff; cursor:default; pointer-events:none; }
+    .article-hero { width:100%; overflow:hidden; background:linear-gradient(135deg,#e8f0fb 0%,#cfe0f7 100%); }
+    .article-hero-placeholder { height:320px; display:flex; align-items:center; justify-content:center; }
+    .article-hero-placeholder i { font-size:90px; color:var(--primary); opacity:0.2; }
+    .article-wrapper { max-width:760px; margin:0 auto; padding:48px 24px 80px; overflow-x:hidden; }
+    .article-meta { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-bottom:24px; }
+    .tag { background:var(--primary); color:#fff; font-size:11px; font-weight:600; padding:3px 12px; border-radius:20px; text-transform:uppercase; letter-spacing:0.5px; }
+    .tag-secondary { background:var(--tag-bg); color:var(--primary); }
+    .meta-date,.meta-read { font-size:13px; color:var(--text-light); display:flex; align-items:center; gap:5px; }
+    .meta-read { margin-left:auto; }
+    .meta-date i,.meta-read i { color:var(--primary); }
+    .article-title { font-family:'Raleway',sans-serif; font-size:clamp(24px,4vw,38px); font-weight:700; line-height:1.25; color:var(--text); margin-bottom:16px; }
+    .article-subtitle { font-size:17px; color:var(--text-light); font-weight:400; line-height:1.6; margin-bottom:36px; padding-bottom:36px; border-bottom:1px solid var(--border); }
+    .author-block { display:flex; align-items:center; gap:14px; margin-bottom:40px; padding:16px 20px; background:var(--bg-light); border-radius:10px; border-left:3px solid var(--primary); }
+    .author-avatar { width:48px; height:48px; border-radius:50%; flex-shrink:0; overflow:hidden; }
+    .author-avatar img { width:100%; height:100%; object-fit:cover; }
+    .author-info { flex:1; }
+    .author-name { font-weight:600; font-size:15px; }
+    .author-role { font-size:13px; color:var(--text-light); }
+    .author-links { display:flex; gap:10px; }
+    .author-links a { color:var(--text-light); font-size:16px; transition:color 0.2s; }
+    .author-links a:hover { color:var(--primary); }
+    .toc { background:var(--bg-light); border:1px solid var(--border); border-radius:10px; padding:20px 24px; margin:0 0 40px; }
+    .toc h4 { font-size:14px; font-weight:600; color:var(--text); margin-bottom:12px; text-transform:uppercase; letter-spacing:0.5px; }
+    .toc ol { margin:0 0 0 16px; }
+    .toc li { font-size:14px; margin-bottom:6px; }
+    .toc a { color:var(--primary); text-decoration:none; }
+    .toc a:hover { text-decoration:underline; }
+    .article-content h2 { font-family:'Raleway',sans-serif; font-size:24px; font-weight:700; color:var(--text); margin:40px 0 16px; padding-bottom:8px; border-bottom:2px solid var(--tag-bg); }
+    .article-content h3 { font-size:19px; font-weight:600; color:var(--text); margin:28px 0 12px; }
+    .article-content p { font-size:16px; color:#444; line-height:1.8; margin-bottom:18px; }
+    .article-content ul,.article-content ol { margin:0 0 18px 20px; }
+    .article-content li { font-size:16px; color:#444; line-height:1.8; margin-bottom:6px; }
+    .article-content strong { color:var(--text); }
+    .highlight-box { background:var(--bg-light); border-left:4px solid var(--primary); border-radius:0 8px 8px 0; padding:18px 22px; margin:28px 0; }
+    .highlight-box p { margin:0; color:var(--text); font-style:italic; }
+    .tip-box { background:#f0fdf4; border-left:4px solid #22c55e; border-radius:0 8px 8px 0; padding:16px 20px; margin:24px 0; font-size:15px; color:#166534; }
+    .warn-box { background:#fffbeb; border-left:4px solid #f59e0b; border-radius:0 8px 8px 0; padding:16px 20px; margin:24px 0; font-size:15px; color:#92400e; }
+    .article-content table { width:100%; border-collapse:collapse; margin:24px 0; font-size:14px; overflow-x:auto; display:block; }
+    .article-content th { background:var(--primary); color:#fff; padding:10px 14px; text-align:left; font-weight:600; }
+    .article-content td { padding:9px 14px; border-bottom:1px solid var(--border); color:#444; }
+    .article-content tr:nth-child(even) td { background:var(--bg-light); }
+    .article-content code { background:#f0f4f8; color:var(--primary-dark); padding:2px 7px; border-radius:4px; font-size:14px; font-family:'Courier New',monospace; }
+    pre { background:#1e2a3a; color:#e2e8f0; border-radius:10px; padding:20px 22px; margin:24px 0; overflow-x:auto; font-size:13px; font-family:'Courier New',monospace; line-height:1.7; white-space:pre; -webkit-overflow-scrolling:touch; }
+    .article-tags { display:flex; flex-wrap:wrap; gap:8px; margin:40px 0 32px; padding-top:32px; border-top:1px solid var(--border); }
+    .article-tags span { font-size:12px; color:var(--text-light); align-self:center; font-weight:500; }
+    .article-tags a { background:var(--tag-bg); color:var(--primary); font-size:13px; font-weight:500; padding:4px 12px; border-radius:20px; text-decoration:none; transition:all 0.2s; }
+    .article-tags a:hover { background:var(--primary); color:#fff; }
+    .article-nav { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:40px; }
+    .article-nav a { display:flex; flex-direction:column; gap:4px; padding:16px 20px; border:1px solid var(--border); border-radius:10px; text-decoration:none; color:var(--text); transition:all 0.2s; }
+    .article-nav a:hover { border-color:var(--primary); background:var(--bg-light); }
+    .article-nav a.next { text-align:right; }
+    .article-nav .nav-label { font-size:11px; color:var(--text-light); text-transform:uppercase; letter-spacing:0.8px; display:flex; align-items:center; gap:5px; }
+    .article-nav a.next .nav-label { justify-content:flex-end; }
+    .article-nav .nav-title { font-size:14px; font-weight:600; color:var(--primary); line-height:1.4; }
+    .article-footer { background:#f8fafc; border-top:1px solid #e8ecf0; padding:40px 24px 32px; text-align:center; }
+    .footer-social { display:flex; justify-content:center; gap:10px; margin-bottom:22px; }
+    .footer-social a { width:42px; height:42px; border-radius:50%; background:#0563bb; color:#fff; display:flex; align-items:center; justify-content:center; font-size:18px; text-decoration:none; transition:all 0.25s; }
+    .footer-social a:hover { background:#0352a0; transform:translateY(-3px); }
+    .footer-copy { font-size:13px; color:#666; line-height:2; }
+    .footer-copy a { color:#0563bb; text-decoration:none; }
+    .back-to-main { margin-top:22px; }
+    .back-to-main a { display:inline-flex; align-items:center; gap:8px; color:#0563bb; text-decoration:none; font-weight:500; font-size:15px; border:1px solid #e8ecf0; padding:10px 24px; border-radius:25px; transition:all 0.2s; background:#fff; }
+    .back-to-main a:hover { background:#0563bb; color:#fff; border-color:#0563bb; }
+    #scrollTopBtn { position:fixed; bottom:28px; right:24px; z-index:999; width:44px; height:44px; border-radius:50%; background:#0563bb; color:#fff; display:flex; align-items:center; justify-content:center; font-size:22px; text-decoration:none; box-shadow:0 4px 16px rgba(5,99,187,0.4); opacity:0; pointer-events:none; transition:opacity 0.3s,transform 0.3s; }
+    #scrollTopBtn.visible { opacity:1; pointer-events:auto; }
+    #scrollTopBtn:hover { background:#0352a0; transform:translateY(-3px); }
+    @media (max-width:600px) { .top-bar{padding:0 16px;} .breadcrumbs{display:none;} .article-wrapper{padding:32px 16px 60px;} .article-nav{grid-template-columns:1fr;} .article-nav a.next{text-align:left;} .article-nav a.next .nav-label{justify-content:flex-start;} .author-links{display:none;} #scrollTopBtn{bottom:18px;right:14px;width:40px;height:40px;font-size:20px;} }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E01F5VDKVM"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-E01F5VDKVM');</script>
+</head>
+<body>
+
+<nav class="top-bar">
+  <div class="top-bar-left">
+    <a href="index.html" class="back-btn"><i class="bi bi-arrow-left"></i> Back</a>
+    <nav class="breadcrumbs" aria-label="breadcrumb">
+      <a href="index.html">Blog</a><span class="sep">›</span>
+      <a href="index.html">Articles</a><span class="sep">›</span>
+      <span class="current">AI Hyperautomation 2026</span>
+    </nav>
+  </div>
+  <div class="top-bar-right">
+    <a href="2026-08-09-ai-hyperautomation-data-analytics.html" class="lang-btn active" aria-current="page" title="English">EN</a>
+    <a href="2026-08-09-ai-hyperautomation-data-analytics-ua.html" class="lang-btn" title="Українська">UA</a>
+  </div>
+</nav>
+
+<div class="article-hero">
+  <div class="article-hero-placeholder"><i class="bi bi-cpu"></i></div>
+</div>
+
+<main class="article-wrapper">
+
+  <div class="article-meta">
+    <span class="tag">AI Tools</span>
+    <span class="tag tag-secondary">Hyperautomation</span>
+    <span class="tag tag-secondary">Agentic AI</span>
+    <span class="meta-date"><i class="bi bi-calendar3"></i> 2026-08-09</span>
+    <span class="meta-read"><i class="bi bi-clock"></i> 9 min</span>
+  </div>
+
+  <h1 class="article-title">AI Hyperautomation in Data Analytics 2026: From Dashboards to Autonomous Insights</h1>
+  <p class="article-subtitle">Analytics automation used to mean a scheduled script and a static dashboard. In autumn 2026 it means AI agents that ingest data, flag anomalies, write the explanation, and route it to the right person — with a human checking the output, not producing it. Here's what a hyperautomated analytics stack actually looks like and how to start building one.</p>
+
+  <div class="author-block">
+    <div class="author-avatar"><img src="../assets/img/profile-img.webp" alt="Isachenko Andrii"></div>
+    <div class="author-info">
+      <div class="author-name">Isachenko Andrii</div>
+      <div class="author-role">Data Analyst · Open to work</div>
+    </div>
+    <div class="author-links">
+      <a href="https://www.linkedin.com/in/isachenko-andrii/" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
+      <a href="https://github.com/isachenko-andrii"           target="_blank" rel="noopener"><i class="bi bi-github"></i></a>
+      <a href="https://t.me/Manul_Solo"                       target="_blank" rel="noopener"><i class="bi bi-telegram"></i></a>
+    </div>
+  </div>
+
+  <div class="toc">
+    <h4>📋 Table of Contents</h4>
+    <ol>
+      <li><a href="#what">Hyperautomation in 2026: Beyond RPA and Scheduled Scripts</a></li>
+      <li><a href="#stack">The Hyperautomated Analytics Stack</a></li>
+      <li><a href="#agents">AI Agents an Analyst Can Actually Use Today</a></li>
+      <li><a href="#pipeline">Building a First Autonomous Pipeline</a></li>
+      <li><a href="#role">How the Analyst's Role Shifts</a></li>
+      <li><a href="#limits">Guardrails, Costs, and Honest Limitations</a></li>
+    </ol>
+  </div>
+
+  <article class="article-content">
+
+  <h2 id="what">Hyperautomation in 2026: Beyond RPA and Scheduled Scripts</h2>
+  <p>Gartner defines hyperautomation as the combined use of AI, machine learning, and RPA to automate entire operational ecosystems — not single tasks. What changed in 2026 is the shift from rule-based bots to <strong>agentic AI</strong>: software that can interpret a goal, choose which data to pull, decide whether a result looks wrong, and act on that judgment without a person writing every branch of logic in advance.</p>
+  <p>For data analytics specifically, this means the boundary between "the pipeline" and "the report" is dissolving. A pipeline used to move data; a report used to explain it. Now a single agentic workflow can do both — and decide on its own when something is worth telling a human about.</p>
+
+  <table>
+    <tr><th>Then (2022–2024)</th><th>Now (2026)</th></tr>
+    <tr><td>Scheduled ETL job, fixed logic</td><td>Agent that adapts extraction to schema changes</td></tr>
+    <tr><td>Dashboard refreshed nightly</td><td>Metric monitored continuously, alerts on deviation</td></tr>
+    <tr><td>Analyst writes the weekly summary</td><td>Agent drafts the summary, analyst reviews and ships it</td></tr>
+    <tr><td>Anomaly found by someone opening the dashboard</td><td>Anomaly detected and explained before anyone looks</td></tr>
+  </table>
+
+  <div class="highlight-box"><p>Gartner projects that 40% of enterprise applications will include task-specific AI agents by the end of 2026, up from under 5% a year earlier. The tooling matured faster than most teams' processes did — the bottleneck this autumn is workflow design, not model capability.</p></div>
+
+  <h2 id="stack">The Hyperautomated Analytics Stack</h2>
+  <p>A practical way to think about this is four layers, each of which can now include an AI component rather than only fixed code:</p>
+
+  <table>
+    <tr><th>Layer</th><th>What it does</th><th>2026 AI addition</th></tr>
+    <tr><td>Ingestion</td><td>Pulls data from sources (APIs, DBs, files)</td><td>Agents that adapt to schema drift and flag broken sources</td></tr>
+    <tr><td>Transformation</td><td>Cleans, joins, aggregates</td><td>AI-suggested transformations, auto-generated data quality checks</td></tr>
+    <tr><td>Monitoring</td><td>Watches metrics for anomalies</td><td>Predictive analytics — flags issues before they fully materialise</td></tr>
+    <tr><td>Decision / delivery</td><td>Turns numbers into an action or a message</td><td>Agents that draft explanations and route them to the right channel</td></tr>
+  </table>
+
+  <p>The point is not to automate every layer at once. Most teams that succeed with hyperautomation in 2026 start with monitoring and delivery — the layers where an AI-generated first draft is easiest for a human to check quickly — and only automate ingestion and transformation once those are stable.</p>
+
+  <h2 id="agents">AI Agents an Analyst Can Actually Use Today</h2>
+  <p>"Agent" gets used loosely. For an analyst's day-to-day work, three concrete patterns are worth knowing:</p>
+
+  <h3>1. Monitoring agents</h3>
+  <p>These watch a defined metric (revenue, churn, latency, conversion) on a schedule, run anomaly detection, and generate a natural-language explanation of what changed and why — the same pattern products like Tableau Pulse popularised, now available as a standalone building block in most modern BI and workflow-orchestration platforms.</p>
+
+  <h3>2. Retrieval and query agents</h3>
+  <p>Natural-language interfaces over a data warehouse: a stakeholder types a question, the agent writes and runs the query, and returns a chart with a written interpretation. The analyst's job shifts from answering ad hoc questions to curating the data model these agents query against.</p>
+
+  <h3>3. Orchestration agents</h3>
+  <p>These sit above the other two: they decide which agent to call, in what order, and what to do when one step fails — connecting document processing, CRM data, finance data, and reporting into one flow instead of five disconnected tools.</p>
+
+  <div class="tip-box">✅ Start with one monitoring agent on your single most-watched metric. It's the fastest way to prove hyperautomation's value to stakeholders before investing in a full orchestration layer.</div>
+
+  <h2 id="pipeline">Building a First Autonomous Pipeline</h2>
+  <p>A minimal, realistic first project: an agent that checks yesterday's key metric every morning, decides if the change is significant, and — only if it is — posts an explanation to a Slack or email digest.</p>
+
+  <ol>
+    <li><strong>Define one metric and its normal range</strong> — e.g. daily active users, with a statistical threshold for "significant" deviation, not a fixed percentage.</li>
+    <li><strong>Connect the agent to a single, clean data source</strong> — a published data source or warehouse view, not a raw production table.</li>
+    <li><strong>Set the explanation template</strong> — what dimensions to break down by (region, channel, segment) when something changes.</li>
+    <li><strong>Add a human-in-the-loop check for the first month</strong> — the agent drafts, you approve before it sends, until you trust the output.</li>
+    <li><strong>Only then automate delivery</strong> — remove the approval step once false positives are consistently low.</li>
+  </ol>
+
+  <div class="warn-box">⚠️ Skipping step 4 is the single most common reason hyperautomation pilots get shelved: one embarrassingly wrong auto-sent explanation destroys stakeholder trust faster than months of manual reports build it.</div>
+
+  <h2 id="role">How the Analyst's Role Shifts</h2>
+  <p>The routine work — writing the same date logic, building the same chart type, checking whether last week's number moved — increasingly happens without a person triggering it. Analyst time shifts toward:</p>
+  <ul>
+    <li><strong>Metric design:</strong> deciding what's worth monitoring and what "significant" means for it</li>
+    <li><strong>Agent supervision:</strong> reviewing AI-drafted explanations before they reach stakeholders, especially early on</li>
+    <li><strong>Exception handling:</strong> investigating the anomalies agents flag but can't fully explain</li>
+    <li><strong>Data curation:</strong> keeping the underlying sources clean enough that agents don't compound bad data into confident-sounding wrong conclusions</li>
+  </ul>
+
+  <h2 id="limits">Guardrails, Costs, and Honest Limitations</h2>
+  <table>
+    <tr><th>Risk</th><th>What to do about it</th></tr>
+    <tr><td>Agent runs expensive queries on autopilot</td><td>Set token/compute budgets per workflow; route routine checks to smaller models</td></tr>
+    <tr><td>Confidently wrong explanations reach stakeholders</td><td>Keep a human-approval step for anything sent outside the team, at least initially</td></tr>
+    <tr><td>No audit trail for autonomous decisions</td><td>Log every agent action and the data it used — this becomes a governance requirement, not just good practice</td></tr>
+    <tr><td>Orchestrating five tools feels harder than doing the task manually</td><td>Automate one workflow end-to-end before adding a second; partial automation across many workflows rarely pays off</td></tr>
+  </table>
+
+  <p>Only around a fifth of organisations currently run AI workflows at enterprise scale — most are still piloting isolated use cases. That's a realistic starting point, not a failure: hyperautomation pays off when it's applied to one well-understood, high-volume process, not spread thin across everything at once.</p>
+
+  <div class="highlight-box"><p>Hyperautomation doesn't remove the analyst from the loop — it moves them from producing every report to designing and supervising the systems that produce reports. The next article in this series looks at how small businesses without a dedicated data team can adopt the same principle at a much smaller scale.</p></div>
+
+  </article>
+
+  <div class="article-tags">
+    <span>Tags:</span>
+    <a href="index.html">Hyperautomation</a>
+    <a href="index.html">Agentic AI</a>
+    <a href="index.html">AI Agents</a>
+    <a href="index.html">Automation</a>
+    <a href="index.html">Data Pipelines</a>
+  </div>
+
+  <nav class="article-nav">
+    <a href="index.html" class="prev">
+      <span class="nav-label"><i class="bi bi-arrow-left"></i> All Articles</span>
+      <span class="nav-title">Back to articles</span>
+    </a>
+    <a href="2026-07-26-tableau-ai-for-data-analysts.html" class="next">
+      <span class="nav-label">Previous <i class="bi bi-arrow-right"></i></span>
+      <span class="nav-title">Tableau AI for Data Analysts</span>
+    </a>
+  </nav>
+
+</main>
+
+<footer class="article-footer">
+  <div class="footer-social">
+    <a href="https://www.linkedin.com/in/isachenko-andrii/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+    <a href="https://github.com/isachenko-andrii"           target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+    <a href="https://t.me/Manul_Solo"                       target="_blank" rel="noopener" aria-label="Telegram"><i class="bi bi-telegram"></i></a>
+    <a href="mailto:andrii.isachenko@gmail.com" target="_blank"><i class="bi bi-envelope"></i></a>
+  </div>
+  <div class="footer-copy">
+    <span>Copyright <a href="https://isachenko-andrii.github.io/index.html">Isachenko Andrii</a> All Rights Reserved</span><br>
+    <span>Designed by <a href="https://bootstrapmade.com/" target="_blank" rel="noopener">BootstrapMade</a></span>
+  </div>
+  <div class="back-to-main">
+    <a href="../index.html"><i class="bi bi-house"></i> Back to home page</a>
+  </div>
+</footer>
+
+<a href="#" id="scrollTopBtn" aria-label="Scroll to top"><i class="bi bi-arrow-up-short"></i></a>
+<script>
+(function(){
+  var b=document.getElementById('scrollTopBtn');
+  if(!b)return;
+  window.addEventListener('scroll',function(){b.classList.toggle('visible',window.pageYOffset>320);},{passive:true});
+  b.addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});});
+})();
+</script>
+</body>
+</html>
