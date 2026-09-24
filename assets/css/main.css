@@ -1015,6 +1015,42 @@ section,
   fill: #f3268c;
 }
 
+.services .service-item.item-yellow i {
+  color: #ffc107;
+}
+
+.services .service-item.item-yellow:hover .icon i {
+  color: #fff;
+}
+
+.services .service-item.item-yellow:hover .icon path {
+  fill: #ffc107;
+}
+
+.services .service-item.item-blue i {
+  color: #0d6efd;
+}
+
+.services .service-item.item-blue:hover .icon i {
+  color: #fff;
+}
+
+.services .service-item.item-blue:hover .icon path {
+  fill: #0d6efd;
+}
+
+.services .service-item.item-purple i {
+  color: #6f42c1;
+}
+
+.services .service-item.item-purple:hover .icon i {
+  color: #fff;
+}
+
+.services .service-item.item-purple:hover .icon path {
+  fill: #6f42c1;
+}
+
 /*--------------------------------------------------------------
 # Testimonials Section
 --------------------------------------------------------------*/
