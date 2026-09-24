@@ -1039,16 +1039,16 @@ section,
   fill: #0d6efd;
 }
 
-.services .service-item.item-purple i {
-  color: #6f42c1;
+.services .service-item.item-green i {
+  color: #198754;
 }
 
-.services .service-item.item-purple:hover .icon i {
+.services .service-item.item-green:hover .icon i {
   color: #fff;
 }
 
-.services .service-item.item-purple:hover .icon path {
-  fill: #6f42c1;
+.services .service-item.item-green:hover .icon path {
+  fill: #198754;
 }
 
 /*--------------------------------------------------------------
