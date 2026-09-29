@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>ABC-аналіз та оптимізація запасів для категорійного менеджера 2026 | Ісаченко Андрій</title>
+  <meta name="description" content="Практичний гід 2026 з ABC-аналізу та ABC-XYZ класифікації запасів для категорійного менеджера: як побудувати в таблиці, що додає AI, і що робити з дев'ятьма сегментами.">
+  <meta name="keywords" content="ABC-аналіз, ABC XYZ аналіз, оптимізація запасів, категорійний менеджмент, класифікація товарів, варіативність попиту, страховий запас, ритейл-аналітика 2026">
+  <meta name="author" content="Isachenko Andrii">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://isachenko-andrii.github.io/articles/2026-09-13-abc-analysis-inventory-optimization-ua.html">
+  <link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/articles/2026-09-13-abc-analysis-inventory-optimization.html">
+  <link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-09-13-abc-analysis-inventory-optimization-ua.html">
+  <link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-09-13-abc-analysis-inventory-optimization.html">
+
+  <meta property="og:type"                content="article">
+  <meta property="og:url"                 content="https://isachenko-andrii.github.io/articles/2026-09-13-abc-analysis-inventory-optimization-ua.html">
+  <meta property="og:title"              content="ABC-аналіз та оптимізація запасів для категорійного менеджера 2026">
+  <meta property="og:description"        content="Як побудувати ABC і ABC-XYZ класифікацію запасів, що додає AI у 2026, і що робити з кожним із дев'яти сегментів.">
+  <meta property="og:image"              content="https://isachenko-andrii.github.io/assets/img/profile-img.webp">
+  <meta property="og:image:width"        content="1200">
+  <meta property="og:image:height"       content="630">
+  <meta property="og:locale"             content="uk_UA">
+  <meta property="article:published_time" content="2026-09-13T00:00:00Z">
+  <meta property="article:author"        content="Ісаченко Андрій">
+
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="ABC-аналіз та оптимізація запасів для категорійного менеджера 2026">
+  <meta name="twitter:description" content="Побудуйте ABC і ABC-XYZ класифікацію запасів і знайте, що робити з кожним сегментом.">
+  <meta name="twitter:image"       content="https://isachenko-andrii.github.io/assets/img/profile-img.webp">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "ABC-аналіз та оптимізація запасів для категорійного менеджера 2026",
+    "datePublished": "2026-09-13T00:00:00Z",
+    "inLanguage": "uk",
+    "author": {"@type":"Person","name":"Ісаченко Андрій","url":"https://isachenko-andrii.github.io"},
+    "publisher": {"@type":"Person","name":"Ісаченко Андрій"},
+    "keywords": "ABC-аналіз, ABC XYZ аналіз, оптимізація запасів, категорійний менеджмент, 2026",
+    "image": "https://isachenko-andrii.github.io/assets/img/profile-img.webp"
+  }
+  </script>
+
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root { --primary:#0563bb; --primary-dark:#0352a0; --text:#2c3e50; --text-light:#666; --border:#e8ecf0; --bg-light:#f8fafc; --tag-bg:#e8f0fb; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:'Poppins',sans-serif; color:var(--text); background:#fff; line-height:1.7; overflow-x:hidden; }
+    .top-bar { position:sticky; top:0; z-index:100; background:rgba(255,255,255,0.96); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); padding:0 24px; height:56px; display:flex; align-items:center; justify-content:space-between; }
+    .top-bar-left { display:flex; align-items:center; gap:16px; }
+    .back-btn { display:inline-flex; align-items:center; gap:6px; color:var(--primary); text-decoration:none; font-size:14px; font-weight:500; padding:6px 14px; border-radius:20px; border:1px solid var(--primary); transition:all 0.2s; white-space:nowrap; }
+    .back-btn:hover { background:var(--primary); color:#fff; }
+    .breadcrumbs { display:flex; align-items:center; gap:6px; font-size:13px; color:var(--text-light); }
+    .breadcrumbs a { color:var(--primary); text-decoration:none; }
+    .breadcrumbs a:hover { text-decoration:underline; }
+    .breadcrumbs .sep { color:#ccc; }
+    .breadcrumbs .current { color:var(--text-light); max-width:220px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .top-bar-right { display:flex; align-items:center; gap:4px; }
+    .lang-btn { display:inline-flex; align-items:center; justify-content:center; min-width:34px; height:28px; padding:0 10px; border-radius:14px; border:1.5px solid #0563bb; font-size:12px; font-weight:700; letter-spacing:0.4px; text-decoration:none; transition:all 0.2s; color:#0563bb; background:transparent; }
+    .lang-btn:hover { background:#e8f0fb; }
+    .lang-btn.active { background:#0563bb; color:#fff; cursor:default; pointer-events:none; }
+    .article-hero { width:100%; max-height:480px; overflow:hidden; background:linear-gradient(135deg,#e8f0fb 0%,#cfe0f7 100%); }
+    .article-hero-placeholder { height:320px; display:flex; align-items:center; justify-content:center; }
+    .article-hero-placeholder i { font-size:90px; color:var(--primary); opacity:0.2; }
+    .article-wrapper { max-width:760px; margin:0 auto; padding:48px 24px 80px; overflow-x:hidden; }
+    .article-meta { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-bottom:24px; }
+    .tag { background:var(--primary); color:#fff; font-size:11px; font-weight:600; padding:3px 12px; border-radius:20px; text-transform:uppercase; letter-spacing:0.5px; }
+    .tag-secondary { background:var(--tag-bg); color:var(--primary); }
+    .meta-date,.meta-read { font-size:13px; color:var(--text-light); display:flex; align-items:center; gap:5px; }
+    .meta-read { margin-left:auto; }
+    .meta-date i,.meta-read i { color:var(--primary); }
+    .article-title { font-family:'Raleway',sans-serif; font-size:clamp(24px,4vw,38px); font-weight:700; line-height:1.25; color:var(--text); margin-bottom:16px; }
+    .article-subtitle { font-size:17px; color:var(--text-light); font-weight:400; line-height:1.6; margin-bottom:36px; padding-bottom:36px; border-bottom:1px solid var(--border); }
+    .author-block { display:flex; align-items:center; gap:14px; margin-bottom:40px; padding:16px 20px; background:var(--bg-light); border-radius:10px; border-left:3px solid var(--primary); }
+    .author-avatar { width:48px; height:48px; border-radius:50%; flex-shrink:0; background:var(--tag-bg); display:flex; align-items:center; justify-content:center; font-size:20px; color:var(--primary); overflow:hidden; }
+    .author-avatar img { width:100%; height:100%; object-fit:cover; }
+    .author-info { flex:1; }
+    .author-name { font-weight:600; font-size:15px; }
+    .author-role { font-size:13px; color:var(--text-light); }
+    .author-links { display:flex; gap:10px; }
+    .author-links a { color:var(--text-light); font-size:16px; transition:color 0.2s; }
+    .author-links a:hover { color:var(--primary); }
+    .toc { background:var(--bg-light); border:1px solid var(--border); border-radius:10px; padding:20px 24px; margin:0 0 40px; }
+    .toc h4 { font-size:14px; font-weight:600; color:var(--text); margin-bottom:12px; text-transform:uppercase; letter-spacing:0.5px; }
+    .toc ol { margin:0 0 0 16px; }
+    .toc li { font-size:14px; margin-bottom:6px; }
+    .toc a { color:var(--primary); text-decoration:none; }
+    .toc a:hover { text-decoration:underline; }
+    .article-content h2 { font-family:'Raleway',sans-serif; font-size:24px; font-weight:700; color:var(--text); margin:40px 0 16px; padding-bottom:8px; border-bottom:2px solid var(--tag-bg); }
+    .article-content h3 { font-size:19px; font-weight:600; color:var(--text); margin:28px 0 12px; }
+    .article-content p { font-size:16px; color:#444; line-height:1.8; margin-bottom:18px; }
+    .article-content ul,.article-content ol { margin:0 0 18px 20px; }
+    .article-content li { font-size:16px; color:#444; line-height:1.8; margin-bottom:6px; }
+    .article-content strong { color:var(--text); }
+    .highlight-box { background:var(--bg-light); border-left:4px solid var(--primary); border-radius:0 8px 8px 0; padding:18px 22px; margin:28px 0; }
+    .highlight-box p { margin:0; color:var(--text); font-style:italic; }
+    .tip-box { background:#f0fdf4; border-left:4px solid #22c55e; border-radius:0 8px 8px 0; padding:16px 20px; margin:24px 0; font-size:15px; color:#166534; }
+    .warn-box { background:#fffbeb; border-left:4px solid #f59e0b; border-radius:0 8px 8px 0; padding:16px 20px; margin:24px 0; font-size:15px; color:#92400e; }
+    .article-content table { width:100%; border-collapse:collapse; margin:24px 0; font-size:14px; overflow-x:auto; display:block; }
+    .article-content th { background:var(--primary); color:#fff; padding:10px 14px; text-align:left; font-weight:600; }
+    .article-content td { padding:9px 14px; border-bottom:1px solid var(--border); color:#444; }
+    .article-content tr:nth-child(even) td { background:var(--bg-light); }
+    .article-content code { background:#f0f4f8; color:var(--primary-dark); padding:2px 7px; border-radius:4px; font-size:14px; font-family:'Courier New',monospace; }
+    .article-tags { display:flex; flex-wrap:wrap; gap:8px; margin:40px 0 32px; padding-top:32px; border-top:1px solid var(--border); }
+    .article-tags span { font-size:12px; color:var(--text-light); align-self:center; font-weight:500; }
+    .article-tags a { background:var(--tag-bg); color:var(--primary); font-size:13px; font-weight:500; padding:4px 12px; border-radius:20px; text-decoration:none; transition:all 0.2s; }
+    .article-tags a:hover { background:var(--primary); color:#fff; }
+    .article-nav { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:40px; }
+    .article-nav a { display:flex; flex-direction:column; gap:4px; padding:16px 20px; border:1px solid var(--border); border-radius:10px; text-decoration:none; color:var(--text); transition:all 0.2s; }
+    .article-nav a:hover { border-color:var(--primary); background:var(--bg-light); }
+    .article-nav a.next { text-align:right; }
+    .article-nav .nav-label { font-size:11px; color:var(--text-light); text-transform:uppercase; letter-spacing:0.8px; display:flex; align-items:center; gap:5px; }
+    .article-nav a.next .nav-label { justify-content:flex-end; }
+    .article-nav .nav-title { font-size:14px; font-weight:600; color:var(--primary); line-height:1.4; }
+    .article-footer { background:#f8fafc; border-top:1px solid #e8ecf0; padding:40px 24px 32px; text-align:center; }
+    .footer-social { display:flex; justify-content:center; gap:10px; margin-bottom:22px; }
+    .footer-social a { width:42px; height:42px; border-radius:50%; background:#0563bb; color:#fff; display:flex; align-items:center; justify-content:center; font-size:18px; text-decoration:none; transition:all 0.25s; }
+    .footer-social a:hover { background:#0352a0; transform:translateY(-3px); }
+    .footer-copy { font-size:13px; color:#666; line-height:2; }
+    .footer-copy a { color:#0563bb; text-decoration:none; }
+    .back-to-main { margin-top:22px; }
+    .back-to-main a { display:inline-flex; align-items:center; gap:8px; color:#0563bb; text-decoration:none; font-weight:500; font-size:15px; border:1px solid #e8ecf0; padding:10px 24px; border-radius:25px; transition:all 0.2s; background:#fff; }
+    .back-to-main a:hover { background:#0563bb; color:#fff; border-color:#0563bb; }
+    #scrollTopBtn { position:fixed; bottom:28px; right:24px; z-index:999; width:44px; height:44px; border-radius:50%; background:#0563bb; color:#fff; display:flex; align-items:center; justify-content:center; font-size:22px; text-decoration:none; box-shadow:0 4px 16px rgba(5,99,187,0.4); opacity:0; pointer-events:none; transition:opacity 0.3s,transform 0.3s; }
+    #scrollTopBtn.visible { opacity:1; pointer-events:auto; }
+    #scrollTopBtn:hover { background:#0352a0; transform:translateY(-3px); }
+    table { overflow-x:auto; display:block; max-width:100%; }
+    @media (max-width:600px) {
+      .top-bar { padding:0 16px; }
+      .breadcrumbs { display:none; }
+      .article-wrapper { padding:32px 16px 60px; }
+      .article-nav { grid-template-columns:1fr; }
+      .article-nav a.next { text-align:left; }
+      .article-nav a.next .nav-label { justify-content:flex-start; }
+      .author-links { display:none; }
+      #scrollTopBtn { bottom:18px; right:14px; width:40px; height:40px; font-size:20px; }
+    }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E01F5VDKVM"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-E01F5VDKVM');</script>
+</head>
+<body>
+
+<nav class="top-bar">
+  <div class="top-bar-left">
+    <a href="index-ua.html" class="back-btn"><i class="bi bi-arrow-left"></i> Назад</a>
+    <nav class="breadcrumbs" aria-label="breadcrumb">
+      <a href="index-ua.html">Блог</a><span class="sep">›</span>
+      <span class="current">ABC-аналіз 2026</span>
+    </nav>
+  </div>
+  <div class="top-bar-right">
+    <a href="2026-09-13-abc-analysis-inventory-optimization.html" class="lang-btn" title="English">EN</a>
+    <a href="2026-09-13-abc-analysis-inventory-optimization-ua.html" class="lang-btn active" aria-current="page" title="Українська">UA</a>
+  </div>
+</nav>
+
+<div class="article-hero">
+  <div class="article-hero-placeholder"><i class="bi bi-pie-chart"></i></div>
+</div>
+
+<main class="article-wrapper">
+
+  <div class="article-meta">
+    <span class="tag">Категорійний менеджмент</span>
+    <span class="tag tag-secondary">Аналітика запасів</span>
+    <span class="tag tag-secondary">ABC-XYZ</span>
+    <span class="meta-date"><i class="bi bi-calendar3"></i> 2026-09-13</span>
+    <span class="meta-read"><i class="bi bi-clock"></i> 9 хв</span>
+  </div>
+
+  <h1 class="article-title">ABC-аналіз та оптимізація запасів для категорійного менеджера 2026</h1>
+  <p class="article-subtitle">ABC-аналіз — найстаріший прийом в управлінні запасами, і досі найшвидший спосіб перестати ставитись до кожного SKU однаково. У 2026 його зазвичай поєднують з XYZ-оцінкою варіативності попиту і живлять AI-інструментами, які оновлюють класифікацію безперервно, а не раз на квартал. Розберемо, як побудувати обидва аналізи, що насправді означають дев'ять отриманих сегментів, і що робити з кожним.</p>
+
+  <div class="author-block">
+    <div class="author-avatar"><img src="../assets/img/profile-img.webp" alt="Ісаченко Андрій"></div>
+    <div class="author-info">
+      <div class="author-name">Ісаченко Андрій</div>
+      <div class="author-role">Аналітик даних · Відкритий до роботи</div>
+    </div>
+    <div class="author-links">
+      <a href="https://www.linkedin.com/in/isachenko-andrii/" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
+      <a href="https://github.com/isachenko-andrii"           target="_blank" rel="noopener"><i class="bi bi-github"></i></a>
+      <a href="https://t.me/Manul_Solo"                       target="_blank" rel="noopener"><i class="bi bi-telegram"></i></a>
+    </div>
+  </div>
+
+  <div class="toc">
+    <h4>📋 Зміст</h4>
+    <ol>
+      <li><a href="#basics">ABC-аналіз: правило 80/20 для товарного асортименту</a></li>
+      <li><a href="#build">Будуємо ABC-класифікацію крок за кроком</a></li>
+      <li><a href="#xyz">Додаємо XYZ: варіативність попиту, а не лише цінність</a></li>
+      <li><a href="#nine">Дев'ять сегментів і що робити з кожним</a></li>
+      <li><a href="#ai">Що AI додає до колись статичного звіту</a></li>
+      <li><a href="#pitfalls">Типові помилки, через які ABC вводить в оману</a></li>
+    </ol>
+  </div>
+
+  <article class="article-content">
+
+  <h2 id="basics">ABC-аналіз: правило 80/20 для товарного асортименту</h2>
+  <p>ABC-аналіз ранжує товари за їхнім внеском у обрану метрику — зазвичай виручку або річну вартість споживання — і ділить на три рівні. У більшості реальних асортиментів приблизно 20% SKU дають близько 80% виручки, а довгий хвіст повільних позицій забирає місце на полиці, гроші й увагу категорійного менеджера за дуже малу віддачу.</p>
+  <table>
+    <tr><th>Рівень</th><th>Типова частка SKU</th><th>Типова частка виручки</th><th>Підхід до управління</th></tr>
+    <tr><td>A</td><td>~10-20%</td><td>~70-80%</td><td>Жорсткий контроль: часті перевірки, високий рівень сервісу, низька толерантність до дефіциту</td></tr>
+    <tr><td>B</td><td>~20-30%</td><td>~15-20%</td><td>Стандартний контроль: періодичні перевірки, помірний страховий запас</td></tr>
+    <tr><td>C</td><td>~50-70%</td><td>~5-10%</td><td>Легкий контроль: прості правила замовлення, вища толерантність до дефіциту</td></tr>
+  </table>
+  <p>Мета не в тому, щоб відмовитись від C-товарів — багато з них все одно потрібні для повноти асортименту — а в тому, щоб перестати витрачати однакові аналітичні й операційні зусилля на товар, що продається двічі на рік, і на той, що продається щодня.</p>
+
+  <h2 id="build">Будуємо ABC-класифікацію крок за кроком</h2>
+  <ol>
+    <li><strong>Оберіть метрику.</strong> За замовчуванням це виручка, але внесок у маржу чи кількість проданих одиниць можуть бути важливішими залежно від категорії — SKU з високою виручкою і низькою маржею автоматично не є "A"-товаром з точки зору прибутковості.</li>
+    <li><strong>Візьміть дані продажів за 12 місяців на кожен SKU</strong>, щоб згладити сезонність; коротший період зміщує ранжування в бік того, що трендило саме в цей момент.</li>
+    <li><strong>Відсортуйте SKU за спаданням метрики</strong> і порахуйте накопичений відсоток від загальної суми, рухаючись вниз списком.</li>
+    <li><strong>Задайте межі відсічення</strong> — зазвичай A до ~80% накопиченого підсумку, B до ~95%, C — решта — але коригуйте ці пороги під реальний розподіл вашої категорії, а не застосовуйте 80/20 сліпо.</li>
+    <li><strong>Перераховуйте за розкладом.</strong> Статичний, одноразовий поділ ABC застаріває вже за квартал, коли запускаються нові товари і сезонність зміщує попит.</li>
+  </ol>
+
+  <div class="tip-box">✅ Робіть ABC окремо для кожної категорії, а не по всьому каталогу відразу. "C"-товар в електроніці і "C"-товар в канцтоварах непорівнянні, а змішаний список ховає патерни, специфічні для категорії.</div>
+
+  <h2 id="xyz">Додаємо XYZ: варіативність попиту, а не лише цінність</h2>
+  <p>ABC сам по собі показує що цінне — але нічого не каже про те, наскільки попит передбачуваний. XYZ-аналіз класифікує ті самі товари за варіативністю попиту, зазвичай використовуючи коефіцієнт варіації продажів у часі.</p>
+  <table>
+    <tr><th>Клас</th><th>Патерн попиту</th><th>Наслідок для прогнозування</th></tr>
+    <tr><td>X</td><td>Стабільний, низька варіативність</td><td>Прогнози надійні; потрібен низький страховий запас</td></tr>
+    <tr><td>Y</td><td>Коливається, є сезонність чи тренд</td><td>Помірний страховий запас; прогноз з урахуванням тренду/сезонності</td></tr>
+    <tr><td>Z</td><td>Нерегулярний, важко передбачити</td><td>Високий страховий запас або підхід під замовлення; прогнози ненадійні</td></tr>
+  </table>
+  <p>Поєднання ABC і XYZ дає дев'ять сегментів замість трьох — і саме комбінація насправді визначає різну політику управління запасами, а не жоден з вимірів окремо.</p>
+
+  <h2 id="nine">Дев'ять сегментів і що робити з кожним</h2>
+  <table>
+    <tr><th>Сегмент</th><th>Значення</th><th>Типова політика</th></tr>
+    <tr><td>AX</td><td>Висока цінність, стабільний попит</td><td>Автоматизуйте поповнення; мінімальний страховий запас через передбачуваність</td></tr>
+    <tr><td>AY</td><td>Висока цінність, помірна варіативність</td><td>Часті перевірки; помірний страховий запас; стежте за зміною тренду</td></tr>
+    <tr><td>AZ</td><td>Висока цінність, нерегулярний попит</td><td>Найвищий пріоритет для ручної перевірки — цінність висока, але прогнози ненадійні</td></tr>
+    <tr><td>BX–BY</td><td>Середня цінність, стабільний-помірний попит</td><td>Стандартна періодична перевірка; напівавтоматичні правила замовлення</td></tr>
+    <tr><td>BZ</td><td>Середня цінність, нерегулярний попит</td><td>Розгляньте скорочення глибини або перехід до замовлення під клієнта</td></tr>
+    <tr><td>CX</td><td>Низька цінність, стабільний попит</td><td>Повністю автоматизоване, рідкісне замовлення; низький пріоритет для ручної уваги</td></tr>
+    <tr><td>CY–CZ</td><td>Низька цінність, непередбачуваний попит</td><td>Кандидати на скорочення асортименту — аналіз "хвоста", який розглянемо в наступній статті</td></tr>
+  </table>
+
+  <div class="warn-box">⚠️ AZ-товари — це пастка: висока цінність спокушає ставитись до них як до AX і тримати низький страховий запас, але нерегулярний попит означає, що такий підхід породжує саме ті дефіцити, які найменш прийнятні на ваших найцінніших товарах.</div>
+
+  <h2 id="ai">Що AI додає до колись статичного звіту</h2>
+  <p>Класичний ABC-XYZ був квартальною вправою в таблиці. У 2026 AI-інструменти для управління запасами оновлюють класифікацію безперервно і додають дві речі, з якими ручний процес справляється погано: підтягують неструктуровані вхідні дані (PDF постачальників, скановані рахунки), які таблично-орієнтований процес зазвичай ігнорує, і поєднують внутрішню історію продажів із зовнішніми сигналами попиту для більш чутливого прогнозу.</p>
+  <div class="highlight-box"><p>За галузевими оцінками, глобальне спотворення запасів — сукупна вартість дефіцитів і надлишків — становить приблизно $1,73 трильйона на рік, а AI-оптимізація запасів, за повідомленнями, скорочує дефіцити приблизно вдвічі там, де впроваджена правильно. Механізм той самий ABC-XYZ; змінюється лише частота перерахунку і кількість зовнішнього контексту, що його живить.</p></div>
+  <p>Ніщо з цього не замінює описану вище логіку — AI-інструмент, що перекласифіковує ваші SKU щогодини, все одно робить ABC-XYZ. Цінність — у свіжості й масштабі, а не у принципово іншому методі.</p>
+
+  <h2 id="pitfalls">Типові помилки, через які ABC вводить в оману</h2>
+  <table>
+    <tr><th>Помилка</th><th>Чому вводить в оману</th></tr>
+    <tr><td>Використання даних продажів лише за один місяць</td><td>Сезонні товари класифікуються неправильно залежно від того, який саме місяць випадково обрали</td></tr>
+    <tr><td>Ранжування лише за виручкою, без урахування маржі</td><td>Знижений товар з великим обсягом може давати менше прибутку, ніж "B"-товар середнього рівня</td></tr>
+    <tr><td>Ніколи не перераховувати класифікацію</td><td>Запуск нових товарів і зміна попиту роблять застарілий поділ ABC активно неправильним</td></tr>
+    <tr><td>Застосування одного поділу ABC до несхожих категорій</td><td>Ховає специфічні для категорії патерни 80/20 під середнім, що не підходить нікому добре</td></tr>
+  </table>
+
+  <div class="highlight-box"><p>ABC-XYZ показує, куди спрямувати увагу і наскільки жорстко контролювати запаси — це інструмент тріажу, а не повна стратегія категорії. Наступна стаття цієї серії розглядає шар над ним: моніторинг цін конкурентів і побудову правил ціноутворення, які враховують те, що ця класифікація вже говорить про роль кожного товару.</p></div>
+
+  </article>
+
+  <div class="article-tags">
+    <span>Теги:</span>
+    <a href="index-ua.html">ABC-аналіз</a>
+    <a href="index-ua.html">Оптимізація запасів</a>
+    <a href="index-ua.html">Категорійний менеджмент</a>
+    <a href="index-ua.html">Прогнозування попиту</a>
+    <a href="index-ua.html">Ритейл-аналітика</a>
+  </div>
+
+  <nav class="article-nav">
+    <a href="index-ua.html" class="prev">
+      <span class="nav-label"><i class="bi bi-arrow-left"></i> Всі статті</span>
+      <span class="nav-title">Повернутись до статей</span>
+    </a>
+    <a href="2026-09-06-data-governance-ai-era-ua.html" class="next">
+      <span class="nav-label">Попередня <i class="bi bi-arrow-right"></i></span>
+      <span class="nav-title">Data Governance в еру AI</span>
+    </a>
+  </nav>
+
+</main>
+
+<footer class="article-footer">
+  <div class="footer-social">
+    <a href="https://www.linkedin.com/in/isachenko-andrii/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+    <a href="https://github.com/isachenko-andrii"           target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+    <a href="https://t.me/Manul_Solo"                       target="_blank" rel="noopener" aria-label="Telegram"><i class="bi bi-telegram"></i></a>
+    <a href="mailto:andrii.isachenko@gmail.com" target="_blank"><i class="bi bi-envelope"></i></a>
+  </div>
+  <div class="footer-copy">
+    <span>Copyright <a href="https://isachenko-andrii.github.io/index-ua.html">Ісаченко Андрій</a> All Rights Reserved</span><br>
+    <span>Designed by <a href="https://bootstrapmade.com/" target="_blank" rel="noopener">BootstrapMade</a></span>
+  </div>
+  <div class="back-to-main">
+    <a href="../index-ua.html"><i class="bi bi-house"></i> На головну сторінку</a>
+  </div>
+</footer>
+
+<a href="#" id="scrollTopBtn" aria-label="Scroll to top"><i class="bi bi-arrow-up-short"></i></a>
+<script>
+(function(){
+  var b=document.getElementById('scrollTopBtn');
+  if(!b)return;
+  window.addEventListener('scroll',function(){b.classList.toggle('visible',window.pageYOffset>320);},{passive:true});
+  b.addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});});
+})();
+</script>
+</body>
+</html>
