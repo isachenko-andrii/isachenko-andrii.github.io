@@ -320,18 +320,40 @@
     }
     .empty-state i { font-size: 48px; opacity: 0.2; display: block; margin-bottom: 16px; }
     .empty-state p { font-size: 16px; }
-
+    /* ── Load more / infinite scroll ── */
+    #load-sentinel { grid-column: 1 / -1; height: 1px; }
+    .loading-indicator {
+      grid-column: 1 / -1;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 8px 20px 32px;
+      color: var(--text-light);
+      font-size: 14px;
+    }
+    .loading-indicator.active { display: flex; }
+    .loading-indicator .spinner {
+      width: 16px; height: 16px;
+      border: 2px solid var(--border);
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
     /* ── Card ── */
-    .article-card {
+       .article-card {
       background: #fff;
       border: 1px solid var(--border);
       border-radius: var(--card-radius);
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      opacity: 0;
+      transition: opacity 0.5s ease, transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
       cursor: pointer;
     }
+    .article-card.is-visible { opacity: 1; }
     .article-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 12px 32px rgba(5,99,187,0.12);
@@ -964,11 +986,18 @@
     -->
 
     <!-- Empty state (shown when no results) -->
-    <div class="empty-state" id="empty-state" style="display:none;">
+   <div class="empty-state" id="empty-state" style="display:none;">
       <i class="bi bi-search"></i>
-      <p>No articles found. Try a different filter or search term.</p>
+      <p>Нічого не знайдено. Спробуйте інший фільтр або пошуковий запит.</p>
     </div>
 
+    <!-- Тригер безкінечного скролу + індикатор завантаження -->
+    <div id="load-sentinel" aria-hidden="true"></div>
+    <div class="loading-indicator" id="loading-indicator">
+      <span class="spinner"></span>
+      <span>Завантаження статей…</span>
+    </div>
+    
   </main>
 
   <!-- Footer -->
@@ -988,31 +1017,54 @@
   </footer>
 
   <script>
-    const cards = document.querySelectorAll('.article-card');
+    const cards = Array.from(document.querySelectorAll('.article-card'));
     const emptyState = document.getElementById('empty-state');
     const countEl = document.getElementById('visible-count');
     const searchInput = document.getElementById('search-input');
     const filterTags = document.querySelectorAll('.filter-tag');
+    const sentinel = document.getElementById('load-sentinel');
+    const loadingIndicator = document.getElementById('loading-indicator');
 
+    const PAGE_SIZE = 6;
     let activeTag = 'all';
     let searchQuery = '';
+    let revealCount = PAGE_SIZE;
 
-    function filterCards() {
-      let visible = 0;
-      cards.forEach(card => {
+    function getMatches() {
+      return cards.filter(card => {
         const tags = card.dataset.tags || '';
         const title = card.dataset.title || '';
         const matchTag = activeTag === 'all' || tags.includes(activeTag);
         const matchSearch = !searchQuery || title.includes(searchQuery.toLowerCase());
-        if (matchTag && matchSearch) {
-          card.style.display = 'flex';
-          visible++;
-        } else {
+        return matchTag && matchSearch;
+      });
+    }
+
+    function renderCards() {
+      const matches = getMatches();
+      countEl.textContent = matches.length;
+      emptyState.style.display = matches.length === 0 ? 'block' : 'none';
+
+      cards.forEach(card => {
+        const idx = matches.indexOf(card);
+        if (idx === -1 || idx >= revealCount) {
           card.style.display = 'none';
+          card.classList.remove('is-visible');
+          card.style.transitionDelay = '';
+        } else if (card.style.display !== 'flex') {
+          card.style.display = 'flex';
+          card.style.transitionDelay = ((idx % PAGE_SIZE) * 60) + 'ms';
+          requestAnimationFrame(() => card.classList.add('is-visible'));
         }
       });
-      countEl.textContent = visible;
-      emptyState.style.display = visible === 0 ? 'block' : 'none';
+
+      loadingIndicator.classList.remove('active');
+      sentinel.style.display = revealCount < matches.length ? 'block' : 'none';
+    }
+
+    function filterCards() {
+      revealCount = PAGE_SIZE;
+      renderCards();
     }
 
     filterTags.forEach(btn => {
@@ -1029,7 +1081,6 @@
       filterCards();
     });
 
-    // Click on card → navigate to article
     cards.forEach(card => {
       card.addEventListener('click', (e) => {
         if (!e.target.closest('a')) {
@@ -1038,7 +1089,27 @@
         }
       });
     });
-  </script>
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const matches = getMatches();
+          if (revealCount >= matches.length) return;
+          loadingIndicator.classList.add('active');
+          setTimeout(() => {
+            revealCount += PAGE_SIZE;
+            renderCards();
+          }, 350);
+        });
+      }, { rootMargin: '250px 0px' });
+      observer.observe(sentinel);
+    } else {
+      revealCount = Infinity;
+    }
+
+    renderCards();
+</script>
 
 <!-- Scroll to top -->
 <a href="#" id="scrollTopBtn" aria-label="Scroll to top"><i class="bi bi-arrow-up-short"></i></a>
