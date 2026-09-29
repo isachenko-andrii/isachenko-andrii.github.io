@@ -310,5 +310,71 @@
     <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-09-06-data-governance-ai-era-ua.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-09-06-data-governance-ai-era.html"/>
   </url>
+
+<!-- Стаття 13 EN -->
+  <url>
+    <loc>https://isachenko-andrii.github.io/articles/2026-09-13-abc-analysis-inventory-optimization.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/articles/2026-09-13-abc-analysis-inventory-optimization.html"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-09-13-abc-analysis-inventory-optimization-ua.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-09-13-abc-analysis-inventory-optimization.html"/>
+  </url>
+
+  <!-- Стаття 13 UA -->
+  <url>
+    <loc>https://isachenko-andrii.github.io/articles/2026-09-13-abc-analysis-inventory-optimization-ua.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/articles/2026-09-13-abc-analysis-inventory-optimization.html"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-09-13-abc-analysis-inventory-optimization-ua.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-09-13-abc-analysis-inventory-optimization.html"/>
+  </url>
+
+  <!-- Стаття 14 EN -->
+  <url>
+    <loc>https://isachenko-andrii.github.io/articles/2026-09-27-competitor-price-monitoring.html</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/articles/2026-09-27-competitor-price-monitoring.html"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-09-27-competitor-price-monitoring-ua.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-09-27-competitor-price-monitoring.html"/>
+  </url>
+
+  <!-- Стаття 14 UA -->
+  <url>
+    <loc>https://isachenko-andrii.github.io/articles/2026-09-27-competitor-price-monitoring-ua.html</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/articles/2026-09-27-competitor-price-monitoring.html"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-09-27-competitor-price-monitoring-ua.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-09-27-competitor-price-monitoring.html"/>
+  </url>
+
+  <!-- Стаття 15 EN -->
+  <url>
+    <loc>https://isachenko-andrii.github.io/articles/2026-10-04-assortment-matrix-optimization.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/articles/2026-10-04-assortment-matrix-optimization.html"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-10-04-assortment-matrix-optimization-ua.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-10-04-assortment-matrix-optimization.html"/>
+  </url>
+
+  <!-- Стаття 15 UA -->
+  <url>
+    <loc>https://isachenko-andrii.github.io/articles/2026-10-04-assortment-matrix-optimization-ua.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/articles/2026-10-04-assortment-matrix-optimization.html"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-10-04-assortment-matrix-optimization-ua.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-10-04-assortment-matrix-optimization.html"/>
+  </url>
   
 </urlset>
