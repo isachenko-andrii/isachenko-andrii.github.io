@@ -25,6 +25,28 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/index.html"/>
   </url>
 
+    <!-- Галерея EN -->
+  <url>
+    <loc>https://isachenko-andrii.github.io/gallery/index.html</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/gallery/index.html"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/gallery/index-ua.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/gallery/index.html"/>
+  </url>
+ 
+  <!-- Галерея UA -->
+  <url>
+    <loc>https://isachenko-andrii.github.io/gallery/index-ua.html</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/gallery/index.html"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/gallery/index-ua.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/gallery/index.html"/>
+  </url>
+
   <!-- Блог EN -->
   <url>
     <loc>https://isachenko-andrii.github.io/articles/index.html</loc>
