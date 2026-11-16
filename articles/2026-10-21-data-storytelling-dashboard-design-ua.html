@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Сторітелінг даних і дизайн дашбордів 2026: від графіків до рішень | Ісаченко Андрій</title>
+  <meta name="description" content="Як створювати дашборди, якими користуються: почніть із рішення, застосуйте тест п&#x27;яти секунд, свідомо обирайте графіки й колір та врахуйте базову доступність.">
+  <meta name="keywords" content="сторітелінг даних, дизайн дашбордів, найкращі практики дашбордів, візуалізація даних, правило п&#x27;яти секунд, KPI дашборд, доступні дашборди, WCAG, BI дашборд, аналітик даних">
+  <meta name="author" content="Isachenko Andrii">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <link rel="canonical" href="https://isachenko-andrii.github.io/articles/2026-10-21-data-storytelling-dashboard-design-ua.html">
+  <link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/articles/2026-10-21-data-storytelling-dashboard-design.html">
+  <link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-10-21-data-storytelling-dashboard-design-ua.html">
+  <link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-10-21-data-storytelling-dashboard-design.html">
+
+  <meta property="og:type"                content="article">
+  <meta property="og:url"                 content="https://isachenko-andrii.github.io/articles/2026-10-21-data-storytelling-dashboard-design-ua.html">
+  <meta property="og:title"               content="Сторітелінг даних і дизайн дашбордів 2026">
+  <meta property="og:description"         content="Дашборди, що починаються з рішення: тест п&#x27;яти секунд, вибір графіків і кольору, базова доступність і проста структура історії для аналітика.">
+  <meta property="og:image"               content="https://isachenko-andrii.github.io/assets/img/profile-img.webp">
+  <meta property="og:image:alt"           content="Андрій Ісаченко, аналітик даних — портретне фото">
+  <meta property="og:image:width"         content="1200">
+  <meta property="og:image:height"        content="630">
+  <meta property="og:locale"              content="uk_UA">
+  <meta property="article:published_time" content="2026-10-21T00:00:00Z">
+  <meta property="article:modified_time"  content="2026-10-21T00:00:00Z">
+  <meta property="article:author"         content="Ісаченко Андрій">
+  <meta property="article:section"        content="Візуалізація даних">
+  <meta property="article:tag" content="Сторітелінг даних">
+  <meta property="article:tag" content="Дизайн дашбордів">
+  <meta property="article:tag" content="KPI">
+  <meta property="article:tag" content="Доступність">
+  <meta property="article:tag" content="BI">
+
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Сторітелінг даних і дизайн дашбордів 2026">
+  <meta name="twitter:description" content="Дашборди, що починаються з рішення: тест п&#x27;яти секунд, вибір графіків і кольору, базова доступність і проста структура історії для аналітика.">
+  <meta name="twitter:image"       content="https://isachenko-andrii.github.io/assets/img/profile-img.webp">
+  <meta name="twitter:image:alt"   content="Андрій Ісаченко, аналітик даних — портретне фото">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://isachenko-andrii.github.io/articles/2026-10-21-data-storytelling-dashboard-design-ua.html#article",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://isachenko-andrii.github.io/articles/2026-10-21-data-storytelling-dashboard-design-ua.html"
+      },
+      "headline": "Сторітелінг даних і дизайн дашбордів 2026: від графіків до рішень",
+      "description": "Як створювати дашборди, якими користуються: почніть із рішення, застосуйте тест п'яти секунд, свідомо обирайте графіки й колір та врахуйте базову доступність.",
+      "inLanguage": "uk",
+      "datePublished": "2026-10-21T00:00:00Z",
+      "dateModified": "2026-10-21T00:00:00Z",
+      "author": {
+        "@id": "https://isachenko-andrii.github.io/#person"
+      },
+      "publisher": {
+        "@id": "https://isachenko-andrii.github.io/#person"
+      },
+      "image": "https://isachenko-andrii.github.io/assets/img/profile-img.webp",
+      "keywords": "сторітелінг даних, дизайн дашбордів, найкращі практики дашбордів, візуалізація даних, правило п'яти секунд, KPI дашборд, доступні дашборди, WCAG, BI дашборд, аналітик даних",
+      "articleSection": "Візуалізація даних",
+      "wordCount": 996,
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Сторітелінг даних"
+        },
+        {
+          "@type": "Thing",
+          "name": "Дизайн дашбордів"
+        },
+        {
+          "@type": "Thing",
+          "name": "Доступність візуалізацій"
+        }
+      ],
+      "isPartOf": {
+        "@type": "Blog",
+        "@id": "https://isachenko-andrii.github.io/articles/index-ua.html",
+        "name": "Isachenko Andrii — Статті"
+      },
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".article-title",
+          ".takeaways"
+        ]
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://isachenko-andrii.github.io/#person",
+      "name": "Andrii Isachenko",
+      "alternateName": [
+        "Ісаченко Андрій",
+        "Isachenko Andrii"
+      ],
+      "url": "https://isachenko-andrii.github.io",
+      "image": "https://isachenko-andrii.github.io/assets/img/profile-img.webp",
+      "jobTitle": "Data Analyst",
+      "nationality": {
+        "@type": "Country",
+        "name": "Ukraine"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/isachenko-andrii/",
+        "https://github.com/isachenko-andrii",
+        "https://t.me/isachenko_andrii"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Блог",
+          "item": "https://isachenko-andrii.github.io/index-ua.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Статті",
+          "item": "https://isachenko-andrii.github.io/articles/index-ua.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Дизайн дашбордів 2026",
+          "item": "https://isachenko-andrii.github.io/articles/2026-10-21-data-storytelling-dashboard-design-ua.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Що таке сторітелінг даних?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Сторітелінг даних — це практика перетворення аналізу на чітке повідомлення поєднанням даних, візуалізацій і наративу: заголовок, докази для нього й дія, що з нього випливає, адаптовані до конкретної аудиторії."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Скільки KPI має бути на дашборді?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Поширена настанова — приблизно 5–7 головних KPI на одну сторінку. Більше підвищує когнітивне навантаження; деталі краще винести на сторінки деталізації чи вкладки."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Що таке правило п'яти секунд для дашбордів?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Це юзабіліті-правило: глядач має зрозуміти головне повідомлення дашборду приблизно за п'ять секунд. Якщо ні — на сторінці забагато елементів або нечіткий пріоритет."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чому колір не повинен бути єдиним сигналом?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Приблизно 8% чоловіків і близько 0,5% жінок мають колірну сліпоту, тож лише червоний/зелений може бути нечитабельним. Додайте іконки, стрілки, патерни чи прямі підписи, щоб повідомлення не залежало від кольору."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root { --primary:#0563bb; --primary-dark:#0352a0; --text:#2c3e50; --text-light:#666; --border:#e8ecf0; --bg-light:#f8fafc; --tag-bg:#e8f0fb; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:'Poppins',sans-serif; color:var(--text); background:#fff; line-height:1.7; overflow-x:hidden; }
+    .top-bar { position:sticky; top:0; z-index:100; background:rgba(255,255,255,0.96); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); padding:0 24px; height:56px; display:flex; align-items:center; justify-content:space-between; }
+    .top-bar-left { display:flex; align-items:center; gap:16px; }
+    .back-btn { display:inline-flex; align-items:center; gap:6px; color:var(--primary); text-decoration:none; font-size:14px; font-weight:500; padding:6px 14px; border-radius:20px; border:1px solid var(--primary); transition:all 0.2s; white-space:nowrap; }
+    .back-btn:hover { background:var(--primary); color:#fff; }
+    .breadcrumbs { display:flex; align-items:center; gap:6px; font-size:13px; color:var(--text-light); }
+    .breadcrumbs a { color:var(--primary); text-decoration:none; }
+    .breadcrumbs a:hover { text-decoration:underline; }
+    .breadcrumbs .sep { color:#ccc; }
+    .breadcrumbs .current { color:var(--text-light); max-width:220px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .top-bar-right { display:flex; align-items:center; gap:4px; }
+    .lang-btn { display:inline-flex; align-items:center; justify-content:center; min-width:34px; height:28px; padding:0 10px; border-radius:14px; border:1.5px solid #0563bb; font-size:12px; font-weight:700; letter-spacing:0.4px; text-decoration:none; transition:all 0.2s; color:#0563bb; background:transparent; }
+    .lang-btn:hover { background:#e8f0fb; }
+    .lang-btn.active { background:#0563bb; color:#fff; cursor:default; pointer-events:none; }
+    .article-hero { width:100%; max-height:480px; overflow:hidden; background:linear-gradient(135deg,#e8f0fb 0%,#cfe0f7 100%); }
+    .article-hero-placeholder { height:320px; display:flex; align-items:center; justify-content:center; }
+    .article-hero-placeholder i { font-size:90px; color:var(--primary); opacity:0.2; }
+    .article-wrapper { max-width:760px; margin:0 auto; padding:48px 24px 80px; overflow-x:hidden; }
+    .article-meta { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-bottom:24px; }
+    .tag { background:var(--primary); color:#fff; font-size:11px; font-weight:600; padding:3px 12px; border-radius:20px; text-transform:uppercase; letter-spacing:0.5px; }
+    .tag-secondary { background:var(--tag-bg); color:var(--primary); }
+    .meta-date,.meta-read { font-size:13px; color:var(--text-light); display:flex; align-items:center; gap:5px; }
+    .meta-read { margin-left:auto; }
+    .meta-date i,.meta-read i { color:var(--primary); }
+    .article-title { font-family:'Raleway',sans-serif; font-size:clamp(24px,4vw,38px); font-weight:700; line-height:1.25; color:var(--text); margin-bottom:16px; }
+    .article-subtitle { font-size:17px; color:var(--text-light); font-weight:400; line-height:1.6; margin-bottom:36px; padding-bottom:36px; border-bottom:1px solid var(--border); }
+    .author-block { display:flex; align-items:center; gap:14px; margin-bottom:40px; padding:16px 20px; background:var(--bg-light); border-radius:10px; border-left:3px solid var(--primary); }
+    .author-avatar { width:48px; height:48px; border-radius:50%; flex-shrink:0; background:var(--tag-bg); display:flex; align-items:center; justify-content:center; font-size:20px; color:var(--primary); overflow:hidden; }
+    .author-avatar img { width:100%; height:100%; object-fit:cover; }
+    .author-info { flex:1; }
+    .author-name { font-weight:600; font-size:15px; }
+    .author-role { font-size:13px; color:var(--text-light); }
+    .author-links { display:flex; gap:10px; }
+    .author-links a { color:var(--text-light); font-size:16px; transition:color 0.2s; }
+    .author-links a:hover { color:var(--primary); }
+    .toc { background:var(--bg-light); border:1px solid var(--border); border-radius:10px; padding:20px 24px; margin:0 0 40px; }
+    .toc h4 { font-size:14px; font-weight:600; color:var(--text); margin-bottom:12px; text-transform:uppercase; letter-spacing:0.5px; }
+    .toc ol { margin:0 0 0 16px; }
+    .toc li { font-size:14px; margin-bottom:6px; }
+    .toc a { color:var(--primary); text-decoration:none; }
+    .toc a:hover { text-decoration:underline; }
+    .article-content h2 { font-family:'Raleway',sans-serif; font-size:24px; font-weight:700; color:var(--text); margin:40px 0 16px; padding-bottom:8px; border-bottom:2px solid var(--tag-bg); }
+    .article-content h3 { font-size:19px; font-weight:600; color:var(--text); margin:28px 0 12px; }
+    .article-content p { font-size:16px; color:#444; line-height:1.8; margin-bottom:18px; }
+    .article-content ul,.article-content ol { margin:0 0 18px 20px; }
+    .article-content li { font-size:16px; color:#444; line-height:1.8; margin-bottom:6px; }
+    .article-content strong { color:var(--text); }
+    .highlight-box { background:var(--bg-light); border-left:4px solid var(--primary); border-radius:0 8px 8px 0; padding:18px 22px; margin:28px 0; }
+    .highlight-box p { margin:0; color:var(--text); font-style:italic; }
+    .tip-box { background:#f0fdf4; border-left:4px solid #22c55e; border-radius:0 8px 8px 0; padding:16px 20px; margin:24px 0; font-size:15px; color:#166534; }
+    .warn-box { background:#fffbeb; border-left:4px solid #f59e0b; border-radius:0 8px 8px 0; padding:16px 20px; margin:24px 0; font-size:15px; color:#92400e; }
+    .article-content table { width:100%; border-collapse:collapse; margin:24px 0; font-size:14px; overflow-x:auto; display:block; }
+    .article-content th { background:var(--primary); color:#fff; padding:10px 14px; text-align:left; font-weight:600; }
+    .article-content td { padding:9px 14px; border-bottom:1px solid var(--border); color:#444; }
+    .article-content tr:nth-child(even) td { background:var(--bg-light); }
+    .article-content code { background:#f0f4f8; color:var(--primary-dark); padding:2px 7px; border-radius:4px; font-size:14px; font-family:'Courier New',monospace; }
+    .article-tags { display:flex; flex-wrap:wrap; gap:8px; margin:40px 0 32px; padding-top:32px; border-top:1px solid var(--border); }
+    .article-tags span { font-size:12px; color:var(--text-light); align-self:center; font-weight:500; }
+    .article-tags a { background:var(--tag-bg); color:var(--primary); font-size:13px; font-weight:500; padding:4px 12px; border-radius:20px; text-decoration:none; transition:all 0.2s; }
+    .article-tags a:hover { background:var(--primary); color:#fff; }
+    .article-nav { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:40px; }
+    .article-nav a { display:flex; flex-direction:column; gap:4px; padding:16px 20px; border:1px solid var(--border); border-radius:10px; text-decoration:none; color:var(--text); transition:all 0.2s; }
+    .article-nav a:hover { border-color:var(--primary); background:var(--bg-light); }
+    .article-nav a.next { text-align:right; }
+    .article-nav .nav-label { font-size:11px; color:var(--text-light); text-transform:uppercase; letter-spacing:0.8px; display:flex; align-items:center; gap:5px; }
+    .article-nav a.next .nav-label { justify-content:flex-end; }
+    .article-nav .nav-title { font-size:14px; font-weight:600; color:var(--primary); line-height:1.4; }
+    .article-footer { background:#f8fafc; border-top:1px solid #e8ecf0; padding:40px 24px 32px; text-align:center; }
+    .footer-social { display:flex; justify-content:center; gap:10px; margin-bottom:22px; }
+    .footer-social a { width:42px; height:42px; border-radius:50%; background:#0563bb; color:#fff; display:flex; align-items:center; justify-content:center; font-size:18px; text-decoration:none; transition:all 0.25s; }
+    .footer-social a:hover { background:#0352a0; transform:translateY(-3px); }
+    .footer-copy { font-size:13px; color:#666; line-height:2; }
+    .footer-copy a { color:#0563bb; text-decoration:none; }
+    .back-to-main { margin-top:22px; }
+    .back-to-main a { display:inline-flex; align-items:center; gap:8px; color:#0563bb; text-decoration:none; font-weight:500; font-size:15px; border:1px solid #e8ecf0; padding:10px 24px; border-radius:25px; transition:all 0.2s; background:#fff; }
+    .back-to-main a:hover { background:#0563bb; color:#fff; border-color:#0563bb; }
+    #scrollTopBtn { position:fixed; bottom:28px; right:24px; z-index:999; width:44px; height:44px; border-radius:50%; background:#0563bb; color:#fff; display:flex; align-items:center; justify-content:center; font-size:22px; text-decoration:none; box-shadow:0 4px 16px rgba(5,99,187,0.4); opacity:0; pointer-events:none; transition:opacity 0.3s,transform 0.3s; }
+    #scrollTopBtn.visible { opacity:1; pointer-events:auto; }
+    #scrollTopBtn:hover { background:#0352a0; transform:translateY(-3px); }
+    table { overflow-x:auto; display:block; max-width:100%; }
+    @media (max-width:600px) {
+      .top-bar { padding:0 16px; }
+      .breadcrumbs { display:none; }
+      .article-wrapper { padding:32px 16px 60px; }
+      .article-nav { grid-template-columns:1fr; }
+      .article-nav a.next { text-align:left; }
+      .article-nav a.next .nav-label { justify-content:flex-start; }
+      .author-links { display:none; }
+      #scrollTopBtn { bottom:18px; right:14px; width:40px; height:40px; font-size:20px; }
+    }
+  
+    pre { background:#1e2a3a; color:#e2e8f0; border-radius:10px; padding:20px 22px; margin:24px 0; overflow-x:auto; font-size:13px; font-family:'Courier New',monospace; line-height:1.7; white-space:pre; -webkit-overflow-scrolling:touch; }
+    .article-content pre code { background:none; color:inherit; padding:0; font-size:inherit; }
+    .article-content ul.related { list-style:none; margin-left:0; }
+    .article-content ul.related li { margin-bottom:10px; }
+    .article-content ul.related a { color:var(--primary); text-decoration:none; font-weight:500; }
+    .article-content ul.related a:hover { text-decoration:underline; }
+    .tip-box.takeaways ul { margin:8px 0 0 18px; }
+    .tip-box.takeaways li { font-size:15px; color:#166534; margin-bottom:4px; }
+    .tip-box.takeaways strong { color:#14532d; }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E01F5VDKVM"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-E01F5VDKVM');</script>
+</head>
+<body>
+
+<nav class="top-bar">
+  <div class="top-bar-left">
+    <a href="index-ua.html" class="back-btn"><i class="bi bi-arrow-left"></i> Назад</a>
+    <nav class="breadcrumbs" aria-label="breadcrumb">
+      <a href="index-ua.html">Блог</a><span class="sep">›</span>
+      <a href="index-ua.html">Статті</a><span class="sep">›</span>
+      <span class="current">Дизайн дашбордів 2026</span>
+    </nav>
+  </div>
+  <div class="top-bar-right">
+    <a href="2026-10-21-data-storytelling-dashboard-design.html" class="lang-btn" title="English">EN</a>
+    <a href="2026-10-21-data-storytelling-dashboard-design-ua.html" class="lang-btn active" aria-current="page" title="Українська">UA</a>
+  </div>
+</nav>
+
+<div class="article-hero">
+  <div class="article-hero-placeholder"><i class="bi bi-columns-gap"></i></div>
+</div>
+
+<main class="article-wrapper">
+
+  <div class="article-meta">
+    <span class="tag">Сторітелінг даних</span>
+    <span class="tag tag-secondary">Дизайн дашбордів</span>
+    <span class="tag tag-secondary">Візуалізація</span>
+    <span class="meta-date"><i class="bi bi-calendar3"></i> <time datetime="2026-10-21">2026-10-21</time></span>
+    <span class="meta-read"><i class="bi bi-clock"></i> 9 хв</span>
+  </div>
+
+  <h1 class="article-title">Сторітелінг даних і дизайн дашбордів 2026: від графіків до рішень</h1>
+  <p class="article-subtitle">Більшість дашбордів провалюються з причини, що не стосується даних: після перегляду ніхто не розуміє, що робити. Хороший дизайн дашборду — це дизайн рішення. У цьому гіді — як почати з рішення, зібрати вигляд, що проходить тест п'яти секунд, свідомо обрати графіки й колір і зробити результат читабельним для всіх.</p>
+
+  <div class="author-block">
+    <div class="author-avatar"><img src="../assets/img/profile-img.webp" alt="Ісаченко Андрій"></div>
+    <div class="author-info">
+      <div class="author-name">Ісаченко Андрій</div>
+      <div class="author-role">Аналітик даних · Відкритий до роботи</div>
+    </div>
+    <div class="author-links">
+      <a href="https://www.linkedin.com/in/isachenko-andrii/" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
+      <a href="https://github.com/isachenko-andrii"           target="_blank" rel="noopener"><i class="bi bi-github"></i></a>
+      <a href="https://t.me/isachenko_andrii"                       target="_blank" rel="noopener"><i class="bi bi-telegram"></i></a>
+    </div>
+  </div>
+
+  <div class="tip-box takeaways"><strong>Головне коротко</strong><ul><li><strong>Починайте з рішення, а не з даних:</strong> до відкриття BI-інструмента визначте, хто що вирішує, як часто і яка дія слідує.</li><li>Застосуйте <strong>тест п'яти секунд</strong>: головне повідомлення має бути зрозумілим майже одразу; тримайте на сторінці приблизно <strong>5–7 KPI</strong>.</li><li>Кожне число має відповідати на питання «<strong>порівняно з чим?</strong>» — ціль, попередній період чи еталон.</li><li>Використовуйте <strong>сірий для контексту й один акцентний колір для інсайту</strong> та ніколи не передавайте сенс лише кольором (приблизно 8% чоловіків мають червоно-зелену колірну сліпоту).</li><li>Затверджуйте визначення метрик до публікації: красивий дашборд на неврегульованих даних опиняється покинутим.</li></ul></div>
+
+  <div class="toc">
+    <h4>📋 Зміст</h4>
+    <ol>
+      <li><a href="#why">Чому більшістю дашбордів не користуються</a></li>
+      <li><a href="#decision">Почніть із рішення</a></li>
+      <li><a href="#layout">Компонування й тест п'яти секунд</a></li>
+      <li><a href="#charts">Вибір графіків і кольору</a></li>
+      <li><a href="#accessibility">Основи доступності</a></li>
+      <li><a href="#story">Від аналізу до історії та як постійно покращувати</a></li>
+      <li><a href="#faq">Поширені запитання</a></li>
+      <li><a href="#related">Читайте також</a></li>
+    </ol>
+  </div>
+
+  <article class="article-content">
+
+
+  <h2 id="why">Чому більшістю дашбордів не користуються</h2>
+  <p>Коли дашборд ігнорують, винуватцем часто є інтерфейс, а не дані: забагато метрик, немає контексту, нечіткі пріоритети. Дашборд, що показує все, не розповідає нічого, тож люди повертаються до вивантаження таблиць. <strong>Сторітелінг даних</strong> — це практика перетворення аналізу на чітке повідомлення — заголовок, докази й дію, що з них випливає — за допомогою візуалізацій і наративу разом.</p>
+  <p>Довіра важить так само, як і дизайн. Якщо два дашборди показують дві різні «виручки», жодне компонування їх не врятує — тому визначення метрик належать до <a href="2026-09-06-data-governance-ai-era-ua.html">управління даними</a> й мають бути узгоджені до першого графіка.</p>
+
+  <h2 id="decision">Почніть із рішення</h2>
+  <p>Перш ніж обирати тип графіка, напишіть абзац — <strong>бриф рішення</strong>. Якщо ви не можете його заповнити, дашборд ще не готовий до побудови.</p>
+  <table>
+    <tr><th>Питання</th><th>Приклад відповіді</th></tr>
+    <tr><td>Хто вирішує?</td><td>Категорійний менеджер з дому й саду</td></tr>
+    <tr><td>Яке рішення?</td><td>Які товари дозамовити цього тижня</td></tr>
+    <tr><td>Як часто?</td><td>Щопонеділка зранку</td></tr>
+    <tr><td>Яке число запускає дію?</td><td>Запас менше ніж на 14 днів продажів</td></tr>
+    <tr><td>Що далі?</td><td>Розміщується замовлення постачальнику</td></tr>
+  </table>
+  <p>Бриф дає головну метрику сторінки, її поріг і аудиторію — і підказує, що можна не показувати.</p>
+
+  <h2 id="layout">Компонування й тест п'яти секунд</h2>
+  <p>Корисне правило: глядач має зрозуміти головне повідомлення приблизно за п'ять секунд. Щоб цього досягти:</p>
+  <ol>
+    <li><strong>Розміщуйте ключове повідомлення вгорі ліворуч.</strong> Читачі скануюють зверху-ліворуч, тож саме там місце головного KPI.</li>
+    <li><strong>Обмежте рядок KPI приблизно 5–7 числами.</strong> Далі люди перестають порівнювати й починають гортати.</li>
+    <li><strong>Пройдіть тест «порівняно з чим?».</strong> Показуйте кожне значення поруч із ціллю, попереднім періодом чи еталоном: «1 240 замовлень» — це число, а «1 240 замовлень, +8% до минулого тижня» — інформація.</li>
+    <li><strong>Одне питання — одна сторінка.</strong> Використовуйте вкладки чи деталізацію, щоб відокремити підсумок для керівництва від операційних деталей.</li>
+    <li><strong>Інтерактивність має заслужити своє місце.</strong> Кожен фільтр і підказка додають когнітивне навантаження; залишайте лише ті, що відповідають на питання, на яке статичний вигляд не відповідає.</li>
+  </ol>
+  <div class="tip-box">✅ Швидкий тест: покажіть дашборд колезі на п'ять секунд, сховайте й запитайте «яке головне повідомлення?». Якщо відповісти не може — спрощуйте.</div>
+
+  <h2 id="charts">Вибір графіків і кольору</h2>
+  <p>Обирайте графік за питанням, яке ставить читач, а не за тим, що легко робить інструмент.</p>
+  <table>
+    <tr><th>Питання</th><th>Використовуйте</th><th>Уникайте</th></tr>
+    <tr><td>Як змінюється в часі?</td><td>Лінійний графік</td><td>3D-ефекти; стекові області з багатьма шарами</td></tr>
+    <tr><td>Які позиції найвищі?</td><td>Відсортовані горизонтальні стовпці</td><td>Кругові діаграми з багатьма секторами</td></tr>
+    <tr><td>Яка частка кожної частини? (мало частин)</td><td>100% стековий стовпець або один стековий стовпець</td><td>Кільцеві діаграми з вісьмома і більше сегментами</td></tr>
+    <tr><td>Який розподіл?</td><td>Гістограма або діаграма «ящик з вусами»</td><td>Показ лише середнього</td></tr>
+    <tr><td>Чи повʼязані два показники?</td><td>Діаграма розсіювання</td><td>Лінії на двох осях, що натякають на звʼязок</td></tr>
+  </table>
+  <p>Колір розглядайте як сигнал, а не прикрасу: контекст і базові дані малюйте нейтральним сірим, а <strong>один акцентний колір</strong> залиште для важливого інсайту. Тримайте значення кольорів однаковим на всіх дашбордах — якщо червоний означає «відставання від цілі» на одній сторінці, він має означати те саме скрізь. Приглушіть лінії сітки й приберіть рамки та ефекти, що не несуть даних (ідея data-ink ratio Едварда Тафті).</p>
+
+  <h2 id="accessibility">Основи доступності</h2>
+  <p>Доступні дашборди зручніші для всіх, зокрема для тих, хто читає з телефона при яскравому світлі. Короткий чек-лист за настановами WCAG AA:</p>
+  <ul>
+    <li><strong>Контраст:</strong> щонайменше 4,5:1 для звичайного тексту та 3:1 для великого тексту, елементів графіків і керування.</li>
+    <li><strong>Ніколи не покладайтесь лише на колір:</strong> приблизно 8% чоловіків і близько 0,5% жінок мають ту чи іншу форму колірної сліпоти. Поєднуйте червоний/зелений зі стрілками, іконками чи підписами або беріть пару синій/помаранчевий.</li>
+    <li><strong>Підписуйте безпосередньо</strong> на стовпцях і лініях замість того, щоб змушувати читача зіставляти з легендою.</li>
+    <li><strong>Пропонуйте текстову альтернативу:</strong> перемикач «показати як таблицю» чи описові підписи, щоб користувачі зчитувачів екрана мали доступ до даних.</li>
+  </ul>
+  <p>Доступність також стає юридичною темою: наприклад, Європейський акт про доступність діє з червня 2025 року для багатьох споживчих цифрових послуг. Уточніть із юристами, що стосується вашого продукту, особливо для публічної аналітики.</p>
+
+  <h2 id="story">Від аналізу до історії та як постійно покращувати</h2>
+  <p>Коли ви презентуєте висновки, а не просто передаєте дашборд, користуйтесь простою структурою з чотирьох частин:</p>
+  <table>
+    <tr><th>Частина</th><th>Відповідає на</th><th>Ілюстративний приклад</th></tr>
+    <tr><td>Заголовок</td><td>Що сталося?</td><td>Повторні покупки впали у двох категоріях</td></tr>
+    <tr><td>Докази</td><td>Звідки ми це знаємо?</td><td>Один графік: частка повторних покупок за категоріями проти минулого кварталу</td></tr>
+    <tr><td>Причина</td><td>Чому так сталося?</td><td>Падіння почалося одразу після зміни вартості доставки</td></tr>
+    <tr><td>Дія</td><td>Що робити?</td><td>Протестувати поріг безкоштовної доставки для постійних клієнтів</td></tr>
+  </table>
+  <p>Нарешті, ставтеся до дашборду як до продукту. Спостерігайте, як ним користуються, просіть нового користувача знайти відповідь без підказок, прибирайте віджети, які ніхто не відкриває, і ведіть короткий журнал змін, щоб читачі знали, коли змінюються визначення.</p>
+  <div class="highlight-box"><p>Хороший дашборд робить наступний крок очевидним. Якщо читачі все ще питають «то що мені робити?», дизайн не завершений — незалежно від якості графіків.</p></div>
+
+
+  <h2 id="faq">Поширені запитання</h2>
+  <h3>Що таке сторітелінг даних?</h3>
+  <p>Сторітелінг даних — це практика перетворення аналізу на чітке повідомлення поєднанням даних, візуалізацій і наративу: заголовок, докази для нього й дія, що з нього випливає, адаптовані до конкретної аудиторії.</p>
+  <h3>Скільки KPI має бути на дашборді?</h3>
+  <p>Поширена настанова — приблизно 5–7 головних KPI на одну сторінку. Більше підвищує когнітивне навантаження; деталі краще винести на сторінки деталізації чи вкладки.</p>
+  <h3>Що таке правило п'яти секунд для дашбордів?</h3>
+  <p>Це юзабіліті-правило: глядач має зрозуміти головне повідомлення дашборду приблизно за п'ять секунд. Якщо ні — на сторінці забагато елементів або нечіткий пріоритет.</p>
+  <h3>Чому колір не повинен бути єдиним сигналом?</h3>
+  <p>Приблизно 8% чоловіків і близько 0,5% жінок мають колірну сліпоту, тож лише червоний/зелений може бути нечитабельним. Додайте іконки, стрілки, патерни чи прямі підписи, щоб повідомлення не залежало від кольору.</p>
+
+  <h2 id="related">Читайте також</h2>
+  <ul class="related"><li><a href="2026-09-06-data-governance-ai-era-ua.html">Data Governance в еру AI 2026: якість даних — нове вузьке місце</a></li><li><a href="2026-08-23-data-driven-small-business-ua.html">Data-Driven управління для малого бізнесу 2026: доступні інструменти і план на 30 днів</a></li><li><a href="2026-10-14-demand-forecasting-for-analysts-ua.html">Прогнозування попиту для аналітика даних 2026: бейзлайни, WAPE і коли AI-моделі справді допомагають</a></li></ul>
+
+  </article>
+
+  <div class="article-tags">
+    <span>Теги:</span>
+    <a href="index-ua.html">Сторітелінг даних</a>
+    <a href="index-ua.html">Дизайн дашбордів</a>
+    <a href="index-ua.html">KPI</a>
+    <a href="index-ua.html">Доступність</a>
+    <a href="index-ua.html">BI</a>
+  </div>
+
+  <nav class="article-nav">
+    <a href="index-ua.html" class="prev">
+      <span class="nav-label"><i class="bi bi-arrow-left"></i> Всі статті</span>
+      <span class="nav-title">Повернутись до статей</span>
+    </a>
+    <a href="2026-10-14-demand-forecasting-for-analysts-ua.html" class="next">
+      <span class="nav-label">Попередня <i class="bi bi-arrow-right"></i></span>
+      <span class="nav-title">Прогнозування попиту для аналітика даних</span>
+    </a>
+  </nav>
+
+</main>
+
+<footer class="article-footer">
+  <div class="footer-social">
+    <a href="https://www.linkedin.com/in/isachenko-andrii/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+    <a href="https://github.com/isachenko-andrii"           target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+    <a href="https://t.me/isachenko_andrii"                       target="_blank" rel="noopener" aria-label="Telegram"><i class="bi bi-telegram"></i></a>
+    <a href="mailto:andrii.isachenko@gmail.com" target="_blank"><i class="bi bi-envelope"></i></a>
+  </div>
+  <div class="footer-copy">
+    <span>Copyright <a href="https://isachenko-andrii.github.io/index-ua.html">Ісаченко Андрій</a> All Rights Reserved</span><br>
+    <span>Designed by <a href="https://bootstrapmade.com/" target="_blank" rel="noopener">BootstrapMade</a></span>
+  </div>
+  <div class="back-to-main">
+    <a href="../index-ua.html"><i class="bi bi-house"></i> На головну сторінку</a>
+  </div>
+</footer>
+
+<a href="#" id="scrollTopBtn" aria-label="Scroll to top"><i class="bi bi-arrow-up-short"></i></a>
+<script>
+(function(){
+  var b=document.getElementById('scrollTopBtn');
+  if(!b)return;
+  window.addEventListener('scroll',function(){b.classList.toggle('visible',window.pageYOffset>320);},{passive:true});
+  b.addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});});
+})();
+</script>
+</body>
+</html>

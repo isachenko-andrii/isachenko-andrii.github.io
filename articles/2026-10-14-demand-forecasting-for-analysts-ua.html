@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Прогнозування попиту для аналітика даних 2026: бейзлайни, WAPE і коли AI-моделі справді допомагають | Ісаченко Андрій</title>
+  <meta name="description" content="Прогнозування попиту для аналітика: перевершіть сезонний наївний бейзлайн, міряйте точність через WAPE і bias, робіть бектест і знайте, коли AI допомагає.">
+  <meta name="keywords" content="прогнозування попиту, WAPE, MAPE, зсув прогнозу, сезонний наївний бейзлайн, бектестинг, часові ряди, foundation-моделі, Chronos, TimesFM, переривчастий попит, аналітик даних">
+  <meta name="author" content="Isachenko Andrii">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <link rel="canonical" href="https://isachenko-andrii.github.io/articles/2026-10-14-demand-forecasting-for-analysts-ua.html">
+  <link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/articles/2026-10-14-demand-forecasting-for-analysts.html">
+  <link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-10-14-demand-forecasting-for-analysts-ua.html">
+  <link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-10-14-demand-forecasting-for-analysts.html">
+
+  <meta property="og:type"                content="article">
+  <meta property="og:url"                 content="https://isachenko-andrii.github.io/articles/2026-10-14-demand-forecasting-for-analysts-ua.html">
+  <meta property="og:title"               content="Прогнозування попиту для аналітика даних 2026">
+  <meta property="og:description"         content="Бейзлайни, WAPE, бектестинг і foundation-моделі — практичний процес прогнозування попиту для аналітика даних з Python-кодом.">
+  <meta property="og:image"               content="https://isachenko-andrii.github.io/assets/img/profile-img.webp">
+  <meta property="og:image:alt"           content="Андрій Ісаченко, аналітик даних — портретне фото">
+  <meta property="og:image:width"         content="1200">
+  <meta property="og:image:height"        content="630">
+  <meta property="og:locale"              content="uk_UA">
+  <meta property="article:published_time" content="2026-10-14T00:00:00Z">
+  <meta property="article:modified_time"  content="2026-10-14T00:00:00Z">
+  <meta property="article:author"         content="Ісаченко Андрій">
+  <meta property="article:section"        content="Прогнозування">
+  <meta property="article:tag" content="Прогнозування попиту">
+  <meta property="article:tag" content="WAPE">
+  <meta property="article:tag" content="Бектестинг">
+  <meta property="article:tag" content="Часові ряди">
+  <meta property="article:tag" content="Python">
+
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Прогнозування попиту для аналітика даних 2026">
+  <meta name="twitter:description" content="Бейзлайни, WAPE, бектестинг і foundation-моделі — практичний процес прогнозування попиту для аналітика даних з Python-кодом.">
+  <meta name="twitter:image"       content="https://isachenko-andrii.github.io/assets/img/profile-img.webp">
+  <meta name="twitter:image:alt"   content="Андрій Ісаченко, аналітик даних — портретне фото">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://isachenko-andrii.github.io/articles/2026-10-14-demand-forecasting-for-analysts-ua.html#article",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://isachenko-andrii.github.io/articles/2026-10-14-demand-forecasting-for-analysts-ua.html"
+      },
+      "headline": "Прогнозування попиту для аналітика даних 2026: бейзлайни, WAPE і коли AI-моделі справді допомагають",
+      "description": "Прогнозування попиту для аналітика: перевершіть сезонний наївний бейзлайн, міряйте точність через WAPE і bias, робіть бектест і знайте, коли AI допомагає.",
+      "inLanguage": "uk",
+      "datePublished": "2026-10-14T00:00:00Z",
+      "dateModified": "2026-10-14T00:00:00Z",
+      "author": {
+        "@id": "https://isachenko-andrii.github.io/#person"
+      },
+      "publisher": {
+        "@id": "https://isachenko-andrii.github.io/#person"
+      },
+      "image": "https://isachenko-andrii.github.io/assets/img/profile-img.webp",
+      "keywords": "прогнозування попиту, WAPE, MAPE, зсув прогнозу, сезонний наївний бейзлайн, бектестинг, часові ряди, foundation-моделі, Chronos, TimesFM, переривчастий попит, аналітик даних",
+      "articleSection": "Прогнозування",
+      "wordCount": 1149,
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Прогнозування попиту"
+        },
+        {
+          "@type": "Thing",
+          "name": "Прогнозування часових рядів"
+        },
+        {
+          "@type": "Thing",
+          "name": "Метрики точності прогнозу"
+        }
+      ],
+      "isPartOf": {
+        "@type": "Blog",
+        "@id": "https://isachenko-andrii.github.io/articles/index-ua.html",
+        "name": "Isachenko Andrii — Статті"
+      },
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".article-title",
+          ".takeaways"
+        ]
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://isachenko-andrii.github.io/#person",
+      "name": "Andrii Isachenko",
+      "alternateName": [
+        "Ісаченко Андрій",
+        "Isachenko Andrii"
+      ],
+      "url": "https://isachenko-andrii.github.io",
+      "image": "https://isachenko-andrii.github.io/assets/img/profile-img.webp",
+      "jobTitle": "Data Analyst",
+      "nationality": {
+        "@type": "Country",
+        "name": "Ukraine"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/isachenko-andrii/",
+        "https://github.com/isachenko-andrii",
+        "https://t.me/isachenko_andrii"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Блог",
+          "item": "https://isachenko-andrii.github.io/index-ua.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Статті",
+          "item": "https://isachenko-andrii.github.io/articles/index-ua.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Прогнозування попиту 2026",
+          "item": "https://isachenko-andrii.github.io/articles/2026-10-14-demand-forecasting-for-analysts-ua.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Який WAPE вважається хорошим для прогнозування попиту?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Універсального порогу немає: досяжний WAPE залежить від обсягів, горизонту прогнозу й типу товару. Корисне питання — чи перемагає ваша модель сезонний наївний бейзлайн на тих самих даних і наскільки."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Що краще — MAPE чи WAPE?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Для рітейлу й e-commerce краще WAPE (разом із bias). MAPE не визначена, коли фактичні продажі нульові, і надмірно карає малообсяжні позиції, тоді як WAPE зважує помилки на обсяг продажів."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чи потрібне глибоке навчання для прогнозування попиту?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ні. Починайте з бейзлайнів і класичних методів, а градієнтний бустинг чи foundation-модель додавайте лише якщо коректний ковзний бектест показує явне покращення."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Скільки історії потрібно?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "За емпіричним правилом — щонайменше два повні сезонні цикли, тобто близько двох років даних для річної сезонності, щоб сезонна модель могла відрізнити сезонність від шуму."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root { --primary:#0563bb; --primary-dark:#0352a0; --text:#2c3e50; --text-light:#666; --border:#e8ecf0; --bg-light:#f8fafc; --tag-bg:#e8f0fb; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:'Poppins',sans-serif; color:var(--text); background:#fff; line-height:1.7; overflow-x:hidden; }
+    .top-bar { position:sticky; top:0; z-index:100; background:rgba(255,255,255,0.96); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); padding:0 24px; height:56px; display:flex; align-items:center; justify-content:space-between; }
+    .top-bar-left { display:flex; align-items:center; gap:16px; }
+    .back-btn { display:inline-flex; align-items:center; gap:6px; color:var(--primary); text-decoration:none; font-size:14px; font-weight:500; padding:6px 14px; border-radius:20px; border:1px solid var(--primary); transition:all 0.2s; white-space:nowrap; }
+    .back-btn:hover { background:var(--primary); color:#fff; }
+    .breadcrumbs { display:flex; align-items:center; gap:6px; font-size:13px; color:var(--text-light); }
+    .breadcrumbs a { color:var(--primary); text-decoration:none; }
+    .breadcrumbs a:hover { text-decoration:underline; }
+    .breadcrumbs .sep { color:#ccc; }
+    .breadcrumbs .current { color:var(--text-light); max-width:220px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .top-bar-right { display:flex; align-items:center; gap:4px; }
+    .lang-btn { display:inline-flex; align-items:center; justify-content:center; min-width:34px; height:28px; padding:0 10px; border-radius:14px; border:1.5px solid #0563bb; font-size:12px; font-weight:700; letter-spacing:0.4px; text-decoration:none; transition:all 0.2s; color:#0563bb; background:transparent; }
+    .lang-btn:hover { background:#e8f0fb; }
+    .lang-btn.active { background:#0563bb; color:#fff; cursor:default; pointer-events:none; }
+    .article-hero { width:100%; max-height:480px; overflow:hidden; background:linear-gradient(135deg,#e8f0fb 0%,#cfe0f7 100%); }
+    .article-hero-placeholder { height:320px; display:flex; align-items:center; justify-content:center; }
+    .article-hero-placeholder i { font-size:90px; color:var(--primary); opacity:0.2; }
+    .article-wrapper { max-width:760px; margin:0 auto; padding:48px 24px 80px; overflow-x:hidden; }
+    .article-meta { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-bottom:24px; }
+    .tag { background:var(--primary); color:#fff; font-size:11px; font-weight:600; padding:3px 12px; border-radius:20px; text-transform:uppercase; letter-spacing:0.5px; }
+    .tag-secondary { background:var(--tag-bg); color:var(--primary); }
+    .meta-date,.meta-read { font-size:13px; color:var(--text-light); display:flex; align-items:center; gap:5px; }
+    .meta-read { margin-left:auto; }
+    .meta-date i,.meta-read i { color:var(--primary); }
+    .article-title { font-family:'Raleway',sans-serif; font-size:clamp(24px,4vw,38px); font-weight:700; line-height:1.25; color:var(--text); margin-bottom:16px; }
+    .article-subtitle { font-size:17px; color:var(--text-light); font-weight:400; line-height:1.6; margin-bottom:36px; padding-bottom:36px; border-bottom:1px solid var(--border); }
+    .author-block { display:flex; align-items:center; gap:14px; margin-bottom:40px; padding:16px 20px; background:var(--bg-light); border-radius:10px; border-left:3px solid var(--primary); }
+    .author-avatar { width:48px; height:48px; border-radius:50%; flex-shrink:0; background:var(--tag-bg); display:flex; align-items:center; justify-content:center; font-size:20px; color:var(--primary); overflow:hidden; }
+    .author-avatar img { width:100%; height:100%; object-fit:cover; }
+    .author-info { flex:1; }
+    .author-name { font-weight:600; font-size:15px; }
+    .author-role { font-size:13px; color:var(--text-light); }
+    .author-links { display:flex; gap:10px; }
+    .author-links a { color:var(--text-light); font-size:16px; transition:color 0.2s; }
+    .author-links a:hover { color:var(--primary); }
+    .toc { background:var(--bg-light); border:1px solid var(--border); border-radius:10px; padding:20px 24px; margin:0 0 40px; }
+    .toc h4 { font-size:14px; font-weight:600; color:var(--text); margin-bottom:12px; text-transform:uppercase; letter-spacing:0.5px; }
+    .toc ol { margin:0 0 0 16px; }
+    .toc li { font-size:14px; margin-bottom:6px; }
+    .toc a { color:var(--primary); text-decoration:none; }
+    .toc a:hover { text-decoration:underline; }
+    .article-content h2 { font-family:'Raleway',sans-serif; font-size:24px; font-weight:700; color:var(--text); margin:40px 0 16px; padding-bottom:8px; border-bottom:2px solid var(--tag-bg); }
+    .article-content h3 { font-size:19px; font-weight:600; color:var(--text); margin:28px 0 12px; }
+    .article-content p { font-size:16px; color:#444; line-height:1.8; margin-bottom:18px; }
+    .article-content ul,.article-content ol { margin:0 0 18px 20px; }
+    .article-content li { font-size:16px; color:#444; line-height:1.8; margin-bottom:6px; }
+    .article-content strong { color:var(--text); }
+    .highlight-box { background:var(--bg-light); border-left:4px solid var(--primary); border-radius:0 8px 8px 0; padding:18px 22px; margin:28px 0; }
+    .highlight-box p { margin:0; color:var(--text); font-style:italic; }
+    .tip-box { background:#f0fdf4; border-left:4px solid #22c55e; border-radius:0 8px 8px 0; padding:16px 20px; margin:24px 0; font-size:15px; color:#166534; }
+    .warn-box { background:#fffbeb; border-left:4px solid #f59e0b; border-radius:0 8px 8px 0; padding:16px 20px; margin:24px 0; font-size:15px; color:#92400e; }
+    .article-content table { width:100%; border-collapse:collapse; margin:24px 0; font-size:14px; overflow-x:auto; display:block; }
+    .article-content th { background:var(--primary); color:#fff; padding:10px 14px; text-align:left; font-weight:600; }
+    .article-content td { padding:9px 14px; border-bottom:1px solid var(--border); color:#444; }
+    .article-content tr:nth-child(even) td { background:var(--bg-light); }
+    .article-content code { background:#f0f4f8; color:var(--primary-dark); padding:2px 7px; border-radius:4px; font-size:14px; font-family:'Courier New',monospace; }
+    .article-tags { display:flex; flex-wrap:wrap; gap:8px; margin:40px 0 32px; padding-top:32px; border-top:1px solid var(--border); }
+    .article-tags span { font-size:12px; color:var(--text-light); align-self:center; font-weight:500; }
+    .article-tags a { background:var(--tag-bg); color:var(--primary); font-size:13px; font-weight:500; padding:4px 12px; border-radius:20px; text-decoration:none; transition:all 0.2s; }
+    .article-tags a:hover { background:var(--primary); color:#fff; }
+    .article-nav { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:40px; }
+    .article-nav a { display:flex; flex-direction:column; gap:4px; padding:16px 20px; border:1px solid var(--border); border-radius:10px; text-decoration:none; color:var(--text); transition:all 0.2s; }
+    .article-nav a:hover { border-color:var(--primary); background:var(--bg-light); }
+    .article-nav a.next { text-align:right; }
+    .article-nav .nav-label { font-size:11px; color:var(--text-light); text-transform:uppercase; letter-spacing:0.8px; display:flex; align-items:center; gap:5px; }
+    .article-nav a.next .nav-label { justify-content:flex-end; }
+    .article-nav .nav-title { font-size:14px; font-weight:600; color:var(--primary); line-height:1.4; }
+    .article-footer { background:#f8fafc; border-top:1px solid #e8ecf0; padding:40px 24px 32px; text-align:center; }
+    .footer-social { display:flex; justify-content:center; gap:10px; margin-bottom:22px; }
+    .footer-social a { width:42px; height:42px; border-radius:50%; background:#0563bb; color:#fff; display:flex; align-items:center; justify-content:center; font-size:18px; text-decoration:none; transition:all 0.25s; }
+    .footer-social a:hover { background:#0352a0; transform:translateY(-3px); }
+    .footer-copy { font-size:13px; color:#666; line-height:2; }
+    .footer-copy a { color:#0563bb; text-decoration:none; }
+    .back-to-main { margin-top:22px; }
+    .back-to-main a { display:inline-flex; align-items:center; gap:8px; color:#0563bb; text-decoration:none; font-weight:500; font-size:15px; border:1px solid #e8ecf0; padding:10px 24px; border-radius:25px; transition:all 0.2s; background:#fff; }
+    .back-to-main a:hover { background:#0563bb; color:#fff; border-color:#0563bb; }
+    #scrollTopBtn { position:fixed; bottom:28px; right:24px; z-index:999; width:44px; height:44px; border-radius:50%; background:#0563bb; color:#fff; display:flex; align-items:center; justify-content:center; font-size:22px; text-decoration:none; box-shadow:0 4px 16px rgba(5,99,187,0.4); opacity:0; pointer-events:none; transition:opacity 0.3s,transform 0.3s; }
+    #scrollTopBtn.visible { opacity:1; pointer-events:auto; }
+    #scrollTopBtn:hover { background:#0352a0; transform:translateY(-3px); }
+    table { overflow-x:auto; display:block; max-width:100%; }
+    @media (max-width:600px) {
+      .top-bar { padding:0 16px; }
+      .breadcrumbs { display:none; }
+      .article-wrapper { padding:32px 16px 60px; }
+      .article-nav { grid-template-columns:1fr; }
+      .article-nav a.next { text-align:left; }
+      .article-nav a.next .nav-label { justify-content:flex-start; }
+      .author-links { display:none; }
+      #scrollTopBtn { bottom:18px; right:14px; width:40px; height:40px; font-size:20px; }
+    }
+  
+    pre { background:#1e2a3a; color:#e2e8f0; border-radius:10px; padding:20px 22px; margin:24px 0; overflow-x:auto; font-size:13px; font-family:'Courier New',monospace; line-height:1.7; white-space:pre; -webkit-overflow-scrolling:touch; }
+    .article-content pre code { background:none; color:inherit; padding:0; font-size:inherit; }
+    .article-content ul.related { list-style:none; margin-left:0; }
+    .article-content ul.related li { margin-bottom:10px; }
+    .article-content ul.related a { color:var(--primary); text-decoration:none; font-weight:500; }
+    .article-content ul.related a:hover { text-decoration:underline; }
+    .tip-box.takeaways ul { margin:8px 0 0 18px; }
+    .tip-box.takeaways li { font-size:15px; color:#166534; margin-bottom:4px; }
+    .tip-box.takeaways strong { color:#14532d; }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E01F5VDKVM"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-E01F5VDKVM');</script>
+</head>
+<body>
+
+<nav class="top-bar">
+  <div class="top-bar-left">
+    <a href="index-ua.html" class="back-btn"><i class="bi bi-arrow-left"></i> Назад</a>
+    <nav class="breadcrumbs" aria-label="breadcrumb">
+      <a href="index-ua.html">Блог</a><span class="sep">›</span>
+      <a href="index-ua.html">Статті</a><span class="sep">›</span>
+      <span class="current">Прогнозування попиту 2026</span>
+    </nav>
+  </div>
+  <div class="top-bar-right">
+    <a href="2026-10-14-demand-forecasting-for-analysts.html" class="lang-btn" title="English">EN</a>
+    <a href="2026-10-14-demand-forecasting-for-analysts-ua.html" class="lang-btn active" aria-current="page" title="Українська">UA</a>
+  </div>
+</nav>
+
+<div class="article-hero">
+  <div class="article-hero-placeholder"><i class="bi bi-activity"></i></div>
+</div>
+
+<main class="article-wrapper">
+
+  <div class="article-meta">
+    <span class="tag">Прогнозування</span>
+    <span class="tag tag-secondary">Часові ряди</span>
+    <span class="tag tag-secondary">Python</span>
+    <span class="meta-date"><i class="bi bi-calendar3"></i> <time datetime="2026-10-14">2026-10-14</time></span>
+    <span class="meta-read"><i class="bi bi-clock"></i> 10 хв</span>
+  </div>
+
+  <h1 class="article-title">Прогнозування попиту для аналітика даних 2026: бейзлайни, WAPE і коли AI-моделі справді допомагають</h1>
+  <p class="article-subtitle">Прогноз корисний лише тоді, коли він кращий за найпростішу альтернативу. Перш ніж братись за градієнтний бустинг чи foundation-модель для часових рядів, аналітику потрібні три речі: бейзлайн, який треба перевершити, метрика точності, що відповідає бізнесу, і бектест, який не «підглядає» у майбутнє. Нижче — практичний процес із кодом, який можна запустити вже сьогодні.</p>
+
+  <div class="author-block">
+    <div class="author-avatar"><img src="../assets/img/profile-img.webp" alt="Ісаченко Андрій"></div>
+    <div class="author-info">
+      <div class="author-name">Ісаченко Андрій</div>
+      <div class="author-role">Аналітик даних · Відкритий до роботи</div>
+    </div>
+    <div class="author-links">
+      <a href="https://www.linkedin.com/in/isachenko-andrii/" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
+      <a href="https://github.com/isachenko-andrii"           target="_blank" rel="noopener"><i class="bi bi-github"></i></a>
+      <a href="https://t.me/isachenko_andrii"                       target="_blank" rel="noopener"><i class="bi bi-telegram"></i></a>
+    </div>
+  </div>
+
+  <div class="tip-box takeaways"><strong>Головне коротко</strong><ul><li>Завжди порівнюйте з <strong>сезонним наївним бейзлайном</strong> («той самий період минулого року»). Якщо модель не перемагає його в бектесті — не впроваджуйте її.</li><li>Для рітейл-даних використовуйте <strong>WAPE разом із зсувом (bias)</strong>, а не MAPE: MAPE ламається на періодах без продажів і надмірно карає дрібні позиції.</li><li>Робіть бектест на <strong>ковзному, впорядкованому в часі розбитті</strong> з горизонтом, що дорівнює терміну прийняття рішення; ніколи не перемішуйте часовий ряд.</li><li>Foundation-моделі (Chronos-2, TimesFM 2.5, Moirai 2.0, TiRex) — сильні zero-shot кандидати для періодичних рядів, залежних від людської поведінки, але опубліковані бенчмарки на зашумлених даних неоднозначні — <strong>перевіряйте їх як будь-яку іншу модель</strong>.</li><li>XYZ-класи з ABC-XYZ аналізу допомагають вирішити, де точний прогноз вартий зусиль.</li></ul></div>
+
+  <div class="toc">
+    <h4>📋 Зміст</h4>
+    <ol>
+      <li><a href="#why">Чому прогнозування — навичка аналітика</a></li>
+      <li><a href="#baselines">Починайте з бейзлайнів (і код для них)</a></li>
+      <li><a href="#metrics">Вибір метрики точності: WAPE, MAPE, bias, MASE</a></li>
+      <li><a href="#backtest">Бектестинг без самообману</a></li>
+      <li><a href="#models">Де моделі перемагають бейзлайни, а де ні</a></li>
+      <li><a href="#intermittent">Переривчастий попит і довгий хвіст</a></li>
+      <li><a href="#faq">Поширені запитання</a></li>
+      <li><a href="#related">Читайте також</a></li>
+    </ol>
+  </div>
+
+  <article class="article-content">
+
+
+  <h2 id="why">Чому прогнозування — це навичка аналітика, а не лише завдання дата-сайєнтиста</h2>
+  <p>Кожна точка замовлення, план змін персоналу чи бюджет акції містить прогноз — записаний чи ні. Коли категорійний менеджер питає «скільки ми продамо наступного місяця?», аналітик, який відповідає числом, діапазоном похибки та зрозумілим методом, стає людиною, навколо якої бізнес планує роботу. <strong>Прогнозування попиту</strong> — це оцінка майбутнього попиту клієнтів за історичними даними та відомими чинниками: сезонністю, ціною, акціями.</p>
+  <p>Воно також замикає коло категорійної аналітики. <a href="2026-09-13-abc-analysis-inventory-optimization-ua.html">ABC-XYZ класифікація</a> показує, які товари важливі й передбачувані; прогноз перетворює це на обсяги замовлень; <a href="2026-10-04-assortment-matrix-optimization-ua.html">асортиментні рішення</a> спираються на ті самі патерни попиту.</p>
+
+  <h2 id="baselines">Починайте з бейзлайнів (і код для них)</h2>
+  <p><strong>Бейзлайн</strong> — це свідомо простий прогноз, який має перевершити будь-яка справжня модель. Його будують за хвилини, і він захищає від впровадження складної моделі, що гірша за «повторити минулий рік».</p>
+  <table>
+    <tr><th>Бейзлайн</th><th>Правило</th><th>Важко перемогти, коли…</th></tr>
+    <tr><td>Наївний</td><td>Наступне значення = останнє спостережене</td><td>Ряд стабільний і без сезонності</td></tr>
+    <tr><td>Ковзне середнє</td><td>Середнє за останні N періодів</td><td>Попит шумний, але рівний</td></tr>
+    <tr><td>Сезонний наївний</td><td>Той самий період попереднього циклу (наприклад, той самий тиждень торік)</td><td>Сезонність сильна — більшість рітейл-категорій</td></tr>
+    <tr><td>Сезонне середнє</td><td>Середнє того самого періоду за останні 2–3 цикли</td><td>Ряд одночасно сезонний і шумний</td></tr>
+  </table>
+  <p>Мінімальне порівняння сезонного наївного й наївного бейзлайнів, оцінене через WAPE і зсув:</p>
+  <pre><code>import numpy as np
+import pandas as pd
+
+def wape(actual, forecast):
+    &quot;&quot;&quot;Зважена абсолютна відсоткова помилка: сума помилок / сума фактичних обсягів.&quot;&quot;&quot;
+    return np.abs(actual - forecast).sum() / np.abs(actual).sum()
+
+def bias(actual, forecast):
+    &quot;&quot;&quot;&gt; 0 — завищення прогнозу, &lt; 0 — заниження.&quot;&quot;&quot;
+    return (forecast - actual).sum() / actual.sum()
+
+# y: тижневі продажі як pandas Series з DatetimeIndex
+H, SEASON = 13, 52                      # прогноз на 13 тижнів, річний цикл
+train, test = y.iloc[:-H], y.iloc[-H:]
+
+# сезонний наївний: «ті самі 13 тижнів торік»
+snaive = pd.Series(train.iloc[-SEASON:-SEASON + H].values, index=test.index)
+# наївний: повторюємо останнє спостережене значення
+naive = pd.Series(train.iloc[-1], index=test.index)
+
+print(f&quot;seasonal naive  WAPE={wape(test, snaive):.1%}  bias={bias(test, snaive):+.1%}&quot;)
+print(f&quot;naive           WAPE={wape(test, naive):.1%}  bias={bias(test, naive):+.1%}&quot;)
+
+# Приклад виводу на синтетичному тижневому ряді з річним циклом:
+# seasonal naive  WAPE=5.9%  bias=-0.3%
+# naive           WAPE=7.6%  bias=-7.2%</code></pre>
+  <div class="tip-box">✅ Завжди показуйте результат бейзлайну поруч із результатом кожної моделі. «WAPE 18%» окремо нічого не означає; «WAPE 18% проти 24% у сезонного наївного» — це вже рішення.</div>
+
+  <h2 id="metrics">Вибір метрики точності: WAPE, MAPE, bias, MASE</h2>
+  <p>Метрика визначає, яка модель «виграє», тож вона має відображати бізнес-вартість помилки.</p>
+  <table>
+    <tr><th>Метрика</th><th>Ідея</th><th>Сильна сторона</th><th>На що зважати</th></tr>
+    <tr><td>MAPE</td><td>Середнє |помилка| ÷ факт по періодах</td><td>Легко пояснити</td><td>Не визначена при факті = 0; сильно карає малообсяжні позиції</td></tr>
+    <tr><td>WAPE</td><td>Сума |помилок| ÷ сума фактичних обсягів</td><td>Зважена на обсяг; працює з нульовими днями в сумі</td><td>Може ховати великі помилки на дрібних позиціях</td></tr>
+    <tr><td>Bias (зсув)</td><td>(Сума прогнозу − сума факту) ÷ сума факту</td><td>Показує систематичне завищення чи заниження</td><td>Додатні й від'ємні помилки гасять одна одну</td></tr>
+    <tr><td>MASE</td><td>Помилка, нормована на наївну помилку на навчальній вибірці</td><td>Порівнянна між рядами різного масштабу</td><td>Менш інтуїтивна для бізнесу</td></tr>
+  </table>
+  <p>На практиці звітуйте <strong>WAPE і bias разом</strong>: WAPE каже, наскільки ви помиляєтесь, bias — у який бік. Прогноз із низьким WAPE, але стійким додатним зсувом непомітно накопичує надлишки запасів.</p>
+
+  <h2 id="backtest">Бектестинг без самообману</h2>
+  <p><strong>Бектестинг</strong> — це «подорож у минуле»: ви прогнозуєте те, що вже сталося, і порівнюєте з реальністю. Зроблений недбало, він дає цифри, які руйнуються в продакшені.</p>
+  <ol>
+    <li><strong>Задайте горизонт із рішення.</strong> Якщо термін поставки — чотири тижні, важливий саме чотиритижневий прогноз.</li>
+    <li><strong>Використовуйте ковзну точку відліку.</strong> Навчіться до дати t, спрогнозуйте наступні H періодів, зсуньте t уперед, повторіть — і усереднюйте оцінки по багатьох вікнах, а не по одному вдалому розбитті.</li>
+    <li><strong>Оцінюйте всі моделі на однакових вікнах,</strong> включно з бейзлайнами.</li>
+    <li><strong>Запобігайте витоку даних.</strong> Беріть лише інформацію, відому на момент прогнозу: ніяких фактичних прапорців акцій, ухвалених пізніше, і майбутніх цін.</li>
+    <li><strong>Дивіться в розрізах</strong> ABC/XYZ-сегментів і категорій, а не лише на загальний підсумок, де помилки взаємно гасяться.</li>
+  </ol>
+  <div class="warn-box">⚠️ Випадкова (з перемішуванням) крос-валідація не підходить для часових рядів: модель навчається на майбутньому й тестується на минулому, що лестить будь-якій моделі.</div>
+
+  <h2 id="models">Де моделі перемагають бейзлайни, а де ні</h2>
+  <h3>Класичні статистичні моделі (ETS, ARIMA, Theta)</h3>
+  <p>Сильні типові варіанти для окремих рядів із трендом і сезонністю: швидко навчаються й легко пояснюються. Їх завжди варто включати в порівняння.</p>
+  <h3>Градієнтний бустинг із ознаками</h3>
+  <p>Добре підходить, коли є багато схожих рядів і реальні чинники — ціна, акції, свята, день тижня — адже одна модель вчиться одразу на всіх товарах.</p>
+  <h3>Foundation-моделі для часових рядів</h3>
+  <p>Попередньо навчені моделі, як-от <strong>Chronos-2, TimesFM 2.5, Moirai 2.0 та TiRex</strong>, дають zero-shot прогнози без навчання під кожен ряд. Нещодавні бенчмарки повідомляють про конкурентні або кращі результати на періодичних рядах, що залежать від людської активності (трафік, споживання електроенергії), тоді як на сильно зашумлених рядах, як-от фінансові прибутковості, прості еталони й класичні моделі все ще можуть вигравати.</p>
+  <div class="highlight-box"><p>Сприймайте foundation-модель як ще одного кандидата в бектесті, а не як вибір за замовчуванням. Якщо на ваших даних вона перемагає сезонний наївний бейзлайн і класичні моделі — використовуйте; якщо ні — ви заощадили собі складну залежність.</p></div>
+  <table>
+    <tr><th>Ситуація</th><th>Розумна відправна точка</th></tr>
+    <tr><td>Один чи кілька сильно сезонних рядів</td><td>Сезонний наївний → ETS / Theta</td></tr>
+    <tr><td>Сотні товарів із чинниками ціни та акцій</td><td>Градієнтний бустинг із календарними й ціновими ознаками</td></tr>
+    <tr><td>Багато рядів, мало часу на налаштування</td><td>Foundation-модель як zero-shot кандидат, оцінений проти бейзлайнів</td></tr>
+    <tr><td>Здебільшого нулі, спорадичні продажі</td><td>Див. наступний розділ — не прогнозуйте кожен день</td></tr>
+  </table>
+
+  <h2 id="intermittent">Переривчастий попит і довгий хвіст</h2>
+  <p>Багато SKU продаються лише кілька днів на місяць. <strong>Переривчастий попит</strong> ламає звичайні моделі й метрики: прогнози на рівні дня — це здебільшого шум, а MAPE не визначена в нульові дні. Три практичні кроки:</p>
+  <ul>
+    <li><strong>Агрегуйте</strong> до рівня, де з'являється сигнал: тиждень замість дня, категорія замість SKU.</li>
+    <li><strong>Використовуйте методи для спорадичного попиту,</strong> як-от метод Кростона та його варіанти.</li>
+    <li><strong>Не переінвестовуйте.</strong> Для Z-товарів (нерегулярний попит в XYZ-аналізі) прості правила min/max і страховий запас зазвичай кращі за точний прогноз, якого не існує.</li>
+  </ul>
+  <p>Зусилля з прогнозування мають іти туди, де сходяться цінність і передбачуваність: A-товари з X або Y попитом. Саме для цього й існує матриця ABC-XYZ.</p>
+
+
+  <h2 id="faq">Поширені запитання</h2>
+  <h3>Який WAPE вважається хорошим для прогнозування попиту?</h3>
+  <p>Універсального порогу немає: досяжний WAPE залежить від обсягів, горизонту прогнозу й типу товару. Корисне питання — чи перемагає ваша модель сезонний наївний бейзлайн на тих самих даних і наскільки.</p>
+  <h3>Що краще — MAPE чи WAPE?</h3>
+  <p>Для рітейлу й e-commerce краще WAPE (разом із bias). MAPE не визначена, коли фактичні продажі нульові, і надмірно карає малообсяжні позиції, тоді як WAPE зважує помилки на обсяг продажів.</p>
+  <h3>Чи потрібне глибоке навчання для прогнозування попиту?</h3>
+  <p>Ні. Починайте з бейзлайнів і класичних методів, а градієнтний бустинг чи foundation-модель додавайте лише якщо коректний ковзний бектест показує явне покращення.</p>
+  <h3>Скільки історії потрібно?</h3>
+  <p>За емпіричним правилом — щонайменше два повні сезонні цикли, тобто близько двох років даних для річної сезонності, щоб сезонна модель могла відрізнити сезонність від шуму.</p>
+
+  <h2 id="related">Читайте також</h2>
+  <ul class="related"><li><a href="2026-09-13-abc-analysis-inventory-optimization-ua.html">ABC-аналіз та оптимізація запасів для категорійного менеджера 2026</a></li><li><a href="2026-10-04-assortment-matrix-optimization-ua.html">Оптимізація асортиментної матриці 2026: ролі категорій та раціоналізація SKU</a></li><li><a href="2026-09-27-competitor-price-monitoring-ua.html">Моніторинг цін конкурентів та динамічне ціноутворення для категорійного менеджменту 2026</a></li></ul>
+
+  </article>
+
+  <div class="article-tags">
+    <span>Теги:</span>
+    <a href="index-ua.html">Прогнозування попиту</a>
+    <a href="index-ua.html">WAPE</a>
+    <a href="index-ua.html">Бектестинг</a>
+    <a href="index-ua.html">Часові ряди</a>
+    <a href="index-ua.html">Python</a>
+  </div>
+
+  <nav class="article-nav">
+    <a href="index-ua.html" class="prev">
+      <span class="nav-label"><i class="bi bi-arrow-left"></i> Всі статті</span>
+      <span class="nav-title">Повернутись до статей</span>
+    </a>
+    <a href="2026-10-04-assortment-matrix-optimization-ua.html" class="next">
+      <span class="nav-label">Попередня <i class="bi bi-arrow-right"></i></span>
+      <span class="nav-title">Оптимізація асортиментної матриці</span>
+    </a>
+  </nav>
+
+</main>
+
+<footer class="article-footer">
+  <div class="footer-social">
+    <a href="https://www.linkedin.com/in/isachenko-andrii/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+    <a href="https://github.com/isachenko-andrii"           target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+    <a href="https://t.me/isachenko_andrii"                       target="_blank" rel="noopener" aria-label="Telegram"><i class="bi bi-telegram"></i></a>
+    <a href="mailto:andrii.isachenko@gmail.com" target="_blank"><i class="bi bi-envelope"></i></a>
+  </div>
+  <div class="footer-copy">
+    <span>Copyright <a href="https://isachenko-andrii.github.io/index-ua.html">Ісаченко Андрій</a> All Rights Reserved</span><br>
+    <span>Designed by <a href="https://bootstrapmade.com/" target="_blank" rel="noopener">BootstrapMade</a></span>
+  </div>
+  <div class="back-to-main">
+    <a href="../index-ua.html"><i class="bi bi-house"></i> На головну сторінку</a>
+  </div>
+</footer>
+
+<a href="#" id="scrollTopBtn" aria-label="Scroll to top"><i class="bi bi-arrow-up-short"></i></a>
+<script>
+(function(){
+  var b=document.getElementById('scrollTopBtn');
+  if(!b)return;
+  window.addEventListener('scroll',function(){b.classList.toggle('visible',window.pageYOffset>320);},{passive:true});
+  b.addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});});
+})();
+</script>
+</body>
+</html>

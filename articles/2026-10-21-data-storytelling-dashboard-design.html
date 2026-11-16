@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Data Storytelling and Dashboard Design 2026: From Charts to Decisions | Isachenko Andrii</title>
+  <meta name="description" content="How to design dashboards people use: start with the decision, apply the 5-second test, choose charts and color with purpose, and meet accessibility basics.">
+  <meta name="keywords" content="data storytelling, dashboard design, dashboard best practices, data visualization, 5-second rule, KPI dashboard, accessible dashboards, WCAG, BI dashboard, data analyst">
+  <meta name="author" content="Isachenko Andrii">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <link rel="canonical" href="https://isachenko-andrii.github.io/articles/2026-10-21-data-storytelling-dashboard-design.html">
+  <link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/articles/2026-10-21-data-storytelling-dashboard-design.html">
+  <link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-10-21-data-storytelling-dashboard-design-ua.html">
+  <link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-10-21-data-storytelling-dashboard-design.html">
+
+  <meta property="og:type"                content="article">
+  <meta property="og:url"                 content="https://isachenko-andrii.github.io/articles/2026-10-21-data-storytelling-dashboard-design.html">
+  <meta property="og:title"               content="Data Storytelling and Dashboard Design 2026">
+  <meta property="og:description"         content="Decision-first dashboards: the 5-second test, chart and color choices, accessibility basics and a simple story structure for analysts.">
+  <meta property="og:image"               content="https://isachenko-andrii.github.io/assets/img/profile-img.webp">
+  <meta property="og:image:alt"           content="Andrii Isachenko, data analyst — portrait photo">
+  <meta property="og:image:width"         content="1200">
+  <meta property="og:image:height"        content="630">
+  <meta property="og:locale"              content="en_US">
+  <meta property="article:published_time" content="2026-10-21T00:00:00Z">
+  <meta property="article:modified_time"  content="2026-10-21T00:00:00Z">
+  <meta property="article:author"         content="Isachenko Andrii">
+  <meta property="article:section"        content="Data Visualization">
+  <meta property="article:tag" content="Data Storytelling">
+  <meta property="article:tag" content="Dashboard Design">
+  <meta property="article:tag" content="KPI">
+  <meta property="article:tag" content="Accessibility">
+  <meta property="article:tag" content="BI">
+
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Data Storytelling and Dashboard Design 2026">
+  <meta name="twitter:description" content="Decision-first dashboards: the 5-second test, chart and color choices, accessibility basics and a simple story structure for analysts.">
+  <meta name="twitter:image"       content="https://isachenko-andrii.github.io/assets/img/profile-img.webp">
+  <meta name="twitter:image:alt"   content="Andrii Isachenko, data analyst — portrait photo">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://isachenko-andrii.github.io/articles/2026-10-21-data-storytelling-dashboard-design.html#article",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://isachenko-andrii.github.io/articles/2026-10-21-data-storytelling-dashboard-design.html"
+      },
+      "headline": "Data Storytelling and Dashboard Design 2026: From Charts to Decisions",
+      "description": "How to design dashboards people use: start with the decision, apply the 5-second test, choose charts and color with purpose, and meet accessibility basics.",
+      "inLanguage": "en",
+      "datePublished": "2026-10-21T00:00:00Z",
+      "dateModified": "2026-10-21T00:00:00Z",
+      "author": {
+        "@id": "https://isachenko-andrii.github.io/#person"
+      },
+      "publisher": {
+        "@id": "https://isachenko-andrii.github.io/#person"
+      },
+      "image": "https://isachenko-andrii.github.io/assets/img/profile-img.webp",
+      "keywords": "data storytelling, dashboard design, dashboard best practices, data visualization, 5-second rule, KPI dashboard, accessible dashboards, WCAG, BI dashboard, data analyst",
+      "articleSection": "Data Visualization",
+      "wordCount": 1128,
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Data storytelling"
+        },
+        {
+          "@type": "Thing",
+          "name": "Dashboard design"
+        },
+        {
+          "@type": "Thing",
+          "name": "Data visualization accessibility"
+        }
+      ],
+      "isPartOf": {
+        "@type": "Blog",
+        "@id": "https://isachenko-andrii.github.io/articles/index.html",
+        "name": "Isachenko Andrii — Articles"
+      },
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".article-title",
+          ".takeaways"
+        ]
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://isachenko-andrii.github.io/#person",
+      "name": "Andrii Isachenko",
+      "alternateName": [
+        "Ісаченко Андрій",
+        "Isachenko Andrii"
+      ],
+      "url": "https://isachenko-andrii.github.io",
+      "image": "https://isachenko-andrii.github.io/assets/img/profile-img.webp",
+      "jobTitle": "Data Analyst",
+      "nationality": {
+        "@type": "Country",
+        "name": "Ukraine"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/isachenko-andrii/",
+        "https://github.com/isachenko-andrii",
+        "https://t.me/isachenko_andrii"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Blog",
+          "item": "https://isachenko-andrii.github.io/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Articles",
+          "item": "https://isachenko-andrii.github.io/articles/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Dashboard Design 2026",
+          "item": "https://isachenko-andrii.github.io/articles/2026-10-21-data-storytelling-dashboard-design.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is data storytelling?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Data storytelling is the practice of turning analysis into a clear message by combining data, visuals and narrative: a headline, the evidence for it and the action it implies, tailored to a specific audience."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many KPIs should a dashboard have?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A common guideline is about 5–7 headline KPIs per view. More than that raises cognitive load; move detail to drill-down pages or tabs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the 5-second rule for dashboards?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is a usability rule of thumb: a viewer should understand the dashboard's main message within roughly five seconds. If they cannot, the view has too many elements or an unclear priority."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why shouldn't color be the only signal?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Roughly 8% of men and about 0.5% of women have color blindness, so red/green alone can be unreadable. Add icons, arrows, patterns or direct labels so the message survives without color."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root { --primary:#0563bb; --primary-dark:#0352a0; --text:#2c3e50; --text-light:#666; --border:#e8ecf0; --bg-light:#f8fafc; --tag-bg:#e8f0fb; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:'Poppins',sans-serif; color:var(--text); background:#fff; line-height:1.7; overflow-x:hidden; }
+    .top-bar { position:sticky; top:0; z-index:100; background:rgba(255,255,255,0.96); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); padding:0 24px; height:56px; display:flex; align-items:center; justify-content:space-between; }
+    .top-bar-left { display:flex; align-items:center; gap:16px; }
+    .back-btn { display:inline-flex; align-items:center; gap:6px; color:var(--primary); text-decoration:none; font-size:14px; font-weight:500; padding:6px 14px; border-radius:20px; border:1px solid var(--primary); transition:all 0.2s; white-space:nowrap; }
+    .back-btn:hover { background:var(--primary); color:#fff; }
+    .breadcrumbs { display:flex; align-items:center; gap:6px; font-size:13px; color:var(--text-light); }
+    .breadcrumbs a { color:var(--primary); text-decoration:none; }
+    .breadcrumbs a:hover { text-decoration:underline; }
+    .breadcrumbs .sep { color:#ccc; }
+    .breadcrumbs .current { color:var(--text-light); max-width:220px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .top-bar-right { display:flex; align-items:center; gap:4px; }
+    .lang-btn { display:inline-flex; align-items:center; justify-content:center; min-width:34px; height:28px; padding:0 10px; border-radius:14px; border:1.5px solid #0563bb; font-size:12px; font-weight:700; letter-spacing:0.4px; text-decoration:none; transition:all 0.2s; color:#0563bb; background:transparent; }
+    .lang-btn:hover { background:#e8f0fb; }
+    .lang-btn.active { background:#0563bb; color:#fff; cursor:default; pointer-events:none; }
+    .article-hero { width:100%; overflow:hidden; background:linear-gradient(135deg,#e8f0fb 0%,#cfe0f7 100%); }
+    .article-hero-placeholder { height:320px; display:flex; align-items:center; justify-content:center; }
+    .article-hero-placeholder i { font-size:90px; color:var(--primary); opacity:0.2; }
+    .article-wrapper { max-width:760px; margin:0 auto; padding:48px 24px 80px; overflow-x:hidden; }
+    .article-meta { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-bottom:24px; }
+    .tag { background:var(--primary); color:#fff; font-size:11px; font-weight:600; padding:3px 12px; border-radius:20px; text-transform:uppercase; letter-spacing:0.5px; }
+    .tag-secondary { background:var(--tag-bg); color:var(--primary); }
+    .meta-date,.meta-read { font-size:13px; color:var(--text-light); display:flex; align-items:center; gap:5px; }
+    .meta-read { margin-left:auto; }
+    .meta-date i,.meta-read i { color:var(--primary); }
+    .article-title { font-family:'Raleway',sans-serif; font-size:clamp(24px,4vw,38px); font-weight:700; line-height:1.25; color:var(--text); margin-bottom:16px; }
+    .article-subtitle { font-size:17px; color:var(--text-light); font-weight:400; line-height:1.6; margin-bottom:36px; padding-bottom:36px; border-bottom:1px solid var(--border); }
+    .author-block { display:flex; align-items:center; gap:14px; margin-bottom:40px; padding:16px 20px; background:var(--bg-light); border-radius:10px; border-left:3px solid var(--primary); }
+    .author-avatar { width:48px; height:48px; border-radius:50%; flex-shrink:0; overflow:hidden; }
+    .author-avatar img { width:100%; height:100%; object-fit:cover; }
+    .author-info { flex:1; }
+    .author-name { font-weight:600; font-size:15px; }
+    .author-role { font-size:13px; color:var(--text-light); }
+    .author-links { display:flex; gap:10px; }
+    .author-links a { color:var(--text-light); font-size:16px; transition:color 0.2s; }
+    .author-links a:hover { color:var(--primary); }
+    .toc { background:var(--bg-light); border:1px solid var(--border); border-radius:10px; padding:20px 24px; margin:0 0 40px; }
+    .toc h4 { font-size:14px; font-weight:600; color:var(--text); margin-bottom:12px; text-transform:uppercase; letter-spacing:0.5px; }
+    .toc ol { margin:0 0 0 16px; }
+    .toc li { font-size:14px; margin-bottom:6px; }
+    .toc a { color:var(--primary); text-decoration:none; }
+    .toc a:hover { text-decoration:underline; }
+    .article-content h2 { font-family:'Raleway',sans-serif; font-size:24px; font-weight:700; color:var(--text); margin:40px 0 16px; padding-bottom:8px; border-bottom:2px solid var(--tag-bg); }
+    .article-content h3 { font-size:19px; font-weight:600; color:var(--text); margin:28px 0 12px; }
+    .article-content p { font-size:16px; color:#444; line-height:1.8; margin-bottom:18px; }
+    .article-content ul,.article-content ol { margin:0 0 18px 20px; }
+    .article-content li { font-size:16px; color:#444; line-height:1.8; margin-bottom:6px; }
+    .article-content strong { color:var(--text); }
+    .highlight-box { background:var(--bg-light); border-left:4px solid var(--primary); border-radius:0 8px 8px 0; padding:18px 22px; margin:28px 0; }
+    .highlight-box p { margin:0; color:var(--text); font-style:italic; }
+    .tip-box { background:#f0fdf4; border-left:4px solid #22c55e; border-radius:0 8px 8px 0; padding:16px 20px; margin:24px 0; font-size:15px; color:#166534; }
+    .warn-box { background:#fffbeb; border-left:4px solid #f59e0b; border-radius:0 8px 8px 0; padding:16px 20px; margin:24px 0; font-size:15px; color:#92400e; }
+    .article-content table { width:100%; border-collapse:collapse; margin:24px 0; font-size:14px; overflow-x:auto; display:block; }
+    .article-content th { background:var(--primary); color:#fff; padding:10px 14px; text-align:left; font-weight:600; }
+    .article-content td { padding:9px 14px; border-bottom:1px solid var(--border); color:#444; }
+    .article-content tr:nth-child(even) td { background:var(--bg-light); }
+    .article-content code { background:#f0f4f8; color:var(--primary-dark); padding:2px 7px; border-radius:4px; font-size:14px; font-family:'Courier New',monospace; }
+    .article-tags { display:flex; flex-wrap:wrap; gap:8px; margin:40px 0 32px; padding-top:32px; border-top:1px solid var(--border); }
+    .article-tags span { font-size:12px; color:var(--text-light); align-self:center; font-weight:500; }
+    .article-tags a { background:var(--tag-bg); color:var(--primary); font-size:13px; font-weight:500; padding:4px 12px; border-radius:20px; text-decoration:none; transition:all 0.2s; }
+    .article-tags a:hover { background:var(--primary); color:#fff; }
+    .article-nav { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:40px; }
+    .article-nav a { display:flex; flex-direction:column; gap:4px; padding:16px 20px; border:1px solid var(--border); border-radius:10px; text-decoration:none; color:var(--text); transition:all 0.2s; }
+    .article-nav a:hover { border-color:var(--primary); background:var(--bg-light); }
+    .article-nav a.next { text-align:right; }
+    .article-nav .nav-label { font-size:11px; color:var(--text-light); text-transform:uppercase; letter-spacing:0.8px; display:flex; align-items:center; gap:5px; }
+    .article-nav a.next .nav-label { justify-content:flex-end; }
+    .article-nav .nav-title { font-size:14px; font-weight:600; color:var(--primary); line-height:1.4; }
+    .article-footer { background:#f8fafc; border-top:1px solid #e8ecf0; padding:40px 24px 32px; text-align:center; }
+    .footer-social { display:flex; justify-content:center; gap:10px; margin-bottom:22px; }
+    .footer-social a { width:42px; height:42px; border-radius:50%; background:#0563bb; color:#fff; display:flex; align-items:center; justify-content:center; font-size:18px; text-decoration:none; transition:all 0.25s; }
+    .footer-social a:hover { background:#0352a0; transform:translateY(-3px); }
+    .footer-copy { font-size:13px; color:#666; line-height:2; }
+    .footer-copy a { color:#0563bb; text-decoration:none; }
+    .back-to-main { margin-top:22px; }
+    .back-to-main a { display:inline-flex; align-items:center; gap:8px; color:#0563bb; text-decoration:none; font-weight:500; font-size:15px; border:1px solid #e8ecf0; padding:10px 24px; border-radius:25px; transition:all 0.2s; background:#fff; }
+    .back-to-main a:hover { background:#0563bb; color:#fff; border-color:#0563bb; }
+    #scrollTopBtn { position:fixed; bottom:28px; right:24px; z-index:999; width:44px; height:44px; border-radius:50%; background:#0563bb; color:#fff; display:flex; align-items:center; justify-content:center; font-size:22px; text-decoration:none; box-shadow:0 4px 16px rgba(5,99,187,0.4); opacity:0; pointer-events:none; transition:opacity 0.3s,transform 0.3s; }
+    #scrollTopBtn.visible { opacity:1; pointer-events:auto; }
+    #scrollTopBtn:hover { background:#0352a0; transform:translateY(-3px); }
+    @media (max-width:600px) { .top-bar{padding:0 16px;} .breadcrumbs{display:none;} .article-wrapper{padding:32px 16px 60px;} .article-nav{grid-template-columns:1fr;} .article-nav a.next{text-align:left;} .article-nav a.next .nav-label{justify-content:flex-start;} .author-links{display:none;} #scrollTopBtn{bottom:18px;right:14px;width:40px;height:40px;font-size:20px;} }
+  
+    pre { background:#1e2a3a; color:#e2e8f0; border-radius:10px; padding:20px 22px; margin:24px 0; overflow-x:auto; font-size:13px; font-family:'Courier New',monospace; line-height:1.7; white-space:pre; -webkit-overflow-scrolling:touch; }
+    .article-content pre code { background:none; color:inherit; padding:0; font-size:inherit; }
+    .article-content ul.related { list-style:none; margin-left:0; }
+    .article-content ul.related li { margin-bottom:10px; }
+    .article-content ul.related a { color:var(--primary); text-decoration:none; font-weight:500; }
+    .article-content ul.related a:hover { text-decoration:underline; }
+    .tip-box.takeaways ul { margin:8px 0 0 18px; }
+    .tip-box.takeaways li { font-size:15px; color:#166534; margin-bottom:4px; }
+    .tip-box.takeaways strong { color:#14532d; }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E01F5VDKVM"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-E01F5VDKVM');</script>
+</head>
+<body>
+
+<nav class="top-bar">
+  <div class="top-bar-left">
+    <a href="index.html" class="back-btn"><i class="bi bi-arrow-left"></i> Back</a>
+    <nav class="breadcrumbs" aria-label="breadcrumb">
+      <a href="index.html">Blog</a><span class="sep">›</span>
+      <a href="index.html">Articles</a><span class="sep">›</span>
+      <span class="current">Dashboard Design 2026</span>
+    </nav>
+  </div>
+  <div class="top-bar-right">
+    <a href="2026-10-21-data-storytelling-dashboard-design.html" class="lang-btn active" aria-current="page" title="English">EN</a>
+    <a href="2026-10-21-data-storytelling-dashboard-design-ua.html" class="lang-btn" title="Українська">UA</a>
+  </div>
+</nav>
+
+<div class="article-hero">
+  <div class="article-hero-placeholder"><i class="bi bi-columns-gap"></i></div>
+</div>
+
+<main class="article-wrapper">
+
+  <div class="article-meta">
+    <span class="tag">Data Storytelling</span>
+    <span class="tag tag-secondary">Dashboard Design</span>
+    <span class="tag tag-secondary">Visualization</span>
+    <span class="meta-date"><i class="bi bi-calendar3"></i> <time datetime="2026-10-21">2026-10-21</time></span>
+    <span class="meta-read"><i class="bi bi-clock"></i> 9 min</span>
+  </div>
+
+  <h1 class="article-title">Data Storytelling and Dashboard Design 2026: From Charts to Decisions</h1>
+  <p class="article-subtitle">Most dashboards fail for a reason that has nothing to do with the data: nobody can tell what to do after looking at them. Good dashboard design is decision design. This guide shows how to start from the decision, build a view that passes the five-second test, pick charts and colors with purpose, and make the result readable for everyone.</p>
+
+  <div class="author-block">
+    <div class="author-avatar"><img src="../assets/img/profile-img.webp" alt="Isachenko Andrii"></div>
+    <div class="author-info">
+      <div class="author-name">Isachenko Andrii</div>
+      <div class="author-role">Data Analyst · Open to work</div>
+    </div>
+    <div class="author-links">
+      <a href="https://www.linkedin.com/in/isachenko-andrii/" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
+      <a href="https://github.com/isachenko-andrii"           target="_blank" rel="noopener"><i class="bi bi-github"></i></a>
+      <a href="https://t.me/isachenko_andrii"                       target="_blank" rel="noopener"><i class="bi bi-telegram"></i></a>
+    </div>
+  </div>
+
+  <div class="tip-box takeaways"><strong>Key takeaways</strong><ul><li><strong>Start with the decision, not the data:</strong> name who decides what, how often and what action follows before you open the BI tool.</li><li>Apply the <strong>5-second test</strong>: the main message should be clear almost immediately; keep a view to roughly <strong>5–7 KPIs</strong>.</li><li>Every number must answer “<strong>compared to what?</strong>” — a target, the previous period or a benchmark.</li><li>Use <strong>grey for context and one accent color for the insight</strong>, and never encode meaning by color alone (roughly 8% of men have red-green color blindness).</li><li>Certify metric definitions before publishing: a beautiful dashboard on ungoverned data gets abandoned.</li></ul></div>
+
+  <div class="toc">
+    <h4>📋 Table of Contents</h4>
+    <ol>
+      <li><a href="#why">Why Most Dashboards Don't Get Used</a></li>
+      <li><a href="#decision">Start With the Decision</a></li>
+      <li><a href="#layout">Layout and the 5-Second Test</a></li>
+      <li><a href="#charts">Choosing Charts and Color</a></li>
+      <li><a href="#accessibility">Accessibility Basics</a></li>
+      <li><a href="#story">From Analysis to Story, and How to Keep Improving</a></li>
+      <li><a href="#faq">Frequently asked questions</a></li>
+      <li><a href="#related">Related reading</a></li>
+    </ol>
+  </div>
+
+  <article class="article-content">
+
+
+  <h2 id="why">Why Most Dashboards Don't Get Used</h2>
+  <p>When a dashboard is ignored, the culprit is often the interface rather than the data: too many metrics, no context, unclear priorities. A dashboard that reports everything tells the reader nothing, so people fall back on exporting a spreadsheet. <strong>Data storytelling</strong> is the practice of turning analysis into a clear message — a headline, the evidence behind it and the action it implies — using visuals and narrative together.</p>
+  <p>Trust matters just as much as design. If two dashboards give two different “revenue” numbers, no layout can save either of them — which is why metric definitions belong to <a href="2026-09-06-data-governance-ai-era.html">data governance</a> and should be settled before the first chart is drawn.</p>
+
+  <h2 id="decision">Start With the Decision</h2>
+  <p>Before choosing a chart type, write a one-paragraph <strong>decision brief</strong>. If you cannot fill it in, the dashboard is not ready to be built.</p>
+  <table>
+    <tr><th>Question</th><th>Example answer</th></tr>
+    <tr><td>Who decides?</td><td>The category manager for home &amp; garden</td></tr>
+    <tr><td>What is the decision?</td><td>Which products to reorder this week</td></tr>
+    <tr><td>How often?</td><td>Every Monday morning</td></tr>
+    <tr><td>Which number triggers action?</td><td>Stock cover below 14 days</td></tr>
+    <tr><td>What happens next?</td><td>An order is placed with the supplier</td></tr>
+  </table>
+  <p>The brief gives you the page's headline metric, its threshold and its audience — and it tells you what to leave out.</p>
+
+  <h2 id="layout">Layout and the 5-Second Test</h2>
+  <p>A useful rule of thumb: a viewer should grasp the main message within about five seconds. To get there:</p>
+  <ol>
+    <li><strong>Put the key message top-left.</strong> Readers scan from the top-left, so that is where the headline KPI belongs.</li>
+    <li><strong>Limit the KPI row to roughly 5–7 numbers.</strong> Past that, people stop comparing and start skimming.</li>
+    <li><strong>Pass the “compared to what?” test.</strong> Show every value next to a target, the prior period or a benchmark — “1,240 orders” is a number, “1,240 orders, +8% vs last week” is information.</li>
+    <li><strong>One question per page.</strong> Use tabs or drill-downs to separate an executive summary from operational detail.</li>
+    <li><strong>Make interactivity earn its place.</strong> Every filter and tooltip adds cognitive load; keep only those that answer a question the static view cannot.</li>
+  </ol>
+  <div class="tip-box">✅ Quick test: show the dashboard to a colleague for five seconds, then hide it and ask “what is the main takeaway?” If they can't say, simplify.</div>
+
+  <h2 id="charts">Choosing Charts and Color</h2>
+  <p>Pick the chart from the question the reader is asking, not from what the tool makes easy.</p>
+  <table>
+    <tr><th>Question</th><th>Use</th><th>Avoid</th></tr>
+    <tr><td>How is it changing over time?</td><td>Line chart</td><td>3D effects; stacked areas with many layers</td></tr>
+    <tr><td>Which items rank highest?</td><td>Sorted horizontal bars</td><td>Pie charts with many slices</td></tr>
+    <tr><td>What share is each part? (few parts)</td><td>100% stacked bar or a single stacked bar</td><td>Donuts with eight or more segments</td></tr>
+    <tr><td>How is it distributed?</td><td>Histogram or box plot</td><td>Showing only the average</td></tr>
+    <tr><td>Are two measures related?</td><td>Scatter plot</td><td>Dual-axis lines that imply a link</td></tr>
+  </table>
+  <p>For color, treat it as a signal, not decoration: draw context and baseline data in neutral grey and use <strong>one accent color</strong> for the insight that matters. Keep color meaning consistent across every dashboard — if red means “behind target” on one page, it must mean the same on all of them. Lighten gridlines and remove borders and effects that carry no data (the idea behind Edward Tufte's data-ink ratio).</p>
+
+  <h2 id="accessibility">Accessibility Basics</h2>
+  <p>Accessible dashboards are better for everyone, including people reading on a phone in bright light. A short checklist based on the WCAG AA guidelines:</p>
+  <ul>
+    <li><strong>Contrast:</strong> at least 4.5:1 for normal text, and 3:1 for large text and for chart elements and controls.</li>
+    <li><strong>Never rely on color alone:</strong> roughly 8% of men and about 0.5% of women have some form of color blindness. Pair red/green with arrows, icons or labels, or use a blue/orange pair.</li>
+    <li><strong>Label directly</strong> on bars and lines instead of making readers match a legend.</li>
+    <li><strong>Offer a text alternative:</strong> a “view as table” toggle or descriptive labels so screen-reader users can reach the data.</li>
+  </ul>
+  <p>Accessibility is also becoming a legal topic: for example, the European Accessibility Act has applied since June 2025 to many consumer-facing digital services. Check with your legal team what applies to your product, especially for public-facing analytics.</p>
+
+  <h2 id="story">From Analysis to Story, and How to Keep Improving</h2>
+  <p>When you present findings rather than hand over a dashboard, use a simple four-part structure:</p>
+  <table>
+    <tr><th>Part</th><th>Answers</th><th>Illustrative example</th></tr>
+    <tr><td>Headline</td><td>What happened?</td><td>Repeat purchases fell in two categories</td></tr>
+    <tr><td>Evidence</td><td>How do we know?</td><td>One chart: repeat rate by category vs last quarter</td></tr>
+    <tr><td>Cause</td><td>Why did it happen?</td><td>The drop started right after the delivery-fee change</td></tr>
+    <tr><td>Action</td><td>What should we do?</td><td>Test a free-shipping threshold for repeat customers</td></tr>
+  </table>
+  <p>Finally, treat the dashboard as a product. Watch how it is used, ask a new user to find an answer without help, remove widgets nobody opens, and keep a short changelog so readers know when definitions change.</p>
+  <div class="highlight-box"><p>A good dashboard makes the next step obvious. If readers still ask “so what should I do?”, the design isn't finished — whatever the chart quality.</p></div>
+
+
+  <h2 id="faq">Frequently asked questions</h2>
+  <h3>What is data storytelling?</h3>
+  <p>Data storytelling is the practice of turning analysis into a clear message by combining data, visuals and narrative: a headline, the evidence for it and the action it implies, tailored to a specific audience.</p>
+  <h3>How many KPIs should a dashboard have?</h3>
+  <p>A common guideline is about 5–7 headline KPIs per view. More than that raises cognitive load; move detail to drill-down pages or tabs.</p>
+  <h3>What is the 5-second rule for dashboards?</h3>
+  <p>It is a usability rule of thumb: a viewer should understand the dashboard's main message within roughly five seconds. If they cannot, the view has too many elements or an unclear priority.</p>
+  <h3>Why shouldn't color be the only signal?</h3>
+  <p>Roughly 8% of men and about 0.5% of women have color blindness, so red/green alone can be unreadable. Add icons, arrows, patterns or direct labels so the message survives without color.</p>
+
+  <h2 id="related">Related reading</h2>
+  <ul class="related"><li><a href="2026-09-06-data-governance-ai-era.html">Data Governance in the AI Era 2026: Data Quality Is the New Bottleneck</a></li><li><a href="2026-08-23-data-driven-small-business.html">Data-Driven Management for Small Business 2026: Affordable Tools and a 30-Day Plan</a></li><li><a href="2026-10-14-demand-forecasting-for-analysts.html">Demand Forecasting for Data Analysts 2026: Baselines, WAPE and When AI Models Actually Help</a></li></ul>
+
+  </article>
+
+  <div class="article-tags">
+    <span>Tags:</span>
+    <a href="index.html">Data Storytelling</a>
+    <a href="index.html">Dashboard Design</a>
+    <a href="index.html">KPI</a>
+    <a href="index.html">Accessibility</a>
+    <a href="index.html">BI</a>
+  </div>
+
+  <nav class="article-nav">
+    <a href="index.html" class="prev">
+      <span class="nav-label"><i class="bi bi-arrow-left"></i> All Articles</span>
+      <span class="nav-title">Back to articles</span>
+    </a>
+    <a href="2026-10-14-demand-forecasting-for-analysts.html" class="next">
+      <span class="nav-label">Previous <i class="bi bi-arrow-right"></i></span>
+      <span class="nav-title">Demand Forecasting for Data Analysts</span>
+    </a>
+  </nav>
+
+</main>
+
+<footer class="article-footer">
+  <div class="footer-social">
+    <a href="https://www.linkedin.com/in/isachenko-andrii/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+    <a href="https://github.com/isachenko-andrii"           target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+    <a href="https://t.me/isachenko_andrii"                       target="_blank" rel="noopener" aria-label="Telegram"><i class="bi bi-telegram"></i></a>
+    <a href="mailto:andrii.isachenko@gmail.com" target="_blank"><i class="bi bi-envelope"></i></a>
+  </div>
+  <div class="footer-copy">
+    <span>Copyright <a href="https://isachenko-andrii.github.io/index.html">Isachenko Andrii</a> All Rights Reserved</span><br>
+    <span>Designed by <a href="https://bootstrapmade.com/" target="_blank" rel="noopener">BootstrapMade</a></span>
+  </div>
+  <div class="back-to-main">
+    <a href="../index.html"><i class="bi bi-house"></i> Back to home page</a>
+  </div>
+</footer>
+
+<a href="#" id="scrollTopBtn" aria-label="Scroll to top"><i class="bi bi-arrow-up-short"></i></a>
+<script>
+(function(){
+  var b=document.getElementById('scrollTopBtn');
+  if(!b)return;
+  window.addEventListener('scroll',function(){b.classList.toggle('visible',window.pageYOffset>320);},{passive:true});
+  b.addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});});
+})();
+</script>
+</body>
+</html>
