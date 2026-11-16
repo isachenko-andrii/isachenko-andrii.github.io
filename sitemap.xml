@@ -398,5 +398,71 @@
     <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-10-04-assortment-matrix-optimization-ua.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-10-04-assortment-matrix-optimization.html"/>
   </url>
+ 
+  <!-- Стаття 16 EN -->
+  <url>
+    <loc>https://isachenko-andrii.github.io/articles/2026-10-14-demand-forecasting-for-analysts.html</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/articles/2026-10-14-demand-forecasting-for-analysts.html"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-10-14-demand-forecasting-for-analysts-ua.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-10-14-demand-forecasting-for-analysts.html"/>
+  </url>
+ 
+  <!-- Стаття 16 UA -->
+  <url>
+    <loc>https://isachenko-andrii.github.io/articles/2026-10-14-demand-forecasting-for-analysts-ua.html</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/articles/2026-10-14-demand-forecasting-for-analysts.html"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-10-14-demand-forecasting-for-analysts-ua.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-10-14-demand-forecasting-for-analysts.html"/>
+  </url>
+ 
+  <!-- Стаття 17 EN -->
+  <url>
+    <loc>https://isachenko-andrii.github.io/articles/2026-10-21-data-storytelling-dashboard-design.html</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/articles/2026-10-21-data-storytelling-dashboard-design.html"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-10-21-data-storytelling-dashboard-design-ua.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-10-21-data-storytelling-dashboard-design.html"/>
+  </url>
+ 
+  <!-- Стаття 17 UA -->
+  <url>
+    <loc>https://isachenko-andrii.github.io/articles/2026-10-21-data-storytelling-dashboard-design-ua.html</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/articles/2026-10-21-data-storytelling-dashboard-design.html"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-10-21-data-storytelling-dashboard-design-ua.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-10-21-data-storytelling-dashboard-design.html"/>
+  </url>
+ 
+  <!-- Стаття 18 EN -->
+  <url>
+    <loc>https://isachenko-andrii.github.io/articles/2026-10-28-data-analyst-skills-portfolio-2026.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/articles/2026-10-28-data-analyst-skills-portfolio-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-10-28-data-analyst-skills-portfolio-2026-ua.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-10-28-data-analyst-skills-portfolio-2026.html"/>
+  </url>
+ 
+  <!-- Стаття 18 UA -->
+  <url>
+    <loc>https://isachenko-andrii.github.io/articles/2026-10-28-data-analyst-skills-portfolio-2026-ua.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://isachenko-andrii.github.io/articles/2026-10-28-data-analyst-skills-portfolio-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://isachenko-andrii.github.io/articles/2026-10-28-data-analyst-skills-portfolio-2026-ua.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://isachenko-andrii.github.io/articles/2026-10-28-data-analyst-skills-portfolio-2026.html"/>
+  </url>
   
 </urlset>
